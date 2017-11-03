@@ -3,13 +3,19 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using CarAssistant.Classes;
 using CarAssistant.Interfaces;
 
-namespace CarAssistant.Classes.Facade
+namespace CarAssistant
 {
 	public class CarManager : ICarManager
 	{
-		public void CreateNewCar(Car car)
+		public void CreateNewCar(Car NewCar)
+		{
+			throw new NotImplementedException();
+		}
+
+		public void DeleteCar(Car CarToDelete)
 		{
 			throw new NotImplementedException();
 		}
@@ -19,7 +25,7 @@ namespace CarAssistant.Classes.Facade
 			throw new NotImplementedException();
 		}
 
-		public void DeleteCarByModel(Model CarModel)
+		public void DeleteCarByModel(Brand Brand, Model CarModel)
 		{
 			throw new NotImplementedException();
 		}
@@ -39,12 +45,12 @@ namespace CarAssistant.Classes.Facade
 			throw new NotImplementedException();
 		}
 
-		public Dictionary<Brand, Model> RetrieveAllModelsOfSpecificBrand(Brand CarBrand)
+		public Dictionary<Brand, Model> RetrieveAllCarsOfSpecificBrand(Brand CarBrand)
 		{
 			throw new NotImplementedException();
 		}
 
-		public void UpdateCar(Car UpdatedCar)
+		public Car UpdateCar(Car UpdatedCar)
 		{
 			throw new NotImplementedException();
 		}

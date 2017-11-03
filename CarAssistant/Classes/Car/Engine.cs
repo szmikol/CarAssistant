@@ -8,9 +8,6 @@ namespace CarAssistant
 {
 	public class Engine
 	{
-		private int HorsePowers;
-		private int Capacity;
-		private bool IsGasoline;
 
 		public Engine()
 		{

@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using CarAssistant.Classes.User;
 using CarAssistant.Interfaces;
 
 namespace CarAssistant
@@ -11,11 +10,6 @@ namespace CarAssistant
 	public class Car : ICar
 	{
 		//Fields
-		private Brand Brand;
-		private Model Model;
-		private Engine Engine;
-		private int ProductionYear;
-		private User Owner;
 
 		//Constructors
 		public Car()

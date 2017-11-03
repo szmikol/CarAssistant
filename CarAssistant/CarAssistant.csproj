@@ -61,6 +61,7 @@
     <Compile Include="Classes\Car\Model.cs" />
     <Compile Include="Interfaces\ICar.cs" />
     <Compile Include="Interfaces\Facade\ICarManager.cs" />
+    <Compile Include="Interfaces\IUser.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="Form1.resx">
