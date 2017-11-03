@@ -45,12 +45,22 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Classes\Car\Brand.cs" />
+    <Compile Include="Classes\Car\Car.cs" />
+    <Compile Include="Classes\Car\Engines\DieselEngine.cs" />
+    <Compile Include="Classes\Car\Engine.cs" />
+    <Compile Include="Classes\Car\Engines\PetrolEngine.cs" />
+    <Compile Include="Classes\Facade\CarManager.cs" />
+    <Compile Include="Classes\User\User.cs" />
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
+    <Compile Include="Classes\Car\Model.cs" />
+    <Compile Include="Interfaces\ICar.cs" />
+    <Compile Include="Interfaces\Facade\ICarManager.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="Form1.resx">
