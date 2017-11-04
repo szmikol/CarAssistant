@@ -1,0 +1,34 @@
+WYMAGANIA GRUBEGO :D
+
+1. Dane kierowcy (priorytetowo)
+- Imiê Nazwisko
+- Data urodzenia
+- Pesel
+- nr Prawka
+- data wydania
+- adres
+
+
+2. Dane samochodu (priorytetowo)
+- zdjêcie
+- marka
+- model
+- rok produkcji
+- rejestracja
+- przebieg
+- dane silnika
+
+
+3. Co ma robiæ program
+- statystyki i wykresy (spalanie, przebieg, przegl¹dy, ubezpieczenie, liczba tankowañ, cena, naprawy*)
+- mo¿liwoœæ dodania danych kierowcy 
+- mo¿liwoœæ dodania i usuwania danych samochodu
+- mo¿liwoœæ edycji danych
+- mo¿liwoœæ dodania tankowania 
+- przypomnienie o ubezpieczeniu i przegl¹dzie
+
+
+* na pocz¹tek utworzenie jednego konta
+* baza kierowców w przysz³oœci
+* logowanie
+
