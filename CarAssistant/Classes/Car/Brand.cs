@@ -9,6 +9,7 @@ namespace CarAssistant
 	public enum Brand
 	{
 		Audi,
-		BMW
+		BMW,
+
 	}
 }
