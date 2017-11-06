@@ -38,26 +38,52 @@ namespace CarAssistant
         /// </summary>
         public List<Car> userCars;
 
+
+        /// <summary>
+        /// Method adds new car to the user's car list "userCars".
+        /// </summary>
+        /// <param name="NewCar"></param>
 		public void AddNewCar(Car NewCar)
 		{
 			throw new NotImplementedException();
 		}
 
+        /// <summary>
+        /// Finds car in user's car list by Brand, Model and ProductionYear.
+        /// </summary>
+        /// <param name="Brand"></param>
+        /// <param name="Model"></param>
+        /// <param name="ProductionYear"></param>
+        /// <returns></returns>
 		public Car FindCar(Brand Brand, Model Model, int ProductionYear)
 		{
 			throw new NotImplementedException();
 		}
 
+        /// <summary>
+        /// Removes car from user's car list by Brand, Model, ProductionYear.
+        /// </summary>
+        /// <param name="Brand"></param>
+        /// <param name="Model"></param>
+        /// <param name="ProductionYear"></param>
 		public void RemoveCar(Brand Brand, Model Model, int ProductionYear)
 		{
 			throw new NotImplementedException();
 		}
 
+        /// <summary>
+        /// Returns user's car list "userCars".
+        /// </summary>
+        /// <returns></returns>
 		public List<Car> retrieveCars()
 		{
-			throw new NotImplementedException();
+            return userCars;
 		}
 
+        /// <summary>
+        /// Writes short description of a user. Name, age, number of owned cars.
+        /// </summary>
+        /// <returns></returns>
 		public string WriteUserShortDescription()
 		{
 			throw new NotImplementedException();
