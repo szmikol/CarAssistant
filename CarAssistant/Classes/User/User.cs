@@ -38,6 +38,10 @@ namespace CarAssistant
         /// </summary>
         public List<Car> userCars;
 
+        public User()
+        {
+            userCars = new List<Car>();
+        }
 
         /// <summary>
         /// Method adds new car to the user's car list "userCars".
@@ -45,7 +49,7 @@ namespace CarAssistant
         /// <param name="NewCar"></param>
 		public void AddNewCar(Car NewCar)
 		{
-			throw new NotImplementedException();
+            userCars.Add(NewCar);
 		}
 
         /// <summary>
