@@ -37,6 +37,9 @@ namespace CarAssistant
         /// List of cars owned by user.
         /// </summary>
         public List<Car> userCars;
+        private string userDescription; // Used in method WriteUserShortDescription(): name,age,number of owned cars
+        private int userAge; // Used in method WriteUserShortDescription(): calculates user's age in years
+        private int userOwnedCars; // Used in method WriteUserShortDescription():counts cars owned by user.
 
         public User()
         {
@@ -90,7 +93,11 @@ namespace CarAssistant
         /// <returns></returns>
 		public string WriteUserShortDescription()
 		{
-			throw new NotImplementedException();
+            DateTime dateToday = DateTime.Today;
+            userAge = dateToday.Year - birthDate.Year;
+            userOwnedCars = userCars.Count();
+            userDescription = string.Format("{0},{1},{2}", name, userAge, userOwnedCars);
+            return userDescription;
 		}
 	}
 }
