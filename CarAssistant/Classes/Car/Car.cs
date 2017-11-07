@@ -9,16 +9,46 @@ namespace CarAssistant
 {
 	public class Car : ICar
 	{
-		//Fields
+        //Fields
+        Engine Engine;
+        Model Model;
+        Brand Brand;
+        DateTime ProductionDate;
+        User Owner;
+        //Constructors
+        public Car(Brand InputBrand, Model InputModel, DateTime ProductionDate, User Owner)
+        {
+            SetBrand(InputBrand);
+            SetModel(InputModel);
+            SetProductionDate(ProductionDate);
+            SetOwner(Owner);
+        }
 
-		//Constructors
-		public Car()
+
+        public Car()
 		{
 
 		}
 
 		//Methods
-		public int CalculateAge()
+        private void SetBrand (Brand InBrand) // Sets object parameter Brand
+        {
+            Brand = InBrand;
+        }
+        private void SetModel(Model InModel) // Sets object parameter Model
+        {
+            Model = InModel;
+        }
+        private void SetProductionDate(DateTime InDate) // Sets object parameter Production Date
+        {
+            ProductionDate = InDate;
+        }
+        private void SetOwner (User TheOneWhoOwns) // Sets object parameter Owner
+        {
+            Owner = TheOneWhoOwns;
+        }
+
+        public int CalculateAge()
 		{
 			throw new NotImplementedException();
 		}
@@ -32,5 +62,6 @@ namespace CarAssistant
 		{
 			throw new NotImplementedException();
 		}
+
 	}
 }
