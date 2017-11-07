@@ -35,23 +35,46 @@ namespace CarAssistant
         {
             Brand = InBrand;
         }
-        private void SetModel(Model InModel) // Sets object parameter Model
+        private void SetModel(Model InModel) // Sets object's parameter Model
         {
             Model = InModel;
         }
-        private void SetProductionDate(DateTime InDate) // Sets object parameter Production Date
+        private void SetProductionDate(DateTime InDate) // Sets object's parameter Production Date
         {
             ProductionDate = InDate;
         }
-        private void SetOwner (User TheOneWhoOwns) // Sets object parameter Owner
+        private void SetOwner (User TheOneWhoOwns) // Sets object's parameter Owner
         {
             Owner = TheOneWhoOwns;
         }
+        public Brand GetBrand() // Returns object's parameter Brand
+        {
+            return Brand;
+        }
+        public Model GetModel() //Returns object's parameter Model
+        {
+            return Model;
+        }
+        public DateTime GetProductionDate() //Returns object's parameter Production Date
+        {
+            return ProductionDate;
+        }
+        public User GetOwner() //Returns object's parameter Owner
+        {
+            return Owner;
+        }
 
-        public int CalculateAge()
+        public int GetAge() // Returns object's age in years
 		{
-			throw new NotImplementedException();
-		}
+            DateTime Present = DateTime.Now;
+            DateTime CarDate = GetProductionDate();
+            int Age = Present.Year - CarDate.Year;
+            if (Present.Month < CarDate.Month || (Present.Month == CarDate.Month && Present.Day < CarDate.Day))
+            {
+                Age--;
+            }
+            return Age;
+        }
 
 		public string WriteCarShortDescription()
 		{
