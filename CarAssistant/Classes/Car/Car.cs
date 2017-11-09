@@ -22,6 +22,7 @@ namespace CarAssistant
             SetModel(InputModel);
             SetProductionDate(ProductionDate);
             SetOwner(Owner);
+            
         }
 
 
@@ -64,7 +65,7 @@ namespace CarAssistant
             return Owner;
         }
 
-        public int GetAge() // Returns object's age in years
+        public int CalculateAge() // Returns object's age in years
 		{
             DateTime Present = DateTime.Now;
             DateTime CarDate = GetProductionDate();
