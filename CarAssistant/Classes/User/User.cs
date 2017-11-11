@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using CarAssistant.Interfaces;
+using System.Windows.Forms;
 
 namespace CarAssistant
 {
@@ -73,8 +74,24 @@ namespace CarAssistant
         /// <returns></returns>
 		public Car FindCar(Brand Brand, Model Model, int ProductionYear)
 		{
-			throw new NotImplementedException();
-		}
+            int index = 0;
+            for (int i = 0; i < userCars.Count(); i++)
+            {
+                if (Brand == userCars[i].GetBrand())
+                {
+                    if (Model == userCars[i].GetModel())
+                    {
+                        int Year = userCars[i].GetProductionDate().Year;
+                        if (ProductionYear == Year)
+                        {
+                            index = i;
+                            break;
+                        }
+                    }
+                }
+            }
+            return userCars[index];
+        }
 
         /// <summary>
         /// Removes car from user's car list by Brand, Model, ProductionYear.
@@ -84,7 +101,31 @@ namespace CarAssistant
         /// <param name="ProductionYear"></param>
 		public void RemoveCar(Brand Brand, Model Model, int ProductionYear)
 		{
-			throw new NotImplementedException();
+            bool delete = false;
+            for (int i = 0; i < userCars.Count(); i++)
+            {
+                if(Brand == userCars[i].GetBrand())
+                {
+                    if(Model == userCars[i].GetModel())
+                    {
+                        int Year = userCars[i].GetProductionDate().Year;
+                        if(ProductionYear == Year)
+                        {
+                            userCars.RemoveAt(i);
+                            delete = true;
+                            break;
+                        }
+                    }
+                }
+            }
+            if (!delete)
+            {
+                MessageBox.Show("Car with entered parameters was not found.", "Deletion failed.");
+            }
+            else
+            {
+                MessageBox.Show("Car deleted!", "Deletion successful");
+            }
 		}
 
         /// <summary>
