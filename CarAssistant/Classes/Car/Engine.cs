@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 
 namespace CarAssistant
 {
@@ -54,5 +55,42 @@ namespace CarAssistant
         {
             PowerInKW = HorsepowerTokW(InputHorsepower);
         }
-	}
+
+        /*private void MenageEngine(string TypeofEngine)
+        {
+        if(CheckTypeOfEngine(TypeOfEngine) == "P")
+            {
+                PetrolEngine TempPetrolEngine = new PetrolEngine(Capacity, Horsepower, TypeOfEngine);
+                Engine = TempPetrolEngine;
+
+            }
+            else if (CheckTypeOfEngine(TypeOfEngine) == "F")
+            {
+                Engine TempDieselEngine = new Engine(Capacity, Horsepower, TypeOfEngine);
+                Engine = TempDieselEngine;
+            }
+            else
+            {
+                MessageBox.Show("Unkown type of engine", "Alert!", MessageBoxButtons.OK);
+            }
+
+        }*/
+         
+        // Checks what is the type of the engine.
+        private string CheckTypeOfEngine (string TypeOfEngine)
+        {
+            string ToComparision = TypeOfEngine;
+
+            if (ToComparision == "Petrol")
+            {
+                return "P";
+            }
+            else if (ToComparision == "Diesel")
+            {
+                return "F";
+            }
+            return null;
+        }   
+         
+    }
 }

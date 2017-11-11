@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using CarAssistant.Interfaces;
 using CarAssistant.Classes;
+using System.Windows.Forms;
 
 namespace CarAssistant
 {
@@ -26,7 +27,8 @@ namespace CarAssistant
             SetProductionDate(ProductionDate);
             SetOwner(Owner);
             SetCounterState(InputCounterState);
-            
+           
+
         }
 
 
@@ -40,42 +42,62 @@ namespace CarAssistant
         {
             Brand = InBrand;
         }
+
         private void SetModel(Model InModel) // Sets object's parameter Model
         {
             Model = InModel;
         }
+
         private void SetProductionDate(DateTime InDate) // Sets object's parameter Production Date
         {
             ProductionDate = InDate;
         }
+
         private void SetOwner (User TheOneWhoOwns) // Sets object's parameter Owner
         {
             Owner = TheOneWhoOwns;
         }
+
         private void SetCounterState(double InCounterState) // Sets objcet's parameter CounterState
         {
             CounterState = InCounterState;
         }
+
         public Brand GetBrand() // Returns object's parameter Brand
         {
             return Brand;
         }
+
         public Model GetModel() //Returns object's parameter Model
         {
             return Model;
         }
+
         public DateTime GetProductionDate() //Returns object's parameter Production Date
         {
             return ProductionDate;
         }
+
         public User GetOwner() //Returns object's parameter Owner
         {
             return Owner;
         }
+
         public double GetCounterState() // Returns object's parameter CounterState
         {
             return CounterState;
         }
+
+        public Engine GetEngine() // Returns object's Engine object
+        {
+            return Engine;
+        }
+
+        public void AddEngineToTheCar(int Capacity, int Horsepower, string TypeOfEngine)
+        {           
+            Engine TempEngine = new Engine(Capacity, Horsepower, TypeOfEngine);
+            Engine = TempEngine;
+        }        
 
         public int CalculateAge() // Returns object's age in years
 		{
@@ -99,36 +121,6 @@ namespace CarAssistant
 			throw new NotImplementedException();
 		}
 
-        // Checks which type of fuel is the engine and creates suitable Engine object(petrol or diesel) 
-        // additionaly sets object's parameter Engine
-        public void AddEngineToTheCar(string TypeOfFuel, int Capacity, int Horsepower, string TypeOfEngine)
-        {
-            if(CheckTypeOfFuel(TypeOfFuel) == true)
-            {
-                Engine TempPetrolEngine = new Engine(Capacity, Horsepower, TypeOfEngine);
-                Engine = TempPetrolEngine;
-
-            }
-            else if (CheckTypeOfFuel(TypeOfFuel) == false)
-            {
-                Engine TempDieselEngine = new Engine(Capacity, Horsepower, TypeOfEngine);
-                Engine = TempDieselEngine;
-            }                       
-        }
-
-        // Checks what is the fuel of the engine. true = petrol and false = diesel 
-        private bool CheckTypeOfFuel (string TypeOfFuel)
-        {
-            string ToComparision = TypeOfFuel;
-
-            if (ToComparision == "Petrol")
-            {
-                return true;
-            }
-            else
-            {
-                return false;
-            }
-        }
+        
 	}
 }

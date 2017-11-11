@@ -15,8 +15,8 @@ namespace CarAssistant.Interfaces
 		//Method returns age of the car
 		int CalculateAge();
 
-		//Method to display a car owner representation as text
-		//E.g. "Oskar Jańta since 2014"
-		string WriteOwner();
-	}
+        //Method to display a car owner representation as text
+        //E.g. "Oskar Jańta since 2014"
+        string WriteOwner();
+    }
 }
