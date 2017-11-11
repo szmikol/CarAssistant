@@ -22,13 +22,29 @@ namespace CarAssistant
         // Methods
 
         // HorsepowerTokW - Converts Power of the engine from Horsepower to kiloWatts
-        private double HorsepowerTokW (int Horsepower) 
+        private int HorsepowerTokW (int Horsepower) 
         {
             double Converter = 0.745699872;
             double kW = (Horsepower * Converter);
-            return kW;
+            Math.Round(kW, MidpointRounding.ToEven);
+            int Output = Convert.ToInt32(kW);
+            return Output;  
         }
-
-
+        
+        // Sets Capacity of the object
+        private void SetCapacity(int InputCapacity)
+        {
+            Capacity = InputCapacity;
+        }
+        // Sets Horsepower of the object
+        private void SetHorsepower (int InputHorsepower)
+        {
+            Horsepower = InputHorsepower;
+        }
+        // Sets PowerInkW of the object
+        private void SetPowerInkW (int InputHorsepower)
+        {
+            PowerInKW = HorsepowerTokW(InputHorsepower);
+        }
 	}
 }
