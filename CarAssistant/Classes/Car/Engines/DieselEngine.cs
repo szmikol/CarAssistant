@@ -9,5 +9,14 @@ namespace CarAssistant.Classes.Car
 {
 	public class DieselEngine : Engine
 	{
+        //Fields
+        //Constructor
+        public DieselEngine()
+        {
+
+        }
+
+        //Methods
+
 	}
 }

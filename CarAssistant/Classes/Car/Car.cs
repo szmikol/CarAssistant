@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using CarAssistant.Interfaces;
+using CarAssistant.Classes;
 
 namespace CarAssistant
 {
@@ -15,13 +16,16 @@ namespace CarAssistant
         Brand Brand;
         DateTime ProductionDate;
         User Owner;
+        double CounterState;
+        
         //Constructors
-        public Car(Brand InputBrand, Model InputModel, DateTime ProductionDate, User Owner)
+        public Car(Brand InputBrand, Model InputModel, DateTime InputProductionDate, User InputOwner, double InputCounterState)
         {
             SetBrand(InputBrand);
             SetModel(InputModel);
             SetProductionDate(ProductionDate);
             SetOwner(Owner);
+            SetCounterState(InputCounterState);
             
         }
 
@@ -48,6 +52,10 @@ namespace CarAssistant
         {
             Owner = TheOneWhoOwns;
         }
+        private void SetCounterState(double InCounterState) // Sets objcet's parameter CounterState
+        {
+            CounterState = InCounterState;
+        }
         public Brand GetBrand() // Returns object's parameter Brand
         {
             return Brand;
@@ -63,6 +71,10 @@ namespace CarAssistant
         public User GetOwner() //Returns object's parameter Owner
         {
             return Owner;
+        }
+        public double GetCounterState() // Returns object's parameter CounterState
+        {
+            return CounterState;
         }
 
         public int CalculateAge() // Returns object's age in years
@@ -87,5 +99,36 @@ namespace CarAssistant
 			throw new NotImplementedException();
 		}
 
+        // Checks which type of fuel is the engine and creates suitable Engine object(petrol or diesel) 
+        // additionaly sets object's parameter Engine
+        public void AddEngineToTheCar(string TypeOfFuel, int Capacity, int Horsepower, string TypeOfEngine)
+        {
+            if(CheckTypeOfFuel(TypeOfFuel) == true)
+            {
+                Engine TempPetrolEngine = new Engine(Capacity, Horsepower, TypeOfEngine);
+                Engine = TempPetrolEngine;
+
+            }
+            else if (CheckTypeOfFuel(TypeOfFuel) == false)
+            {
+                Engine TempDieselEngine = new Engine(Capacity, Horsepower, TypeOfEngine);
+                Engine = TempDieselEngine;
+            }                       
+        }
+
+        // Checks what is the fuel of the engine. true = petrol and false = diesel 
+        private bool CheckTypeOfFuel (string TypeOfFuel)
+        {
+            string ToComparision = TypeOfFuel;
+
+            if (ToComparision == "Petrol")
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
 	}
 }
