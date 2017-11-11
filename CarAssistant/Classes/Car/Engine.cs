@@ -12,8 +12,16 @@ namespace CarAssistant
         int Capacity;
         int Horsepower;
         int PowerInKW;
-        
+        string TypeOfEngine; // shows type of the engine f.e. Straight 6 or V6 or W12
+
         // Constructor
+        public Engine(int Capacity, int Horsepower, string TypeOfEngine)
+        {
+            SetCapacity(Capacity);
+            SetHorsepower(Horsepower);
+            HorsepowerTokW(Horsepower);
+
+        }
         public Engine()
         {
 
