@@ -280,27 +280,27 @@ namespace CarAssistant
             if (nameB)
             {
                 SetName(name);
-                MessageBox.Show("User's name edit successful!", "Success!", MessageBoxButtons.OK);
+                //MessageBox.Show("User's name edit successful!", "Success!", MessageBoxButtons.OK);
             }
             if (birthB)
             {
                 SetBirthdate(birthdate);
-                MessageBox.Show("User's birth date edit successful!", "Success!",MessageBoxButtons.OK);
+                //MessageBox.Show("User's birth date edit successful!", "Success!",MessageBoxButtons.OK);
             }
             if (idNumberB)
             {
                 SetIdNumber(idNumber);
-                MessageBox.Show("User's ID number edit successful!", "Success!", MessageBoxButtons.OK);
+                //MessageBox.Show("User's ID number edit successful!", "Success!", MessageBoxButtons.OK);
             }
             if (licenceNumberB)
             {
                 SetLicenceNumber(licenceNumber);
-                MessageBox.Show("Driver's licence number edit successful!", "Success!", MessageBoxButtons.OK);
+                //MessageBox.Show("Driver's licence number edit successful!", "Success!", MessageBoxButtons.OK);
             }
             if (addressB)
             {
                 SetResidenceAddress(street, postCode, city);
-                MessageBox.Show("User's residence address edit successful!", "Success!", MessageBoxButtons.OK);
+                //MessageBox.Show("User's residence address edit successful!", "Success!", MessageBoxButtons.OK);
             }
         }
 	}
