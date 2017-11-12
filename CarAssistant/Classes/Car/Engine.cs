@@ -56,8 +56,8 @@ namespace CarAssistant
         {
             PowerInKW = HorsepowerTokW(InputHorsepower);
         }
-
-        /*private void MenageEngine(string TypeofEngine)
+        /*
+        private void MenageEngine(string TypeofEngine)
         {
         if(CheckTypeOfEngine(TypeOfEngine) == "P")
             {
