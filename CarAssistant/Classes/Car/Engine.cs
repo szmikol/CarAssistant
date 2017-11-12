@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using CarAssistant.Classes.Car;
 
 namespace CarAssistant
 {
@@ -14,7 +15,7 @@ namespace CarAssistant
         int Horsepower;
         int PowerInKW;
         string TypeOfEngine; // shows type of the engine f.e. Straight 6 or V6 or W12
-
+        
         // Constructor
         public Engine(int Capacity, int Horsepower, string TypeOfEngine)
         {

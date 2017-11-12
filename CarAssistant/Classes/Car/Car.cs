@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using CarAssistant.Interfaces;
 using CarAssistant.Classes;
 using System.Windows.Forms;
+using CarAssistant.Classes.Car;
 
 namespace CarAssistant
 {
