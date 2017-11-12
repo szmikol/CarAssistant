@@ -118,16 +118,16 @@ namespace CarAssistant
             return Age;
         }
 
-		public string WriteCarShortDescription()
+		public string WriteCarShortDescription() // Returns object's short description in string f.e. Toyota,Corolla,Year 1975
 		{
-			string Output = string.Format("{0},{1},{2}", GetBrand().ToString(), GetModel().ToString(), GetProductionDate().Year.ToString());
+			string Output = string.Format("{0},{1},Year: {2}", GetBrand().ToString(), GetModel().ToString(), GetProductionDate().Year.ToString());
             return Output;
 		}
 
-		public string WriteOwner()
+		public string WriteOwner() //Returns inforamtion about object's owner f.e. Andrzej Kurzypaszcza, owner since 2000
 		{
             
-            string Output = string.Format("{0} since {1}", Owner.GetName(),GetPurchaseDate().Year.ToString() );
+            string Output = string.Format("{0}, owner since {1}", Owner.GetName(),GetPurchaseDate().Year.ToString() );
             return Output;
 		}
 
