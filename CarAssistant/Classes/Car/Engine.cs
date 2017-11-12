@@ -19,10 +19,7 @@ namespace CarAssistant
         // Constructor
         public Engine(int Capacity, int Horsepower, string TypeOfEngine)
         {
-            SetCapacity(Capacity);
-            SetHorsepower(Horsepower);
-            HorsepowerTokW(Horsepower);
-
+            MenageEngine(TypeOfEngine, Capacity, Horsepower);
         }
         public Engine()
         {
@@ -34,7 +31,7 @@ namespace CarAssistant
         // HorsepowerTokW - Converts Power of the engine from Horsepower to kiloWatts
         private int HorsepowerTokW (int Horsepower) 
         {
-            double Converter = 0.745699872;
+            double Converter = 0.73549875;
             double kW = (Horsepower * Converter);
             Math.Round(kW, MidpointRounding.ToEven);
             int Output = Convert.ToInt32(kW);
@@ -56,42 +53,33 @@ namespace CarAssistant
         {
             PowerInKW = HorsepowerTokW(InputHorsepower);
         }
-        /*
-        private void MenageEngine(string TypeofEngine)
+        
+        //Checks what type of engine there is to create and creates one. In case of mistake in string TypeOfEngine
+        // shows window.
+        private void MenageEngine(string TypeofEngine, int Capacity, int Horsepower)
         {
-        if(CheckTypeOfEngine(TypeOfEngine) == "P")
+            if (TypeOfEngine == "Petrol")
             {
-                PetrolEngine TempPetrolEngine = new PetrolEngine(Capacity, Horsepower, TypeOfEngine);
-                Engine = TempPetrolEngine;
+                PetrolEngine TempPetrolEngine = new PetrolEngine();
+                TempPetrolEngine.SetCapacity(Capacity);
+                TempPetrolEngine.SetHorsepower(Horsepower);
+                TempPetrolEngine.HorsepowerTokW(HorsepowerTokW(Horsepower));
 
             }
-            else if (CheckTypeOfEngine(TypeOfEngine) == "F")
+            else if (TypeOfEngine == "Diesel")
             {
-                Engine TempDieselEngine = new Engine(Capacity, Horsepower, TypeOfEngine);
-                Engine = TempDieselEngine;
+                DieselEngine TempDieselEngine = new DieselEngine();
+                TempDieselEngine.SetCapacity(Capacity);
+                TempDieselEngine.SetHorsepower(Horsepower);
+                TempDieselEngine.HorsepowerTokW(HorsepowerTokW(Horsepower));
             }
             else
             {
-                MessageBox.Show("Unkown type of engine", "Alert!", MessageBoxButtons.OK);
+                MessageBox.Show("Unkown type of engine. Resend data", "Alert!", MessageBoxButtons.OK);
             }
 
-        }*/
-         
-        // Checks what is the type of the engine.
-        private string CheckTypeOfEngine (string TypeOfEngine)
-        {
-            string ToComparision = TypeOfEngine;
-
-            if (ToComparision == "Petrol")
-            {
-                return "P";
-            }
-            else if (ToComparision == "Diesel")
-            {
-                return "F";
-            }
-            return null;
-        }   
+        }
+        
          
     }
 }
