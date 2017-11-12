@@ -17,17 +17,19 @@ namespace CarAssistant
         Model Model;
         Brand Brand;
         DateTime ProductionDate;
+        DateTime PurchaseDate;
         User Owner;
         double CounterState;
         
         //Constructors
-        public Car(Brand InputBrand, Model InputModel, DateTime InputProductionDate, User InputOwner, double InputCounterState)
+        public Car(Brand InputBrand, Model InputModel, DateTime InputProductionYear, User InputOwner, DateTime InputPurchaseDate, double InputCounterState)
         {
             SetBrand(InputBrand);
             SetModel(InputModel);
-            SetProductionDate(ProductionDate);
+            SetProductionDate(InputProductionYear);
             SetOwner(Owner);
             SetCounterState(InputCounterState);
+            SetPurchaseDate(InputPurchaseDate);
            
 
         }
@@ -64,6 +66,11 @@ namespace CarAssistant
             CounterState = InCounterState;
         }
 
+        private void SetPurchaseDate(DateTime InPurchaseDate) // Sets object's patameter Purchase Date
+        {
+            PurchaseDate = InPurchaseDate;
+        }
+
         public Brand GetBrand() // Returns object's parameter Brand
         {
             return Brand;
@@ -94,11 +101,10 @@ namespace CarAssistant
             return Engine;
         }
 
-        public void AddEngineToTheCar(int Capacity, int Horsepower, string TypeOfEngine)
-        {           
-            Engine TempEngine = new Engine(Capacity, Horsepower, TypeOfEngine);
-            Engine = TempEngine;
-        }        
+        public DateTime GetPurchaseDate() // Returns object's Purchase Date
+        {
+            return PurchaseDate;
+        }
 
         public int CalculateAge() // Returns object's age in years
 		{
@@ -114,12 +120,15 @@ namespace CarAssistant
 
 		public string WriteCarShortDescription()
 		{
-			throw new NotImplementedException();
+			string Output = string.Format("{0},{1},{2}", GetBrand().ToString(), GetModel().ToString(), GetProductionDate().Year.ToString());
+            return Output;
 		}
 
 		public string WriteOwner()
 		{
-			throw new NotImplementedException();
+            
+            string Output = string.Format("{0} since {1}", Owner.GetName(),GetPurchaseDate().Year.ToString() );
+            return Output;
 		}
 
         
