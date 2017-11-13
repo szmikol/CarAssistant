@@ -16,7 +16,7 @@ namespace CarAssistant
         Engine Engine;
         Model Model;
         Brand Brand;
-        DateTime ProductionDate;
+        public DateTime ProductionDate;
         DateTime PurchaseDate;
         User Owner;
         double CounterState;
