@@ -13,23 +13,23 @@ namespace CarAssistant
 	public class Car : ICar
 	{
         //Fields
-        Engine Engine;
-        Model Model;
-        Brand Brand;
-        public DateTime ProductionDate;
-        DateTime PurchaseDate;
-        User Owner;
-        double CounterState;
+        private Engine Engine;
+        private Model Model;
+        private Brand Brand;
+        private DateTime ProductionDate;
+        private DateTime PurchaseDate;
+        private User Owner;
+        private double CounterState;
         
         //Constructors
         public Car(Brand InputBrand, Model InputModel, DateTime InputProductionYear, User InputOwner, DateTime InputPurchaseDate, double InputCounterState)
         {
-            SetBrand(InputBrand);
-            SetModel(InputModel);
-            SetProductionDate(InputProductionYear);
-            SetOwner(Owner);
-            SetCounterState(InputCounterState);
-            SetPurchaseDate(InputPurchaseDate);
+            Brand = InputBrand;
+            Model = InputModel;
+            ProductionDate = InputProductionYear;
+            Owner = InputOwner;
+            CounterState = InputCounterState;
+            PurchaseDate = InputPurchaseDate;
            
 
         }
@@ -40,73 +40,116 @@ namespace CarAssistant
 
 		}
 
-		//Methods
-        private void SetBrand (Brand InBrand) // Sets object parameter Brand
+        //Methods
+        
+        /// <summary>
+        /// Sets object parameter Brand
+        /// </summary>
+        public void SetBrand (Brand InBrand) 
         {
             Brand = InBrand;
         }
-
-        private void SetModel(Model InModel) // Sets object's parameter Model
+        
+        /// <summary>
+        /// Sets object's parameter Model
+        /// </summary>
+        public void SetModel(Model InModel) 
         {
             Model = InModel;
         }
-
-        private void SetProductionDate(DateTime InDate) // Sets object's parameter Production Date
+        
+        /// <summary>
+        /// Sets object's parameter Production Date
+        /// </summary>
+        public void SetProductionDate(DateTime InDate) 
         {
             ProductionDate = InDate;
         }
-
-        private void SetOwner (User TheOneWhoOwns) // Sets object's parameter Owner
+        
+        /// <summary>
+        /// Sets object's parameter Owner
+        /// </summary>
+        public void SetOwner (User TheOneWhoOwns) 
         {
             Owner = TheOneWhoOwns;
         }
-
-        private void SetCounterState(double InCounterState) // Sets objcet's parameter CounterState
+        
+        /// <summary>
+        /// Sets objcet's parameter CounterState
+        /// </summary>
+        public void SetCounterState(double InCounterState)
         {
             CounterState = InCounterState;
         }
-
-        private void SetPurchaseDate(DateTime InPurchaseDate) // Sets object's patameter Purchase Date
+        
+        /// <summary>
+        /// Sets object's patameter Purchase Dat
+        /// </summary>
+        public void SetPurchaseDate(DateTime InPurchaseDate) 
         {
             PurchaseDate = InPurchaseDate;
         }
-
-        public Brand GetBrand() // Returns object's parameter Brand
+        
+        /// <summary>
+        /// Returns object's parameter Brand
+        /// </summary>
+        public Brand GetBrand() 
         {
             return Brand;
         }
-
-        public Model GetModel() //Returns object's parameter Model
+        
+        /// <summary>
+        ///Returns object's parameter Model
+        /// </summary>
+        public Model GetModel() 
         {
             return Model;
         }
-
-        public DateTime GetProductionDate() //Returns object's parameter Production Date
+        
+        /// <summary>
+        ///Returns object's parameter Production Date
+        /// </summary>
+        public DateTime GetProductionDate() 
         {
             return ProductionDate;
         }
-
-        public User GetOwner() //Returns object's parameter Owner
+        
+        /// <summary>
+        ///Returns object's parameter Owner
+        /// </summary>
+        public User GetOwner() 
         {
             return Owner;
         }
-
-        public double GetCounterState() // Returns object's parameter CounterState
+        
+        /// <summary>
+        /// Returns object's parameter CounterState
+        /// </summary>
+        public double GetCounterState() 
         {
             return CounterState;
         }
-
-        public Engine GetEngine() // Returns object's Engine object
+        
+        /// <summary>
+        /// Returns object's Engine object
+        /// </summary>
+        public Engine GetEngine() 
         {
             return Engine;
         }
-
-        public DateTime GetPurchaseDate() // Returns object's Purchase Date
+        
+        /// <summary>
+        /// Returns object's Purchase Date
+        /// </summary>
+        public DateTime GetPurchaseDate() 
         {
             return PurchaseDate;
         }
-
-        public int CalculateAge() // Returns object's age in years
+        
+        /// <summary>
+        /// Returns object's age in years
+        /// </summary>
+        public int CalculateAge() 
 		{
             DateTime Present = DateTime.Now;
             DateTime CarDate = GetProductionDate();
@@ -117,14 +160,20 @@ namespace CarAssistant
             }
             return Age;
         }
-
-		public string WriteCarShortDescription() // Returns object's short description in string f.e. Toyota,Corolla,Year 1975
+        
+        /// <summary>
+        /// Returns object's short description in string
+        /// </summary>
+        public string WriteCarShortDescription() 
 		{
 			string Output = string.Format("{0},{1},Year: {2}", GetBrand().ToString(), GetModel().ToString(), GetProductionDate().Year.ToString());
             return Output;
 		}
-
-		public string WriteOwner() //Returns inforamtion about object's owner f.e. Andrzej Kurzypaszcza, owner since 2000
+        
+        /// <summary>
+        /// Returns inforamtion about object's owner
+        /// </summary>
+        public string WriteOwner() 
 		{
             
             string Output = string.Format("{0}, owner since {1}", Owner.GetName(),GetPurchaseDate().Year.ToString() );
