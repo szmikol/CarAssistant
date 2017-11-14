@@ -22,7 +22,7 @@ namespace CarAssistant
         private double CounterState;
         
         //Constructors
-        public Car(Brand InputBrand, Model InputModel, DateTime InputProductionYear, User InputOwner, DateTime InputPurchaseDate, double InputCounterState)
+        public Car(Brand InputBrand, Model InputModel, Engine InputEngine, DateTime InputProductionYear, User InputOwner, DateTime InputPurchaseDate, double InputCounterState)
         {
             Brand = InputBrand;
             Model = InputModel;
@@ -30,7 +30,7 @@ namespace CarAssistant
             Owner = InputOwner;
             CounterState = InputCounterState;
             PurchaseDate = InputPurchaseDate;
-           
+            Engine = InputEngine;
 
         }
 
@@ -58,6 +58,14 @@ namespace CarAssistant
             Model = InModel;
         }
         
+        ///<summary>
+        /// Sets object's parameter Engine
+        /// </summary>
+        public void SetEngine(Engine InEngine)
+        {
+            Engine = InEngine;
+        }
+        
         /// <summary>
         /// Sets object's parameter Production Date
         /// </summary>
@@ -83,7 +91,7 @@ namespace CarAssistant
         }
         
         /// <summary>
-        /// Sets object's patameter Purchase Dat
+        /// Sets object's patameter Purchase Date
         /// </summary>
         public void SetPurchaseDate(DateTime InPurchaseDate) 
         {
@@ -105,7 +113,15 @@ namespace CarAssistant
         {
             return Model;
         }
-        
+        ///<summary>
+        ///Returns object's parameter (object)Engine
+        /// </summary>
+
+        public Engine GetEngine()
+        {
+            return Engine;
+        }
+
         /// <summary>
         ///Returns object's parameter Production Date
         /// </summary>
@@ -128,15 +144,7 @@ namespace CarAssistant
         public double GetCounterState() 
         {
             return CounterState;
-        }
-        
-        /// <summary>
-        /// Returns object's Engine object
-        /// </summary>
-        public Engine GetEngine() 
-        {
-            return Engine;
-        }
+        }              
         
         /// <summary>
         /// Returns object's Purchase Date

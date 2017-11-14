@@ -6,8 +6,8 @@ using System.Threading.Tasks;
 
 namespace CarAssistant
 {
-	public enum Brand
-	{
+    public enum Brand
+    {
         Alfa_Romeo,
         AMC,
         Aston_Martin,
