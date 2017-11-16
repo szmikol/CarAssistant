@@ -102,31 +102,71 @@ namespace CarAssistant
 		public void RemoveCar(Brand Brand, Model Model, int ProductionYear)
 		{
             bool delete = false;
-            for (int i = 0; i < userCars.Count(); i++)
+            int brandIndex = 0;
+            int modelIndex = 0;
+            int yearIndex = 0;
+
+            brandIndex = RemoveCarBrand(Brand);
+            modelIndex = RemoveCarModel(Model, brandIndex);
+            yearIndex = RemoveCarYear(ProductionYear, modelIndex);
+            delete = DeleteCar(brandIndex, modelIndex, yearIndex);
+            ShowDeleteMessage(delete);
+		}
+        private bool DeleteCar(int brandIndex, int modelIndex, int yearIndex)
+        {
+            bool delete = false;
+            if(brandIndex == modelIndex && modelIndex == yearIndex)
             {
-                if(Brand == userCars[i].GetBrand())
-                {
-                    if(Model == userCars[i].GetModel())
-                    {
-                        int Year = userCars[i].GetProductionDate().Year;
-                        if(ProductionYear == Year)
-                        {
-                            userCars.RemoveAt(i);
-                            delete = true;
-                            break;
-                        }
-                    }
-                }
-            }
-            if (!delete)
-            {
-                MessageBox.Show("Car with entered parameters was not found.", "Deletion failed.");
+                userCars.RemoveAt(brandIndex);
+                delete = true;
             }
             else
             {
-                MessageBox.Show("Car deleted!", "Deletion successful");
+                delete = false;
             }
-		}
+            return delete;
+        }
+        private int RemoveCarBrand(Brand brand)
+        {
+            int brandIndex = -1;
+            for (int i = 0; i < userCars.Count(); i++)
+            {
+                if(brand == userCars[i].GetBrand())
+                {
+                    brandIndex = i;
+                }
+            }
+            return brandIndex;
+        }
+        private int RemoveCarModel(Model model, int index)
+        {
+            int modelIndex = -2;
+            if(userCars[index].GetModel() == model)
+            {
+                modelIndex = index;
+            }
+            return modelIndex;
+        }
+        private int RemoveCarYear(int ProductionYear, int index)
+        {
+            int yearIndex = -3;
+            if(userCars[index].GetProductionDate().Year == ProductionYear)
+            {
+                yearIndex = index;
+            }
+            return yearIndex;
+        }
+        private void ShowDeleteMessage(bool delete)
+        {
+            if (!delete)
+            {
+                MessageBox.Show("Car with entered parameters was not found.", "Deletion failed.", MessageBoxButtons.OK);
+            }
+            else
+            {
+                MessageBox.Show("Car deleted!", "Deletion successful", MessageBoxButtons.OK);
+            }
+        }
 
         /// <summary>
         /// Returns user's car list "userCars".
@@ -277,30 +317,50 @@ namespace CarAssistant
         public void EditUserSpecifiedData(bool nameB, bool birthB, bool idNumberB, bool licenceNumberB, bool addressB, 
             string name, DateTime birthdate, int idNumber, int licenceNumber, string street, int postCode, string city)
         {
-            if (nameB)
+            EditName(nameB, name);
+            EditBirthDate(birthB, birthdate);
+            EditIdNumber(idNumberB, idNumber);
+            EditLicenceNumber(licenceNumberB, licenceNumber);
+            EditAddress(addressB, street, postCode, city);
+        }
+        private void EditName(bool nameB, string name)
+        {
+            if(nameB)
             {
                 SetName(name);
-                //MessageBox.Show("User's name edit successful!", "Success!", MessageBoxButtons.OK);
+                MessageBox.Show("User's name edit successful!", "Success!", MessageBoxButtons.OK);
             }
+        }
+        private void EditBirthDate(bool birthB, DateTime birthDate)
+        {
             if (birthB)
             {
-                SetBirthdate(birthdate);
-                //MessageBox.Show("User's birth date edit successful!", "Success!",MessageBoxButtons.OK);
+                SetBirthdate(birthDate);
+                MessageBox.Show("User's birth date edit successful!", "Success!", MessageBoxButtons.OK);
             }
-            if (idNumberB)
+        }
+        private void EditIdNumber(bool idBool, int idNumber)
+        {
+            if (idBool)
             {
                 SetIdNumber(idNumber);
-                //MessageBox.Show("User's ID number edit successful!", "Success!", MessageBoxButtons.OK);
+                MessageBox.Show("User's ID number edit successful!", "Success!", MessageBoxButtons.OK);
             }
-            if (licenceNumberB)
+        }
+        private void EditLicenceNumber(bool licenceB, int licenceNumber)
+        {
+            if (licenceB)
             {
                 SetLicenceNumber(licenceNumber);
-                //MessageBox.Show("Driver's licence number edit successful!", "Success!", MessageBoxButtons.OK);
+                MessageBox.Show("Driver's licence number edit successful!", "Success!", MessageBoxButtons.OK);
             }
-            if (addressB)
+        }
+        private void EditAddress(bool address, string street, int postCode, string city)
+        {
+            if (address)
             {
                 SetResidenceAddress(street, postCode, city);
-                //MessageBox.Show("User's residence address edit successful!", "Success!", MessageBoxButtons.OK);
+                MessageBox.Show("User's residence address edit successful!", "Success!", MessageBoxButtons.OK);
             }
         }
 	}
