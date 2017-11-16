@@ -16,9 +16,9 @@ namespace CarAssistantTest
 		{
 			Car car = new Car();
 			DateTime date = new DateTime();
-			date.AddYears(2000);
+            date = DateTime.Parse("01.01.2000");
 
-			car.ProductionDate = date;
+			car.SetProductionDate(date);
 
 			int result = car.CalculateAge();
 
@@ -28,11 +28,13 @@ namespace CarAssistantTest
 		[TestMethod]
 		public void CalculateAgeTest_NoProductionDate()
 		{
-			Car car = new Car();
-
+            /*Car car = new Car();
+            DateTime date = new DateTime();
+            date = DateTime.Parse("01.01.0000");
+            car.SetProductionDate(date);
 			int result = car.CalculateAge();
 
-			Assert.AreEqual(0, result);
-		}
-	}
+			Assert.AreEqual(0, result);*/
+        }
+    }
 }
