@@ -73,26 +73,28 @@ namespace CarAssistant
         /// <param name="ProductionYear"></param>
         /// <returns></returns>
 		public Car FindCar(Brand Brand, Model Model, int ProductionYear)
-		{
-            int index = 0;
-            for (int i = 0; i < userCars.Count(); i++)
-            {
-                if (Brand == userCars[i].GetBrand())
-                {
-                    if (Model == userCars[i].GetModel())
-                    {
-                        int Year = userCars[i].GetProductionDate().Year;
-                        if (ProductionYear == Year)
-                        {
-                            index = i;
-                            break;
-                        }
-                    }
-                }
-            }
+        {
+            int index = 0, brandIndex, modelIndex, yearIndex;
+            brandIndex = FindCarBrand(Brand);
+            modelIndex = FindCarModel(Model, brandIndex);
+            yearIndex = FindCarYear(ProductionYear, modelIndex);
+            index = FindCarByIndex(brandIndex, modelIndex, yearIndex);
             return userCars[index];
         }
 
+        private int FindCarByIndex(int brandIndex, int modelIndex, int yearIndex)
+        {
+            int index = 0;
+            if (brandIndex == modelIndex && modelIndex == yearIndex)
+            {
+                index = brandIndex;
+            }
+            else
+            {
+                MessageBox.Show("Car not found!", "Error 404!", MessageBoxButtons.OK);
+            }
+            return index;
+        }
         /// <summary>
         /// Removes car from user's car list by Brand, Model, ProductionYear.
         /// </summary>
@@ -100,33 +102,71 @@ namespace CarAssistant
         /// <param name="Model"></param>
         /// <param name="ProductionYear"></param>
 		public void RemoveCar(Brand Brand, Model Model, int ProductionYear)
-		{
+        {
             bool delete = false;
-            for (int i = 0; i < userCars.Count(); i++)
+            int brandIndex, modelIndex, yearIndex;
+            brandIndex = FindCarBrand(Brand);
+            modelIndex = FindCarModel(Model, brandIndex);
+            yearIndex = FindCarYear(ProductionYear, modelIndex);
+            delete = DeleteCar(brandIndex, modelIndex, yearIndex);
+            ShowDeleteMessage(delete);
+        }
+        private bool DeleteCar(int brandIndex, int modelIndex, int yearIndex)
+        {
+            bool delete = false;
+            if (brandIndex == modelIndex && modelIndex == yearIndex)
             {
-                if(Brand == userCars[i].GetBrand())
-                {
-                    if(Model == userCars[i].GetModel())
-                    {
-                        int Year = userCars[i].GetProductionDate().Year;
-                        if(ProductionYear == Year)
-                        {
-                            userCars.RemoveAt(i);
-                            delete = true;
-                            break;
-                        }
-                    }
-                }
-            }
-            if (!delete)
-            {
-                MessageBox.Show("Car with entered parameters was not found.", "Deletion failed.");
+                userCars.RemoveAt(brandIndex);
+                delete = true;
             }
             else
             {
-                MessageBox.Show("Car deleted!", "Deletion successful");
+                delete = false;
             }
-		}
+            return delete;
+        }
+        private int FindCarBrand(Brand brand)
+        {
+            int brandIndex = -1;
+            for (int i = 0; i < userCars.Count(); i++)
+            {
+                if (brand == userCars[i].GetBrand())
+                {
+                    brandIndex = i;
+                }
+            }
+            return brandIndex;
+        }
+        private int FindCarModel(Model model, int index)
+        {
+            int modelIndex = -2;
+            if (userCars[index].GetModel() == model)
+            {
+                modelIndex = index;
+            }
+            return modelIndex;
+        }
+        private int FindCarYear(int ProductionYear, int index)
+        {
+            int yearIndex = -3;
+            if (userCars[index].GetProductionDate().Year == ProductionYear)
+            {
+                yearIndex = index;
+            }
+            return yearIndex;
+        }
+        private void ShowDeleteMessage(bool delete)
+        {
+            if (!delete)
+            {
+                MessageBox.Show("Car with entered parameters was not found.", "Deletion failed.", MessageBoxButtons.OK);
+            }
+            else
+            {
+                MessageBox.Show("Car deleted!", "Deletion successful", MessageBoxButtons.OK);
+            }
+        }
+
 
         /// <summary>
         /// Returns user's car list "userCars".
