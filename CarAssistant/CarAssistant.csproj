@@ -58,6 +58,7 @@
     <Compile Include="Classes\Facade\CarManager.cs" />
     <Compile Include="Classes\Facade\DataLoader.cs" />
     <Compile Include="Classes\Facade\DataSaver.cs" />
+    <Compile Include="Classes\Facade\UserManager.cs" />
     <Compile Include="Classes\User\User.cs" />
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>
@@ -68,6 +69,7 @@
     <Compile Include="Classes\Car\Model.cs" />
     <Compile Include="Interfaces\Facade\IDataLoader.cs" />
     <Compile Include="Interfaces\Facade\IDataSaver.cs" />
+    <Compile Include="Interfaces\Facade\IUserManager.cs" />
     <Compile Include="Interfaces\ICar.cs" />
     <Compile Include="Interfaces\Facade\ICarManager.cs" />
     <Compile Include="Interfaces\IUser.cs" />
