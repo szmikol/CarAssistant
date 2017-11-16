@@ -66,6 +66,8 @@
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
     <Compile Include="Classes\Car\Model.cs" />
+    <Compile Include="Interfaces\Facade\IDataLoader.cs" />
+    <Compile Include="Interfaces\Facade\IDataSaver.cs" />
     <Compile Include="Interfaces\ICar.cs" />
     <Compile Include="Interfaces\Facade\ICarManager.cs" />
     <Compile Include="Interfaces\IUser.cs" />
