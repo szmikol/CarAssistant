@@ -7,7 +7,7 @@ using System.Windows.Forms;
 
 namespace CarAssistant.Classes.Facade
 {
-    public static class ButtonsBehavior
+    public class ButtonsBehavior
     {
         private static DialogResult dialogResult;
 
@@ -19,6 +19,10 @@ namespace CarAssistant.Classes.Facade
                 exit = true;
             }
             return exit;
+        }
+        public void FocusColorCheck()
+        {
+
         }
     }
 }
