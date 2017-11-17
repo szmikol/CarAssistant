@@ -17,7 +17,8 @@ namespace CarAssistant
 		public Form1()
 		{
 			InitializeComponent();
-		}
+            bLoadFile.Click += new System.EventHandler(bLoadFile_Click);
+        }
 
 
         private void bExit_Click(object sender, EventArgs e)
@@ -103,5 +104,19 @@ namespace CarAssistant
             button.ForeColor = Color.Green;
         }
 
+        private void bLoadFile_Click(object sender, EventArgs e)
+        {
+            if (openFileDialog1.ShowDialog() == DialogResult.OK)
+            {
+                System.IO.StreamReader loadStream = new System.IO.StreamReader(openFileDialog1.FileName);
+                MessageBox.Show(loadStream.ReadToEnd());
+                loadStream.Close();
+            }
+        }
+
+        private void bSaveFile_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

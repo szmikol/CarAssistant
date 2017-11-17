@@ -30,7 +30,7 @@
 		{
             this.panelMenu = new System.Windows.Forms.Panel();
             this.bExit = new System.Windows.Forms.Button();
-            this.pabelButtons = new System.Windows.Forms.Panel();
+            this.panelButtons = new System.Windows.Forms.Panel();
             this.bSaveLoad = new System.Windows.Forms.Button();
             this.bSettings = new System.Windows.Forms.Button();
             this.button9 = new System.Windows.Forms.Button();
@@ -61,8 +61,12 @@
             this.label6 = new System.Windows.Forms.Label();
             this.panelSaveLoad = new System.Windows.Forms.Panel();
             this.label7 = new System.Windows.Forms.Label();
+            this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
+            this.bSaveFile = new System.Windows.Forms.Button();
+            this.bLoadFile = new System.Windows.Forms.Button();
+            this.saveFileDialog1 = new System.Windows.Forms.SaveFileDialog();
             this.panelMenu.SuspendLayout();
-            this.pabelButtons.SuspendLayout();
+            this.panelButtons.SuspendLayout();
             this.panelCars.SuspendLayout();
             this.panelManage.SuspendLayout();
             this.panelService.SuspendLayout();
@@ -78,7 +82,7 @@
             // 
             this.panelMenu.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(57)))), ((int)(((byte)(57)))), ((int)(((byte)(57)))));
             this.panelMenu.Controls.Add(this.bExit);
-            this.panelMenu.Controls.Add(this.pabelButtons);
+            this.panelMenu.Controls.Add(this.panelButtons);
             this.panelMenu.Dock = System.Windows.Forms.DockStyle.Left;
             this.panelMenu.Location = new System.Drawing.Point(0, 0);
             this.panelMenu.Name = "panelMenu";
@@ -104,24 +108,24 @@
             this.bExit.UseVisualStyleBackColor = false;
             this.bExit.Click += new System.EventHandler(this.bExit_Click);
             // 
-            // pabelButtons
+            // panelButtons
             // 
-            this.pabelButtons.Controls.Add(this.bSaveLoad);
-            this.pabelButtons.Controls.Add(this.bSettings);
-            this.pabelButtons.Controls.Add(this.button9);
-            this.pabelButtons.Controls.Add(this.button8);
-            this.pabelButtons.Controls.Add(this.bReminders);
-            this.pabelButtons.Controls.Add(this.bExpenses);
-            this.pabelButtons.Controls.Add(this.bRefuel);
-            this.pabelButtons.Controls.Add(this.bInsurance);
-            this.pabelButtons.Controls.Add(this.bService);
-            this.pabelButtons.Controls.Add(this.bManage);
-            this.pabelButtons.Controls.Add(this.bCars);
-            this.pabelButtons.Dock = System.Windows.Forms.DockStyle.Top;
-            this.pabelButtons.Location = new System.Drawing.Point(0, 0);
-            this.pabelButtons.Name = "pabelButtons";
-            this.pabelButtons.Size = new System.Drawing.Size(200, 552);
-            this.pabelButtons.TabIndex = 1;
+            this.panelButtons.Controls.Add(this.bSaveLoad);
+            this.panelButtons.Controls.Add(this.bSettings);
+            this.panelButtons.Controls.Add(this.button9);
+            this.panelButtons.Controls.Add(this.button8);
+            this.panelButtons.Controls.Add(this.bReminders);
+            this.panelButtons.Controls.Add(this.bExpenses);
+            this.panelButtons.Controls.Add(this.bRefuel);
+            this.panelButtons.Controls.Add(this.bInsurance);
+            this.panelButtons.Controls.Add(this.bService);
+            this.panelButtons.Controls.Add(this.bManage);
+            this.panelButtons.Controls.Add(this.bCars);
+            this.panelButtons.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panelButtons.Location = new System.Drawing.Point(0, 0);
+            this.panelButtons.Name = "panelButtons";
+            this.panelButtons.Size = new System.Drawing.Size(200, 552);
+            this.panelButtons.TabIndex = 1;
             // 
             // bSaveLoad
             // 
@@ -390,7 +394,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(182, 132);
+            this.label1.Location = new System.Drawing.Point(455, 233);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(55, 17);
             this.label1.TabIndex = 0;
@@ -401,9 +405,9 @@
             this.panelInsurance.BackColor = System.Drawing.Color.DarkGray;
             this.panelInsurance.Controls.Add(this.label4);
             this.panelInsurance.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panelInsurance.Location = new System.Drawing.Point(200, 100);
+            this.panelInsurance.Location = new System.Drawing.Point(0, 0);
             this.panelInsurance.Name = "panelInsurance";
-            this.panelInsurance.Size = new System.Drawing.Size(900, 500);
+            this.panelInsurance.Size = new System.Drawing.Size(1100, 600);
             this.panelInsurance.TabIndex = 3;
             // 
             // label4
@@ -420,9 +424,9 @@
             this.panelRefuel.BackColor = System.Drawing.Color.DarkGray;
             this.panelRefuel.Controls.Add(this.labelRef);
             this.panelRefuel.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panelRefuel.Location = new System.Drawing.Point(200, 100);
+            this.panelRefuel.Location = new System.Drawing.Point(0, 0);
             this.panelRefuel.Name = "panelRefuel";
-            this.panelRefuel.Size = new System.Drawing.Size(900, 500);
+            this.panelRefuel.Size = new System.Drawing.Size(1100, 600);
             this.panelRefuel.TabIndex = 4;
             // 
             // labelRef
@@ -494,6 +498,8 @@
             // panelSaveLoad
             // 
             this.panelSaveLoad.BackColor = System.Drawing.Color.DarkGray;
+            this.panelSaveLoad.Controls.Add(this.bLoadFile);
+            this.panelSaveLoad.Controls.Add(this.bSaveFile);
             this.panelSaveLoad.Controls.Add(this.label7);
             this.panelSaveLoad.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panelSaveLoad.Location = new System.Drawing.Point(0, 0);
@@ -504,11 +510,38 @@
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(473, 282);
+            this.label7.Location = new System.Drawing.Point(636, 133);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(76, 17);
             this.label7.TabIndex = 0;
             this.label7.Text = "Save/Load";
+            // 
+            // openFileDialog1
+            // 
+            this.openFileDialog1.DefaultExt = "xml";
+            this.openFileDialog1.FileName = "openFileDialog1";
+            // 
+            // bSaveFile
+            // 
+            this.bSaveFile.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.bSaveFile.Location = new System.Drawing.Point(450, 300);
+            this.bSaveFile.Name = "bSaveFile";
+            this.bSaveFile.Size = new System.Drawing.Size(200, 80);
+            this.bSaveFile.TabIndex = 1;
+            this.bSaveFile.Text = "Save File";
+            this.bSaveFile.UseVisualStyleBackColor = true;
+            this.bSaveFile.Click += new System.EventHandler(this.bSaveFile_Click);
+            // 
+            // bLoadFile
+            // 
+            this.bLoadFile.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.bLoadFile.Location = new System.Drawing.Point(688, 300);
+            this.bLoadFile.Name = "bLoadFile";
+            this.bLoadFile.Size = new System.Drawing.Size(200, 80);
+            this.bLoadFile.TabIndex = 2;
+            this.bLoadFile.Text = "Load File";
+            this.bLoadFile.UseVisualStyleBackColor = true;
+            this.bLoadFile.Click += new System.EventHandler(this.bLoadFile_Click);
             // 
             // Form1
             // 
@@ -516,17 +549,17 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(1100, 600);
-            this.Controls.Add(this.panelRefuel);
-            this.Controls.Add(this.panelInsurance);
             this.Controls.Add(this.panelDriverInfo);
             this.Controls.Add(this.panelMenu);
-            this.Controls.Add(this.panelCars);
-            this.Controls.Add(this.panelService);
-            this.Controls.Add(this.panelManage);
             this.Controls.Add(this.panelSaveLoad);
             this.Controls.Add(this.panelSettings);
             this.Controls.Add(this.panelReminders);
             this.Controls.Add(this.panelExpenses);
+            this.Controls.Add(this.panelRefuel);
+            this.Controls.Add(this.panelInsurance);
+            this.Controls.Add(this.panelCars);
+            this.Controls.Add(this.panelService);
+            this.Controls.Add(this.panelManage);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Margin = new System.Windows.Forms.Padding(4);
             this.MaximizeBox = false;
@@ -534,7 +567,7 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Car Assistant v0.1";
             this.panelMenu.ResumeLayout(false);
-            this.pabelButtons.ResumeLayout(false);
+            this.panelButtons.ResumeLayout(false);
             this.panelCars.ResumeLayout(false);
             this.panelCars.PerformLayout();
             this.panelManage.ResumeLayout(false);
@@ -560,7 +593,7 @@
         #endregion
 
         private System.Windows.Forms.Panel panelMenu;
-        private System.Windows.Forms.Panel pabelButtons;
+        private System.Windows.Forms.Panel panelButtons;
         private System.Windows.Forms.Button bCars;
         private System.Windows.Forms.Panel panelDriverInfo;
         private System.Windows.Forms.Button bExit;
@@ -592,6 +625,10 @@
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Panel panelSaveLoad;
         private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.OpenFileDialog openFileDialog1;
+        private System.Windows.Forms.Button bLoadFile;
+        private System.Windows.Forms.Button bSaveFile;
+        private System.Windows.Forms.SaveFileDialog saveFileDialog1;
     }
 }
 
