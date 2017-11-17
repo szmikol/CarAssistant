@@ -14,7 +14,7 @@ namespace CarAssistant
         int Capacity;
         int Horsepower;
         int PowerInKW;
-        string TypeOfEngine; // shows type of the engine f.e. Straight 6 or V6 or W12
+        string TypeOfEngine;
         
         // Constructor
         public Engine(int Capacity, int Horsepower, string TypeOfEngine)
@@ -55,7 +55,7 @@ namespace CarAssistant
         }
         
         //Checks what type of engine there is to create and creates one. In case of mistake in string TypeOfEngine
-        // shows window.
+        // shows window.x
         private void MenageEngine(string TypeofEngine, int Capacity, int Horsepower)
         {
             if (TypeOfEngine == "Petrol")

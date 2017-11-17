@@ -3,6 +3,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.ComponentModel;
+
+
 
 namespace CarAssistant
 {
@@ -10,84 +13,82 @@ namespace CarAssistant
     {
         public enum Alfa_Romeo
         {   
-            Alfa_Romeo_0_9,
-            Alfa_Romeo_4C,
-            Alfa_Romeo_6C,
-            Alfa_Romeo_8C,
-            Alfa_Romeo_8C_Competizione,
-            Alfa_Romeo_12C,
-            Alfa_Romeo_15_20_HP,
-            Alfa_Romeo_12_HP,
-            Alfa_Romeo_15_HP,
-            Alfa_Romeo_20_30_HP,
-            Alfa_Romeo_24_HP,
-            Alfa_Romeo_33,
-            Alfa_Romeo_33_Stradale,
-            Alfa_Romeo_40_60_HP,
-            Alfa_Romeo_75,
-            Alfa_Romeo_90,
-            Alfa_Romeo_105_115_Series_Coupés,
-            Alfa_Romeo_145,
-            Alfa_Romeo_146,
-            Alfa_Romeo_147,
-            Alfa_Romeo_155,
-            Alfa_Romeo_156,
-            Alfa_Romeo_159,
-            Alfa_Romeo_164,
-            Alfa_Romeo_166,
-            Alfa_Romeo_1750_Berlina,
-            Alfa_Romeo_1900,
-            Alfa_Romeo_2000,
-            Alfa_Romeo_2000_Berlina,
-            Alfa_Romeo_2000_GTV,
-            Alfa_Romeo_2000_Spider_Veloce,
-            Alfa_Romeo_2000_Sportiva,
-            Alfa_Romeo_2300,
-            Alfa_Romeo_2600,
-            Alfa_Romeo_6,
-            Alfa_Romeo_Type_937,
-            Alfa_Romeo_Alfasud,
-            Alfa_Romeo_Alfasud_Sprint,
-            Alfa_Romeo_Alfetta,
-            Alfa_Romeo_AR6,
-            Alfa_Romeo_AR8,
-            Alfa_Romeo_Arna,
-            Alfa_Romeo_Brera,
-            Alfa_Romeo_Dauphine,
-            Alfa_Romeo_G1,
-            Alfa_Romeo_Giulia,
-            Alfa_Romeo_Giulia_952,
-            Alfa_Romeo_Giulia_TZ,
-            Alfa_Romeo_Giulietta,
-            Alfa_Romeo_Giulietta_750_101,
-            Alfa_Romeo_Giulietta_116,
-            Alfa_Romeo_Giulietta_940,
-            Alfa_Romeo_Giulietta_Sprint_Speciale,
-            Alfa_Romeo_Gran_Sport_Quattroruote,
-            Alfa_Romeo_GT,
-            Alfa_Romeo_GT_1300_Junior,
-            Alfa_Romeo_GTA,
-            Alfa_Romeo_GTV_20,
-            Alfa_Romeo_GTV,
-            Alfa_Romeo_Matta,
-            Alfa_Romeo_MiTo,
-            Alfa_Romeo_Montreal,
-            Alfa_Romeo_Romeo_RL,
-            Alfa_Romeo_RM,
-            Alfa_Romeo_Romeo,
-            Alfa_Romeo_Spider,
-            Alfa_Romeo_Sprint,
-            Alfa_Romeo_Stelvio,
-            Alfa_Romeo_SZ,
+            [Description("0-9")] Alfa_Romeo_0_9,
+            [Description("4C")] Alfa_Romeo_4C,
+            [Description("6C")] Alfa_Romeo_6C,
+            [Description("8C")] Alfa_Romeo_8C,
+            [Description("8C Competizione")] Alfa_Romeo_8C_Competizione,
+            [Description("12C")] Alfa_Romeo_12C,
+            [Description("15/20 HP")] Alfa_Romeo_15_20_HP,
+            [Description("12 HP")] Alfa_Romeo_12_HP,
+            [Description("15 HP")] Alfa_Romeo_15_HP,
+            [Description("20/30 HP")] Alfa_Romeo_20_30_HP,
+            [Description("24 HP")] Alfa_Romeo_24_HP,
+            [Description("33")] Alfa_Romeo_33,
+            [Description("33 Stradale")] Alfa_Romeo_33_Stradale,
+            [Description("40/60 HP")] Alfa_Romeo_40_60_HP,
+            [Description("75")] Alfa_Romeo_75,
+            [Description("90")] Alfa_Romeo_90,
+            [Description("105/115 Series Coupés")] Alfa_Romeo_105_115_Series_Coupés,
+            [Description("145")] Alfa_Romeo_145,
+            [Description("146")] Alfa_Romeo_146,
+            [Description("147")] Alfa_Romeo_147,
+            [Description("155")] Alfa_Romeo_155,
+            [Description("156")] Alfa_Romeo_156,
+            [Description("159")] Alfa_Romeo_159,
+            [Description("164")] Alfa_Romeo_164,
+            [Description("166")] Alfa_Romeo_166,
+            [Description("1750 Berlina")] Alfa_Romeo_1750_Berlina,
+            [Description("1900")] Alfa_Romeo_1900,
+            [Description("2000")] Alfa_Romeo_2000,
+            [Description("2000 Berlina")] Alfa_Romeo_2000_Berlina,
+            [Description("2000 GTV")] Alfa_Romeo_2000_GTV,
+            [Description("2000 Spider Veloce")] Alfa_Romeo_2000_Spider_Veloce,
+            [Description("2000 Sportiva")] Alfa_Romeo_2000_Sportiva,
+            [Description("2300")] Alfa_Romeo_2300,
+            [Description("2600")] Alfa_Romeo_2600,
+            [Description("Alfa 6")] Alfa_Romeo_Alfa_6,
+            [Description("Type 937")] Alfa_Romeo_Type_937,
+            [Description("Alfasud")] Alfa_Romeo_Alfasud,
+            [Description("Alfasud Sprint")] Alfa_Romeo_Alfasud_Sprint,
+            [Description("Alfetta")] Alfa_Romeo_Alfetta,
+            [Description("AR6")] Alfa_Romeo_AR6,
+            [Description("AR8")] Alfa_Romeo_AR8,
+            [Description("Arna")] Alfa_Romeo_Arna,
+            [Description("Brera")] Alfa_Romeo_Brera,
+            [Description("Dauphine")] Alfa_Romeo_Dauphine,
+            [Description("G1")] Alfa_Romeo_G1,
+            [Description("Giulia")] Alfa_Romeo_Giulia,
+            [Description("Giulia (952)")] Alfa_Romeo_Giulia_952,
+            [Description("Giulia TZ")] Alfa_Romeo_Giulia_TZ,
+            [Description("Giulietta")] Alfa_Romeo_Giulietta,
+            [Description("Giulietta (750/101)")] Alfa_Romeo_Giulietta_750_101,
+            [Description("Giulietta (116)")] Alfa_Romeo_Giulietta_116,
+            [Description("Giulietta (940)")] Alfa_Romeo_Giulietta_940,
+            [Description("Giulietta Sprint Speciale")] Alfa_Romeo_Giulietta_Sprint_Speciale,
+            [Description("Gran Sport Quuattroruote")] Alfa_Romeo_Gran_Sport_Quattroruote,
+            [Description("GT")] Alfa_Romeo_GT,
+            [Description("GT 1300 Junior")] Alfa_Romeo_GT_1300_Junior,
+            [Description("GTA")] Alfa_Romeo_GTA,
+            [Description("GTV 2.0")] Alfa_Romeo_GTV_20,
+            [Description("GTV")] Alfa_Romeo_GTV,
+            [Description("Matta")] Alfa_Romeo_Matta,
+            [Description("MiTo")] Alfa_Romeo_MiTo,
+            [Description("Montreal")] Alfa_Romeo_Montreal,
+            [Description("Romeo RL")] Alfa_Romeo_Romeo_RL,
+            [Description("RM")] Alfa_Romeo_RM,
+            [Description("Romeo")] Alfa_Romeo_Romeo,
+            [Description("Spider")] Alfa_Romeo_Spider,
+            [Description("Sprint")] Alfa_Romeo_Sprint,
+            [Description("Stelvio")] Alfa_Romeo_Stelvio,
+            [Description("SZ")] Alfa_Romeo_SZ,
         };
-        public enum AMC { };
+        
         public enum Aston_Martin { };
-        public enum Audi { };
-        public enum Autosan { };
+        public enum Audi { };        
         public enum Bentley‎ { };
         public enum BMW‎ { };
-        public enum Bugatti‎ { };
-        public enum Buick‎ { };
+        public enum Bugatti‎ { };        
         public enum Cadillac‎ { };
         public enum Chevrolet‎ { };
         public enum Chrysler‎ { };
@@ -98,14 +99,12 @@ namespace CarAssistant
         public enum Ferrari‎ { };
         public enum Fiat‎ { };
         public enum Ford‎ { };
-        public enum FSO‎ { };
-        public enum GAZ‎ { };
+        public enum FSO‎ { };        
         public enum Gumpert { };
         public enum Jelcz‎ { };
         public enum Honda { };
         public enum Hummer‎ { };
         public enum Hyundai { };
-        public enum Ikarus‎ { };
         public enum Infiniti { };
         public enum Isuzu‎ { };
         public enum Iveco‎ { };
@@ -121,15 +120,12 @@ namespace CarAssistant
         public enum Lotus { };
         public enum Łada { };
         public enum MAN { };
-        public enum Maseratii { };
-        public enum Maybach‎ { };
+        public enum Maseratii { };        
         public enum Mazda‎ { };
         public enum McLaren { };
         public enum Mercedes_Benz‎ { };
         public enum Mini‎ { };
-        public enum Mitsubishi { };
-        public enum Moskwicz { };
-        public enum Neoplan { };
+        public enum Mitsubishi { };       
         public enum Nissan { };
         public enum Opel‎ { };
         public enum Pagani‎ { };
@@ -139,26 +135,34 @@ namespace CarAssistant
         public enum Renault‎ { };
         public enum Rolls_Royce { };
         public enum Rover‎ { };
-        public enum Saab‎ { };
-        public enum Saturn { };
+        public enum Saab‎ { };        
         public enum Scania‎ { };
         public enum SEAT { };
         public enum Škoda‎ { };
-        public enum Smart‎ { };
-        public enum Solaris‎ { };
-        public enum SsangYong { };
-        public enum Star‎ { };
+        public enum Smart‎ { };       
         public enum Subaru‎ { };
-        public enum Suzuki { };
-        public enum Tatra { };
+        public enum Suzuki { };        
         public enum Tesla‎ { };
-        public enum Toyota‎ { };
-        public enum UAZ { };
-        public enum Vauxhall { };
+        public enum Toyota‎ { };       
         public enum Volkswagen‎ { };
         public enum Volvo { };
-        public enum Zastava‎ { };
-        public enum ZiŁ‎ { };
+        //public enum Autosan { };
+        //public enum Buick‎ { };
+        //public enum AMC { };
+        //public enum GAZ‎ { };
+        //public enum Ikarus‎ { };
+        //public enum Maybach‎ { };
+        //public enum Moskwicz { };
+        // public enum Neoplan { };
+        //public enum Saturn { };
+        //public enum Solaris‎ { };
+        //public enum SsangYong { };
+        //public enum Star‎ { };
+        //public enum Tatra { };
+        //public enum UAZ { };
+        //public enum Vauxhall { };
+        //public enum Zastava‎ { };
+        //public enum ZiŁ‎ { };
         //Abarth,
         //AC,
         // Acura,
