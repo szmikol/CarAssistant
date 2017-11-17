@@ -45,10 +45,10 @@ namespace CarAssistant
         public User(string name, DateTime birthdate, int idNumber, int licenceNumber, string street, int postCode, string city)
         {
             userCars = new List<Car>();
-            SetName(name);
-            SetBirthdate(birthdate);
-            SetIdNumber(idNumber);
-            SetLicenceNumber(licenceNumber);
+            this.name = name;
+            birthDate = birthdate;
+            this.idNumber = idNumber;
+            this.licenceNumber = licenceNumber;
             SetResidenceAddress(street, postCode, city);
         }
         public User()
