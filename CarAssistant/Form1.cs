@@ -28,45 +28,54 @@ namespace CarAssistant
         private void bCars_Click(object sender, EventArgs e)
         {
             panelCars.BringToFront();
+            ChangeActiveButtonColor(bCars);
         }
 
         private void bManage_Click(object sender, EventArgs e)
         {
             panelManage.BringToFront();
+            ChangeActiveButtonColor(bManage);
         }
 
         private void bService_Click(object sender, EventArgs e)
         {
             panelService.BringToFront();
+            ChangeActiveButtonColor(bService);
         }
 
         private void bInsurance_Click(object sender, EventArgs e)
         {
             panelInsurance.BringToFront();
+            ChangeActiveButtonColor(bInsurance);
         }
 
         private void bRefuel_Click(object sender, EventArgs e)
         {
             panelRefuel.BringToFront();
+            ChangeActiveButtonColor(bRefuel);
         }
 
         private void bExpenses_Click(object sender, EventArgs e)
         {
             panelExpenses.BringToFront();
+            ChangeActiveButtonColor(bExpenses);
         }
 
         private void bReminders_Click(object sender, EventArgs e)
         {
             panelReminders.BringToFront();
+            ChangeActiveButtonColor(bReminders);
         }
 
         private void bSettings_Click(object sender, EventArgs e)
         {
             panelSettings.BringToFront();
+            ChangeActiveButtonColor(bSettings);
         }
         private void bSaveLoad_Click(object sender, EventArgs e)
         {
             panelSaveLoad.BringToFront();
+            ChangeActiveButtonColor(bSaveLoad);
         }
 
         private void Exit()
@@ -77,6 +86,21 @@ namespace CarAssistant
             {
                 Close();
             }
+        }
+
+        private void ChangeActiveButtonColor(Button button)
+        {
+            bCars.ForeColor = Color.White;
+            bManage.ForeColor = Color.White;
+            bService.ForeColor = Color.White;
+            bInsurance.ForeColor = Color.White;
+            bRefuel.ForeColor = Color.White;
+            bExpenses.ForeColor = Color.White;
+            bReminders.ForeColor = Color.White;
+            bSaveLoad.ForeColor = Color.White;
+            bSettings.ForeColor = Color.White;
+            bExit.ForeColor = Color.White;
+            button.ForeColor = Color.Green;
         }
 
     }
