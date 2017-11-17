@@ -55,6 +55,7 @@
     <Compile Include="Classes\Car\Engines\DieselEngine.cs" />
     <Compile Include="Classes\Car\Engine.cs" />
     <Compile Include="Classes\Car\Engines\PetrolEngine.cs" />
+    <Compile Include="Classes\Facade\ButtonsBehavior.cs" />
     <Compile Include="Classes\Facade\CarManager.cs" />
     <Compile Include="Classes\Facade\DataLoader.cs" />
     <Compile Include="Classes\Facade\DataSaver.cs" />

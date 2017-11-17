@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using CarAssistant.Classes.Facade;
 
 namespace CarAssistant
 {
@@ -16,5 +17,22 @@ namespace CarAssistant
 		{
 			InitializeComponent();
 		}
-	}
+
+        private void bExit_Click(object sender, EventArgs e)
+        {
+            bool exit = false;
+            exit = ButtonsBehavior.ExitYesNo(exit);
+            if (exit) { Close(); };
+        }
+
+        private void bCars_Click(object sender, EventArgs e)
+        {
+            panelCars.BringToFront();
+        }
+
+        private void bManage_Click(object sender, EventArgs e)
+        {
+            panelManage.BringToFront();
+        }
+    }
 }
