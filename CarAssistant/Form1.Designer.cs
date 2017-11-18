@@ -66,7 +66,6 @@
             this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
             this.saveFileDialog1 = new System.Windows.Forms.SaveFileDialog();
             this.panelCentral = new System.Windows.Forms.Panel();
-            this.picUserPhoto = new System.Windows.Forms.PictureBox();
             this.label8 = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
@@ -82,6 +81,14 @@
             this.tbDrPIDNumber = new System.Windows.Forms.TextBox();
             this.tbDrPLicenceNumber = new System.Windows.Forms.TextBox();
             this.tbDrPOwnedCars = new System.Windows.Forms.TextBox();
+            this.panelStart = new System.Windows.Forms.Panel();
+            this.label13 = new System.Windows.Forms.Label();
+            this.label17 = new System.Windows.Forms.Label();
+            this.button1 = new System.Windows.Forms.Button();
+            this.button2 = new System.Windows.Forms.Button();
+            this.button3 = new System.Windows.Forms.Button();
+            this.bHome = new System.Windows.Forms.Button();
+            this.picUserPhoto = new System.Windows.Forms.PictureBox();
             this.panelMenu.SuspendLayout();
             this.panelButtons.SuspendLayout();
             this.panelDriverInfo.SuspendLayout();
@@ -95,6 +102,7 @@
             this.panelSettings.SuspendLayout();
             this.panelSaveLoad.SuspendLayout();
             this.panelCentral.SuspendLayout();
+            this.panelStart.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.picUserPhoto)).BeginInit();
             this.SuspendLayout();
             // 
@@ -357,6 +365,7 @@
             // panelDriverInfo
             // 
             this.panelDriverInfo.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(57)))), ((int)(((byte)(57)))), ((int)(((byte)(57)))));
+            this.panelDriverInfo.Controls.Add(this.bHome);
             this.panelDriverInfo.Controls.Add(this.tbDrPOwnedCars);
             this.panelDriverInfo.Controls.Add(this.tbDrPLicenceNumber);
             this.panelDriverInfo.Controls.Add(this.tbDrPIDNumber);
@@ -538,9 +547,9 @@
             this.panelSaveLoad.Controls.Add(this.bSaveFile);
             this.panelSaveLoad.Controls.Add(this.label7);
             this.panelSaveLoad.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panelSaveLoad.Location = new System.Drawing.Point(200, 150);
+            this.panelSaveLoad.Location = new System.Drawing.Point(0, 0);
             this.panelSaveLoad.Name = "panelSaveLoad";
-            this.panelSaveLoad.Size = new System.Drawing.Size(900, 450);
+            this.panelSaveLoad.Size = new System.Drawing.Size(1100, 600);
             this.panelSaveLoad.TabIndex = 8;
             // 
             // bLoadFile
@@ -581,9 +590,11 @@
             // 
             // panelCentral
             // 
-            this.panelCentral.Controls.Add(this.panelSaveLoad);
+            this.panelCentral.Controls.Add(this.panelStart);
             this.panelCentral.Controls.Add(this.panelDriverInfo);
             this.panelCentral.Controls.Add(this.panelMenu);
+            this.panelCentral.Controls.Add(this.panelSettings);
+            this.panelCentral.Controls.Add(this.panelSaveLoad);
             this.panelCentral.Controls.Add(this.panelCars);
             this.panelCentral.Controls.Add(this.panelService);
             this.panelCentral.Controls.Add(this.panelManage);
@@ -591,24 +602,11 @@
             this.panelCentral.Controls.Add(this.panelRefuel);
             this.panelCentral.Controls.Add(this.panelExpenses);
             this.panelCentral.Controls.Add(this.panelReminders);
-            this.panelCentral.Controls.Add(this.panelSettings);
             this.panelCentral.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panelCentral.Location = new System.Drawing.Point(0, 0);
             this.panelCentral.Name = "panelCentral";
             this.panelCentral.Size = new System.Drawing.Size(1100, 600);
             this.panelCentral.TabIndex = 3;
-            // 
-            // picUserPhoto
-            // 
-            this.picUserPhoto.Dock = System.Windows.Forms.DockStyle.Right;
-            this.picUserPhoto.Image = global::CarAssistant.Properties.Resources.BlankProfile;
-            this.picUserPhoto.InitialImage = global::CarAssistant.Properties.Resources.BlankProfile;
-            this.picUserPhoto.Location = new System.Drawing.Point(750, 0);
-            this.picUserPhoto.Name = "picUserPhoto";
-            this.picUserPhoto.Size = new System.Drawing.Size(150, 150);
-            this.picUserPhoto.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.picUserPhoto.TabIndex = 0;
-            this.picUserPhoto.TabStop = false;
             // 
             // label8
             // 
@@ -764,6 +762,91 @@
             this.tbDrPOwnedCars.Size = new System.Drawing.Size(122, 22);
             this.tbDrPOwnedCars.TabIndex = 16;
             // 
+            // panelStart
+            // 
+            this.panelStart.BackColor = System.Drawing.Color.DarkGray;
+            this.panelStart.Controls.Add(this.button3);
+            this.panelStart.Controls.Add(this.button2);
+            this.panelStart.Controls.Add(this.button1);
+            this.panelStart.Controls.Add(this.label17);
+            this.panelStart.Controls.Add(this.label13);
+            this.panelStart.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panelStart.Location = new System.Drawing.Point(200, 150);
+            this.panelStart.Name = "panelStart";
+            this.panelStart.Size = new System.Drawing.Size(900, 450);
+            this.panelStart.TabIndex = 8;
+            // 
+            // label13
+            // 
+            this.label13.AutoSize = true;
+            this.label13.Location = new System.Drawing.Point(828, 400);
+            this.label13.Name = "label13";
+            this.label13.Size = new System.Drawing.Size(72, 17);
+            this.label13.TabIndex = 0;
+            this.label13.Text = "startPanel";
+            // 
+            // label17
+            // 
+            this.label17.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.label17.AutoSize = true;
+            this.label17.Location = new System.Drawing.Point(287, 33);
+            this.label17.Name = "label17";
+            this.label17.Size = new System.Drawing.Size(308, 17);
+            this.label17.TabIndex = 1;
+            this.label17.Text = "Welcome in Car Assistant! Choose your options!";
+            // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(290, 83);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(305, 66);
+            this.button1.TabIndex = 2;
+            this.button1.Text = "Create driver";
+            this.button1.UseVisualStyleBackColor = true;
+            // 
+            // button2
+            // 
+            this.button2.Location = new System.Drawing.Point(290, 171);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(305, 66);
+            this.button2.TabIndex = 3;
+            this.button2.Text = "Save driver";
+            this.button2.UseVisualStyleBackColor = true;
+            // 
+            // button3
+            // 
+            this.button3.Location = new System.Drawing.Point(290, 259);
+            this.button3.Name = "button3";
+            this.button3.Size = new System.Drawing.Size(305, 66);
+            this.button3.TabIndex = 4;
+            this.button3.Text = "Load driver";
+            this.button3.UseVisualStyleBackColor = true;
+            // 
+            // bHome
+            // 
+            this.bHome.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.bHome.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.bHome.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.bHome.Image = global::CarAssistant.Properties.Resources.home16x16;
+            this.bHome.Location = new System.Drawing.Point(4, 4);
+            this.bHome.Name = "bHome";
+            this.bHome.Size = new System.Drawing.Size(44, 23);
+            this.bHome.TabIndex = 17;
+            this.bHome.UseVisualStyleBackColor = true;
+            this.bHome.Click += new System.EventHandler(this.bHome_Click);
+            // 
+            // picUserPhoto
+            // 
+            this.picUserPhoto.Dock = System.Windows.Forms.DockStyle.Right;
+            this.picUserPhoto.Image = global::CarAssistant.Properties.Resources.BlankProfile;
+            this.picUserPhoto.InitialImage = global::CarAssistant.Properties.Resources.BlankProfile;
+            this.picUserPhoto.Location = new System.Drawing.Point(750, 0);
+            this.picUserPhoto.Name = "picUserPhoto";
+            this.picUserPhoto.Size = new System.Drawing.Size(150, 150);
+            this.picUserPhoto.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.picUserPhoto.TabIndex = 0;
+            this.picUserPhoto.TabStop = false;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -800,6 +883,8 @@
             this.panelSaveLoad.ResumeLayout(false);
             this.panelSaveLoad.PerformLayout();
             this.panelCentral.ResumeLayout(false);
+            this.panelStart.ResumeLayout(false);
+            this.panelStart.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.picUserPhoto)).EndInit();
             this.ResumeLayout(false);
 
@@ -861,6 +946,13 @@
         private System.Windows.Forms.TextBox tbDrPLicenceNumber;
         private System.Windows.Forms.TextBox tbDrPIDNumber;
         private System.Windows.Forms.TextBox tbDrPAddress;
+        private System.Windows.Forms.Panel panelStart;
+        private System.Windows.Forms.Button button3;
+        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Label label17;
+        private System.Windows.Forms.Label label13;
+        private System.Windows.Forms.Button bHome;
     }
 }
 

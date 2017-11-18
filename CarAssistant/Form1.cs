@@ -118,5 +118,11 @@ namespace CarAssistant
         {
 
         }
+
+        private void bHome_Click(object sender, EventArgs e)
+        {
+            panelStart.BringToFront();
+            ChangeActiveButtonColor(bHome);
+        }
     }
 }
