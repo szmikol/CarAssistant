@@ -124,5 +124,11 @@ namespace CarAssistant
             panelStart.BringToFront();
             ChangeActiveButtonColor(bHome);
         }
+
+        private void bCreateDriver_Click(object sender, EventArgs e)
+        {
+            FormCreateUser formCreateUser = new FormCreateUser();
+            formCreateUser.Show();
+        }
     }
 }
