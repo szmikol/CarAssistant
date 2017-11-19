@@ -8,25 +8,35 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.IO;
+using CarAssistant.Classes.Facade;
 
 namespace CarAssistant
 {
     public partial class FormCreateUser : Form
     {
+        private string name, street, city, postCode;
+        private int idNumber, licenceNumber;
+        private DateTime birthDate, licenceRelease;
+        UserManager userManager = new UserManager();
+
         public FormCreateUser()
         {
             InitializeComponent();
-        }
-
-        private void button1_Click(object sender, EventArgs e)
-        {
-            User user = new User();
         }
 
         private void bDriverPhoto_Click(object sender, EventArgs e)
         {
             string imageLocation = "";
             string path = @"c:\CarAssistant\user.jpg";
+            OpenFile(imageLocation, path);
+        }
+        private void bCreateDriver_Click(object sender, EventArgs e)
+        {
+            userManager.CreateNewUser();
+        }
+
+        private void OpenFile(string imageLocation, string path)
+        {
             try
             {
                 OpenFileDialog loadUserImage = new OpenFileDialog();
@@ -36,7 +46,7 @@ namespace CarAssistant
                     imageLocation = loadUserImage.FileName;
                     Directory.CreateDirectory(@"c:\CarAssistant");
                     File.Copy(imageLocation, path, true);
-                    
+
                     pbUserImageLoad.ImageLocation = imageLocation;
                 }
             }
@@ -44,6 +54,50 @@ namespace CarAssistant
             {
                 MessageBox.Show("Wrong file path.", "error", MessageBoxButtons.OK);
             }
+        }
+
+        public void GetValuesToCreateUser()
+        {
+            ReadTextboxes(out name, out birthDate, out idNumber, out licenceNumber, out licenceRelease, out street, out postCode, out city);
+        }
+        public void ReadTextboxes(out string name, out DateTime birthDate, out int idNumber, out int licenceNumber, out DateTime licenceRelease, out string street, out string postCode, out string city )
+        {
+            name = tbCreateName.Text;
+            birthDate = ConvertToDatetime(tbCreateBirthdate.Text);
+            idNumber = ConvertToInt(tbCreateIdnumb.Text);
+            licenceNumber = ConvertToInt(tbCreateLicenceNr.Text);
+            licenceRelease = ConvertToDatetime(tbCreateLicDate.Text);
+            street = tbCreateStreet.Text;
+            postCode = tbCreatePostCode.Text;
+            city = tbCreateCity.Text;
+        }
+
+        private DateTime ConvertToDatetime(string date)
+        {
+            DateTime convertedDate = new DateTime();
+            try
+            {
+                convertedDate = Convert.ToDateTime(date);
+            }
+            catch
+            {
+                MessageBox.Show("Wrong format of date!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            return convertedDate;
+        }
+        private int ConvertToInt(string id)
+        {
+            int convertedInt = 0;
+            try
+            {
+                convertedInt = int.Parse(id);
+            }
+            catch
+            {
+                MessageBox.Show("Wrong format. Use numbers only!", "Something gone wrong!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+
+            return convertedInt;
         }
     }
 }

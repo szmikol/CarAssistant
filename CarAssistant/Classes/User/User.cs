@@ -42,13 +42,14 @@ namespace CarAssistant
         private int userAge; // Used in method WriteUserShortDescription(): calculates user's age in years
         private int userOwnedCars; // Used in method WriteUserShortDescription():counts cars owned by user.
 
-        public User(string name, DateTime birthdate, int idNumber, int licenceNumber, string street, int postCode, string city)
+        public User(string name, DateTime birthdate, int idNumber, int licenceNumber, DateTime licenceDate, string street, string postCode, string city)
         {
             userCars = new List<Car>();
             this.name = name;
             birthDate = birthdate;
             this.idNumber = idNumber;
             this.licenceNumber = licenceNumber;
+            this.licenceDate = licenceDate;
             SetResidenceAddress(street, postCode, city);
         }
         public User()
@@ -286,7 +287,7 @@ namespace CarAssistant
         /// <param name="street"></param>
         /// <param name="postCode"></param>
         /// <param name="city"></param>
-        private void SetResidenceAddress(string street, int postCode, string city)
+        private void SetResidenceAddress(string street, string postCode, string city)
         {
             residenceAddress = string.Format("{0},{1},{2}", street, postCode, city);
         }
@@ -315,7 +316,7 @@ namespace CarAssistant
         /// <param name="postCode"></param>
         /// <param name="city"></param>
         public void EditUserSpecifiedData(bool nameB, bool birthB, bool idNumberB, bool licenceNumberB, bool addressB, 
-            string name, DateTime birthdate, int idNumber, int licenceNumber, string street, int postCode, string city)
+            string name, DateTime birthdate, int idNumber, int licenceNumber, string street, string postCode, string city)
         {
             if (nameB)
             {
