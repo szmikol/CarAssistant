@@ -9,9 +9,14 @@ namespace CarAssistant.Classes.Facade
 {
 	public class UserManager : IUserManager
 	{
+        public User driver;
+        private List<User> userGlobalList = new List<User>();
 		public void CreateNewUser()
 		{
-			throw new NotImplementedException();
+            FormCreateUser formUser = new FormCreateUser();
+            driver = formUser.CreateUser();
+            //formUser.ReadTextboxes(out string name, out DateTime birthDate, out int idNumber, out int licenceNumber, out licenceRelease, out street, out postCode, out city);
+            //driver = new User(name,birthDate,idNumber,licenceNumber,licenceRelease,street,postCode,city);
 		}
 
 		public User FindUserById(int Id)

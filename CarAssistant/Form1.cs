@@ -13,7 +13,7 @@ namespace CarAssistant
 {
 	public partial class Form1 : Form
 	{
-        
+        public User driver;
 		public Form1()
 		{
 			InitializeComponent();
@@ -117,6 +117,32 @@ namespace CarAssistant
         private void bSaveFile_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void bHome_Click(object sender, EventArgs e)
+        {
+            panelStart.BringToFront();
+            ChangeActiveButtonColor(bHome);
+        }
+
+        private void bCreateDriver_Click(object sender, EventArgs e)
+        {
+            FormCreateUser formCreateUser = new FormCreateUser();
+            formCreateUser.Show();
+        }
+        public void UpdateUserForms(User user)
+        {
+            tbDrPName.Text = user.GetName();
+            tbDrPAge.Text = user.GetUserAge().ToString();
+            tbDrPBirthdate.Text = user.GetBirthdate().ToString();
+            tbDrPIDNumber.Text = user.GetIdNumber().ToString();
+            tbDrPLicenceNumber.Text = user.GetLicenceNumber().ToString();
+            tbDrPOwnedCars.Text = (0 + user.userCars.Count()).ToString();
+            tbDrPAddress.Text = user.GetResidenceAddress();
+        }
+        public void SetDriver(User user)
+        {
+            driver = user;
         }
     }
 }
