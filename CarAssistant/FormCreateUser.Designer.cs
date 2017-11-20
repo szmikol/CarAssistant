@@ -31,6 +31,7 @@
             this.panel1 = new System.Windows.Forms.Panel();
             this.bCreateDriver = new System.Windows.Forms.Button();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.label10 = new System.Windows.Forms.Label();
             this.bDriverPhoto = new System.Windows.Forms.Button();
             this.pbUserImageLoad = new System.Windows.Forms.PictureBox();
             this.tbCreateCity = new System.Windows.Forms.TextBox();
@@ -40,9 +41,7 @@
             this.label7 = new System.Windows.Forms.Label();
             this.tbCreateStreet = new System.Windows.Forms.TextBox();
             this.tbCreateLicenceNr = new System.Windows.Forms.TextBox();
-            this.tbCreateLicDate = new System.Windows.Forms.TextBox();
             this.tbCreateIdnumb = new System.Windows.Forms.TextBox();
-            this.tbCreateBirthdate = new System.Windows.Forms.TextBox();
             this.tbCreateName = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
@@ -50,7 +49,8 @@
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
-            this.label10 = new System.Windows.Forms.Label();
+            this.dateBirthDate = new System.Windows.Forms.DateTimePicker();
+            this.dateLicRelease = new System.Windows.Forms.DateTimePicker();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbUserImageLoad)).BeginInit();
@@ -82,6 +82,8 @@
             // panel2
             // 
             this.panel2.BackColor = System.Drawing.Color.Gray;
+            this.panel2.Controls.Add(this.dateLicRelease);
+            this.panel2.Controls.Add(this.dateBirthDate);
             this.panel2.Controls.Add(this.label10);
             this.panel2.Controls.Add(this.bDriverPhoto);
             this.panel2.Controls.Add(this.pbUserImageLoad);
@@ -92,9 +94,7 @@
             this.panel2.Controls.Add(this.label7);
             this.panel2.Controls.Add(this.tbCreateStreet);
             this.panel2.Controls.Add(this.tbCreateLicenceNr);
-            this.panel2.Controls.Add(this.tbCreateLicDate);
             this.panel2.Controls.Add(this.tbCreateIdnumb);
-            this.panel2.Controls.Add(this.tbCreateBirthdate);
             this.panel2.Controls.Add(this.tbCreateName);
             this.panel2.Controls.Add(this.label6);
             this.panel2.Controls.Add(this.label5);
@@ -106,6 +106,16 @@
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(700, 300);
             this.panel2.TabIndex = 0;
+            // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.label10.Location = new System.Drawing.Point(111, 7);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(149, 18);
+            this.label10.TabIndex = 19;
+            this.label10.Text = "Personal information:";
             // 
             // bDriverPhoto
             // 
@@ -183,26 +193,12 @@
             this.tbCreateLicenceNr.Size = new System.Drawing.Size(100, 22);
             this.tbCreateLicenceNr.TabIndex = 10;
             // 
-            // tbCreateLicDate
-            // 
-            this.tbCreateLicDate.Location = new System.Drawing.Point(153, 137);
-            this.tbCreateLicDate.Name = "tbCreateLicDate";
-            this.tbCreateLicDate.Size = new System.Drawing.Size(100, 22);
-            this.tbCreateLicDate.TabIndex = 9;
-            // 
             // tbCreateIdnumb
             // 
             this.tbCreateIdnumb.Location = new System.Drawing.Point(153, 81);
             this.tbCreateIdnumb.Name = "tbCreateIdnumb";
             this.tbCreateIdnumb.Size = new System.Drawing.Size(100, 22);
             this.tbCreateIdnumb.TabIndex = 8;
-            // 
-            // tbCreateBirthdate
-            // 
-            this.tbCreateBirthdate.Location = new System.Drawing.Point(153, 53);
-            this.tbCreateBirthdate.Name = "tbCreateBirthdate";
-            this.tbCreateBirthdate.Size = new System.Drawing.Size(100, 22);
-            this.tbCreateBirthdate.TabIndex = 7;
             // 
             // tbCreateName
             // 
@@ -265,15 +261,23 @@
             this.label1.TabIndex = 0;
             this.label1.Text = "Name:";
             // 
-            // label10
+            // dateBirthDate
             // 
-            this.label10.AutoSize = true;
-            this.label10.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.label10.Location = new System.Drawing.Point(111, 7);
-            this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(149, 18);
-            this.label10.TabIndex = 19;
-            this.label10.Text = "Personal information:";
+            this.dateBirthDate.CustomFormat = "dd-MM-yyyy";
+            this.dateBirthDate.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            this.dateBirthDate.Location = new System.Drawing.Point(153, 56);
+            this.dateBirthDate.Name = "dateBirthDate";
+            this.dateBirthDate.Size = new System.Drawing.Size(100, 22);
+            this.dateBirthDate.TabIndex = 20;
+            // 
+            // dateLicRelease
+            // 
+            this.dateLicRelease.CustomFormat = "dd-MM-yyyy";
+            this.dateLicRelease.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            this.dateLicRelease.Location = new System.Drawing.Point(153, 137);
+            this.dateLicRelease.Name = "dateLicRelease";
+            this.dateLicRelease.Size = new System.Drawing.Size(100, 22);
+            this.dateLicRelease.TabIndex = 21;
             // 
             // FormCreateUser
             // 
@@ -300,9 +304,7 @@
         private System.Windows.Forms.Button bCreateDriver;
         private System.Windows.Forms.TextBox tbCreateStreet;
         private System.Windows.Forms.TextBox tbCreateLicenceNr;
-        private System.Windows.Forms.TextBox tbCreateLicDate;
         private System.Windows.Forms.TextBox tbCreateIdnumb;
-        private System.Windows.Forms.TextBox tbCreateBirthdate;
         private System.Windows.Forms.TextBox tbCreateName;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label5;
@@ -318,5 +320,7 @@
         private System.Windows.Forms.Button bDriverPhoto;
         private System.Windows.Forms.PictureBox pbUserImageLoad;
         private System.Windows.Forms.Label label10;
+        private System.Windows.Forms.DateTimePicker dateBirthDate;
+        private System.Windows.Forms.DateTimePicker dateLicRelease;
     }
 }

@@ -17,6 +17,9 @@ namespace CarAssistant
         private string name, street, city, postCode;
         private int idNumber, licenceNumber;
         private DateTime birthDate, licenceRelease;
+        private User driver;
+        bool userBool = false;
+        private string path;
         UserManager userManager = new UserManager();
 
         public FormCreateUser()
@@ -26,13 +29,23 @@ namespace CarAssistant
 
         private void bDriverPhoto_Click(object sender, EventArgs e)
         {
+            string photoName = tbCreateName.Text +"1";
             string imageLocation = "";
-            string path = @"c:\CarAssistant\user.jpg";
+            path = string.Format(@"c:\CarAssistant\{0}.jpg", photoName);
             OpenFile(imageLocation, path);
         }
         private void bCreateDriver_Click(object sender, EventArgs e)
         {
-            userManager.CreateNewUser();
+            driver = CreateUser();
+            driver.SetPhotoPath(path);
+            CloseForm();
+        }
+        private void CloseForm()
+        {
+            if (userBool)
+            {
+                Close();
+            }
         }
 
         private void OpenFile(string imageLocation, string path)
@@ -56,6 +69,20 @@ namespace CarAssistant
             }
         }
 
+        public User CreateUser()
+        {
+            try
+            {
+            GetValuesToCreateUser();
+            driver = new User(name,birthDate,idNumber,licenceNumber,licenceRelease,street,postCode,city);
+            userBool = true;
+            }
+            catch
+            {
+                MessageBox.Show("Something gone wrong!", "Error");
+            }
+            return driver;
+        }
         public void GetValuesToCreateUser()
         {
             ReadTextboxes(out name, out birthDate, out idNumber, out licenceNumber, out licenceRelease, out street, out postCode, out city);
@@ -63,10 +90,10 @@ namespace CarAssistant
         public void ReadTextboxes(out string name, out DateTime birthDate, out int idNumber, out int licenceNumber, out DateTime licenceRelease, out string street, out string postCode, out string city )
         {
             name = tbCreateName.Text;
-            birthDate = ConvertToDatetime(tbCreateBirthdate.Text);
+            birthDate = ConvertToDatetime(dateBirthDate.Text);
             idNumber = ConvertToInt(tbCreateIdnumb.Text);
             licenceNumber = ConvertToInt(tbCreateLicenceNr.Text);
-            licenceRelease = ConvertToDatetime(tbCreateLicDate.Text);
+            licenceRelease = ConvertToDatetime(dateLicRelease.Text);
             street = tbCreateStreet.Text;
             postCode = tbCreatePostCode.Text;
             city = tbCreateCity.Text;
@@ -77,7 +104,7 @@ namespace CarAssistant
             DateTime convertedDate = new DateTime();
             try
             {
-                convertedDate = Convert.ToDateTime(date);
+                convertedDate = DateTime.ParseExact(date, "dd-MM-yyyy", null);
             }
             catch
             {
