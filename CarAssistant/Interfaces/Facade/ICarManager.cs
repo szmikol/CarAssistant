@@ -10,31 +10,31 @@ namespace CarAssistant.Interfaces
 	public interface ICarManager
 	{
 		//Method allow to create a new car and add it to the system storage
-		void CreateNewCar(Car NewCar);
+		void CreateNewCar(User WichUser, Car NewCar);
 
 		//Method removes specific car, base on its ID number
-		void DeleteCarById(int Id);
+		void DeleteCarById(User WhichUser, int Id);
 
 		//Method removes specific car, base on its Brand and Model
-		void DeleteCarByModel(Brand Brand, Model CarModel);
+		void DeleteCarByModel(User WhichUser, Brand Brand, Model CarModel);
 
 		//Method removes specific car
-		void DeleteCar(Car CarToDelete);
+		void DeleteCar(User WhichUser, Car CarToDelete);
 
 		//Method update and returns updated Car
-		Car UpdateCar(Car UpdatedCar);
+		Car UpdateCar(User WhichUser, Car UpdatedCar);
 
 		//Method search and returns specific Car by its ID number
-		Car FindCarById(int Id);
+		Car FindCarById(User WhichUser, int Id);
 
 		//Method search and returns all Cars from system storage, base on its Brand
-		List<Car> FindCarsByBrand(Brand CarBrand);
+		List<Car> FindCarsByBrand(User WhichUser, Brand CarBrand);
 
 		//Method search and returns all Cars from system storage, base on its Model
-		List<Car> FindCardByModel(Model CarModel);
+		List<Car> FindCardByModel(User WhichUser, Model CarModel);
 
 		//Method returns all Cars of specific Brand
 		//E.g. Fiat Uno, Fiat Panda, Fiat Sedici etc.
-		Dictionary<Brand, Model> RetrieveAllCarsOfSpecificBrand(Brand CarBrand);
+		Dictionary<Brand, Model> RetrieveAllCarsOfSpecificBrand(User WhichUser, Brand CarBrand);
 	}
 }
