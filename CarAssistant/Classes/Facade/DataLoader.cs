@@ -4,6 +4,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using CarAssistant.Interfaces.Facade;
+using System.Xml.Serialization;
+using System.IO;
 
 namespace CarAssistant.Classes.Facade
 {
@@ -21,7 +23,12 @@ namespace CarAssistant.Classes.Facade
 
 		public User LoadUserFromXml(string Path)
 		{
-			throw new NotImplementedException();
+            var file = new FileStream(Path,FileMode.Open);
+            var load = new XmlSerializer(typeof(User));
+            User user = new User();
+            //user = load.Serialize(file, ); //WTF tu się dzieje x_X
+            return user;
+
 		}
 	}
 }
