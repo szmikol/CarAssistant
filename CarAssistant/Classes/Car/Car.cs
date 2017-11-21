@@ -20,9 +20,11 @@ namespace CarAssistant
         private DateTime PurchaseDate;
         private User Owner;
         private double CounterState;
-        
+        private string Vin;
+        private int Index;
         //Constructors
-        public Car(Brand InputBrand, Model InputModel, Engine InputEngine, DateTime InputProductionYear, User InputOwner, DateTime InputPurchaseDate, double InputCounterState)
+        public Car(Brand InputBrand, Model InputModel, Engine InputEngine, DateTime InputProductionYear, 
+            User InputOwner, DateTime InputPurchaseDate, double InputCounterState, string InputVin)
         {
             Brand = InputBrand;
             Model = InputModel;
@@ -31,7 +33,7 @@ namespace CarAssistant
             CounterState = InputCounterState;
             PurchaseDate = InputPurchaseDate;
             Engine = InputEngine;
-
+            Vin = InputVin;
         }
 
 
@@ -97,7 +99,21 @@ namespace CarAssistant
         {
             PurchaseDate = InPurchaseDate;
         }
-        
+        /// <summary>
+        /// Sets object's parameter Vin
+        /// </summary>
+        public void SetVin (string InputVin)
+        {
+            Vin = InputVin;
+        }
+
+        /// <summary>
+        /// Sets object's parameter Vin
+        /// </summary>
+        public void SetIndex()
+        {
+            Index = Owner.userCars.Count - 1;
+        }
         /// <summary>
         /// Returns object's parameter Brand
         /// </summary>
@@ -153,7 +169,20 @@ namespace CarAssistant
         {
             return PurchaseDate;
         }
-        
+        /// <summary>
+        /// Returns object's parameter Vin
+        /// </summary>
+        public string GetVin()
+        {
+            return Vin;
+        }
+        /// <summary>
+        /// Find Car's Id in user list;
+        /// </summary>
+        public int GetIndex()
+        {
+            return Index;
+        }
         /// <summary>
         /// Returns object's age in years
         /// </summary>
@@ -168,7 +197,8 @@ namespace CarAssistant
             }
             return Age;
         }
-        
+    
+
         /// <summary>
         /// Returns object's short description in string
         /// </summary>
