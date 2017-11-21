@@ -36,8 +36,11 @@ namespace CarAssistant
         }
         private void bCreateDriver_Click(object sender, EventArgs e)
         {
+            string pathxml = @"c:\CarAssistant\user.xml";
             driver = CreateUser();
             driver.SetPhotoPath(path);
+            DataSaver save = new DataSaver();
+            save.SaveUserToXml(driver, pathxml);
             CloseForm();
         }
         private void CloseForm()

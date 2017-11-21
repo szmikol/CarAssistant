@@ -39,7 +39,7 @@ namespace CarAssistant
         /// </summary>
         public List<Car> userCars;
         private string userDescription; // Used in method WriteUserShortDescription(): name,age,number of owned cars
-        private int userAge; // Used in method WriteUserShortDescription(): calculates user's age in years
+        public int userAge; // Used in method WriteUserShortDescription(): calculates user's age in years
         private int userOwnedCars; // Used in method WriteUserShortDescription():counts cars owned by user.
         private string photoPath;
 
@@ -52,6 +52,7 @@ namespace CarAssistant
             this.licenceNumber = licenceNumber;
             this.licenceDate = licenceDate;
             SetResidenceAddress(street, postCode, city);
+            userAge = GetUserAge();
         }
         public User()
         {
@@ -200,6 +201,10 @@ namespace CarAssistant
             DateTime dateToday = DateTime.Today;
             userAge = dateToday.Year - birthDate.Year;
             return userAge;
+        }
+        public void SetUserAge(int age)
+        {
+            userAge = age;
         }
         /// <summary>
         /// Sets user "Name surname".
