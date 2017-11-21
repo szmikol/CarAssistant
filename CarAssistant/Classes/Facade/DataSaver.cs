@@ -4,6 +4,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using CarAssistant.Interfaces.Facade;
+using System.Xml.Serialization;
+using System.IO;
 
 namespace CarAssistant.Classes.Facade
 {
@@ -21,7 +23,9 @@ namespace CarAssistant.Classes.Facade
 
 		public void SaveUserToXml(User User, string Path)
 		{
-			throw new NotImplementedException();
+            var serial = new XmlSerializer(typeof(User));
+            TextWriter text = new StreamWriter(Path);
+            serial.Serialize(text, User);
 		}
 	}
 }
