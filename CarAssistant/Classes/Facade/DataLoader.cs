@@ -25,9 +25,7 @@ namespace CarAssistant.Classes.Facade
 		{
             var file = new FileStream(Path,FileMode.Open);
             var load = new XmlSerializer(typeof(User));
-            User user = new User();
-            //user = load.Serialize(file, ); //WTF tu się dzieje x_X
-            return user;
+            return (User)load.Deserialize(file);
 
 		}
 	}

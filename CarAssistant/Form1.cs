@@ -8,15 +8,22 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using CarAssistant.Classes.Facade;
+using System.IO;
 
 namespace CarAssistant
 {
 	public partial class Form1 : Form
 	{
         public User driver;
+        private string pathOfDriver = @"c:\CarAssistant\user.xml";
+        DataSaver dataSaver;
+        DataLoader dataLoader;
 		public Form1()
 		{
 			InitializeComponent();
+            dataSaver = new DataSaver();
+            dataLoader = new DataLoader();
+            InitialDriverLoader(out driver);
             bLoadFile.Click += new System.EventHandler(bLoadFile_Click);
         }
 
@@ -134,15 +141,29 @@ namespace CarAssistant
         {
             tbDrPName.Text = user.GetName();
             tbDrPAge.Text = user.GetUserAge().ToString();
-            tbDrPBirthdate.Text = user.GetBirthdate().ToString();
+            tbDrPBirthdate.Text = user.GetBirthdate().ToShortDateString();
             tbDrPIDNumber.Text = user.GetIdNumber().ToString();
             tbDrPLicenceNumber.Text = user.GetLicenceNumber().ToString();
             tbDrPOwnedCars.Text = (0 + user.userCars.Count()).ToString();
             tbDrPAddress.Text = user.GetResidenceAddress();
         }
-        public void SetDriver(User user)
+        public void SetDriverPath(User user)
         {
             driver = user;
         }
+        private void InitialDriverLoader(out User driver)
+        {
+            if (File.Exists(pathOfDriver))
+            {
+                picUserPhoto.Image = Image.FromFile(@"c:\CarAssistant\user.jpg");
+                driver = dataLoader.LoadUserFromXml(pathOfDriver);
+                UpdateUserForms(driver);
+            }
+            else
+            {
+                driver = null;
+            }
+        }
+
     }
 }

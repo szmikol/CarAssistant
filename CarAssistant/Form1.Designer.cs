@@ -84,8 +84,8 @@
             this.saveFileDialog1 = new System.Windows.Forms.SaveFileDialog();
             this.panelCentral = new System.Windows.Forms.Panel();
             this.panelStart = new System.Windows.Forms.Panel();
-            this.button3 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
+            this.bLoadDriver = new System.Windows.Forms.Button();
+            this.bSaveDriver = new System.Windows.Forms.Button();
             this.bCreateDriver = new System.Windows.Forms.Button();
             this.label17 = new System.Windows.Forms.Label();
             this.label13 = new System.Windows.Forms.Label();
@@ -772,15 +772,15 @@
             this.panelCentral.Controls.Add(this.panelStart);
             this.panelCentral.Controls.Add(this.panelDriverInfo);
             this.panelCentral.Controls.Add(this.panelMenu);
-            this.panelCentral.Controls.Add(this.panelSettings);
-            this.panelCentral.Controls.Add(this.panelSaveLoad);
-            this.panelCentral.Controls.Add(this.panelCars);
-            this.panelCentral.Controls.Add(this.panelService);
             this.panelCentral.Controls.Add(this.panelManage);
             this.panelCentral.Controls.Add(this.panelInsurance);
             this.panelCentral.Controls.Add(this.panelRefuel);
             this.panelCentral.Controls.Add(this.panelExpenses);
             this.panelCentral.Controls.Add(this.panelReminders);
+            this.panelCentral.Controls.Add(this.panelSettings);
+            this.panelCentral.Controls.Add(this.panelSaveLoad);
+            this.panelCentral.Controls.Add(this.panelCars);
+            this.panelCentral.Controls.Add(this.panelService);
             this.panelCentral.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panelCentral.Location = new System.Drawing.Point(0, 0);
             this.panelCentral.Name = "panelCentral";
@@ -790,8 +790,8 @@
             // panelStart
             // 
             this.panelStart.BackColor = System.Drawing.Color.DarkGray;
-            this.panelStart.Controls.Add(this.button3);
-            this.panelStart.Controls.Add(this.button2);
+            this.panelStart.Controls.Add(this.bLoadDriver);
+            this.panelStart.Controls.Add(this.bSaveDriver);
             this.panelStart.Controls.Add(this.bCreateDriver);
             this.panelStart.Controls.Add(this.label17);
             this.panelStart.Controls.Add(this.label13);
@@ -801,23 +801,23 @@
             this.panelStart.Size = new System.Drawing.Size(900, 450);
             this.panelStart.TabIndex = 8;
             // 
-            // button3
+            // bLoadDriver
             // 
-            this.button3.Location = new System.Drawing.Point(290, 259);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(305, 66);
-            this.button3.TabIndex = 4;
-            this.button3.Text = "Load driver";
-            this.button3.UseVisualStyleBackColor = true;
+            this.bLoadDriver.Location = new System.Drawing.Point(290, 259);
+            this.bLoadDriver.Name = "bLoadDriver";
+            this.bLoadDriver.Size = new System.Drawing.Size(305, 66);
+            this.bLoadDriver.TabIndex = 4;
+            this.bLoadDriver.Text = "Load driver";
+            this.bLoadDriver.UseVisualStyleBackColor = true;
             // 
-            // button2
+            // bSaveDriver
             // 
-            this.button2.Location = new System.Drawing.Point(290, 171);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(305, 66);
-            this.button2.TabIndex = 3;
-            this.button2.Text = "Save driver";
-            this.button2.UseVisualStyleBackColor = true;
+            this.bSaveDriver.Location = new System.Drawing.Point(290, 171);
+            this.bSaveDriver.Name = "bSaveDriver";
+            this.bSaveDriver.Size = new System.Drawing.Size(305, 66);
+            this.bSaveDriver.TabIndex = 3;
+            this.bSaveDriver.Text = "Save driver";
+            this.bSaveDriver.UseVisualStyleBackColor = true;
             // 
             // bCreateDriver
             // 
@@ -948,8 +948,8 @@
         private System.Windows.Forms.TextBox tbDrPIDNumber;
         private System.Windows.Forms.TextBox tbDrPAddress;
         private System.Windows.Forms.Panel panelStart;
-        private System.Windows.Forms.Button button3;
-        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Button bLoadDriver;
+        private System.Windows.Forms.Button bSaveDriver;
         private System.Windows.Forms.Button bCreateDriver;
         private System.Windows.Forms.Label label17;
         private System.Windows.Forms.Label label13;

@@ -24,7 +24,7 @@ namespace CarAssistant.Classes.Facade
 		public void SaveUserToXml(User User, string Path)
 		{
             var serial = new XmlSerializer(typeof(User));
-            FileStream file = new FileStream(Path, FileMode.CreateNew);
+            FileStream file = new FileStream(Path, FileMode.Create);
             serial.Serialize(file, User);
 		}
 	}

@@ -29,9 +29,9 @@ namespace CarAssistant
 
         private void bDriverPhoto_Click(object sender, EventArgs e)
         {
-            string photoName = tbCreateName.Text +"1";
+            //string photoName = tbCreateName.Text +"1";
             string imageLocation = "";
-            path = string.Format(@"c:\CarAssistant\{0}.jpg", photoName);
+            path = string.Format(@"c:\CarAssistant\user.jpg");
             OpenFile(imageLocation, path);
         }
         private void bCreateDriver_Click(object sender, EventArgs e)
