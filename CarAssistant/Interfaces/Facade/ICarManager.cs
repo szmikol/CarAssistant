@@ -22,7 +22,7 @@ namespace CarAssistant.Interfaces
 		void DeleteCar(User WhichUser, Car CarToDelete);
 
 		//Method update and returns updated Car
-		Car UpdateCar(User WhichUser, Car UpdatedCar);
+		Car UpdateCar(User WhichUser, Car CarToUpdate, Car UpdatedCar);
 
 		//Method search and returns specific Car by its ID number
 		Car FindCarById(User WhichUser, int Id);

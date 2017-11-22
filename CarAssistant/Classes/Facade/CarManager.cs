@@ -18,6 +18,7 @@ namespace CarAssistant
 
 		public void DeleteCar(User WhichUser, Car CarToDelete)
 		{
+            CarToDelete.SetCarToNull();
             WhichUser.userCars.Remove(CarToDelete);            
 		}
 
@@ -63,22 +64,39 @@ namespace CarAssistant
 
 		public List<Car> FindCardByModel(User WhichUser, Model CarModel)
 		{
-			throw new NotImplementedException();
+            List<Car> ExportList = new List<Car>();
+            foreach(Car c in WhichUser.userCars)
+            {
+                if(c.GetModel() == CarModel)
+                {
+                    ExportList.Add(c);
+                }
+            }
+            return ExportList;
 		}
 
 		public List<Car> FindCarsByBrand(User WhichUser, Brand CarBrand)
 		{
-			throw new NotImplementedException();
-		}
+            List<Car> ExportList = new List<Car>();
+            foreach (Car c in WhichUser.userCars)
+            {
+                if (c.GetBrand() == CarBrand)
+                {
+                    ExportList.Add(c);
+                }
+            }
+            return ExportList;
+        }
 
 		public Dictionary<Brand, Model> RetrieveAllCarsOfSpecificBrand(User WhichUser, Brand CarBrand)
 		{
 			throw new NotImplementedException();
 		}
 
-		public Car UpdateCar(User WhichUser, Car UpdatedCar)
+		public Car UpdateCar(User WhichUser, Car CarToUpdate, Car UpdatedCar)
 		{
-			throw new NotImplementedException();
+            CarToUpdate.ChangeCarsParameters(UpdatedCar);
+            return CarToUpdate;
 		}
 	}
 }

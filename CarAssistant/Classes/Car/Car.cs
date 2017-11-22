@@ -253,5 +253,19 @@ namespace CarAssistant
             Index = 0;
             LicensePlateNo = null;
         }
+        /// <summary>
+        /// Change all parameters of the car based on input Car data. Returns updated object
+        /// </summary>
+        public void ChangeCarsParameters(Car InputCar)
+        {
+            SetBrand(InputCar.GetBrand());
+            SetModel(InputCar.GetModel());
+            SetEngine(InputCar.GetEngine());
+            SetLicensePlatesNo(InputCar.GetLicensePlateNo());
+            SetProductionDate(InputCar.GetProductionDate());
+            SetPurchaseDate(InputCar.GetPurchaseDate());
+            SetVin(InputCar.GetVin());
+            SetCounterState(InputCar.GetCounterState());
+        }
 	}
 }
