@@ -21,10 +21,11 @@ namespace CarAssistant
 		public Form1()
 		{
 			InitializeComponent();
+            Directory.CreateDirectory(directory);
             dataSaver = new DataSaver();
             dataLoader = new DataLoader();
             InitialDriverLoader(out driver);
-            Directory.CreateDirectory(directory);
+            ShowStartingScreen();
         }
 
 
@@ -95,6 +96,10 @@ namespace CarAssistant
                 Close();
             }
         }
+        private void ShowStartingScreen()
+        {
+            panelStart.BringToFront();
+        }
 
         private void ChangeActiveButtonColor(Button button)
         {
@@ -142,8 +147,8 @@ namespace CarAssistant
             tbDrPName.Text = user.GetName();
             tbDrPAge.Text = user.GetUserAge().ToString();
             tbDrPBirthdate.Text = user.GetBirthdate().ToShortDateString();
-            tbDrPIDNumber.Text = user.GetIdNumber().ToString();
-            tbDrPLicenceNumber.Text = user.GetLicenceNumber().ToString();
+            tbDrPIDNumber.Text = user.GetIdNumber();
+            tbDrPLicenceNumber.Text = user.GetLicenceNumber();
             tbDrPOwnedCars.Text = (0 + user.userCars.Count()).ToString();
             tbDrPAddress.Text = user.GetResidenceAddress();
         }
@@ -153,10 +158,11 @@ namespace CarAssistant
         }
         private void InitialDriverLoader(out User driver)
         {
-            if (File.Exists(directory+"user.xml"))
+            if (File.Exists(directory+"\\user.xml"))
             {
                 LoadingImageIfExist();
-                driver = dataLoader.LoadUserFromXml(directory);
+                string path = directory + "\\user.xml";
+                driver = dataLoader.LoadUserFromXml(path);
                 UpdateUserForms(driver);
             }
             else
@@ -166,7 +172,7 @@ namespace CarAssistant
         }
         private void LoadingImageIfExist()
         {
-            if (File.Exists(directory + "user.jpg"))
+            if (File.Exists(directory + "\\user.jpg"))
             {
                 picUserPhoto.Image = Image.FromFile(directory +"\\user.jpg");
             }
@@ -176,6 +182,9 @@ namespace CarAssistant
             }
         }
 
-        
+        private void button1_Click(object sender, EventArgs e)
+        {
+            UpdateUserForms(driver);
+        }
     }
 }

@@ -21,11 +21,11 @@ namespace CarAssistant
         /// <summary>
         /// Number of user's identity document.
         /// </summary>
-        public int idNumber;
+        public string idNumber;
         /// <summary>
         /// Number of user's driving licence.
         /// </summary>
-        public int licenceNumber;
+        public string licenceNumber;
         /// <summary>
         /// Date of issue of the driver's licence
         /// </summary>
@@ -43,7 +43,7 @@ namespace CarAssistant
         private int userOwnedCars; // Used in method WriteUserShortDescription():counts cars owned by user.
         private string photoPath;
 
-        public User(string name, DateTime birthdate, int idNumber, int licenceNumber, DateTime licenceDate, string street, string postCode, string city)
+        public User(string name, DateTime birthdate, string idNumber, string licenceNumber, DateTime licenceDate, string street, string postCode, string city)
         {
             userCars = new List<Car>();
             this.name = name;
@@ -242,7 +242,7 @@ namespace CarAssistant
         /// Sets user's ID number.
         /// </summary>
         /// <param name="idInput"></param>
-        public void SetIdNumber(int idInput)
+        public void SetIdNumber(string idInput)
         {
             idNumber = idInput;
         }
@@ -250,7 +250,7 @@ namespace CarAssistant
         /// Returns user's ID number.
         /// </summary>
         /// <returns></returns>
-        public int GetIdNumber()
+        public string GetIdNumber()
         {
             return idNumber;
         }
@@ -258,7 +258,7 @@ namespace CarAssistant
         /// Sets licence
         /// </summary>
         /// <param name="plateInput"></param>
-        public void SetLicenceNumber(int licenceNrInput)
+        public void SetLicenceNumber(string licenceNrInput)
         {
             licenceNumber = licenceNrInput;
         }
@@ -266,7 +266,7 @@ namespace CarAssistant
         /// Returns user's licence number.
         /// </summary>
         /// <returns></returns>
-        public int GetLicenceNumber()
+        public string GetLicenceNumber()
         {
             return licenceNumber;
         }
@@ -295,7 +295,9 @@ namespace CarAssistant
         /// <param name="city"></param>
         public void SetResidenceAddress(string street, string postCode, string city)
         {
-            residenceAddress = string.Format("{0},\n{1},\n{2}", street, postCode, city);
+            residenceAddress = street + "\n";
+            residenceAddress += postCode + "\n";
+            residenceAddress += city;
         }
         /// <summary>
         /// Returns user's residence address in format "street,post code,city".
@@ -330,7 +332,7 @@ namespace CarAssistant
         /// <param name="postCode"></param>
         /// <param name="city"></param>
         public void EditUserSpecifiedData(bool nameB, bool birthB, bool idNumberB, bool licenceNumberB, bool addressB, 
-            string name, DateTime birthdate, int idNumber, int licenceNumber, string street, string postCode, string city)
+            string name, DateTime birthdate, string idNumber, string licenceNumber, string street, string postCode, string city)
         {
             if (nameB)
             {

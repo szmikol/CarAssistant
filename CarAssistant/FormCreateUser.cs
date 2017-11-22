@@ -14,8 +14,7 @@ namespace CarAssistant
 {
     public partial class FormCreateUser : Form
     {
-        private string name, street, city, postCode;
-        private int idNumber, licenceNumber;
+        private string name, street, city, postCode, idNumber, licenceNumber;
         private DateTime birthDate, licenceRelease;
         private User driver;
         bool userBool = false;
@@ -36,9 +35,9 @@ namespace CarAssistant
         {
             //string pathxml = @"c:\CarAssistant\user.xml";
             driver = CreateUser();
-            driver.SetPhotoPath(directory+"user.jpg");
+            driver.SetPhotoPath(directory+"\\user.jpg");
             DataSaver save = new DataSaver();
-            save.SaveUserToXml(driver, directory);
+            save.SaveUserToXml(driver, directory+"\\user.xml");
             CloseForm();
         }
         private void CloseForm()
@@ -86,12 +85,12 @@ namespace CarAssistant
         {
             ReadTextboxes(out name, out birthDate, out idNumber, out licenceNumber, out licenceRelease, out street, out postCode, out city);
         }
-        public void ReadTextboxes(out string name, out DateTime birthDate, out int idNumber, out int licenceNumber, out DateTime licenceRelease, out string street, out string postCode, out string city )
+        public void ReadTextboxes(out string name, out DateTime birthDate, out string idNumber, out string licenceNumber, out DateTime licenceRelease, out string street, out string postCode, out string city )
         {
             name = tbCreateName.Text;
             birthDate = ConvertToDatetime(dateBirthDate.Text);
-            idNumber = ConvertToInt(tbCreateIdnumb.Text);
-            licenceNumber = ConvertToInt(tbCreateLicenceNr.Text);
+            idNumber = tbCreateIdnumb.Text;
+            licenceNumber = tbCreateLicenceNr.Text;
             licenceRelease = ConvertToDatetime(dateLicRelease.Text);
             street = tbCreateStreet.Text;
             postCode = tbCreatePostCode.Text;
