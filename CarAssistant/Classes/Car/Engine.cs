@@ -17,9 +17,9 @@ namespace CarAssistant
         string TypeOfEngine;
         
         // Constructor
-        public Engine(int Capacity, int Horsepower, string TypeOfEngine)
+        public Engine(int Capacity, int Horsepower, string InTypeOfEngine)
         {
-            MenageEngine(TypeOfEngine, Capacity, Horsepower);
+            MenageEngine(InTypeOfEngine, Capacity, Horsepower);
         }
         public Engine()
         {
@@ -56,22 +56,23 @@ namespace CarAssistant
         
         //Checks what type of engine there is to create and creates one. In case of mistake in string TypeOfEngine
         // shows window.x
-        private void MenageEngine(string TypeofEngine, int Capacity, int Horsepower)
+        private void MenageEngine(string InTypeOfEngine, int InCapacity, int InHorsepower)
         {
-            if (TypeOfEngine == "Petrol")
+            if (InTypeOfEngine == "Petrol")
             {
-                PetrolEngine TempPetrolEngine = new PetrolEngine();
-                TempPetrolEngine.SetCapacity(Capacity);
-                TempPetrolEngine.SetHorsepower(Horsepower);
-                TempPetrolEngine.HorsepowerTokW(HorsepowerTokW(Horsepower));
+                Capacity = InCapacity;
+                Horsepower = InHorsepower;
+                TypeOfEngine = InTypeOfEngine;
+                PowerInKW = HorsepowerTokW(InHorsepower);
+               
 
             }
-            else if (TypeOfEngine == "Diesel")
+            else if (InTypeOfEngine == "Diesel")
             {
-                DieselEngine TempDieselEngine = new DieselEngine();
-                TempDieselEngine.SetCapacity(Capacity);
-                TempDieselEngine.SetHorsepower(Horsepower);
-                TempDieselEngine.HorsepowerTokW(HorsepowerTokW(Horsepower));
+                Capacity = InCapacity;
+                Horsepower = InHorsepower;
+                TypeOfEngine = InTypeOfEngine;
+                PowerInKW = HorsepowerTokW(InHorsepower);
             }
             else
             {
