@@ -12,8 +12,8 @@ namespace CarAssistant.Interfaces
 		//Method allow to create a new car and add it to the system storage
 		void CreateNewCar(User WichUser, Car NewCar);
 
-		//Method removes specific car, base on its ID number
-		void DeleteCarById(User WhichUser, int Id);
+		//Method removes specific car, base on its VIN number
+		void DeleteCarByVin(User WhichUser, string Vin);
 
 		//Method removes specific car, base on its Brand and Model
 		void DeleteCarByModel(User WhichUser, Brand Brand, Model CarModel);

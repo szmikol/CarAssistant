@@ -21,16 +21,27 @@ namespace CarAssistant
             WhichUser.userCars.Remove(CarToDelete);            
 		}
 
-		public void DeleteCarById(User WhichUser, int Id)
+		public void DeleteCarByVin(User WhichUser, string Vin)
 		{
             foreach(Car c in WhichUser.userCars)
             {
-                if(c.GetIndex() == Id)
+                if(c.GetVin() == Vin)
                 {
+                    c.SetCarToNull();
                     WhichUser.userCars.Remove(c);
                 }
-            }            
-		}
+            }
+            foreach (Car c in WhichUser.userCars)
+            {
+                if (c.GetVin() == Vin)
+                {
+                    MessageBox.Show("Something went wrong", "Unable to delete", MessageBoxButtons.OK);
+                }
+            }
+
+
+
+        }
 
 		public void DeleteCarByModel(User WhichUser, Brand Brand, Model CarModel)
 		{

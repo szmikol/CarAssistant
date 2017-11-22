@@ -7,6 +7,7 @@ using CarAssistant.Interfaces;
 using CarAssistant.Classes;
 using System.Windows.Forms;
 using CarAssistant.Classes.Car;
+using System.Globalization;
 
 namespace CarAssistant
 {
@@ -236,6 +237,21 @@ namespace CarAssistant
             return Output;
 		}
 
-        
+        /// <summary>
+        /// Sets all parameters to null. Useful when object is deleted,
+        /// when parameters are null Garbage Collector will take it sooner.
+        /// </summary>
+        public void SetCarToNull()
+        {            
+            Brand = null;            
+            ProductionDate = DateTime.ParseExact("01-01-0001", "DD-MM-YYYY", CultureInfo.InvariantCulture);
+            Owner = null;
+            CounterState = 0;
+            PurchaseDate = DateTime.ParseExact("01-01-0001", "DD-MM-YYYY", CultureInfo.InvariantCulture);
+            Engine = null;
+            Vin = null;
+            Index = 0;
+            LicensePlateNo = null;
+        }
 	}
 }
