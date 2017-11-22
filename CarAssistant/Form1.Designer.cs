@@ -99,6 +99,17 @@
             this.bCreateDriver = new System.Windows.Forms.Button();
             this.label17 = new System.Windows.Forms.Label();
             this.label13 = new System.Windows.Forms.Label();
+            this.bAddCar = new System.Windows.Forms.Button();
+            this.panelAddNewCar = new System.Windows.Forms.Panel();
+            this.label18 = new System.Windows.Forms.Label();
+            this.bCreateCar = new System.Windows.Forms.Button();
+            this.panelCarData = new System.Windows.Forms.Panel();
+            this.panCarBoxes = new System.Windows.Forms.Panel();
+            this.label19 = new System.Windows.Forms.Label();
+            this.panEngineBoxes = new System.Windows.Forms.Panel();
+            this.label20 = new System.Windows.Forms.Label();
+            this.pbCarPhoto = new System.Windows.Forms.PictureBox();
+            this.bLoadCarPhoto = new System.Windows.Forms.Button();
             this.panelMenu.SuspendLayout();
             this.panelButtons.SuspendLayout();
             this.panelDriverInfo.SuspendLayout();
@@ -115,6 +126,11 @@
             this.panelSaveLoad.SuspendLayout();
             this.panelCentral.SuspendLayout();
             this.panelStart.SuspendLayout();
+            this.panelAddNewCar.SuspendLayout();
+            this.panelCarData.SuspendLayout();
+            this.panCarBoxes.SuspendLayout();
+            this.panEngineBoxes.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pbCarPhoto)).BeginInit();
             this.SuspendLayout();
             // 
             // panelMenu
@@ -605,6 +621,7 @@
             // panelCars
             // 
             this.panelCars.BackColor = System.Drawing.Color.DarkGray;
+            this.panelCars.Controls.Add(this.bAddCar);
             this.panelCars.Controls.Add(this.dataGridView1);
             this.panelCars.Controls.Add(this.label3);
             this.panelCars.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -899,6 +916,7 @@
             // 
             // panelCentral
             // 
+            this.panelCentral.Controls.Add(this.panelAddNewCar);
             this.panelCentral.Controls.Add(this.panelCars);
             this.panelCentral.Controls.Add(this.panelStart);
             this.panelCentral.Controls.Add(this.panelDriverInfo);
@@ -983,6 +1001,119 @@
             this.label13.TabIndex = 0;
             this.label13.Text = "startPanel";
             // 
+            // bAddCar
+            // 
+            this.bAddCar.Location = new System.Drawing.Point(662, 394);
+            this.bAddCar.Name = "bAddCar";
+            this.bAddCar.Size = new System.Drawing.Size(208, 45);
+            this.bAddCar.TabIndex = 2;
+            this.bAddCar.Text = "Add New Car (jebnij go gdzie uważasz :P";
+            this.bAddCar.UseVisualStyleBackColor = true;
+            this.bAddCar.Click += new System.EventHandler(this.bAddCar_Click);
+            // 
+            // panelAddNewCar
+            // 
+            this.panelAddNewCar.BackColor = System.Drawing.Color.Gray;
+            this.panelAddNewCar.Controls.Add(this.panelCarData);
+            this.panelAddNewCar.Controls.Add(this.bCreateCar);
+            this.panelAddNewCar.Controls.Add(this.label18);
+            this.panelAddNewCar.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panelAddNewCar.Location = new System.Drawing.Point(200, 150);
+            this.panelAddNewCar.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.panelAddNewCar.Name = "panelAddNewCar";
+            this.panelAddNewCar.Size = new System.Drawing.Size(900, 451);
+            this.panelAddNewCar.TabIndex = 4;
+            // 
+            // label18
+            // 
+            this.label18.AutoSize = true;
+            this.label18.Location = new System.Drawing.Point(752, 408);
+            this.label18.Name = "label18";
+            this.label18.Size = new System.Drawing.Size(81, 17);
+            this.label18.TabIndex = 0;
+            this.label18.Text = "addNewCar";
+            // 
+            // bCreateCar
+            // 
+            this.bCreateCar.Location = new System.Drawing.Point(390, 400);
+            this.bCreateCar.Name = "bCreateCar";
+            this.bCreateCar.Size = new System.Drawing.Size(120, 50);
+            this.bCreateCar.TabIndex = 1;
+            this.bCreateCar.Text = "Create car";
+            this.bCreateCar.UseVisualStyleBackColor = true;
+            this.bCreateCar.Click += new System.EventHandler(this.bCreateCar_Click);
+            // 
+            // panelCarData
+            // 
+            this.panelCarData.BackColor = System.Drawing.Color.DarkGray;
+            this.panelCarData.Controls.Add(this.bLoadCarPhoto);
+            this.panelCarData.Controls.Add(this.pbCarPhoto);
+            this.panelCarData.Controls.Add(this.panEngineBoxes);
+            this.panelCarData.Controls.Add(this.panCarBoxes);
+            this.panelCarData.Location = new System.Drawing.Point(30, 30);
+            this.panelCarData.Name = "panelCarData";
+            this.panelCarData.Size = new System.Drawing.Size(840, 370);
+            this.panelCarData.TabIndex = 2;
+            // 
+            // panCarBoxes
+            // 
+            this.panCarBoxes.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panCarBoxes.Controls.Add(this.label19);
+            this.panCarBoxes.Location = new System.Drawing.Point(30, 20);
+            this.panCarBoxes.Name = "panCarBoxes";
+            this.panCarBoxes.Size = new System.Drawing.Size(160, 40);
+            this.panCarBoxes.TabIndex = 0;
+            // 
+            // label19
+            // 
+            this.label19.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.label19.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.label19.Location = new System.Drawing.Point(30, 7);
+            this.label19.Name = "label19";
+            this.label19.Size = new System.Drawing.Size(100, 24);
+            this.label19.TabIndex = 0;
+            this.label19.Text = "Car data:";
+            this.label19.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // panEngineBoxes
+            // 
+            this.panEngineBoxes.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panEngineBoxes.Controls.Add(this.label20);
+            this.panEngineBoxes.Location = new System.Drawing.Point(330, 20);
+            this.panEngineBoxes.Name = "panEngineBoxes";
+            this.panEngineBoxes.Size = new System.Drawing.Size(160, 40);
+            this.panEngineBoxes.TabIndex = 1;
+            // 
+            // label20
+            // 
+            this.label20.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.label20.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.label20.Location = new System.Drawing.Point(10, 7);
+            this.label20.Name = "label20";
+            this.label20.Size = new System.Drawing.Size(140, 24);
+            this.label20.TabIndex = 0;
+            this.label20.Text = "Engine data:";
+            this.label20.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // pbCarPhoto
+            // 
+            this.pbCarPhoto.BackgroundImage = global::CarAssistant.Properties.Resources.carDefaultPhoto;
+            this.pbCarPhoto.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.pbCarPhoto.Location = new System.Drawing.Point(572, 0);
+            this.pbCarPhoto.Name = "pbCarPhoto";
+            this.pbCarPhoto.Size = new System.Drawing.Size(268, 269);
+            this.pbCarPhoto.TabIndex = 2;
+            this.pbCarPhoto.TabStop = false;
+            // 
+            // bLoadCarPhoto
+            // 
+            this.bLoadCarPhoto.Location = new System.Drawing.Point(632, 288);
+            this.bLoadCarPhoto.Name = "bLoadCarPhoto";
+            this.bLoadCarPhoto.Size = new System.Drawing.Size(160, 60);
+            this.bLoadCarPhoto.TabIndex = 3;
+            this.bLoadCarPhoto.Text = "Load car photo";
+            this.bLoadCarPhoto.UseVisualStyleBackColor = true;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -1023,6 +1154,12 @@
             this.panelCentral.ResumeLayout(false);
             this.panelStart.ResumeLayout(false);
             this.panelStart.PerformLayout();
+            this.panelAddNewCar.ResumeLayout(false);
+            this.panelAddNewCar.PerformLayout();
+            this.panelCarData.ResumeLayout(false);
+            this.panCarBoxes.ResumeLayout(false);
+            this.panEngineBoxes.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.pbCarPhoto)).EndInit();
             this.ResumeLayout(false);
 
 		}
@@ -1099,6 +1236,17 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Column_ProductionYear;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column_PurchaseDate;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column_Engine;
+        private System.Windows.Forms.Button bAddCar;
+        private System.Windows.Forms.Panel panelAddNewCar;
+        private System.Windows.Forms.Label label18;
+        private System.Windows.Forms.Button bCreateCar;
+        private System.Windows.Forms.Panel panelCarData;
+        private System.Windows.Forms.PictureBox pbCarPhoto;
+        private System.Windows.Forms.Panel panEngineBoxes;
+        private System.Windows.Forms.Label label20;
+        private System.Windows.Forms.Panel panCarBoxes;
+        private System.Windows.Forms.Label label19;
+        private System.Windows.Forms.Button bLoadCarPhoto;
     }
 }
 

@@ -194,5 +194,15 @@ namespace CarAssistant
             }
         }
 
+        private void bAddCar_Click(object sender, EventArgs e)
+        {
+            panelAddNewCar.BringToFront();
+        }
+
+        private void bCreateCar_Click(object sender, EventArgs e)
+        {
+
+            panelCars.BringToFront();
+        }
     }
 }
