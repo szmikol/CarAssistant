@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using CarAssistant.Classes;
 using CarAssistant.Interfaces;
+using System.Windows.Forms;
 
 namespace CarAssistant
 {
@@ -17,12 +18,18 @@ namespace CarAssistant
 
 		public void DeleteCar(User WhichUser, Car CarToDelete)
 		{
-			throw new NotImplementedException();
+            WhichUser.userCars.Remove(CarToDelete);            
 		}
 
 		public void DeleteCarById(User WhichUser, int Id)
 		{
-			throw new NotImplementedException();
+            foreach(Car c in WhichUser.userCars)
+            {
+                if(c.GetIndex() == Id)
+                {
+                    WhichUser.userCars.Remove(c);
+                }
+            }            
 		}
 
 		public void DeleteCarByModel(User WhichUser, Brand Brand, Model CarModel)
@@ -32,8 +39,16 @@ namespace CarAssistant
 
 		public Car FindCarById(User WhichUser, int Id)
 		{
-			throw new NotImplementedException();
-		}
+            foreach (Car c in WhichUser.userCars)
+            {
+                if (c.GetIndex() == Id)
+                {
+                    return c;
+                }
+            }
+            MessageBox.Show("Car with this index does not exist in the system","Error!", MessageBoxButtons.OK);
+            return null;
+        }
 
 		public List<Car> FindCardByModel(User WhichUser, Model CarModel)
 		{

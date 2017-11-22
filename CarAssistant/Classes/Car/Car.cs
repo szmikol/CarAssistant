@@ -20,11 +20,13 @@ namespace CarAssistant
         private DateTime PurchaseDate;
         private User Owner;
         private double CounterState;
+        private string LicensePlateNo;
         private string Vin;
         private int Index;
         //Constructors
         public Car(Brand InputBrand, Model InputModel, Engine InputEngine, DateTime InputProductionYear, 
-            User InputOwner, DateTime InputPurchaseDate, double InputCounterState, string InputVin)
+            User InputOwner, DateTime InputPurchaseDate, double InputCounterState, string InputVin,
+            string InputLicensePlateNumber)
         {
             Brand = InputBrand;
             Model = InputModel;
@@ -34,6 +36,8 @@ namespace CarAssistant
             PurchaseDate = InputPurchaseDate;
             Engine = InputEngine;
             Vin = InputVin;
+            SetIndex();
+            LicensePlateNo = InputLicensePlateNumber;
         }
 
 
@@ -112,7 +116,14 @@ namespace CarAssistant
         /// </summary>
         public void SetIndex()
         {
-            Index = Owner.userCars.Count - 1;
+            Index = Owner.userCars.Count + 1;
+        }
+        /// <summary>
+        /// Sets object's parameter License Plate Number
+        /// </summary>
+        public void SetLicensePlatesNo(string LicPlaNo)
+        {
+            LicensePlateNo = LicPlaNo;
         }
         /// <summary>
         /// Returns object's parameter Brand
@@ -182,6 +193,13 @@ namespace CarAssistant
         public int GetIndex()
         {
             return Index;
+        }
+        /// <summary>
+        ///Returns object's parameter License Plate Number
+        /// </summary>        
+        public string GetLicensePlateNo()
+        {
+            return LicensePlateNo;
         }
         /// <summary>
         /// Returns object's age in years
