@@ -19,7 +19,7 @@ namespace CarAssistant
         private DateTime birthDate, licenceRelease;
         private User driver;
         bool userBool = false;
-        private string path;
+        private string directory = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments) + "\\CarAssistant\\files";
         UserManager userManager = new UserManager();
 
         public FormCreateUser()
@@ -29,18 +29,16 @@ namespace CarAssistant
 
         private void bDriverPhoto_Click(object sender, EventArgs e)
         {
-            //string photoName = tbCreateName.Text +"1";
-            string imageLocation = "";
-            path = string.Format(@"c:\CarAssistant\user.jpg");
-            OpenFile(imageLocation, path);
+            //path = "";
+            OpenFile(directory);
         }
         private void bCreateDriver_Click(object sender, EventArgs e)
         {
-            string pathxml = @"c:\CarAssistant\user.xml";
+            //string pathxml = @"c:\CarAssistant\user.xml";
             driver = CreateUser();
-            driver.SetPhotoPath(path);
+            driver.SetPhotoPath(directory+"user.jpg");
             DataSaver save = new DataSaver();
-            save.SaveUserToXml(driver, pathxml);
+            save.SaveUserToXml(driver, directory);
             CloseForm();
         }
         private void CloseForm()
@@ -51,7 +49,7 @@ namespace CarAssistant
             }
         }
 
-        private void OpenFile(string imageLocation, string path)
+        private void OpenFile(string path)
         {
             try
             {
@@ -59,10 +57,8 @@ namespace CarAssistant
                 loadUserImage.Filter = "Image Files(*.BMP;*.JPG;*.GIF;*.PNG)|*.BMP;*.JPG;*.GIF;*.PNG|All files (*.*)|*.*";
                 if (loadUserImage.ShowDialog() == DialogResult.OK)
                 {
-                    imageLocation = loadUserImage.FileName;
-                    Directory.CreateDirectory(@"c:\CarAssistant");
-                    File.Copy(imageLocation, path, true);
-
+                    string imageLocation = loadUserImage.FileName;
+                    File.Copy(imageLocation, path+"\\user.jpg", true);
                     pbUserImageLoad.ImageLocation = imageLocation;
                 }
             }

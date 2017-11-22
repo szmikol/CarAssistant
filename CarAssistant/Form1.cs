@@ -15,7 +15,7 @@ namespace CarAssistant
 	public partial class Form1 : Form
 	{
         public User driver;
-        private string pathOfDriver = @"c:\CarAssistant\user.xml";
+        private string directory = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments) + "\\CarAssistant\\files";
         DataSaver dataSaver;
         DataLoader dataLoader;
 		public Form1()
@@ -24,7 +24,7 @@ namespace CarAssistant
             dataSaver = new DataSaver();
             dataLoader = new DataLoader();
             InitialDriverLoader(out driver);
-            bLoadFile.Click += new System.EventHandler(bLoadFile_Click);
+            Directory.CreateDirectory(directory);
         }
 
 
@@ -153,15 +153,26 @@ namespace CarAssistant
         }
         private void InitialDriverLoader(out User driver)
         {
-            if (File.Exists(pathOfDriver))
+            if (File.Exists(directory+"user.xml"))
             {
-                picUserPhoto.Image = Image.FromFile(@"c:\CarAssistant\user.jpg");
-                driver = dataLoader.LoadUserFromXml(pathOfDriver);
+                LoadingImageIfExist();
+                driver = dataLoader.LoadUserFromXml(directory);
                 UpdateUserForms(driver);
             }
             else
             {
                 driver = null;
+            }
+        }
+        private void LoadingImageIfExist()
+        {
+            if (File.Exists(directory + "user.jpg"))
+            {
+                picUserPhoto.Image = Image.FromFile(directory +"\\user.jpg");
+            }
+            else
+            {
+                picUserPhoto.Image = Properties.Resources.BlankProfile;
             }
         }
 
