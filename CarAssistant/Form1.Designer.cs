@@ -99,7 +99,6 @@
             this.bCreateDriver = new System.Windows.Forms.Button();
             this.label17 = new System.Windows.Forms.Label();
             this.label13 = new System.Windows.Forms.Label();
-            this.button1 = new System.Windows.Forms.Button();
             this.panelMenu.SuspendLayout();
             this.panelButtons.SuspendLayout();
             this.panelDriverInfo.SuspendLayout();
@@ -391,7 +390,6 @@
             // panelDriverInfo
             // 
             this.panelDriverInfo.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(57)))), ((int)(((byte)(57)))), ((int)(((byte)(57)))));
-            this.panelDriverInfo.Controls.Add(this.button1);
             this.panelDriverInfo.Controls.Add(this.bHome);
             this.panelDriverInfo.Controls.Add(this.tbDrPOwnedCars);
             this.panelDriverInfo.Controls.Add(this.tbDrPLicenceNumber);
@@ -630,7 +628,7 @@
             this.Column_PurchaseDate,
             this.Column_Engine});
             this.dataGridView1.Location = new System.Drawing.Point(19, 18);
-            this.dataGridView1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.dataGridView1.Margin = new System.Windows.Forms.Padding(4);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.Size = new System.Drawing.Size(877, 110);
             this.dataGridView1.TabIndex = 1;
@@ -985,20 +983,6 @@
             this.label13.TabIndex = 0;
             this.label13.Text = "startPanel";
             // 
-            // button1
-            // 
-            this.button1.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.button1.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.button1.Image = global::CarAssistant.Properties.Resources.refresj16x16;
-            this.button1.Location = new System.Drawing.Point(54, 4);
-            this.button1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(44, 23);
-            this.button1.TabIndex = 18;
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
-            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -1007,7 +991,7 @@
             this.ClientSize = new System.Drawing.Size(1100, 601);
             this.Controls.Add(this.panelCentral);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.MaximizeBox = false;
             this.Name = "Form1";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
@@ -1115,7 +1099,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Column_ProductionYear;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column_PurchaseDate;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column_Engine;
-        private System.Windows.Forms.Button button1;
     }
 }
 

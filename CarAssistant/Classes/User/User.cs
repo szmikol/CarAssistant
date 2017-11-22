@@ -295,9 +295,7 @@ namespace CarAssistant
         /// <param name="city"></param>
         public void SetResidenceAddress(string street, string postCode, string city)
         {
-            residenceAddress = street + "\n";
-            residenceAddress += postCode + "\n";
-            residenceAddress += city;
+            residenceAddress = string.Format("{0},{1},{2}", street, postCode, city);
         }
         /// <summary>
         /// Returns user's residence address in format "street,post code,city".

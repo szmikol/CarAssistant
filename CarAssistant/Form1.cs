@@ -150,7 +150,19 @@ namespace CarAssistant
             tbDrPIDNumber.Text = user.GetIdNumber();
             tbDrPLicenceNumber.Text = user.GetLicenceNumber();
             tbDrPOwnedCars.Text = (0 + user.userCars.Count()).ToString();
-            tbDrPAddress.Text = user.GetResidenceAddress();
+            tbDrPAddress.Text = ResidenceStringSplit(user.GetResidenceAddress());
+        }
+        private string ResidenceStringSplit(string toSplit)
+        {
+            int i = 0;
+            string[] splitted = toSplit.Split(',');
+            string street = splitted[i];
+            string postCode = splitted[i + 1];
+            string city = splitted[i + 2];
+            string result = street + Environment.NewLine;
+            result += postCode + Environment.NewLine;
+            result += city + Environment.NewLine;
+            return result;
         }
         public void SetDriverPath(User user)
         {
@@ -182,9 +194,5 @@ namespace CarAssistant
             }
         }
 
-        private void button1_Click(object sender, EventArgs e)
-        {
-            UpdateUserForms(driver);
-        }
     }
 }
