@@ -30,3 +30,19 @@ T:\Programowanie\CarAssistant\CarAssistantTest\obj\Debug\CarAssistantTest.csproj
 T:\Programowanie\CarAssistant\CarAssistantTest\obj\Debug\CarAssistantTest.csproj.CoreCompileInputs.cache
 T:\Programowanie\CarAssistant\CarAssistantTest\obj\Debug\CarAssistantTest.dll
 T:\Programowanie\CarAssistant\CarAssistantTest\obj\Debug\CarAssistantTest.pdb
+D:\Dokumenty\Kurs z Szymonem\Repozytoria\CarAssistant\CarAssistantTest\bin\Debug\Microsoft.VisualStudio.TestPlatform.MSTest.TestAdapter.dll
+D:\Dokumenty\Kurs z Szymonem\Repozytoria\CarAssistant\CarAssistantTest\bin\Debug\Microsoft.VisualStudio.TestPlatform.MSTestAdapter.PlatformServices.Interface.dll
+D:\Dokumenty\Kurs z Szymonem\Repozytoria\CarAssistant\CarAssistantTest\bin\Debug\Microsoft.VisualStudio.TestPlatform.MSTestAdapter.PlatformServices.dll
+D:\Dokumenty\Kurs z Szymonem\Repozytoria\CarAssistant\CarAssistantTest\bin\Debug\CarAssistantTest.dll
+D:\Dokumenty\Kurs z Szymonem\Repozytoria\CarAssistant\CarAssistantTest\bin\Debug\CarAssistantTest.pdb
+D:\Dokumenty\Kurs z Szymonem\Repozytoria\CarAssistant\CarAssistantTest\bin\Debug\CarAssistant.exe
+D:\Dokumenty\Kurs z Szymonem\Repozytoria\CarAssistant\CarAssistantTest\bin\Debug\Microsoft.VisualStudio.TestPlatform.TestFramework.dll
+D:\Dokumenty\Kurs z Szymonem\Repozytoria\CarAssistant\CarAssistantTest\bin\Debug\Microsoft.VisualStudio.TestPlatform.TestFramework.Extensions.dll
+D:\Dokumenty\Kurs z Szymonem\Repozytoria\CarAssistant\CarAssistantTest\bin\Debug\CarAssistant.pdb
+D:\Dokumenty\Kurs z Szymonem\Repozytoria\CarAssistant\CarAssistantTest\bin\Debug\CarAssistant.exe.config
+D:\Dokumenty\Kurs z Szymonem\Repozytoria\CarAssistant\CarAssistantTest\bin\Debug\Microsoft.VisualStudio.TestPlatform.TestFramework.xml
+D:\Dokumenty\Kurs z Szymonem\Repozytoria\CarAssistant\CarAssistantTest\bin\Debug\Microsoft.VisualStudio.TestPlatform.TestFramework.Extensions.xml
+D:\Dokumenty\Kurs z Szymonem\Repozytoria\CarAssistant\CarAssistantTest\obj\Debug\CarAssistantTest.csprojResolveAssemblyReference.cache
+D:\Dokumenty\Kurs z Szymonem\Repozytoria\CarAssistant\CarAssistantTest\obj\Debug\CarAssistantTest.csproj.CoreCompileInputs.cache
+D:\Dokumenty\Kurs z Szymonem\Repozytoria\CarAssistant\CarAssistantTest\obj\Debug\CarAssistantTest.dll
+D:\Dokumenty\Kurs z Szymonem\Repozytoria\CarAssistant\CarAssistantTest\obj\Debug\CarAssistantTest.pdb

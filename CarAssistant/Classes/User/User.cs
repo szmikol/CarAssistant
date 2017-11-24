@@ -75,88 +75,121 @@ namespace CarAssistant
         /// <param name="Model"></param>
         /// <param name="ProductionYear"></param>
         /// <returns></returns>
-		public Car FindCar(Brand Brand, Model Model, int ProductionYear)
+		public List<Car> FindCar(Brand Brand, Model Model, int ProductionYear)
         {
-            int index = 0, brandIndex, modelIndex, yearIndex;
-            brandIndex = FindCarBrand(Brand);
-            modelIndex = FindCarModel(Model, brandIndex);
-            yearIndex = FindCarYear(ProductionYear, modelIndex);
-            index = FindCarByIndex(brandIndex, modelIndex, yearIndex);
-            return userCars[index];
+            List<int> brandList = FindCarBrand(Brand);
+            List<int> modelList = FindCarModel(Model);
+            List<int> yearList = FindCarYear(ProductionYear);
+            List<int> foundCars = CompareLists(brandList, modelList, yearList);
+            return FoundCars(foundCars);
+            
         }
-
-        private int FindCarByIndex(int brandIndex, int modelIndex, int yearIndex)
+        public Car FindCarByVin(string vin)
         {
-            int index = 0;
-            if (brandIndex == modelIndex && modelIndex == yearIndex)
+            Car car = null;
+            for (int i = 0; i < userCars.Count(); i++)
             {
-                index = brandIndex;
+                if (vin == userCars[i].GetVin())
+                {
+                    car = userCars[i];
+                    break;
+                }
+            }
+            return car;
+        }
+        private List<Car> FoundCars(List<int> list)
+        {
+            Car car;
+            List<Car> cars = new List<Car>();
+            if (list.Count() == 0)
+            {
+                MessageBox.Show("Car could not be found!", "Please try again with another parameters!", MessageBoxButtons.OK,MessageBoxIcon.Error);
+                return cars;
             }
             else
             {
-                MessageBox.Show("Car not found!", "Error 404!", MessageBoxButtons.OK);
+                for (int i = 0; i < list.Count(); i++)
+                {
+                    car = userCars[list[i]];
+                    cars.Add(car);
+                }
+                return cars;
             }
-            return index;
         }
+        private List<int> CompareLists(List<int> list1, List<int> list2, List<int> list3)
+        {
+            List<int> first = list1.Intersect(list2).ToList();
+            List<int> result = first.Intersect(list3).ToList();
+            return result;
+        }
+
         /// <summary>
         /// Removes car from user's car list by Brand, Model, ProductionYear.
         /// </summary>
         /// <param name="Brand"></param>
         /// <param name="Model"></param>
         /// <param name="ProductionYear"></param>
-		public void RemoveCar(Brand Brand, Model Model, int ProductionYear)
+		public void RemoveCar(String vin)
         {
             bool delete = false;
-            int brandIndex, modelIndex, yearIndex;
-            brandIndex = FindCarBrand(Brand);
-            modelIndex = FindCarModel(Model, brandIndex);
-            yearIndex = FindCarYear(ProductionYear, modelIndex);
-            delete = DeleteCar(brandIndex, modelIndex, yearIndex);
+
+            delete = DeleteCar(vin);
             ShowDeleteMessage(delete);
         }
-        private bool DeleteCar(int brandIndex, int modelIndex, int yearIndex)
+        private bool DeleteCar(string vin)
         {
             bool delete = false;
-            if (brandIndex == modelIndex && modelIndex == yearIndex)
+            for (int i = 0; i < userCars.Count(); i++)
             {
-                userCars.RemoveAt(brandIndex);
-                delete = true;
+                if (vin == userCars[i].GetVin())
+                {
+                    userCars.Remove(userCars[i]);
+                    delete = true;
+                    break;
+                }
+                else
+                {
+                    delete = false;
+                }
             }
-            else
-            {
-                delete = false;
-            }
+
             return delete;
         }
-        private int FindCarBrand(Brand brand)
+        private List<int> FindCarBrand(Brand brand)
         {
-            int brandIndex = -1;
+            List<int> list = new List<int>();
             for (int i = 0; i < userCars.Count(); i++)
             {
                 if (brand == userCars[i].GetBrand())
                 {
-                    brandIndex = i;
+                    list.Add(i);
                 }
             }
-            return brandIndex;
+            return list;
         }
-        private int FindCarModel(Model model, int index)
+        private List<int> FindCarModel(Model model)
         {
-            int modelIndex = -2;
-            if (userCars[index].GetModel() == model)
+            List<int> list = new List<int>();
+            for (int i = 0; i < userCars.Count(); i++)
             {
-                modelIndex = index;
+                if (model == userCars[i].GetModel())
+                {
+                    list.Add(i);
+                }
             }
-            return modelIndex;
+            return list;
         }
-        private int FindCarYear(int ProductionYear, int index)
+        private List<int> FindCarYear(int ProductionYear)
         {
-            int yearIndex = -3;
-            if (userCars[index].GetProductionDate().Year == ProductionYear)
+            List<int> list = new List<int>();
+            for (int i = 0; i < userCars.Count(); i++)
             {
-                yearIndex = index;
+                if (ProductionYear == userCars[i].GetProductionDate().Year)
+                {
+                    list.Add(i);
+                }
             }
-            return yearIndex;
+            return list;
         }
         private void ShowDeleteMessage(bool delete)
         {
@@ -169,8 +202,6 @@ namespace CarAssistant
                 MessageBox.Show("Car deleted!", "Deletion successful", MessageBoxButtons.OK);
             }
         }
-
-
         /// <summary>
         /// Returns user's car list "userCars".
         /// </summary>
