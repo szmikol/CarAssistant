@@ -134,6 +134,7 @@
             this.Column_Capacity = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column_Power = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column_PowerKW = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.bShowDetails = new System.Windows.Forms.Button();
             this.panelMenu.SuspendLayout();
             this.panelButtons.SuspendLayout();
             this.panelDriverInfo.SuspendLayout();
@@ -650,6 +651,7 @@
             // panelCars
             // 
             this.panelCars.BackColor = System.Drawing.Color.DarkGray;
+            this.panelCars.Controls.Add(this.bShowDetails);
             this.panelCars.Controls.Add(this.bAddCar);
             this.panelCars.Controls.Add(this.dataGridView1);
             this.panelCars.Controls.Add(this.label3);
@@ -688,7 +690,7 @@
             this.Column_Capacity,
             this.Column_Power,
             this.Column_PowerKW});
-            this.dataGridView1.Location = new System.Drawing.Point(14, 19);
+            this.dataGridView1.Location = new System.Drawing.Point(6, 16);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.Size = new System.Drawing.Size(658, 89);
             this.dataGridView1.TabIndex = 1;
@@ -1375,6 +1377,15 @@
             this.Column_PowerKW.Name = "Column_PowerKW";
             this.Column_PowerKW.ReadOnly = true;
             // 
+            // bShowDetails
+            // 
+            this.bShowDetails.Location = new System.Drawing.Point(292, 139);
+            this.bShowDetails.Name = "bShowDetails";
+            this.bShowDetails.Size = new System.Drawing.Size(155, 37);
+            this.bShowDetails.TabIndex = 3;
+            this.bShowDetails.Text = "Show Details";
+            this.bShowDetails.UseVisualStyleBackColor = true;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1528,6 +1539,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Column_Capacity;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column_Power;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column_PowerKW;
+        private System.Windows.Forms.Button bShowDetails;
     }
 }
 
