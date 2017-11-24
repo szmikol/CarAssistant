@@ -15,10 +15,10 @@ namespace CarAssistant.Interfaces
 		void AddNewCar(Car NewCar);
 
 		//Method search and returns specific user car
-		Car FindCar(Brand Brand, Model Model, int ProductionYear);
+		List<Car> FindCar(Brand Brand, Model Model, int ProductionYear);
 
 		//Method removes specific user car
-		void RemoveCar(Brand Brand, Model Model, int ProductionYear);
+		void RemoveCar(String vin);
 
 		//Method to display a user representation as text
 		//E.g. "Wiktor Tulej"
