@@ -181,8 +181,8 @@ namespace CarAssistant
             {
                 driver = null;
             }
-            if(File.Exists(directory+"\\carlist.xml"))
-                dataLoader.LoadCarsListFromXml(directory + "\\carlist.xml");
+            //if(File.Exists(directory+"\\carlist.xml"))
+            //    dataLoader.LoadCarsListFromXml(directory + "\\carlist.xml");
 
         }
         private void LoadingImageIfExist()

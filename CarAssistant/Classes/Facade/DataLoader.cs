@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using CarAssistant.Interfaces.Facade;
 using System.Xml.Serialization;
 using System.IO;
+using CarAssistant;
 
 namespace CarAssistant.Classes.Facade
 {
