@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using CarAssistant.Interfaces.Facade;
 using System.Xml.Serialization;
 using System.IO;
+using CarAssistant;
 
 namespace CarAssistant.Classes.Facade
 {
@@ -13,13 +14,17 @@ namespace CarAssistant.Classes.Facade
 	{
 		public void SaveCarsListToXml(List<CarAssistant.Car> Cars, string Path)
 		{
-			throw new NotImplementedException();
-		}
+            var serial = new XmlSerializer(typeof(List<CarAssistant.Car>));
+            FileStream file = new FileStream(Path, FileMode.Create);
+            serial.Serialize(file, Cars);
+        }
 
 		public void SaveCarToXml(CarAssistant.Car Car, string Path)
 		{
-			throw new NotImplementedException();
-		}
+            var serial = new XmlSerializer(typeof(CarAssistant.Car));
+            FileStream file = new FileStream(Path, FileMode.Create);
+            serial.Serialize(file, Car);
+        }
 
 		public void SaveUserToXml(User User, string Path)
 		{

@@ -21,10 +21,10 @@ namespace CarAssistant
 		public Form1()
 		{
 			InitializeComponent();
-            Directory.CreateDirectory(directory);
+            CreateFilesAndDirectories();
             dataSaver = new DataSaver();
             dataLoader = new DataLoader();
-            InitialDriverLoader(out driver);
+            InitialDataLoader(out driver);
             ShowStartingScreen();
         }
 
@@ -120,7 +120,7 @@ namespace CarAssistant
         {
             if (openFileDialog1.ShowDialog() == DialogResult.OK)
             {
-                System.IO.StreamReader loadStream = new System.IO.StreamReader(openFileDialog1.FileName);
+                StreamReader loadStream = new StreamReader(openFileDialog1.FileName);
                 MessageBox.Show(loadStream.ReadToEnd());
                 loadStream.Close();
             }
@@ -168,7 +168,7 @@ namespace CarAssistant
         {
             driver = user;
         }
-        private void InitialDriverLoader(out User driver)
+        private void InitialDataLoader(out User driver)
         {
             if (File.Exists(directory+"\\user.xml"))
             {
@@ -181,6 +181,9 @@ namespace CarAssistant
             {
                 driver = null;
             }
+            if(File.Exists(directory+"\\carlist.xml"))
+                dataLoader.LoadCarsListFromXml(directory + "\\carlist.xml");
+
         }
         private void LoadingImageIfExist()
         {
@@ -192,6 +195,12 @@ namespace CarAssistant
             {
                 picUserPhoto.Image = Properties.Resources.BlankProfile;
             }
+        }
+        private void CreateFilesAndDirectories()
+        {
+            Directory.CreateDirectory(directory);
+            if (!File.Exists(directory + "\\carlist.xml"))
+                File.Create(directory + "\\carlist.xml");
         }
 
         private void bAddCar_Click(object sender, EventArgs e)

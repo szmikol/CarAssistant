@@ -13,13 +13,17 @@ namespace CarAssistant.Classes.Facade
 	{
 		public CarAssistant.Car LoadCarFromXml(Brand Brand, Model Model, User Owner, string Path)
 		{
-			throw new NotImplementedException();
-		}
+            var file = new FileStream(Path, FileMode.Open);
+            var load = new XmlSerializer(typeof(CarAssistant.Car));
+            return (CarAssistant.Car)load.Deserialize(file);
+        }
 
 		public List<CarAssistant.Car> LoadCarsListFromXml(string Path)
 		{
-			throw new NotImplementedException();
-		}
+            var file = new FileStream(Path, FileMode.Open);
+            var load = new XmlSerializer(typeof(List<CarAssistant.Car>));
+            return (List<CarAssistant.Car>)load.Deserialize(file);
+        }
 
 		public User LoadUserFromXml(string Path)
 		{
