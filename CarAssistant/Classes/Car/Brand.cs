@@ -74,7 +74,7 @@ namespace CarAssistant
         [Description("Toyota")] Toyota‎,       
         [Description("Volkswagen")] Volkswagen,
         [Description("Volvo")] Volvo,
-
+        [Description("Brand is not set")] None,
 
         //public enum Autosan { };
         //public enum Buick‎ { };

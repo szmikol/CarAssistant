@@ -24,10 +24,11 @@ namespace CarAssistant
         private string LicensePlateNo;
         private string Vin;
         private int Index;
+        private string BodyType;
         //Constructors
         public Car(Brand InputBrand, Model InputModel, Engine InputEngine, DateTime InputProductionYear, 
             User InputOwner, DateTime InputPurchaseDate, double InputCounterState, string InputVin,
-            string InputLicensePlateNumber)
+            string InputLicensePlateNumber, string InBodyType)
         {
             Brand = InputBrand;
             Model = InputModel;
@@ -39,6 +40,7 @@ namespace CarAssistant
             Vin = InputVin;
             SetIndex();
             LicensePlateNo = InputLicensePlateNumber;
+            BodyType = InBodyType;
         }
 
 
@@ -243,7 +245,7 @@ namespace CarAssistant
         /// </summary>
         public void SetCarToNull()
         {            
-            Brand = null;            
+            Brand = Brand.None;            
             ProductionDate = DateTime.ParseExact("01-01-0001", "DD-MM-YYYY", CultureInfo.InvariantCulture);
             Owner = null;
             CounterState = 0;
