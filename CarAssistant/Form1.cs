@@ -22,8 +22,6 @@ namespace CarAssistant
 		{
 			InitializeComponent();
             CreateFilesAndDirectories();
-            dataSaver = new DataSaver();
-            dataLoader = new DataLoader();
             InitialDataLoader(out driver);
             ShowStartingScreen();
         }
@@ -181,8 +179,8 @@ namespace CarAssistant
             {
                 driver = null;
             }
-            //if(File.Exists(directory+"\\carlist.xml"))
-            //    dataLoader.LoadCarsListFromXml(directory + "\\carlist.xml");
+            if(File.Exists(directory+"\\carlist.xml"))
+                dataLoader.LoadCarsListFromXml(directory + "\\carlist.xml");
 
         }
         private void LoadingImageIfExist()
@@ -199,8 +197,8 @@ namespace CarAssistant
         private void CreateFilesAndDirectories()
         {
             Directory.CreateDirectory(directory);
-            if (!File.Exists(directory + "\\carlist.xml"))
-                File.Create(directory + "\\carlist.xml");
+            dataSaver = new DataSaver();
+            dataLoader = new DataLoader();
         }
 
         private void bAddCar_Click(object sender, EventArgs e)
