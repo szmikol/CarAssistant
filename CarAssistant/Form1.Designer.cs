@@ -95,7 +95,7 @@
             this.saveFileDialog1 = new System.Windows.Forms.SaveFileDialog();
             this.panelCentral = new System.Windows.Forms.Panel();
             this.panelAddNewCar = new System.Windows.Forms.Panel();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.tbCounterState = new System.Windows.Forms.TextBox();
             this.label30 = new System.Windows.Forms.Label();
             this.label29 = new System.Windows.Forms.Label();
             this.label28 = new System.Windows.Forms.Label();
@@ -118,14 +118,18 @@
             this.bCreateDriver = new System.Windows.Forms.Button();
             this.label17 = new System.Windows.Forms.Label();
             this.label13 = new System.Windows.Forms.Label();
-            this.textBox2 = new System.Windows.Forms.TextBox();
-            this.textBox3 = new System.Windows.Forms.TextBox();
-            this.textBox4 = new System.Windows.Forms.TextBox();
+            this.tbProductionYear = new System.Windows.Forms.TextBox();
+            this.tbVIN = new System.Windows.Forms.TextBox();
+            this.tbLicensePlates = new System.Windows.Forms.TextBox();
             this.label31 = new System.Windows.Forms.Label();
             this.label32 = new System.Windows.Forms.Label();
-            this.textBox5 = new System.Windows.Forms.TextBox();
-            this.dPurchaseDate = new System.Windows.Forms.DateTimePicker();
-            this.textBox6 = new System.Windows.Forms.TextBox();
+            this.tbPower = new System.Windows.Forms.TextBox();
+            this.dtPurchaseDate = new System.Windows.Forms.DateTimePicker();
+            this.tbCapacity = new System.Windows.Forms.TextBox();
+            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.comboBox2 = new System.Windows.Forms.ComboBox();
+            this.comboBox3 = new System.Windows.Forms.ComboBox();
+            this.comboBox4 = new System.Windows.Forms.ComboBox();
             this.panelMenu.SuspendLayout();
             this.panelButtons.SuspendLayout();
             this.panelDriverInfo.SuspendLayout();
@@ -979,15 +983,19 @@
             // panelAddNewCar
             // 
             this.panelAddNewCar.BackColor = System.Drawing.Color.Gray;
-            this.panelAddNewCar.Controls.Add(this.textBox6);
-            this.panelAddNewCar.Controls.Add(this.dPurchaseDate);
-            this.panelAddNewCar.Controls.Add(this.textBox5);
+            this.panelAddNewCar.Controls.Add(this.comboBox4);
+            this.panelAddNewCar.Controls.Add(this.comboBox3);
+            this.panelAddNewCar.Controls.Add(this.comboBox2);
+            this.panelAddNewCar.Controls.Add(this.comboBox1);
+            this.panelAddNewCar.Controls.Add(this.tbCapacity);
+            this.panelAddNewCar.Controls.Add(this.dtPurchaseDate);
+            this.panelAddNewCar.Controls.Add(this.tbPower);
             this.panelAddNewCar.Controls.Add(this.label32);
             this.panelAddNewCar.Controls.Add(this.label31);
-            this.panelAddNewCar.Controls.Add(this.textBox4);
-            this.panelAddNewCar.Controls.Add(this.textBox3);
-            this.panelAddNewCar.Controls.Add(this.textBox2);
-            this.panelAddNewCar.Controls.Add(this.textBox1);
+            this.panelAddNewCar.Controls.Add(this.tbLicensePlates);
+            this.panelAddNewCar.Controls.Add(this.tbVIN);
+            this.panelAddNewCar.Controls.Add(this.tbProductionYear);
+            this.panelAddNewCar.Controls.Add(this.tbCounterState);
             this.panelAddNewCar.Controls.Add(this.label30);
             this.panelAddNewCar.Controls.Add(this.label29);
             this.panelAddNewCar.Controls.Add(this.label28);
@@ -1011,21 +1019,21 @@
             this.panelAddNewCar.Size = new System.Drawing.Size(675, 366);
             this.panelAddNewCar.TabIndex = 4;
             // 
-            // textBox1
+            // tbCounterState
             // 
-            this.textBox1.Location = new System.Drawing.Point(128, 164);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(100, 20);
-            this.textBox1.TabIndex = 18;
+            this.tbCounterState.Location = new System.Drawing.Point(128, 164);
+            this.tbCounterState.Name = "tbCounterState";
+            this.tbCounterState.Size = new System.Drawing.Size(100, 20);
+            this.tbCounterState.TabIndex = 18;
             // 
             // label30
             // 
             this.label30.AutoSize = true;
             this.label30.Location = new System.Drawing.Point(247, 111);
             this.label30.Name = "label30";
-            this.label30.Size = new System.Drawing.Size(83, 13);
+            this.label30.Size = new System.Drawing.Size(74, 13);
             this.label30.TabIndex = 17;
-            this.label30.Text = "Capacity[cm^3]:";
+            this.label30.Text = "Capacity[cm³]:";
             // 
             // label29
             // 
@@ -1242,26 +1250,26 @@
             this.label13.TabIndex = 0;
             this.label13.Text = "startPanel";
             // 
-            // textBox2
+            // tbProductionYear
             // 
-            this.textBox2.Location = new System.Drawing.Point(128, 198);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(100, 20);
-            this.textBox2.TabIndex = 19;
+            this.tbProductionYear.Location = new System.Drawing.Point(128, 198);
+            this.tbProductionYear.Name = "tbProductionYear";
+            this.tbProductionYear.Size = new System.Drawing.Size(100, 20);
+            this.tbProductionYear.TabIndex = 19;
             // 
-            // textBox3
+            // tbVIN
             // 
-            this.textBox3.Location = new System.Drawing.Point(128, 261);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(100, 20);
-            this.textBox3.TabIndex = 20;
+            this.tbVIN.Location = new System.Drawing.Point(128, 261);
+            this.tbVIN.Name = "tbVIN";
+            this.tbVIN.Size = new System.Drawing.Size(100, 20);
+            this.tbVIN.TabIndex = 20;
             // 
-            // textBox4
+            // tbLicensePlates
             // 
-            this.textBox4.Location = new System.Drawing.Point(128, 293);
-            this.textBox4.Name = "textBox4";
-            this.textBox4.Size = new System.Drawing.Size(100, 20);
-            this.textBox4.TabIndex = 21;
+            this.tbLicensePlates.Location = new System.Drawing.Point(128, 293);
+            this.tbLicensePlates.Name = "tbLicensePlates";
+            this.tbLicensePlates.Size = new System.Drawing.Size(100, 20);
+            this.tbLicensePlates.TabIndex = 21;
             // 
             // label31
             // 
@@ -1281,27 +1289,59 @@
             this.label32.TabIndex = 23;
             this.label32.Text = "Power (HP):";
             // 
-            // textBox5
+            // tbPower
             // 
-            this.textBox5.Location = new System.Drawing.Point(332, 138);
-            this.textBox5.Name = "textBox5";
-            this.textBox5.Size = new System.Drawing.Size(100, 20);
-            this.textBox5.TabIndex = 24;
+            this.tbPower.Location = new System.Drawing.Point(332, 138);
+            this.tbPower.Name = "tbPower";
+            this.tbPower.Size = new System.Drawing.Size(100, 20);
+            this.tbPower.TabIndex = 24;
             // 
-            // dPurchaseDate
+            // dtPurchaseDate
             // 
-            this.dPurchaseDate.Location = new System.Drawing.Point(128, 226);
-            this.dPurchaseDate.MinDate = new System.DateTime(1886, 1, 1, 0, 0, 0, 0);
-            this.dPurchaseDate.Name = "dPurchaseDate";
-            this.dPurchaseDate.Size = new System.Drawing.Size(122, 20);
-            this.dPurchaseDate.TabIndex = 25;
+            this.dtPurchaseDate.Location = new System.Drawing.Point(128, 226);
+            this.dtPurchaseDate.MinDate = new System.DateTime(1886, 1, 1, 0, 0, 0, 0);
+            this.dtPurchaseDate.Name = "dtPurchaseDate";
+            this.dtPurchaseDate.Size = new System.Drawing.Size(122, 20);
+            this.dtPurchaseDate.TabIndex = 25;
             // 
-            // textBox6
+            // tbCapacity
             // 
-            this.textBox6.Location = new System.Drawing.Point(332, 104);
-            this.textBox6.Name = "textBox6";
-            this.textBox6.Size = new System.Drawing.Size(100, 20);
-            this.textBox6.TabIndex = 26;
+            this.tbCapacity.Location = new System.Drawing.Point(332, 104);
+            this.tbCapacity.Name = "tbCapacity";
+            this.tbCapacity.Size = new System.Drawing.Size(100, 20);
+            this.tbCapacity.TabIndex = 26;
+            // 
+            // comboBox1
+            // 
+            this.comboBox1.FormattingEnabled = true;
+            this.comboBox1.Location = new System.Drawing.Point(128, 73);
+            this.comboBox1.Name = "comboBox1";
+            this.comboBox1.Size = new System.Drawing.Size(100, 21);
+            this.comboBox1.TabIndex = 27;
+            // 
+            // comboBox2
+            // 
+            this.comboBox2.FormattingEnabled = true;
+            this.comboBox2.Location = new System.Drawing.Point(128, 104);
+            this.comboBox2.Name = "comboBox2";
+            this.comboBox2.Size = new System.Drawing.Size(100, 21);
+            this.comboBox2.TabIndex = 28;
+            // 
+            // comboBox3
+            // 
+            this.comboBox3.FormattingEnabled = true;
+            this.comboBox3.Location = new System.Drawing.Point(128, 133);
+            this.comboBox3.Name = "comboBox3";
+            this.comboBox3.Size = new System.Drawing.Size(100, 21);
+            this.comboBox3.TabIndex = 29;
+            // 
+            // comboBox4
+            // 
+            this.comboBox4.FormattingEnabled = true;
+            this.comboBox4.Location = new System.Drawing.Point(332, 72);
+            this.comboBox4.Name = "comboBox4";
+            this.comboBox4.Size = new System.Drawing.Size(100, 21);
+            this.comboBox4.TabIndex = 30;
             // 
             // Form1
             // 
@@ -1438,16 +1478,20 @@
         private System.Windows.Forms.Label label24;
         private System.Windows.Forms.Label label23;
         private System.Windows.Forms.Label label22;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox tbCounterState;
         private System.Windows.Forms.Label label30;
         private System.Windows.Forms.Label label32;
         private System.Windows.Forms.Label label31;
-        private System.Windows.Forms.TextBox textBox4;
-        private System.Windows.Forms.TextBox textBox3;
-        private System.Windows.Forms.TextBox textBox2;
-        private System.Windows.Forms.TextBox textBox5;
-        private System.Windows.Forms.TextBox textBox6;
-        private System.Windows.Forms.DateTimePicker dPurchaseDate;
+        private System.Windows.Forms.TextBox tbLicensePlates;
+        private System.Windows.Forms.TextBox tbVIN;
+        private System.Windows.Forms.TextBox tbProductionYear;
+        private System.Windows.Forms.TextBox tbPower;
+        private System.Windows.Forms.TextBox tbCapacity;
+        private System.Windows.Forms.DateTimePicker dtPurchaseDate;
+        private System.Windows.Forms.ComboBox comboBox4;
+        private System.Windows.Forms.ComboBox comboBox3;
+        private System.Windows.Forms.ComboBox comboBox2;
+        private System.Windows.Forms.ComboBox comboBox1;
     }
 }
 

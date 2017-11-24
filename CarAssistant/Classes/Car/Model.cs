@@ -9,6 +9,12 @@ namespace CarAssistant
 {
     public class Model
     {
+        public string WhichModel;
+            
+        public Model()
+        {
+
+        }
 
         public enum Alfa_Romeo
         {
