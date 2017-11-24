@@ -201,8 +201,10 @@ namespace CarAssistant
 
         private void bCreateCar_Click(object sender, EventArgs e)
         {
-
+            
             panelCars.BringToFront();
         }
+
+      
     }
 }
