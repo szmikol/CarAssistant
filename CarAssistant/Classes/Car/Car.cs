@@ -15,16 +15,16 @@ namespace CarAssistant
 	{
         //Fields
         private Engine Engine;
-        private Model Model;
-        private Brand Brand;
-        private DateTime ProductionDate;
+        public Model Model;
+        public Brand Brand;
+        public DateTime ProductionDate;
         private DateTime PurchaseDate;
         private User Owner;
         private double CounterState;
-        private string LicensePlateNo;
+        public string LicensePlateNo;
         private string Vin;
-        private int Index;
-        private string BodyType;
+        public int Index;
+        public string BodyType;
         //Constructors
         public Car(Brand InputBrand, Model InputModel, Engine InputEngine, DateTime InputProductionYear, 
             User InputOwner, DateTime InputPurchaseDate, double InputCounterState, string InputVin,

@@ -211,6 +211,24 @@ namespace CarAssistant
             panelCars.BringToFront();
         }
 
-     
+        private void bShowCars_Click(object sender, EventArgs e)
+        {
+            if(driver == null)
+            {
+                MessageBox.Show("No user, no cars. Please Load User first", "Achtung!", MessageBoxButtons.OK);
+
+            }
+            else if (driver.userCars.Count() == 0)
+            {
+                MessageBox.Show("User has no cars yet. Please create some cars", "Achtung!", MessageBoxButtons.OK);
+            }
+            {
+            List<Car> ListToShow = driver.userCars;
+            dgShowCars.DataSource = ListToShow;
+            }
+
+        }
+
+        
     }
 }

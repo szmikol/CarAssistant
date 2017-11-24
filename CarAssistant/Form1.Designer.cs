@@ -62,8 +62,9 @@
             this.label8 = new System.Windows.Forms.Label();
             this.picUserPhoto = new System.Windows.Forms.PictureBox();
             this.panelCars = new System.Windows.Forms.Panel();
+            this.bShowDetails = new System.Windows.Forms.Button();
             this.bAddCar = new System.Windows.Forms.Button();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.dgShowCars = new System.Windows.Forms.DataGridView();
             this.label3 = new System.Windows.Forms.Label();
             this.panelManage = new System.Windows.Forms.Panel();
             this.label2 = new System.Windows.Forms.Label();
@@ -86,7 +87,26 @@
             this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
             this.saveFileDialog1 = new System.Windows.Forms.SaveFileDialog();
             this.panelCentral = new System.Windows.Forms.Panel();
+            this.panelStart = new System.Windows.Forms.Panel();
+            this.bLoadDriver = new System.Windows.Forms.Button();
+            this.bSaveDriver = new System.Windows.Forms.Button();
+            this.bCreateDriver = new System.Windows.Forms.Button();
+            this.label17 = new System.Windows.Forms.Label();
+            this.label13 = new System.Windows.Forms.Label();
             this.panelAddNewCar = new System.Windows.Forms.Panel();
+            this.label21 = new System.Windows.Forms.Label();
+            this.cbEngineType = new System.Windows.Forms.ComboBox();
+            this.cbBodyType = new System.Windows.Forms.ComboBox();
+            this.cbModel = new System.Windows.Forms.ComboBox();
+            this.cbBrand = new System.Windows.Forms.ComboBox();
+            this.tbCapacity = new System.Windows.Forms.TextBox();
+            this.dtPurchaseDate = new System.Windows.Forms.DateTimePicker();
+            this.tbPower = new System.Windows.Forms.TextBox();
+            this.label32 = new System.Windows.Forms.Label();
+            this.label31 = new System.Windows.Forms.Label();
+            this.tbLicensePlates = new System.Windows.Forms.TextBox();
+            this.tbVIN = new System.Windows.Forms.TextBox();
+            this.tbProductionYear = new System.Windows.Forms.TextBox();
             this.tbCounterState = new System.Windows.Forms.TextBox();
             this.label30 = new System.Windows.Forms.Label();
             this.label29 = new System.Windows.Forms.Label();
@@ -97,50 +117,26 @@
             this.label24 = new System.Windows.Forms.Label();
             this.label23 = new System.Windows.Forms.Label();
             this.label22 = new System.Windows.Forms.Label();
-            this.label21 = new System.Windows.Forms.Label();
             this.label19 = new System.Windows.Forms.Label();
             this.label20 = new System.Windows.Forms.Label();
             this.bLoadCarPhoto = new System.Windows.Forms.Button();
             this.pbCarPhoto = new System.Windows.Forms.PictureBox();
             this.bCreateCar = new System.Windows.Forms.Button();
             this.label18 = new System.Windows.Forms.Label();
-            this.panelStart = new System.Windows.Forms.Panel();
-            this.bLoadDriver = new System.Windows.Forms.Button();
-            this.bSaveDriver = new System.Windows.Forms.Button();
-            this.bCreateDriver = new System.Windows.Forms.Button();
-            this.label17 = new System.Windows.Forms.Label();
-            this.label13 = new System.Windows.Forms.Label();
-            this.tbProductionYear = new System.Windows.Forms.TextBox();
-            this.tbVIN = new System.Windows.Forms.TextBox();
-            this.tbLicensePlates = new System.Windows.Forms.TextBox();
-            this.label31 = new System.Windows.Forms.Label();
-            this.label32 = new System.Windows.Forms.Label();
-            this.tbPower = new System.Windows.Forms.TextBox();
-            this.dtPurchaseDate = new System.Windows.Forms.DateTimePicker();
-            this.tbCapacity = new System.Windows.Forms.TextBox();
-            this.cbBrand = new System.Windows.Forms.ComboBox();
-            this.cbModel = new System.Windows.Forms.ComboBox();
-            this.cbBodyType = new System.Windows.Forms.ComboBox();
-            this.cbEngineType = new System.Windows.Forms.ComboBox();
+            this.bShowCars = new System.Windows.Forms.Button();
             this.Column_CheckBox = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.Index_Number = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column_Brand = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column_Model = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column_BodyType = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column_CounterState = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.LicensePlateNo = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column_ProductionYear = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column_PurchaseDate = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column_Engine = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column_Capacity = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column_Power = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column_PowerKW = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.bShowDetails = new System.Windows.Forms.Button();
             this.panelMenu.SuspendLayout();
             this.panelButtons.SuspendLayout();
             this.panelDriverInfo.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.picUserPhoto)).BeginInit();
             this.panelCars.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgShowCars)).BeginInit();
             this.panelManage.SuspendLayout();
             this.panelService.SuspendLayout();
             this.panelInsurance.SuspendLayout();
@@ -150,9 +146,9 @@
             this.panelSettings.SuspendLayout();
             this.panelSaveLoad.SuspendLayout();
             this.panelCentral.SuspendLayout();
+            this.panelStart.SuspendLayout();
             this.panelAddNewCar.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbCarPhoto)).BeginInit();
-            this.panelStart.SuspendLayout();
             this.SuspendLayout();
             // 
             // panelMenu
@@ -651,9 +647,10 @@
             // panelCars
             // 
             this.panelCars.BackColor = System.Drawing.Color.DarkGray;
+            this.panelCars.Controls.Add(this.bShowCars);
             this.panelCars.Controls.Add(this.bShowDetails);
             this.panelCars.Controls.Add(this.bAddCar);
-            this.panelCars.Controls.Add(this.dataGridView1);
+            this.panelCars.Controls.Add(this.dgShowCars);
             this.panelCars.Controls.Add(this.label3);
             this.panelCars.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panelCars.Location = new System.Drawing.Point(150, 122);
@@ -661,6 +658,15 @@
             this.panelCars.Name = "panelCars";
             this.panelCars.Size = new System.Drawing.Size(675, 366);
             this.panelCars.TabIndex = 2;
+            // 
+            // bShowDetails
+            // 
+            this.bShowDetails.Location = new System.Drawing.Point(292, 139);
+            this.bShowDetails.Name = "bShowDetails";
+            this.bShowDetails.Size = new System.Drawing.Size(155, 37);
+            this.bShowDetails.TabIndex = 3;
+            this.bShowDetails.Text = "Show Details";
+            this.bShowDetails.UseVisualStyleBackColor = true;
             // 
             // bAddCar
             // 
@@ -673,27 +679,23 @@
             this.bAddCar.UseVisualStyleBackColor = true;
             this.bAddCar.Click += new System.EventHandler(this.bAddCar_Click);
             // 
-            // dataGridView1
+            // dgShowCars
             // 
-            this.dataGridView1.AllowUserToOrderColumns = true;
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.dgShowCars.AllowUserToOrderColumns = true;
+            this.dgShowCars.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgShowCars.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.Column_CheckBox,
             this.Index_Number,
             this.Column_Brand,
             this.Column_Model,
             this.Column_BodyType,
-            this.Column_CounterState,
-            this.Column_ProductionYear,
-            this.Column_PurchaseDate,
-            this.Column_Engine,
-            this.Column_Capacity,
-            this.Column_Power,
-            this.Column_PowerKW});
-            this.dataGridView1.Location = new System.Drawing.Point(6, 16);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(658, 89);
-            this.dataGridView1.TabIndex = 1;
+            this.LicensePlateNo,
+            this.Column_ProductionYear});
+            this.dgShowCars.Location = new System.Drawing.Point(6, 15);
+            this.dgShowCars.Name = "dgShowCars";
+            this.dgShowCars.ReadOnly = true;
+            this.dgShowCars.Size = new System.Drawing.Size(658, 89);
+            this.dgShowCars.TabIndex = 1;
             // 
             // label3
             // 
@@ -926,6 +928,73 @@
             this.panelCentral.Size = new System.Drawing.Size(825, 488);
             this.panelCentral.TabIndex = 3;
             // 
+            // panelStart
+            // 
+            this.panelStart.BackColor = System.Drawing.Color.DarkGray;
+            this.panelStart.Controls.Add(this.bLoadDriver);
+            this.panelStart.Controls.Add(this.bSaveDriver);
+            this.panelStart.Controls.Add(this.bCreateDriver);
+            this.panelStart.Controls.Add(this.label17);
+            this.panelStart.Controls.Add(this.label13);
+            this.panelStart.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panelStart.Location = new System.Drawing.Point(150, 122);
+            this.panelStart.Margin = new System.Windows.Forms.Padding(2);
+            this.panelStart.Name = "panelStart";
+            this.panelStart.Size = new System.Drawing.Size(675, 366);
+            this.panelStart.TabIndex = 8;
+            // 
+            // bLoadDriver
+            // 
+            this.bLoadDriver.Location = new System.Drawing.Point(218, 210);
+            this.bLoadDriver.Margin = new System.Windows.Forms.Padding(2);
+            this.bLoadDriver.Name = "bLoadDriver";
+            this.bLoadDriver.Size = new System.Drawing.Size(229, 54);
+            this.bLoadDriver.TabIndex = 4;
+            this.bLoadDriver.Text = "Load driver";
+            this.bLoadDriver.UseVisualStyleBackColor = true;
+            // 
+            // bSaveDriver
+            // 
+            this.bSaveDriver.Location = new System.Drawing.Point(218, 139);
+            this.bSaveDriver.Margin = new System.Windows.Forms.Padding(2);
+            this.bSaveDriver.Name = "bSaveDriver";
+            this.bSaveDriver.Size = new System.Drawing.Size(229, 54);
+            this.bSaveDriver.TabIndex = 3;
+            this.bSaveDriver.Text = "Save driver";
+            this.bSaveDriver.UseVisualStyleBackColor = true;
+            // 
+            // bCreateDriver
+            // 
+            this.bCreateDriver.Location = new System.Drawing.Point(218, 67);
+            this.bCreateDriver.Margin = new System.Windows.Forms.Padding(2);
+            this.bCreateDriver.Name = "bCreateDriver";
+            this.bCreateDriver.Size = new System.Drawing.Size(229, 54);
+            this.bCreateDriver.TabIndex = 2;
+            this.bCreateDriver.Text = "Create driver";
+            this.bCreateDriver.UseVisualStyleBackColor = true;
+            this.bCreateDriver.Click += new System.EventHandler(this.bCreateDriver_Click);
+            // 
+            // label17
+            // 
+            this.label17.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.label17.AutoSize = true;
+            this.label17.Location = new System.Drawing.Point(215, 27);
+            this.label17.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label17.Name = "label17";
+            this.label17.Size = new System.Drawing.Size(232, 13);
+            this.label17.TabIndex = 1;
+            this.label17.Text = "Welcome in Car Assistant! Choose your options!";
+            // 
+            // label13
+            // 
+            this.label13.AutoSize = true;
+            this.label13.Location = new System.Drawing.Point(621, 325);
+            this.label13.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label13.Name = "label13";
+            this.label13.Size = new System.Drawing.Size(54, 13);
+            this.label13.TabIndex = 0;
+            this.label13.Text = "startPanel";
+            // 
             // panelAddNewCar
             // 
             this.panelAddNewCar.BackColor = System.Drawing.Color.Gray;
@@ -964,6 +1033,109 @@
             this.panelAddNewCar.Name = "panelAddNewCar";
             this.panelAddNewCar.Size = new System.Drawing.Size(825, 488);
             this.panelAddNewCar.TabIndex = 4;
+            // 
+            // label21
+            // 
+            this.label21.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.label21.Location = new System.Drawing.Point(208, 3);
+            this.label21.Name = "label21";
+            this.label21.Size = new System.Drawing.Size(221, 27);
+            this.label21.TabIndex = 8;
+            this.label21.Text = "Create new car";
+            this.label21.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+            // 
+            // cbEngineType
+            // 
+            this.cbEngineType.FormattingEnabled = true;
+            this.cbEngineType.Location = new System.Drawing.Point(332, 72);
+            this.cbEngineType.Name = "cbEngineType";
+            this.cbEngineType.Size = new System.Drawing.Size(100, 21);
+            this.cbEngineType.TabIndex = 30;
+            // 
+            // cbBodyType
+            // 
+            this.cbBodyType.FormattingEnabled = true;
+            this.cbBodyType.Location = new System.Drawing.Point(128, 133);
+            this.cbBodyType.Name = "cbBodyType";
+            this.cbBodyType.Size = new System.Drawing.Size(100, 21);
+            this.cbBodyType.TabIndex = 29;
+            // 
+            // cbModel
+            // 
+            this.cbModel.FormattingEnabled = true;
+            this.cbModel.Location = new System.Drawing.Point(128, 104);
+            this.cbModel.Name = "cbModel";
+            this.cbModel.Size = new System.Drawing.Size(100, 21);
+            this.cbModel.TabIndex = 28;
+            // 
+            // cbBrand
+            // 
+            this.cbBrand.FormattingEnabled = true;
+            this.cbBrand.Location = new System.Drawing.Point(128, 73);
+            this.cbBrand.Name = "cbBrand";
+            this.cbBrand.Size = new System.Drawing.Size(100, 21);
+            this.cbBrand.TabIndex = 27;
+            // 
+            // tbCapacity
+            // 
+            this.tbCapacity.Location = new System.Drawing.Point(332, 104);
+            this.tbCapacity.Name = "tbCapacity";
+            this.tbCapacity.Size = new System.Drawing.Size(100, 20);
+            this.tbCapacity.TabIndex = 26;
+            // 
+            // dtPurchaseDate
+            // 
+            this.dtPurchaseDate.Location = new System.Drawing.Point(128, 226);
+            this.dtPurchaseDate.MinDate = new System.DateTime(1886, 1, 1, 0, 0, 0, 0);
+            this.dtPurchaseDate.Name = "dtPurchaseDate";
+            this.dtPurchaseDate.Size = new System.Drawing.Size(122, 20);
+            this.dtPurchaseDate.TabIndex = 25;
+            // 
+            // tbPower
+            // 
+            this.tbPower.Location = new System.Drawing.Point(332, 138);
+            this.tbPower.Name = "tbPower";
+            this.tbPower.Size = new System.Drawing.Size(100, 20);
+            this.tbPower.TabIndex = 24;
+            // 
+            // label32
+            // 
+            this.label32.AutoSize = true;
+            this.label32.Location = new System.Drawing.Point(247, 141);
+            this.label32.Name = "label32";
+            this.label32.Size = new System.Drawing.Size(64, 13);
+            this.label32.TabIndex = 23;
+            this.label32.Text = "Power (HP):";
+            // 
+            // label31
+            // 
+            this.label31.AutoSize = true;
+            this.label31.Location = new System.Drawing.Point(247, 80);
+            this.label31.Name = "label31";
+            this.label31.Size = new System.Drawing.Size(70, 13);
+            this.label31.TabIndex = 22;
+            this.label31.Text = "Engine Type:";
+            // 
+            // tbLicensePlates
+            // 
+            this.tbLicensePlates.Location = new System.Drawing.Point(128, 293);
+            this.tbLicensePlates.Name = "tbLicensePlates";
+            this.tbLicensePlates.Size = new System.Drawing.Size(100, 20);
+            this.tbLicensePlates.TabIndex = 21;
+            // 
+            // tbVIN
+            // 
+            this.tbVIN.Location = new System.Drawing.Point(128, 261);
+            this.tbVIN.Name = "tbVIN";
+            this.tbVIN.Size = new System.Drawing.Size(100, 20);
+            this.tbVIN.TabIndex = 20;
+            // 
+            // tbProductionYear
+            // 
+            this.tbProductionYear.Location = new System.Drawing.Point(128, 198);
+            this.tbProductionYear.Name = "tbProductionYear";
+            this.tbProductionYear.Size = new System.Drawing.Size(100, 20);
+            this.tbProductionYear.TabIndex = 19;
             // 
             // tbCounterState
             // 
@@ -1053,16 +1225,6 @@
             this.label22.TabIndex = 9;
             this.label22.Text = "Brand:";
             // 
-            // label21
-            // 
-            this.label21.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.label21.Location = new System.Drawing.Point(208, 3);
-            this.label21.Name = "label21";
-            this.label21.Size = new System.Drawing.Size(221, 27);
-            this.label21.TabIndex = 8;
-            this.label21.Text = "Create new car";
-            this.label21.TextAlign = System.Drawing.ContentAlignment.TopCenter;
-            // 
             // label19
             // 
             this.label19.Anchor = System.Windows.Forms.AnchorStyles.None;
@@ -1129,176 +1291,28 @@
             this.label18.TabIndex = 0;
             this.label18.Text = "addNewCar";
             // 
-            // panelStart
+            // bShowCars
             // 
-            this.panelStart.BackColor = System.Drawing.Color.DarkGray;
-            this.panelStart.Controls.Add(this.bLoadDriver);
-            this.panelStart.Controls.Add(this.bSaveDriver);
-            this.panelStart.Controls.Add(this.bCreateDriver);
-            this.panelStart.Controls.Add(this.label17);
-            this.panelStart.Controls.Add(this.label13);
-            this.panelStart.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panelStart.Location = new System.Drawing.Point(150, 122);
-            this.panelStart.Margin = new System.Windows.Forms.Padding(2);
-            this.panelStart.Name = "panelStart";
-            this.panelStart.Size = new System.Drawing.Size(675, 366);
-            this.panelStart.TabIndex = 8;
-            // 
-            // bLoadDriver
-            // 
-            this.bLoadDriver.Location = new System.Drawing.Point(218, 210);
-            this.bLoadDriver.Margin = new System.Windows.Forms.Padding(2);
-            this.bLoadDriver.Name = "bLoadDriver";
-            this.bLoadDriver.Size = new System.Drawing.Size(229, 54);
-            this.bLoadDriver.TabIndex = 4;
-            this.bLoadDriver.Text = "Load driver";
-            this.bLoadDriver.UseVisualStyleBackColor = true;
-            // 
-            // bSaveDriver
-            // 
-            this.bSaveDriver.Location = new System.Drawing.Point(218, 139);
-            this.bSaveDriver.Margin = new System.Windows.Forms.Padding(2);
-            this.bSaveDriver.Name = "bSaveDriver";
-            this.bSaveDriver.Size = new System.Drawing.Size(229, 54);
-            this.bSaveDriver.TabIndex = 3;
-            this.bSaveDriver.Text = "Save driver";
-            this.bSaveDriver.UseVisualStyleBackColor = true;
-            // 
-            // bCreateDriver
-            // 
-            this.bCreateDriver.Location = new System.Drawing.Point(218, 67);
-            this.bCreateDriver.Margin = new System.Windows.Forms.Padding(2);
-            this.bCreateDriver.Name = "bCreateDriver";
-            this.bCreateDriver.Size = new System.Drawing.Size(229, 54);
-            this.bCreateDriver.TabIndex = 2;
-            this.bCreateDriver.Text = "Create driver";
-            this.bCreateDriver.UseVisualStyleBackColor = true;
-            this.bCreateDriver.Click += new System.EventHandler(this.bCreateDriver_Click);
-            // 
-            // label17
-            // 
-            this.label17.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.label17.AutoSize = true;
-            this.label17.Location = new System.Drawing.Point(215, 27);
-            this.label17.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label17.Name = "label17";
-            this.label17.Size = new System.Drawing.Size(232, 13);
-            this.label17.TabIndex = 1;
-            this.label17.Text = "Welcome in Car Assistant! Choose your options!";
-            // 
-            // label13
-            // 
-            this.label13.AutoSize = true;
-            this.label13.Location = new System.Drawing.Point(621, 325);
-            this.label13.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(54, 13);
-            this.label13.TabIndex = 0;
-            this.label13.Text = "startPanel";
-            // 
-            // tbProductionYear
-            // 
-            this.tbProductionYear.Location = new System.Drawing.Point(128, 198);
-            this.tbProductionYear.Name = "tbProductionYear";
-            this.tbProductionYear.Size = new System.Drawing.Size(100, 20);
-            this.tbProductionYear.TabIndex = 19;
-            // 
-            // tbVIN
-            // 
-            this.tbVIN.Location = new System.Drawing.Point(128, 261);
-            this.tbVIN.Name = "tbVIN";
-            this.tbVIN.Size = new System.Drawing.Size(100, 20);
-            this.tbVIN.TabIndex = 20;
-            // 
-            // tbLicensePlates
-            // 
-            this.tbLicensePlates.Location = new System.Drawing.Point(128, 293);
-            this.tbLicensePlates.Name = "tbLicensePlates";
-            this.tbLicensePlates.Size = new System.Drawing.Size(100, 20);
-            this.tbLicensePlates.TabIndex = 21;
-            // 
-            // label31
-            // 
-            this.label31.AutoSize = true;
-            this.label31.Location = new System.Drawing.Point(247, 80);
-            this.label31.Name = "label31";
-            this.label31.Size = new System.Drawing.Size(70, 13);
-            this.label31.TabIndex = 22;
-            this.label31.Text = "Engine Type:";
-            // 
-            // label32
-            // 
-            this.label32.AutoSize = true;
-            this.label32.Location = new System.Drawing.Point(247, 141);
-            this.label32.Name = "label32";
-            this.label32.Size = new System.Drawing.Size(64, 13);
-            this.label32.TabIndex = 23;
-            this.label32.Text = "Power (HP):";
-            // 
-            // tbPower
-            // 
-            this.tbPower.Location = new System.Drawing.Point(332, 138);
-            this.tbPower.Name = "tbPower";
-            this.tbPower.Size = new System.Drawing.Size(100, 20);
-            this.tbPower.TabIndex = 24;
-            // 
-            // dtPurchaseDate
-            // 
-            this.dtPurchaseDate.Location = new System.Drawing.Point(128, 226);
-            this.dtPurchaseDate.MinDate = new System.DateTime(1886, 1, 1, 0, 0, 0, 0);
-            this.dtPurchaseDate.Name = "dtPurchaseDate";
-            this.dtPurchaseDate.Size = new System.Drawing.Size(122, 20);
-            this.dtPurchaseDate.TabIndex = 25;
-            // 
-            // tbCapacity
-            // 
-            this.tbCapacity.Location = new System.Drawing.Point(332, 104);
-            this.tbCapacity.Name = "tbCapacity";
-            this.tbCapacity.Size = new System.Drawing.Size(100, 20);
-            this.tbCapacity.TabIndex = 26;
-            // 
-            // cbBrand
-            // 
-            this.cbBrand.FormattingEnabled = true;
-            this.cbBrand.Location = new System.Drawing.Point(128, 73);
-            this.cbBrand.Name = "cbBrand";
-            this.cbBrand.Size = new System.Drawing.Size(100, 21);
-            this.cbBrand.TabIndex = 27;
-            // 
-            // cbModel
-            // 
-            this.cbModel.FormattingEnabled = true;
-            this.cbModel.Location = new System.Drawing.Point(128, 104);
-            this.cbModel.Name = "cbModel";
-            this.cbModel.Size = new System.Drawing.Size(100, 21);
-            this.cbModel.TabIndex = 28;
-            // 
-            // cbBodyType
-            // 
-            this.cbBodyType.FormattingEnabled = true;
-            this.cbBodyType.Location = new System.Drawing.Point(128, 133);
-            this.cbBodyType.Name = "cbBodyType";
-            this.cbBodyType.Size = new System.Drawing.Size(100, 21);
-            this.cbBodyType.TabIndex = 29;
-            // 
-            // cbEngineType
-            // 
-            this.cbEngineType.FormattingEnabled = true;
-            this.cbEngineType.Location = new System.Drawing.Point(332, 72);
-            this.cbEngineType.Name = "cbEngineType";
-            this.cbEngineType.Size = new System.Drawing.Size(100, 21);
-            this.cbEngineType.TabIndex = 30;
+            this.bShowCars.Location = new System.Drawing.Point(14, 124);
+            this.bShowCars.Name = "bShowCars";
+            this.bShowCars.Size = new System.Drawing.Size(75, 23);
+            this.bShowCars.TabIndex = 4;
+            this.bShowCars.Text = "Show Cars";
+            this.bShowCars.UseVisualStyleBackColor = true;
+            this.bShowCars.Click += new System.EventHandler(this.bShowCars_Click);
             // 
             // Column_CheckBox
             // 
             this.Column_CheckBox.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.ColumnHeader;
             this.Column_CheckBox.HeaderText = "Choose";
             this.Column_CheckBox.Name = "Column_CheckBox";
+            this.Column_CheckBox.ReadOnly = true;
             this.Column_CheckBox.Width = 49;
             // 
             // Index_Number
             // 
             this.Index_Number.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.ColumnHeader;
+            this.Index_Number.DataPropertyName = "Index";
             this.Index_Number.HeaderText = "Index";
             this.Index_Number.Name = "Index_Number";
             this.Index_Number.ReadOnly = true;
@@ -1308,6 +1322,7 @@
             // Column_Brand
             // 
             this.Column_Brand.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.Column_Brand.DataPropertyName = "Brand";
             this.Column_Brand.HeaderText = "Brand";
             this.Column_Brand.Name = "Column_Brand";
             this.Column_Brand.ReadOnly = true;
@@ -1316,6 +1331,7 @@
             // Column_Model
             // 
             this.Column_Model.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.Column_Model.DataPropertyName = "Model";
             this.Column_Model.HeaderText = "Model";
             this.Column_Model.Name = "Column_Model";
             this.Column_Model.ReadOnly = true;
@@ -1323,68 +1339,26 @@
             // 
             // Column_BodyType
             // 
+            this.Column_BodyType.DataPropertyName = "BodyType";
             this.Column_BodyType.HeaderText = "Body Type";
             this.Column_BodyType.Name = "Column_BodyType";
             this.Column_BodyType.ReadOnly = true;
             // 
-            // Column_CounterState
+            // LicensePlateNo
             // 
-            this.Column_CounterState.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.Column_CounterState.HeaderText = "Counter State";
-            this.Column_CounterState.Name = "Column_CounterState";
-            this.Column_CounterState.ReadOnly = true;
-            this.Column_CounterState.Width = 97;
+            this.LicensePlateNo.DataPropertyName = "LicensePlateNo";
+            this.LicensePlateNo.HeaderText = "License Plate Number";
+            this.LicensePlateNo.Name = "LicensePlateNo";
+            this.LicensePlateNo.ReadOnly = true;
             // 
             // Column_ProductionYear
             // 
             this.Column_ProductionYear.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.ColumnHeader;
+            this.Column_ProductionYear.DataPropertyName = "ProductionDate";
             this.Column_ProductionYear.HeaderText = "Production Year";
             this.Column_ProductionYear.Name = "Column_ProductionYear";
             this.Column_ProductionYear.ReadOnly = true;
             this.Column_ProductionYear.Width = 99;
-            // 
-            // Column_PurchaseDate
-            // 
-            this.Column_PurchaseDate.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.Column_PurchaseDate.HeaderText = "Purchase Date";
-            this.Column_PurchaseDate.Name = "Column_PurchaseDate";
-            this.Column_PurchaseDate.ReadOnly = true;
-            this.Column_PurchaseDate.Width = 95;
-            // 
-            // Column_Engine
-            // 
-            this.Column_Engine.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.Column_Engine.HeaderText = "Engine Type";
-            this.Column_Engine.Name = "Column_Engine";
-            this.Column_Engine.ReadOnly = true;
-            this.Column_Engine.Width = 85;
-            // 
-            // Column_Capacity
-            // 
-            this.Column_Capacity.HeaderText = "Capacity";
-            this.Column_Capacity.Name = "Column_Capacity";
-            this.Column_Capacity.ReadOnly = true;
-            // 
-            // Column_Power
-            // 
-            this.Column_Power.HeaderText = "Power [HP]";
-            this.Column_Power.Name = "Column_Power";
-            this.Column_Power.ReadOnly = true;
-            // 
-            // Column_PowerKW
-            // 
-            this.Column_PowerKW.HeaderText = "Power [kW]";
-            this.Column_PowerKW.Name = "Column_PowerKW";
-            this.Column_PowerKW.ReadOnly = true;
-            // 
-            // bShowDetails
-            // 
-            this.bShowDetails.Location = new System.Drawing.Point(292, 139);
-            this.bShowDetails.Name = "bShowDetails";
-            this.bShowDetails.Size = new System.Drawing.Size(155, 37);
-            this.bShowDetails.TabIndex = 3;
-            this.bShowDetails.Text = "Show Details";
-            this.bShowDetails.UseVisualStyleBackColor = true;
             // 
             // Form1
             // 
@@ -1405,7 +1379,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.picUserPhoto)).EndInit();
             this.panelCars.ResumeLayout(false);
             this.panelCars.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgShowCars)).EndInit();
             this.panelManage.ResumeLayout(false);
             this.panelManage.PerformLayout();
             this.panelService.ResumeLayout(false);
@@ -1423,11 +1397,11 @@
             this.panelSaveLoad.ResumeLayout(false);
             this.panelSaveLoad.PerformLayout();
             this.panelCentral.ResumeLayout(false);
+            this.panelStart.ResumeLayout(false);
+            this.panelStart.PerformLayout();
             this.panelAddNewCar.ResumeLayout(false);
             this.panelAddNewCar.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbCarPhoto)).EndInit();
-            this.panelStart.ResumeLayout(false);
-            this.panelStart.PerformLayout();
             this.ResumeLayout(false);
 
 		}
@@ -1495,7 +1469,7 @@
         private System.Windows.Forms.Label label17;
         private System.Windows.Forms.Label label13;
         private System.Windows.Forms.Button bHome;
-        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.DataGridView dgShowCars;
         private System.Windows.Forms.Button bAddCar;
         private System.Windows.Forms.Panel panelAddNewCar;
         private System.Windows.Forms.Label label18;
@@ -1527,19 +1501,15 @@
         private System.Windows.Forms.ComboBox cbBodyType;
         private System.Windows.Forms.ComboBox cbModel;
         private System.Windows.Forms.ComboBox cbBrand;
+        private System.Windows.Forms.Button bShowDetails;
+        private System.Windows.Forms.Button bShowCars;
         private System.Windows.Forms.DataGridViewCheckBoxColumn Column_CheckBox;
         private System.Windows.Forms.DataGridViewTextBoxColumn Index_Number;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column_Brand;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column_Model;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column_BodyType;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column_CounterState;
+        private System.Windows.Forms.DataGridViewTextBoxColumn LicensePlateNo;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column_ProductionYear;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column_PurchaseDate;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column_Engine;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column_Capacity;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column_Power;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column_PowerKW;
-        private System.Windows.Forms.Button bShowDetails;
     }
 }
 
