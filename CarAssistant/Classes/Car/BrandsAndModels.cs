@@ -12,7 +12,14 @@ namespace CarAssistant.Classes.Car
 
         public static Dictionary<string, string[]> GetResources()
         {
-            brandsAndModelsResources["Alfa Romeo"] = new string[] {
+            brandsAndModelsResources["Alfa Romeo"] = AlfaRomeo();
+
+            return brandsAndModelsResources;
+        }
+
+        private static string[] AlfaRomeo()
+        {
+            return new string[] {
             "0-9",
             "4C",
             "6C",
@@ -83,8 +90,6 @@ namespace CarAssistant.Classes.Car
             "Stelvio",
             "SZ",
             };
-
-            return brandsAndModelsResources;
         }
 
 
