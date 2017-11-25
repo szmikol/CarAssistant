@@ -10,14 +10,20 @@ namespace CarAssistant
     public class Model
     {
         public string WhichModel;
+        
             
         public Model()
         {
 
         }
 
-        public enum Alfa_Romeo
+        public void WhichType(string Input)
         {
+            
+        }
+                
+        public enum Alfa_Romeo
+            {
             [Description("0-9")] Alfa_Romeo_0_9,
             [Description("4C")] Alfa_Romeo_4C,
             [Description("6C")] Alfa_Romeo_6C,
@@ -89,7 +95,7 @@ namespace CarAssistant
             [Description("SZ")] Alfa_Romeo_SZ,
         };
 
-        public enum Aston_Martin { };
+        public enum Aston_Martin { };        
         public enum Audi { };
         public enum Bentley‎ { };
         public enum BMW‎ { };
@@ -151,6 +157,8 @@ namespace CarAssistant
         public enum Toyota‎ { };
         public enum Volkswagen‎ { };
         public enum Volvo { };
+      
+        
         //public enum Autosan { };
         //public enum Buick‎ { };
         //public enum AMC { };

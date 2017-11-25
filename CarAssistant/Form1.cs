@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using CarAssistant.Classes.Facade;
 using System.IO;
+using System.Reflection;
 
 namespace CarAssistant
 {
@@ -203,14 +204,15 @@ namespace CarAssistant
 
         private void bAddCar_Click(object sender, EventArgs e)
         {
+            cbBrand.Items.AddRange(Enum.GetNames(typeof(Brand)));
             panelAddNewCar.BringToFront();
         }
 
         private void bCreateCar_Click(object sender, EventArgs e)
         {                    
-            panelCars.BringToFront();
             Car CarFromPanel = new Car();
             CarFromPanel = CreateCarFromPanel();
+            panelCars.BringToFront();
         }
 
         private void bShowCars_Click(object sender, EventArgs e)
@@ -241,6 +243,14 @@ namespace CarAssistant
             return Temp;
         }
 
-        
+        private void cbBrand_SelectionChangeCommitted(object sender, EventArgs e)
+        {
+            string Temp = cbBrand.SelectedItem.ToString();
+            Type type = typeof(Model);            
+            MethodInfo ShowModels = type.GetType().GetMethod(Temp);
+           // string Input = (string)ShowModels.Invoke(TempModel, null);
+            cbModel.Items.AddRange(Enum.GetNames(typeof(Model.Alfa_Romeo)));
+                
+        }
     }
 }

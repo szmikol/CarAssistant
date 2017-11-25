@@ -1075,6 +1075,7 @@
             this.cbBrand.Name = "cbBrand";
             this.cbBrand.Size = new System.Drawing.Size(100, 21);
             this.cbBrand.TabIndex = 27;
+            this.cbBrand.SelectionChangeCommitted += new System.EventHandler(this.cbBrand_SelectionChangeCommitted);
             // 
             // tbCapacity
             // 
