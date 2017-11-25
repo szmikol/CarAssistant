@@ -8,6 +8,8 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using CarAssistant.Classes.Facade;
+using CarAssistant.Classes.Car;
+using CarAssistant.Interfaces;
 using System.IO;
 using System.Reflection;
 
@@ -19,12 +21,20 @@ namespace CarAssistant
         private string directory = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments) + "\\CarAssistant\\files";
         DataSaver dataSaver;
         DataLoader dataLoader;
-		public Form1()
+        Dictionary<string, string[]> brandsAndModels = BrandsAndModels.GetResources();
+        
+
+    public Form1()
 		{
 			InitializeComponent();
             CreateFilesAndDirectories();
             InitialDataLoader(out driver);
             ShowStartingScreen();
+
+            foreach (var item in brandsAndModels.Keys)
+            {
+                cbBrand.Items.Add(item);
+            }
         }
 
 
@@ -204,7 +214,7 @@ namespace CarAssistant
 
         private void bAddCar_Click(object sender, EventArgs e)
         {
-            cbBrand.Items.AddRange(Enum.GetNames(typeof(Brand)));
+            //cbBrand.Items.AddRange(Enum.GetNames(typeof(Brand)));
             panelAddNewCar.BringToFront();
         }
 
@@ -245,12 +255,14 @@ namespace CarAssistant
 
         private void cbBrand_SelectionChangeCommitted(object sender, EventArgs e)
         {
-            string Temp = cbBrand.SelectedItem.ToString();
-            Type type = typeof(Model);            
-            MethodInfo ShowModels = type.GetType().GetMethod(Temp);
-           // string Input = (string)ShowModels.Invoke(TempModel, null);
-            cbModel.Items.AddRange(Enum.GetNames(typeof(Model.Alfa_Romeo)));
-                
+            cbModel.Items.Clear();
+
+            if (cbBrand.SelectedIndex > -1)
+            {
+                string brand = brandsAndModels.Keys.ElementAt(cbBrand.SelectedIndex);
+                cbModel.Items.AddRange(brandsAndModels[brand]);
+            }
+
         }
     }
 }

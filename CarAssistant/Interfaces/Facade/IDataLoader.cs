@@ -10,7 +10,7 @@ namespace CarAssistant.Interfaces.Facade
 	{
 		List<Car> LoadCarsListFromXml(string Path);
 
-		Car LoadCarFromXml(Brand Brand, Model Model, User Owner, string Path);
+		Car LoadCarFromXml(string Brand, string Model, User Owner, string Path);
 
 		User LoadUserFromXml(string Path);
 	}

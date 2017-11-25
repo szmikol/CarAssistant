@@ -12,7 +12,7 @@ namespace CarAssistant.Classes.Facade
 {
 	public class DataLoader : IDataLoader
 	{
-		public CarAssistant.Car LoadCarFromXml(Brand Brand, Model Model, User Owner, string Path)
+		public CarAssistant.Car LoadCarFromXml(string Brand, string Model, User Owner, string Path)
 		{
             var file = new FileStream(Path, FileMode.Open);
             var load = new XmlSerializer(typeof(CarAssistant.Car));

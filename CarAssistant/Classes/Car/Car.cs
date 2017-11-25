@@ -15,8 +15,8 @@ namespace CarAssistant
 	{
         //Fields
         private Engine Engine;
-        public Model Model;
-        public Brand Brand;
+        public string Model;
+        public string Brand;
         public DateTime ProductionDate;
         private DateTime PurchaseDate;
         private User Owner;
@@ -26,7 +26,7 @@ namespace CarAssistant
         public int Index;
         public string BodyType;
         //Constructors
-        public Car(Brand InputBrand, Model InputModel, Engine InputEngine, DateTime InputProductionYear, 
+        public Car(string InputBrand, string InputModel, Engine InputEngine, DateTime InputProductionYear, 
             User InputOwner, DateTime InputPurchaseDate, double InputCounterState, string InputVin,
             string InputLicensePlateNumber, string InBodyType)
         {
@@ -54,7 +54,7 @@ namespace CarAssistant
         /// <summary>
         /// Sets object parameter Brand
         /// </summary>
-        public void SetBrand (Brand InBrand) 
+        public void SetBrand (string InBrand) 
         {
             Brand = InBrand;
         }
@@ -62,7 +62,7 @@ namespace CarAssistant
         /// <summary>
         /// Sets object's parameter Model
         /// </summary>
-        public void SetModel(Model InModel) 
+        public void SetModel(string InModel) 
         {
             Model = InModel;
         }
@@ -131,7 +131,7 @@ namespace CarAssistant
         /// <summary>
         /// Returns object's parameter Brand
         /// </summary>
-        public Brand GetBrand() 
+        public string GetBrand() 
         {
             return Brand;
         }
@@ -139,7 +139,7 @@ namespace CarAssistant
         /// <summary>
         ///Returns object's parameter Model
         /// </summary>
-        public Model GetModel() 
+        public string GetModel() 
         {
             return Model;
         }
@@ -245,7 +245,7 @@ namespace CarAssistant
         /// </summary>
         public void SetCarToNull()
         {            
-            Brand = Brand.None;            
+            Brand = "";            
             ProductionDate = DateTime.ParseExact("01-01-0001", "DD-MM-YYYY", CultureInfo.InvariantCulture);
             Owner = null;
             CounterState = 0;

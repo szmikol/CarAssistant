@@ -44,7 +44,7 @@ namespace CarAssistant
 
         }
 
-		public void DeleteCarByModel(User WhichUser, Brand Brand, Model CarModel)
+		public void DeleteCarByModel(User WhichUser, string Brand, string CarModel)
 		{
 			throw new NotImplementedException();
 		}
@@ -62,7 +62,7 @@ namespace CarAssistant
             return null;
         }
 
-		public List<Car> FindCardByModel(User WhichUser, Model CarModel)
+		public List<Car> FindCardByModel(User WhichUser, string CarModel)
 		{
             List<Car> ExportList = new List<Car>();
             foreach(Car c in WhichUser.userCars)
@@ -75,7 +75,7 @@ namespace CarAssistant
             return ExportList;
 		}
 
-		public List<Car> FindCarsByBrand(User WhichUser, Brand CarBrand)
+		public List<Car> FindCarsByBrand(User WhichUser, string CarBrand)
 		{
             List<Car> ExportList = new List<Car>();
             foreach (Car c in WhichUser.userCars)
@@ -88,7 +88,7 @@ namespace CarAssistant
             return ExportList;
         }
 
-		public Dictionary<Brand, Model> RetrieveAllCarsOfSpecificBrand(User WhichUser, Brand CarBrand)
+		public Dictionary<string, string> RetrieveAllCarsOfSpecificBrand(User WhichUser, string CarBrand)
 		{
 			throw new NotImplementedException();
 		}

@@ -27,6 +27,6 @@ namespace CarAssistant.Interfaces.Facade
 		List<Car> RetrieveUsersCars();
 
 		//Method allows to search specific users car, base on its Model (then Brand is unecessary) and Production Year
-		Car RetrieveUsersSpecificCar(Model Model, int ProductionYear);
+		Car RetrieveUsersSpecificCar(string Model, int ProductionYear);
 	}
 }

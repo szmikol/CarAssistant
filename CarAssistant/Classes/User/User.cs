@@ -75,7 +75,7 @@ namespace CarAssistant
         /// <param name="Model"></param>
         /// <param name="ProductionYear"></param>
         /// <returns></returns>
-		public List<Car> FindCar(Brand Brand, Model Model, int ProductionYear)
+		public List<Car> FindCar(string Brand, string Model, int ProductionYear)
         {
             List<int> brandList = FindCarBrand(Brand);
             List<int> modelList = FindCarModel(Model);
@@ -155,7 +155,7 @@ namespace CarAssistant
 
             return delete;
         }
-        private List<int> FindCarBrand(Brand brand)
+        private List<int> FindCarBrand(string brand)
         {
             List<int> list = new List<int>();
             for (int i = 0; i < userCars.Count(); i++)
@@ -167,7 +167,7 @@ namespace CarAssistant
             }
             return list;
         }
-        private List<int> FindCarModel(Model model)
+        private List<int> FindCarModel(string model)
         {
             List<int> list = new List<int>();
             for (int i = 0; i < userCars.Count(); i++)

@@ -36,7 +36,7 @@ namespace CarAssistant.Classes.Facade
 			throw new NotImplementedException();
 		}
 
-		public CarAssistant.Car RetrieveUsersSpecificCar(Model Model, int ProductionYear)
+		public CarAssistant.Car RetrieveUsersSpecificCar(string Model, int ProductionYear)
 		{
 			throw new NotImplementedException();
 		}

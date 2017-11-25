@@ -16,7 +16,7 @@ namespace CarAssistant.Interfaces
 		void DeleteCarByVin(User WhichUser, string Vin);
 
 		//Method removes specific car, base on its Brand and Model
-		void DeleteCarByModel(User WhichUser, Brand Brand, Model CarModel);
+		void DeleteCarByModel(User WhichUser, string Brand, string CarModel);
 
 		//Method removes specific car
 		void DeleteCar(User WhichUser, Car CarToDelete);
@@ -28,13 +28,13 @@ namespace CarAssistant.Interfaces
 		Car FindCarById(User WhichUser, int Id);
 
 		//Method search and returns all Cars from system storage, base on its Brand
-		List<Car> FindCarsByBrand(User WhichUser, Brand CarBrand);
+		List<Car> FindCarsByBrand(User WhichUser, string CarBrand);
 
 		//Method search and returns all Cars from system storage, base on its Model
-		List<Car> FindCardByModel(User WhichUser, Model CarModel);
+		List<Car> FindCardByModel(User WhichUser, string CarModel);
 
 		//Method returns all Cars of specific Brand
 		//E.g. Fiat Uno, Fiat Panda, Fiat Sedici etc.
-		Dictionary<Brand, Model> RetrieveAllCarsOfSpecificBrand(User WhichUser, Brand CarBrand);
+		Dictionary<string, string> RetrieveAllCarsOfSpecificBrand(User WhichUser, string CarBrand);
 	}
 }
