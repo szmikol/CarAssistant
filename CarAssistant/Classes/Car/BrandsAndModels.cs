@@ -10,14 +10,33 @@ namespace CarAssistant.Classes.Car
     {
         private static Dictionary<string, string[]> brandsAndModelsResources = new Dictionary<string, string[]>();
 
+        private static string Alfa_Romeo = "Alfa Romeo";
+        private static string Aston_Martin = "Aston Martin";
+        private static string Audi = "Audi";
+
         public static Dictionary<string, string[]> GetResources()
         {
-            brandsAndModelsResources["Alfa Romeo"] = AlfaRomeo();
+            brandsAndModelsResources[Alfa_Romeo] = GenerateAlfaRomeo();
+            brandsAndModelsResources[Aston_Martin] = GenerateAstonMartin();
+            brandsAndModelsResources[Audi] = GenerateAudi();
 
             return brandsAndModelsResources;
         }
 
-        private static string[] AlfaRomeo()
+        private static string[] GenerateAudi()
+        {
+            return new string[] {
+                "A7"
+            };
+        }
+
+        private static string[] GenerateAstonMartin()
+        {
+            return new string[] {
+                "DB 9"
+            };
+        }
+            private static string[] GenerateAlfaRomeo()
         {
             return new string[] {
             "0-9",
