@@ -209,6 +209,8 @@ namespace CarAssistant
         private void bCreateCar_Click(object sender, EventArgs e)
         {                    
             panelCars.BringToFront();
+            Car CarFromPanel = new Car();
+            CarFromPanel = CreateCarFromPanel();
         }
 
         private void bShowCars_Click(object sender, EventArgs e)
@@ -227,6 +229,16 @@ namespace CarAssistant
             dgShowCars.DataSource = ListToShow;
             }
 
+        }
+
+        private Car CreateCarFromPanel()
+        {
+            Car Temp = new Car();
+            
+
+
+
+            return Temp;
         }
 
         

@@ -185,6 +185,7 @@
             // 
             // panelButtons
             // 
+            this.panelButtons.Controls.Add(this.bCars);
             this.panelButtons.Controls.Add(this.bSaveLoad);
             this.panelButtons.Controls.Add(this.bSettings);
             this.panelButtons.Controls.Add(this.button9);
@@ -195,7 +196,6 @@
             this.panelButtons.Controls.Add(this.bInsurance);
             this.panelButtons.Controls.Add(this.bService);
             this.panelButtons.Controls.Add(this.bManage);
-            this.panelButtons.Controls.Add(this.bCars);
             this.panelButtons.Dock = System.Windows.Forms.DockStyle.Top;
             this.panelButtons.Location = new System.Drawing.Point(0, 0);
             this.panelButtons.Margin = new System.Windows.Forms.Padding(2);
@@ -214,7 +214,7 @@
             this.bSaveLoad.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.bSaveLoad.Font = new System.Drawing.Font("Arial", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.bSaveLoad.ForeColor = System.Drawing.Color.White;
-            this.bSaveLoad.Location = new System.Drawing.Point(0, 410);
+            this.bSaveLoad.Location = new System.Drawing.Point(0, 369);
             this.bSaveLoad.Margin = new System.Windows.Forms.Padding(2);
             this.bSaveLoad.Name = "bSaveLoad";
             this.bSaveLoad.Size = new System.Drawing.Size(150, 41);
@@ -234,7 +234,7 @@
             this.bSettings.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.bSettings.Font = new System.Drawing.Font("Arial", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.bSettings.ForeColor = System.Drawing.Color.White;
-            this.bSettings.Location = new System.Drawing.Point(0, 369);
+            this.bSettings.Location = new System.Drawing.Point(0, 328);
             this.bSettings.Margin = new System.Windows.Forms.Padding(2);
             this.bSettings.Name = "bSettings";
             this.bSettings.Size = new System.Drawing.Size(150, 41);
@@ -254,7 +254,7 @@
             this.button9.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button9.Font = new System.Drawing.Font("Arial", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.button9.ForeColor = System.Drawing.Color.White;
-            this.button9.Location = new System.Drawing.Point(0, 328);
+            this.button9.Location = new System.Drawing.Point(0, 287);
             this.button9.Margin = new System.Windows.Forms.Padding(2);
             this.button9.Name = "button9";
             this.button9.Size = new System.Drawing.Size(150, 41);
@@ -273,7 +273,7 @@
             this.button8.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button8.Font = new System.Drawing.Font("Arial", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.button8.ForeColor = System.Drawing.Color.White;
-            this.button8.Location = new System.Drawing.Point(0, 287);
+            this.button8.Location = new System.Drawing.Point(0, 246);
             this.button8.Margin = new System.Windows.Forms.Padding(2);
             this.button8.Name = "button8";
             this.button8.Size = new System.Drawing.Size(150, 41);
@@ -292,7 +292,7 @@
             this.bReminders.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.bReminders.Font = new System.Drawing.Font("Arial", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.bReminders.ForeColor = System.Drawing.Color.White;
-            this.bReminders.Location = new System.Drawing.Point(0, 246);
+            this.bReminders.Location = new System.Drawing.Point(0, 205);
             this.bReminders.Margin = new System.Windows.Forms.Padding(2);
             this.bReminders.Name = "bReminders";
             this.bReminders.Size = new System.Drawing.Size(150, 41);
@@ -312,7 +312,7 @@
             this.bExpenses.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.bExpenses.Font = new System.Drawing.Font("Arial", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.bExpenses.ForeColor = System.Drawing.Color.White;
-            this.bExpenses.Location = new System.Drawing.Point(0, 205);
+            this.bExpenses.Location = new System.Drawing.Point(0, 164);
             this.bExpenses.Margin = new System.Windows.Forms.Padding(2);
             this.bExpenses.Name = "bExpenses";
             this.bExpenses.Size = new System.Drawing.Size(150, 41);
@@ -332,7 +332,7 @@
             this.bRefuel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.bRefuel.Font = new System.Drawing.Font("Arial", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.bRefuel.ForeColor = System.Drawing.Color.White;
-            this.bRefuel.Location = new System.Drawing.Point(0, 164);
+            this.bRefuel.Location = new System.Drawing.Point(0, 123);
             this.bRefuel.Margin = new System.Windows.Forms.Padding(2);
             this.bRefuel.Name = "bRefuel";
             this.bRefuel.Size = new System.Drawing.Size(150, 41);
@@ -352,7 +352,7 @@
             this.bInsurance.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.bInsurance.Font = new System.Drawing.Font("Arial", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.bInsurance.ForeColor = System.Drawing.Color.White;
-            this.bInsurance.Location = new System.Drawing.Point(0, 123);
+            this.bInsurance.Location = new System.Drawing.Point(0, 82);
             this.bInsurance.Margin = new System.Windows.Forms.Padding(2);
             this.bInsurance.Name = "bInsurance";
             this.bInsurance.Size = new System.Drawing.Size(150, 41);
@@ -372,7 +372,7 @@
             this.bService.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.bService.Font = new System.Drawing.Font("Arial", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.bService.ForeColor = System.Drawing.Color.White;
-            this.bService.Location = new System.Drawing.Point(0, 82);
+            this.bService.Location = new System.Drawing.Point(0, 41);
             this.bService.Margin = new System.Windows.Forms.Padding(2);
             this.bService.Name = "bService";
             this.bService.Size = new System.Drawing.Size(150, 41);
@@ -392,7 +392,7 @@
             this.bManage.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.bManage.Font = new System.Drawing.Font("Arial", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.bManage.ForeColor = System.Drawing.Color.White;
-            this.bManage.Location = new System.Drawing.Point(0, 41);
+            this.bManage.Location = new System.Drawing.Point(0, 0);
             this.bManage.Margin = new System.Windows.Forms.Padding(2);
             this.bManage.Name = "bManage";
             this.bManage.Size = new System.Drawing.Size(150, 41);
@@ -412,7 +412,7 @@
             this.bCars.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.bCars.Font = new System.Drawing.Font("Arial", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.bCars.ForeColor = System.Drawing.Color.White;
-            this.bCars.Location = new System.Drawing.Point(0, 0);
+            this.bCars.Location = new System.Drawing.Point(0, 410);
             this.bCars.Margin = new System.Windows.Forms.Padding(2);
             this.bCars.Name = "bCars";
             this.bCars.Size = new System.Drawing.Size(150, 41);
@@ -653,10 +653,10 @@
             this.panelCars.Controls.Add(this.dgShowCars);
             this.panelCars.Controls.Add(this.label3);
             this.panelCars.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panelCars.Location = new System.Drawing.Point(150, 122);
+            this.panelCars.Location = new System.Drawing.Point(0, 0);
             this.panelCars.Margin = new System.Windows.Forms.Padding(2);
             this.panelCars.Name = "panelCars";
-            this.panelCars.Size = new System.Drawing.Size(675, 366);
+            this.panelCars.Size = new System.Drawing.Size(825, 488);
             this.panelCars.TabIndex = 2;
             // 
             // bShowDetails
@@ -908,7 +908,7 @@
             // 
             // panelCentral
             // 
-            this.panelCentral.Controls.Add(this.panelCars);
+            this.panelCentral.Controls.Add(this.panelAddNewCar);
             this.panelCentral.Controls.Add(this.panelStart);
             this.panelCentral.Controls.Add(this.panelDriverInfo);
             this.panelCentral.Controls.Add(this.panelMenu);
@@ -920,7 +920,7 @@
             this.panelCentral.Controls.Add(this.panelSettings);
             this.panelCentral.Controls.Add(this.panelSaveLoad);
             this.panelCentral.Controls.Add(this.panelService);
-            this.panelCentral.Controls.Add(this.panelAddNewCar);
+            this.panelCentral.Controls.Add(this.panelCars);
             this.panelCentral.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panelCentral.Location = new System.Drawing.Point(0, 0);
             this.panelCentral.Margin = new System.Windows.Forms.Padding(2);
@@ -1028,10 +1028,10 @@
             this.panelAddNewCar.Controls.Add(this.bCreateCar);
             this.panelAddNewCar.Controls.Add(this.label18);
             this.panelAddNewCar.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panelAddNewCar.Location = new System.Drawing.Point(0, 0);
+            this.panelAddNewCar.Location = new System.Drawing.Point(150, 122);
             this.panelAddNewCar.Margin = new System.Windows.Forms.Padding(2);
             this.panelAddNewCar.Name = "panelAddNewCar";
-            this.panelAddNewCar.Size = new System.Drawing.Size(825, 488);
+            this.panelAddNewCar.Size = new System.Drawing.Size(675, 366);
             this.panelAddNewCar.TabIndex = 4;
             // 
             // label21
@@ -1229,7 +1229,7 @@
             // 
             this.label19.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label19.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.label19.Location = new System.Drawing.Point(103, 103);
+            this.label19.Location = new System.Drawing.Point(28, 42);
             this.label19.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label19.Name = "label19";
             this.label19.Size = new System.Drawing.Size(75, 20);
@@ -1241,7 +1241,7 @@
             // 
             this.label20.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label20.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.label20.Location = new System.Drawing.Point(335, 101);
+            this.label20.Location = new System.Drawing.Point(260, 40);
             this.label20.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label20.Name = "label20";
             this.label20.Size = new System.Drawing.Size(105, 20);
