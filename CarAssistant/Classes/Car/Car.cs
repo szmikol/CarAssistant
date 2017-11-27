@@ -129,6 +129,13 @@ namespace CarAssistant
             LicensePlateNo = LicPlaNo;
         }
         /// <summary>
+        /// Sets object's parameter Body Type
+        /// </summary>
+        public void SetBodyType (string InputBodyType)
+        {
+            BodyType = InputBodyType;
+        }
+        /// <summary>
         /// Returns object's parameter Brand
         /// </summary>
         public string GetBrand() 
@@ -203,6 +210,13 @@ namespace CarAssistant
         public string GetLicensePlateNo()
         {
             return LicensePlateNo;
+        }
+        /// <summary>
+        ///Returns object's Body Tpe
+        /// </summary>
+        public string GetBodyType()
+        {
+            return BodyType;
         }
         /// <summary>
         /// Returns object's age in years

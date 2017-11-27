@@ -11,7 +11,8 @@ using CarAssistant.Classes.Facade;
 using CarAssistant.Classes.Car;
 using CarAssistant.Interfaces;
 using System.IO;
-using System.Reflection;
+using System.Globalization;
+
 
 namespace CarAssistant
 {
@@ -213,8 +214,7 @@ namespace CarAssistant
         }
 
         private void bAddCar_Click(object sender, EventArgs e)
-        {
-            //cbBrand.Items.AddRange(Enum.GetNames(typeof(Brand)));
+        {            
             panelAddNewCar.BringToFront();
         }
 
@@ -222,6 +222,7 @@ namespace CarAssistant
         {                    
             Car CarFromPanel = new Car();
             CarFromPanel = CreateCarFromPanel();
+            driver.AddNewCar(CarFromPanel);
             panelCars.BringToFront();
         }
 
@@ -234,7 +235,7 @@ namespace CarAssistant
             }
             else if (driver.userCars.Count() == 0)
             {
-                MessageBox.Show("User has no cars yet. Please create some cars", "Achtung!", MessageBoxButtons.OK);
+                MessageBox.Show("User has no cars yet. Please add some cars", "Achtung!", MessageBoxButtons.OK);
             }
             {
             List<Car> ListToShow = driver.userCars;
@@ -247,7 +248,26 @@ namespace CarAssistant
         {
             Car Temp = new Car();
             
+            DateTime TempProductionYear = DateTime.ParseExact(tbProductionYear.Text, "yyyy", CultureInfo.InvariantCulture);
+            DateTime TempPurchaseDate = DateTime.ParseExact(dtPurchaseDate.Text, "dd/MM/yyyy", CultureInfo.InvariantCulture);
+            double TempCounterState = double.Parse(tbCounterState.Text);
+            int TempCapacity = int.Parse(tbCapacity.Text);
+            int TempHorsePower = int.Parse(tbPower.Text);
+            string TempTypeOfEngine = cbEngineType.Text;
 
+            Temp.SetBrand(cbBrand.SelectedItem.ToString());
+            Temp.SetModel(cbModel.SelectedItem.ToString());
+            Temp.SetProductionDate(TempProductionYear);
+            Temp.SetPurchaseDate(TempPurchaseDate);
+            Temp.SetCounterState(TempCounterState);
+            Temp.SetLicensePlatesNo(tbLicensePlates.Text);
+            Temp.SetVin(tbVIN.Text);
+            Temp.SetBodyType(cbBodyType.SelectedItem.ToString());
+            Temp.SetOwner(driver);
+            Temp.SetIndex();
+
+            Engine EForTemp = new Engine (TempCapacity, TempHorsePower, TempTypeOfEngine);
+            Temp.SetEngine(EForTemp);
 
 
             return Temp;
