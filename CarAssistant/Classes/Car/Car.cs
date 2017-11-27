@@ -15,16 +15,16 @@ namespace CarAssistant
 	{
         //Fields
         private Engine Engine;
-        public string Model;
-        public string Brand;
-        public DateTime ProductionDate;
+        public string Model { get; set; }
+        public string Brand { get; set; }
+        public DateTime ProductionDate { get; set; }
         private DateTime PurchaseDate;
         private User Owner;
         private double CounterState;
-        public string LicensePlateNo;
+        public string LicensePlateNo { get; set; }
         private string Vin;
-        public int Index;
-        public string BodyType;
+        public int Index { get; set; }
+        public string BodyType { get; set; }
         //Constructors
         public Car(string InputBrand, string InputModel, Engine InputEngine, DateTime InputProductionYear, 
             User InputOwner, DateTime InputPurchaseDate, double InputCounterState, string InputVin,
@@ -51,21 +51,23 @@ namespace CarAssistant
 
         //Methods
         
+        
+            
         /// <summary>
         /// Sets object parameter Brand
         /// </summary>
-        public void SetBrand (string InBrand) 
-        {
-            Brand = InBrand;
-        }
+        //public void SetBrand (string InBrand) 
+        //{
+        //    Brand = InBrand;
+        //}
         
         /// <summary>
         /// Sets object's parameter Model
         /// </summary>
-        public void SetModel(string InModel) 
-        {
-            Model = InModel;
-        }
+        //public void SetModel(string InModel) 
+        //{
+        //    Model = InModel;
+        //}
         
         ///<summary>
         /// Sets object's parameter Engine
@@ -78,10 +80,10 @@ namespace CarAssistant
         /// <summary>
         /// Sets object's parameter Production Date
         /// </summary>
-        public void SetProductionDate(DateTime InDate) 
-        {
-            ProductionDate = InDate;
-        }
+        //public void SetProductionDate(DateTime InDate) 
+        //{
+        //    ProductionDate = InDate;
+        //}
         
         /// <summary>
         /// Sets object's parameter Owner
@@ -124,32 +126,32 @@ namespace CarAssistant
         /// <summary>
         /// Sets object's parameter License Plate Number
         /// </summary>
-        public void SetLicensePlatesNo(string LicPlaNo)
-        {
-            LicensePlateNo = LicPlaNo;
-        }
+        //public void SetLicensePlatesNo(string LicPlaNo)
+        //{
+        //    LicensePlateNo = LicPlaNo;
+        //}
         /// <summary>
         /// Sets object's parameter Body Type
         /// </summary>
-        public void SetBodyType (string InputBodyType)
-        {
-            BodyType = InputBodyType;
-        }
+        //public void SetBodyType (string InputBodyType)
+        //{
+        //    BodyType = InputBodyType;
+        //}
         /// <summary>
         /// Returns object's parameter Brand
         /// </summary>
-        public string GetBrand() 
-        {
-            return Brand;
-        }
+        //public string GetBrand() 
+        //{
+        //    return Brand;
+        //}
         
         /// <summary>
         ///Returns object's parameter Model
         /// </summary>
-        public string GetModel() 
-        {
-            return Model;
-        }
+        //public string GetModel() 
+        //{
+        //    return Model;
+        //}
         ///<summary>
         ///Returns object's parameter (object)Engine
         /// </summary>
@@ -162,10 +164,10 @@ namespace CarAssistant
         /// <summary>
         ///Returns object's parameter Production Date
         /// </summary>
-        public DateTime GetProductionDate() 
-        {
-            return ProductionDate;
-        }
+        //public DateTime GetProductionDate() 
+        //{
+        //    return ProductionDate;
+        //}
         
         /// <summary>
         ///Returns object's parameter Owner
@@ -200,31 +202,31 @@ namespace CarAssistant
         /// <summary>
         /// Find Car's Id in user list;
         /// </summary>
-        public int GetIndex()
-        {
-            return Index;
-        }
+        //public int GetIndex()
+        //{
+        //    return Index;
+        //}
         /// <summary>
         ///Returns object's parameter License Plate Number
         /// </summary>        
-        public string GetLicensePlateNo()
-        {
-            return LicensePlateNo;
-        }
+        //public string GetLicensePlateNo()
+        //{
+        //    return LicensePlateNo;
+        //}
         /// <summary>
         ///Returns object's Body Tpe
         /// </summary>
-        public string GetBodyType()
-        {
-            return BodyType;
-        }
+        //public string GetBodyType()
+        //{
+        //    return BodyType;
+        //}
         /// <summary>
         /// Returns object's age in years
         /// </summary>
         public int CalculateAge() 
 		{
             DateTime Present = DateTime.Now;
-            DateTime CarDate = GetProductionDate();
+            DateTime CarDate = ProductionDate;
             int Age = Present.Year - CarDate.Year;
             if (Present.Month < CarDate.Month || (Present.Month == CarDate.Month && Present.Day < CarDate.Day))
             {
@@ -239,7 +241,7 @@ namespace CarAssistant
         /// </summary>
         public string WriteCarShortDescription() 
 		{
-			string Output = string.Format("{0},{1},Year: {2}", GetBrand().ToString(), GetModel().ToString(), GetProductionDate().Year.ToString());
+			string Output = string.Format("{0},{1},Year: {2}", Brand, Model, ProductionDate.ToString());
             return Output;
 		}
         
@@ -274,11 +276,11 @@ namespace CarAssistant
         /// </summary>
         public void ChangeCarsParameters(Car InputCar)
         {
-            SetBrand(InputCar.GetBrand());
-            SetModel(InputCar.GetModel());
+            Brand = InputCar.Brand;
+            Model = InputCar.Model;
             SetEngine(InputCar.GetEngine());
-            SetLicensePlatesNo(InputCar.GetLicensePlateNo());
-            SetProductionDate(InputCar.GetProductionDate());
+            LicensePlateNo = InputCar.LicensePlateNo;
+            ProductionDate = InputCar.ProductionDate;
             SetPurchaseDate(InputCar.GetPurchaseDate());
             SetVin(InputCar.GetVin());
             SetCounterState(InputCar.GetCounterState());

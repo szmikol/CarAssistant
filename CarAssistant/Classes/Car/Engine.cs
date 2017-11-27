@@ -64,7 +64,7 @@ namespace CarAssistant
                 Horsepower = InHorsepower;
                 TypeOfEngine = InTypeOfEngine;
                 PowerInKW = HorsepowerTokW(InHorsepower);
-               
+
 
             }
             else if (InTypeOfEngine == "Diesel")
@@ -74,6 +74,14 @@ namespace CarAssistant
                 TypeOfEngine = InTypeOfEngine;
                 PowerInKW = HorsepowerTokW(InHorsepower);
             }
+            else if (InTypeOfEngine == "Petrol + LPG")
+            {
+                Capacity = InCapacity;
+                Horsepower = InHorsepower;
+                TypeOfEngine = InTypeOfEngine;
+                PowerInKW = HorsepowerTokW(InHorsepower);
+            }
+            
             else
             {
                 MessageBox.Show("Unkown type of engine. Resend data", "Alert!", MessageBoxButtons.OK);

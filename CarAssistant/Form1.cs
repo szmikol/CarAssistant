@@ -237,6 +237,7 @@ namespace CarAssistant
             {
                 MessageBox.Show("User has no cars yet. Please add some cars", "Achtung!", MessageBoxButtons.OK);
             }
+            else
             {
             List<Car> ListToShow = driver.userCars;
             dgShowCars.DataSource = ListToShow;
@@ -249,20 +250,20 @@ namespace CarAssistant
             Car Temp = new Car();
             
             DateTime TempProductionYear = DateTime.ParseExact(tbProductionYear.Text, "yyyy", CultureInfo.InvariantCulture);
-            DateTime TempPurchaseDate = DateTime.ParseExact(dtPurchaseDate.Text, "dd/MM/yyyy", CultureInfo.InvariantCulture);
+            DateTime TempPurchaseDate = dtPurchaseDate.Value;
             double TempCounterState = double.Parse(tbCounterState.Text);
             int TempCapacity = int.Parse(tbCapacity.Text);
             int TempHorsePower = int.Parse(tbPower.Text);
             string TempTypeOfEngine = cbEngineType.Text;
 
-            Temp.SetBrand(cbBrand.SelectedItem.ToString());
-            Temp.SetModel(cbModel.SelectedItem.ToString());
-            Temp.SetProductionDate(TempProductionYear);
+            Temp.Brand = (cbBrand.SelectedItem.ToString());
+            Temp.Model = (cbModel.SelectedItem.ToString());
+            Temp.ProductionDate = (TempProductionYear);
             Temp.SetPurchaseDate(TempPurchaseDate);
             Temp.SetCounterState(TempCounterState);
-            Temp.SetLicensePlatesNo(tbLicensePlates.Text);
+            Temp.LicensePlateNo = (tbLicensePlates.Text);
             Temp.SetVin(tbVIN.Text);
-            Temp.SetBodyType(cbBodyType.SelectedItem.ToString());
+            Temp.BodyType = (cbBodyType.SelectedItem.ToString());
             Temp.SetOwner(driver);
             Temp.SetIndex();
 
@@ -284,5 +285,7 @@ namespace CarAssistant
             }
 
         }
+
+       
     }
 }

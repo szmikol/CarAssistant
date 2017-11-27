@@ -53,7 +53,7 @@ namespace CarAssistant
 		{
             foreach (Car c in WhichUser.userCars)
             {
-                if (c.GetIndex() == Id)
+                if (c.Index == Id)
                 {
                     return c;
                 }
@@ -67,7 +67,7 @@ namespace CarAssistant
             List<Car> ExportList = new List<Car>();
             foreach(Car c in WhichUser.userCars)
             {
-                if(c.GetModel() == CarModel)
+                if(c.Model == CarModel)
                 {
                     ExportList.Add(c);
                 }
@@ -80,7 +80,7 @@ namespace CarAssistant
             List<Car> ExportList = new List<Car>();
             foreach (Car c in WhichUser.userCars)
             {
-                if (c.GetBrand() == CarBrand)
+                if (c.Brand == CarBrand)
                 {
                     ExportList.Add(c);
                 }

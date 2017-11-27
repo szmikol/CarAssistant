@@ -32,6 +32,7 @@
             this.panelMenu = new System.Windows.Forms.Panel();
             this.bExit = new System.Windows.Forms.Button();
             this.panelButtons = new System.Windows.Forms.Panel();
+            this.bCars = new System.Windows.Forms.Button();
             this.bSaveLoad = new System.Windows.Forms.Button();
             this.bSettings = new System.Windows.Forms.Button();
             this.button9 = new System.Windows.Forms.Button();
@@ -42,7 +43,6 @@
             this.bInsurance = new System.Windows.Forms.Button();
             this.bService = new System.Windows.Forms.Button();
             this.bManage = new System.Windows.Forms.Button();
-            this.bCars = new System.Windows.Forms.Button();
             this.panelDriverInfo = new System.Windows.Forms.Panel();
             this.bHome = new System.Windows.Forms.Button();
             this.tbDrPOwnedCars = new System.Windows.Forms.TextBox();
@@ -62,6 +62,7 @@
             this.label8 = new System.Windows.Forms.Label();
             this.picUserPhoto = new System.Windows.Forms.PictureBox();
             this.panelCars = new System.Windows.Forms.Panel();
+            this.bShowCars = new System.Windows.Forms.Button();
             this.bShowDetails = new System.Windows.Forms.Button();
             this.bAddCar = new System.Windows.Forms.Button();
             this.dgShowCars = new System.Windows.Forms.DataGridView();
@@ -87,12 +88,6 @@
             this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
             this.saveFileDialog1 = new System.Windows.Forms.SaveFileDialog();
             this.panelCentral = new System.Windows.Forms.Panel();
-            this.panelStart = new System.Windows.Forms.Panel();
-            this.bLoadDriver = new System.Windows.Forms.Button();
-            this.bSaveDriver = new System.Windows.Forms.Button();
-            this.bCreateDriver = new System.Windows.Forms.Button();
-            this.label17 = new System.Windows.Forms.Label();
-            this.label13 = new System.Windows.Forms.Label();
             this.panelAddNewCar = new System.Windows.Forms.Panel();
             this.label21 = new System.Windows.Forms.Label();
             this.cbEngineType = new System.Windows.Forms.ComboBox();
@@ -123,7 +118,12 @@
             this.pbCarPhoto = new System.Windows.Forms.PictureBox();
             this.bCreateCar = new System.Windows.Forms.Button();
             this.label18 = new System.Windows.Forms.Label();
-            this.bShowCars = new System.Windows.Forms.Button();
+            this.panelStart = new System.Windows.Forms.Panel();
+            this.bLoadDriver = new System.Windows.Forms.Button();
+            this.bSaveDriver = new System.Windows.Forms.Button();
+            this.bCreateDriver = new System.Windows.Forms.Button();
+            this.label17 = new System.Windows.Forms.Label();
+            this.label13 = new System.Windows.Forms.Label();
             this.Column_CheckBox = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.Index_Number = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column_Brand = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -146,9 +146,9 @@
             this.panelSettings.SuspendLayout();
             this.panelSaveLoad.SuspendLayout();
             this.panelCentral.SuspendLayout();
-            this.panelStart.SuspendLayout();
             this.panelAddNewCar.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbCarPhoto)).BeginInit();
+            this.panelStart.SuspendLayout();
             this.SuspendLayout();
             // 
             // panelMenu
@@ -202,6 +202,26 @@
             this.panelButtons.Name = "panelButtons";
             this.panelButtons.Size = new System.Drawing.Size(150, 448);
             this.panelButtons.TabIndex = 1;
+            // 
+            // bCars
+            // 
+            this.bCars.BackColor = System.Drawing.Color.Transparent;
+            this.bCars.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.bCars.Dock = System.Windows.Forms.DockStyle.Top;
+            this.bCars.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.bCars.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Gray;
+            this.bCars.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(57)))), ((int)(((byte)(57)))), ((int)(((byte)(57)))));
+            this.bCars.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.bCars.Font = new System.Drawing.Font("Arial", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.bCars.ForeColor = System.Drawing.Color.White;
+            this.bCars.Location = new System.Drawing.Point(0, 410);
+            this.bCars.Margin = new System.Windows.Forms.Padding(2);
+            this.bCars.Name = "bCars";
+            this.bCars.Size = new System.Drawing.Size(150, 41);
+            this.bCars.TabIndex = 0;
+            this.bCars.Text = "Cars";
+            this.bCars.UseVisualStyleBackColor = false;
+            this.bCars.Click += new System.EventHandler(this.bCars_Click);
             // 
             // bSaveLoad
             // 
@@ -400,26 +420,6 @@
             this.bManage.Text = "Manage";
             this.bManage.UseVisualStyleBackColor = false;
             this.bManage.Click += new System.EventHandler(this.bManage_Click);
-            // 
-            // bCars
-            // 
-            this.bCars.BackColor = System.Drawing.Color.Transparent;
-            this.bCars.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.bCars.Dock = System.Windows.Forms.DockStyle.Top;
-            this.bCars.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.bCars.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Gray;
-            this.bCars.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(57)))), ((int)(((byte)(57)))), ((int)(((byte)(57)))));
-            this.bCars.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.bCars.Font = new System.Drawing.Font("Arial", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.bCars.ForeColor = System.Drawing.Color.White;
-            this.bCars.Location = new System.Drawing.Point(0, 410);
-            this.bCars.Margin = new System.Windows.Forms.Padding(2);
-            this.bCars.Name = "bCars";
-            this.bCars.Size = new System.Drawing.Size(150, 41);
-            this.bCars.TabIndex = 0;
-            this.bCars.Text = "Cars";
-            this.bCars.UseVisualStyleBackColor = false;
-            this.bCars.Click += new System.EventHandler(this.bCars_Click);
             // 
             // panelDriverInfo
             // 
@@ -653,11 +653,21 @@
             this.panelCars.Controls.Add(this.dgShowCars);
             this.panelCars.Controls.Add(this.label3);
             this.panelCars.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panelCars.Location = new System.Drawing.Point(0, 0);
+            this.panelCars.Location = new System.Drawing.Point(150, 122);
             this.panelCars.Margin = new System.Windows.Forms.Padding(2);
             this.panelCars.Name = "panelCars";
-            this.panelCars.Size = new System.Drawing.Size(825, 488);
+            this.panelCars.Size = new System.Drawing.Size(675, 366);
             this.panelCars.TabIndex = 2;
+            // 
+            // bShowCars
+            // 
+            this.bShowCars.Location = new System.Drawing.Point(14, 124);
+            this.bShowCars.Name = "bShowCars";
+            this.bShowCars.Size = new System.Drawing.Size(75, 23);
+            this.bShowCars.TabIndex = 4;
+            this.bShowCars.Text = "Show Cars";
+            this.bShowCars.UseVisualStyleBackColor = true;
+            this.bShowCars.Click += new System.EventHandler(this.bShowCars_Click);
             // 
             // bShowDetails
             // 
@@ -908,7 +918,7 @@
             // 
             // panelCentral
             // 
-            this.panelCentral.Controls.Add(this.panelAddNewCar);
+            this.panelCentral.Controls.Add(this.panelCars);
             this.panelCentral.Controls.Add(this.panelStart);
             this.panelCentral.Controls.Add(this.panelDriverInfo);
             this.panelCentral.Controls.Add(this.panelMenu);
@@ -920,80 +930,13 @@
             this.panelCentral.Controls.Add(this.panelSettings);
             this.panelCentral.Controls.Add(this.panelSaveLoad);
             this.panelCentral.Controls.Add(this.panelService);
-            this.panelCentral.Controls.Add(this.panelCars);
+            this.panelCentral.Controls.Add(this.panelAddNewCar);
             this.panelCentral.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panelCentral.Location = new System.Drawing.Point(0, 0);
             this.panelCentral.Margin = new System.Windows.Forms.Padding(2);
             this.panelCentral.Name = "panelCentral";
             this.panelCentral.Size = new System.Drawing.Size(825, 488);
             this.panelCentral.TabIndex = 3;
-            // 
-            // panelStart
-            // 
-            this.panelStart.BackColor = System.Drawing.Color.DarkGray;
-            this.panelStart.Controls.Add(this.bLoadDriver);
-            this.panelStart.Controls.Add(this.bSaveDriver);
-            this.panelStart.Controls.Add(this.bCreateDriver);
-            this.panelStart.Controls.Add(this.label17);
-            this.panelStart.Controls.Add(this.label13);
-            this.panelStart.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panelStart.Location = new System.Drawing.Point(150, 122);
-            this.panelStart.Margin = new System.Windows.Forms.Padding(2);
-            this.panelStart.Name = "panelStart";
-            this.panelStart.Size = new System.Drawing.Size(675, 366);
-            this.panelStart.TabIndex = 8;
-            // 
-            // bLoadDriver
-            // 
-            this.bLoadDriver.Location = new System.Drawing.Point(218, 210);
-            this.bLoadDriver.Margin = new System.Windows.Forms.Padding(2);
-            this.bLoadDriver.Name = "bLoadDriver";
-            this.bLoadDriver.Size = new System.Drawing.Size(229, 54);
-            this.bLoadDriver.TabIndex = 4;
-            this.bLoadDriver.Text = "Load driver";
-            this.bLoadDriver.UseVisualStyleBackColor = true;
-            // 
-            // bSaveDriver
-            // 
-            this.bSaveDriver.Location = new System.Drawing.Point(218, 139);
-            this.bSaveDriver.Margin = new System.Windows.Forms.Padding(2);
-            this.bSaveDriver.Name = "bSaveDriver";
-            this.bSaveDriver.Size = new System.Drawing.Size(229, 54);
-            this.bSaveDriver.TabIndex = 3;
-            this.bSaveDriver.Text = "Save driver";
-            this.bSaveDriver.UseVisualStyleBackColor = true;
-            // 
-            // bCreateDriver
-            // 
-            this.bCreateDriver.Location = new System.Drawing.Point(218, 67);
-            this.bCreateDriver.Margin = new System.Windows.Forms.Padding(2);
-            this.bCreateDriver.Name = "bCreateDriver";
-            this.bCreateDriver.Size = new System.Drawing.Size(229, 54);
-            this.bCreateDriver.TabIndex = 2;
-            this.bCreateDriver.Text = "Create driver";
-            this.bCreateDriver.UseVisualStyleBackColor = true;
-            this.bCreateDriver.Click += new System.EventHandler(this.bCreateDriver_Click);
-            // 
-            // label17
-            // 
-            this.label17.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.label17.AutoSize = true;
-            this.label17.Location = new System.Drawing.Point(215, 27);
-            this.label17.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label17.Name = "label17";
-            this.label17.Size = new System.Drawing.Size(232, 13);
-            this.label17.TabIndex = 1;
-            this.label17.Text = "Welcome in Car Assistant! Choose your options!";
-            // 
-            // label13
-            // 
-            this.label13.AutoSize = true;
-            this.label13.Location = new System.Drawing.Point(621, 325);
-            this.label13.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(54, 13);
-            this.label13.TabIndex = 0;
-            this.label13.Text = "startPanel";
             // 
             // panelAddNewCar
             // 
@@ -1028,10 +971,10 @@
             this.panelAddNewCar.Controls.Add(this.bCreateCar);
             this.panelAddNewCar.Controls.Add(this.label18);
             this.panelAddNewCar.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panelAddNewCar.Location = new System.Drawing.Point(150, 122);
+            this.panelAddNewCar.Location = new System.Drawing.Point(0, 0);
             this.panelAddNewCar.Margin = new System.Windows.Forms.Padding(2);
             this.panelAddNewCar.Name = "panelAddNewCar";
-            this.panelAddNewCar.Size = new System.Drawing.Size(675, 366);
+            this.panelAddNewCar.Size = new System.Drawing.Size(825, 488);
             this.panelAddNewCar.TabIndex = 4;
             // 
             // label21
@@ -1047,6 +990,10 @@
             // cbEngineType
             // 
             this.cbEngineType.FormattingEnabled = true;
+            this.cbEngineType.Items.AddRange(new object[] {
+            "Petrol",
+            "Diesel",
+            "Petrol + LPG"});
             this.cbEngineType.Location = new System.Drawing.Point(332, 72);
             this.cbEngineType.Name = "cbEngineType";
             this.cbEngineType.Size = new System.Drawing.Size(100, 21);
@@ -1055,9 +1002,23 @@
             // cbBodyType
             // 
             this.cbBodyType.FormattingEnabled = true;
+            this.cbBodyType.Items.AddRange(new object[] {
+            "Campervan",
+            "Convertible",
+            "Coupe",
+            "Hatchback",
+            "Minivan",
+            "Pickup",
+            "Roadster",
+            "Sedan",
+            "Supercar",
+            "SUV",
+            "Truck",
+            "VAN"});
             this.cbBodyType.Location = new System.Drawing.Point(128, 133);
             this.cbBodyType.Name = "cbBodyType";
             this.cbBodyType.Size = new System.Drawing.Size(100, 21);
+            this.cbBodyType.Sorted = true;
             this.cbBodyType.TabIndex = 29;
             // 
             // cbModel
@@ -1086,6 +1047,7 @@
             // 
             // dtPurchaseDate
             // 
+            this.dtPurchaseDate.CustomFormat = "dd-MM-yyyy";
             this.dtPurchaseDate.Location = new System.Drawing.Point(128, 226);
             this.dtPurchaseDate.MinDate = new System.DateTime(1886, 1, 1, 0, 0, 0, 0);
             this.dtPurchaseDate.Name = "dtPurchaseDate";
@@ -1230,7 +1192,7 @@
             // 
             this.label19.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label19.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.label19.Location = new System.Drawing.Point(28, 42);
+            this.label19.Location = new System.Drawing.Point(103, 103);
             this.label19.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label19.Name = "label19";
             this.label19.Size = new System.Drawing.Size(75, 20);
@@ -1242,7 +1204,7 @@
             // 
             this.label20.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label20.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.label20.Location = new System.Drawing.Point(260, 40);
+            this.label20.Location = new System.Drawing.Point(335, 101);
             this.label20.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label20.Name = "label20";
             this.label20.Size = new System.Drawing.Size(105, 20);
@@ -1292,15 +1254,72 @@
             this.label18.TabIndex = 0;
             this.label18.Text = "addNewCar";
             // 
-            // bShowCars
+            // panelStart
             // 
-            this.bShowCars.Location = new System.Drawing.Point(14, 124);
-            this.bShowCars.Name = "bShowCars";
-            this.bShowCars.Size = new System.Drawing.Size(75, 23);
-            this.bShowCars.TabIndex = 4;
-            this.bShowCars.Text = "Show Cars";
-            this.bShowCars.UseVisualStyleBackColor = true;
-            this.bShowCars.Click += new System.EventHandler(this.bShowCars_Click);
+            this.panelStart.BackColor = System.Drawing.Color.DarkGray;
+            this.panelStart.Controls.Add(this.bLoadDriver);
+            this.panelStart.Controls.Add(this.bSaveDriver);
+            this.panelStart.Controls.Add(this.bCreateDriver);
+            this.panelStart.Controls.Add(this.label17);
+            this.panelStart.Controls.Add(this.label13);
+            this.panelStart.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panelStart.Location = new System.Drawing.Point(150, 122);
+            this.panelStart.Margin = new System.Windows.Forms.Padding(2);
+            this.panelStart.Name = "panelStart";
+            this.panelStart.Size = new System.Drawing.Size(675, 366);
+            this.panelStart.TabIndex = 8;
+            // 
+            // bLoadDriver
+            // 
+            this.bLoadDriver.Location = new System.Drawing.Point(218, 210);
+            this.bLoadDriver.Margin = new System.Windows.Forms.Padding(2);
+            this.bLoadDriver.Name = "bLoadDriver";
+            this.bLoadDriver.Size = new System.Drawing.Size(229, 54);
+            this.bLoadDriver.TabIndex = 4;
+            this.bLoadDriver.Text = "Load driver";
+            this.bLoadDriver.UseVisualStyleBackColor = true;
+            // 
+            // bSaveDriver
+            // 
+            this.bSaveDriver.Location = new System.Drawing.Point(218, 139);
+            this.bSaveDriver.Margin = new System.Windows.Forms.Padding(2);
+            this.bSaveDriver.Name = "bSaveDriver";
+            this.bSaveDriver.Size = new System.Drawing.Size(229, 54);
+            this.bSaveDriver.TabIndex = 3;
+            this.bSaveDriver.Text = "Save driver";
+            this.bSaveDriver.UseVisualStyleBackColor = true;
+            // 
+            // bCreateDriver
+            // 
+            this.bCreateDriver.Location = new System.Drawing.Point(218, 67);
+            this.bCreateDriver.Margin = new System.Windows.Forms.Padding(2);
+            this.bCreateDriver.Name = "bCreateDriver";
+            this.bCreateDriver.Size = new System.Drawing.Size(229, 54);
+            this.bCreateDriver.TabIndex = 2;
+            this.bCreateDriver.Text = "Create driver";
+            this.bCreateDriver.UseVisualStyleBackColor = true;
+            this.bCreateDriver.Click += new System.EventHandler(this.bCreateDriver_Click);
+            // 
+            // label17
+            // 
+            this.label17.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.label17.AutoSize = true;
+            this.label17.Location = new System.Drawing.Point(215, 27);
+            this.label17.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label17.Name = "label17";
+            this.label17.Size = new System.Drawing.Size(232, 13);
+            this.label17.TabIndex = 1;
+            this.label17.Text = "Welcome in Car Assistant! Choose your options!";
+            // 
+            // label13
+            // 
+            this.label13.AutoSize = true;
+            this.label13.Location = new System.Drawing.Point(621, 325);
+            this.label13.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label13.Name = "label13";
+            this.label13.Size = new System.Drawing.Size(54, 13);
+            this.label13.TabIndex = 0;
+            this.label13.Text = "startPanel";
             // 
             // Column_CheckBox
             // 
@@ -1308,6 +1327,7 @@
             this.Column_CheckBox.HeaderText = "Choose";
             this.Column_CheckBox.Name = "Column_CheckBox";
             this.Column_CheckBox.ReadOnly = true;
+            this.Column_CheckBox.Resizable = System.Windows.Forms.DataGridViewTriState.False;
             this.Column_CheckBox.Width = 49;
             // 
             // Index_Number
@@ -1357,6 +1377,7 @@
             this.Column_ProductionYear.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.ColumnHeader;
             this.Column_ProductionYear.DataPropertyName = "ProductionDate";
             this.Column_ProductionYear.HeaderText = "Production Year";
+            this.Column_ProductionYear.MaxInputLength = 3276;
             this.Column_ProductionYear.Name = "Column_ProductionYear";
             this.Column_ProductionYear.ReadOnly = true;
             this.Column_ProductionYear.Width = 99;
@@ -1398,11 +1419,11 @@
             this.panelSaveLoad.ResumeLayout(false);
             this.panelSaveLoad.PerformLayout();
             this.panelCentral.ResumeLayout(false);
-            this.panelStart.ResumeLayout(false);
-            this.panelStart.PerformLayout();
             this.panelAddNewCar.ResumeLayout(false);
             this.panelAddNewCar.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbCarPhoto)).EndInit();
+            this.panelStart.ResumeLayout(false);
+            this.panelStart.PerformLayout();
             this.ResumeLayout(false);
 
 		}

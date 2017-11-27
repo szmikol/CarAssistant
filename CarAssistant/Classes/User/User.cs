@@ -160,7 +160,7 @@ namespace CarAssistant
             List<int> list = new List<int>();
             for (int i = 0; i < userCars.Count(); i++)
             {
-                if (brand == userCars[i].GetBrand())
+                if (brand == userCars[i].Brand)
                 {
                     list.Add(i);
                 }
@@ -172,7 +172,7 @@ namespace CarAssistant
             List<int> list = new List<int>();
             for (int i = 0; i < userCars.Count(); i++)
             {
-                if (model == userCars[i].GetModel())
+                if (model == userCars[i].Model)
                 {
                     list.Add(i);
                 }
@@ -184,7 +184,7 @@ namespace CarAssistant
             List<int> list = new List<int>();
             for (int i = 0; i < userCars.Count(); i++)
             {
-                if (ProductionYear == userCars[i].GetProductionDate().Year)
+                if (ProductionYear == userCars[i].ProductionDate.Year)
                 {
                     list.Add(i);
                 }
