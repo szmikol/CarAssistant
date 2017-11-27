@@ -32,10 +32,10 @@ namespace CarAssistant
             InitialDataLoader(out driver);
             ShowStartingScreen();
 
-            foreach (var item in brandsAndModels.Keys)
-            {
-                cbBrand.Items.Add(item);
-            }
+            //foreach (var item in brandsAndModels.Keys)
+            //{
+            //    cbBrand.Items.Add(item);
+            //}
         }
 
 
@@ -214,7 +214,12 @@ namespace CarAssistant
         }
 
         private void bAddCar_Click(object sender, EventArgs e)
-        {            
+        {
+            
+            foreach (var item in brandsAndModels.Keys)
+            {
+                cbBrand.Items.Add(item);
+            }
             panelAddNewCar.BringToFront();
         }
 
@@ -222,7 +227,9 @@ namespace CarAssistant
         {                    
             Car CarFromPanel = new Car();
             CarFromPanel = CreateCarFromPanel();
-            driver.AddNewCar(CarFromPanel);
+            driver.userCars.Add(CarFromPanel);
+            ClearAddNewCarPanel();
+            ShowCarsInGridBox();
             panelCars.BringToFront();
         }
 
@@ -239,8 +246,8 @@ namespace CarAssistant
             }
             else
             {
-            List<Car> ListToShow = driver.userCars;
-            dgShowCars.DataSource = ListToShow;
+                dgShowCars.Refresh();
+                ShowCarsInGridBox();
             }
 
         }
@@ -285,7 +292,27 @@ namespace CarAssistant
             }
 
         }
-
-       
+        private void ClearAddNewCarPanel()
+        {
+            cbBrand.Items.Clear();
+            cbModel.SelectedIndex = -1;
+            cbEngineType.SelectedIndex = -1;
+            cbBodyType.SelectedIndex = -1;
+            tbCounterState.Clear();
+            tbLicensePlates.Clear();
+            tbPower.Clear();
+            tbProductionYear.Clear();
+            tbVIN.Clear();
+            dtPurchaseDate.Value = DateTime.Now;
+            tbCapacity.Clear();
+        }
+        private void ShowCarsInGridBox()
+        {
+            List<Car> ListToShow = driver.userCars;
+            dgShowCars.Columns[6].DefaultCellStyle.Format = "yyyy";
+            dgShowCars.Refresh();
+            dgShowCars.DataSource = ListToShow;
+        }
+        
     }
 }
