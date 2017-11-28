@@ -23,7 +23,7 @@ namespace CarAssistant
         DataSaver dataSaver;
         DataLoader dataLoader;
         Dictionary<string, string[]> brandsAndModels = BrandsAndModels.GetResources();
-        
+        BindingSource CarsToShow = new BindingSource();
 
     public Form1()
 		{
@@ -321,10 +321,15 @@ namespace CarAssistant
         }
         private void ShowCarsInGridBox()
         {
+            CarsToShow.Clear();
             List<Car> ListToShow = driver.userCars;
-            dgShowCars.Columns[6].DefaultCellStyle.Format = "yyyy";
-            dgShowCars.Refresh();
-            dgShowCars.DataSource = ListToShow;
+            foreach(Car c in ListToShow)
+            {
+                CarsToShow.Add(c);
+            }
+            dgShowCars.Columns[6].DefaultCellStyle.Format = "yyyy";            
+            dgShowCars.DataSource = CarsToShow;
+            
         }
         
     }
