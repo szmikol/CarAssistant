@@ -29,7 +29,8 @@ namespace CarAssistant
 		{
 			InitializeComponent();
             CreateFilesAndDirectories();
-            InitialDataLoader(out driver);
+            InitialDriverLoader(out driver);
+            InitialLoadCarList();
             ShowStartingScreen();
 
             //foreach (var item in brandsAndModels.Keys)
@@ -178,7 +179,7 @@ namespace CarAssistant
         {
             driver = user;
         }
-        private void InitialDataLoader(out User driver)
+        private void InitialDriverLoader(out User driver)
         {
             if (File.Exists(directory+"\\user.xml"))
             {
@@ -191,9 +192,20 @@ namespace CarAssistant
             {
                 driver = null;
             }
-            if(File.Exists(directory+"\\carlist.xml"))
-                dataLoader.LoadCarsListFromXml(directory + "\\carlist.xml");
 
+        }
+        private void InitialLoadCarList()
+        {
+            if(driver != null)
+            {
+                if (File.Exists(directory + "\\carlist.xml"))
+                {
+                    driver.userCars = dataLoader.LoadCarsListFromXml(directory + "\\carlist.xml");
+                    ShowCarsInGridBox();
+                    
+                }
+
+            }
         }
         private void LoadingImageIfExist()
         {
@@ -230,6 +242,7 @@ namespace CarAssistant
             driver.userCars.Add(CarFromPanel);
             ClearAddNewCarPanel();
             ShowCarsInGridBox();
+            dataSaver.SaveCarsListToXml(driver.userCars, directory+"\\carlist.xml");
             panelCars.BringToFront();
         }
 

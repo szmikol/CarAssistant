@@ -14,23 +14,29 @@ namespace CarAssistant.Classes.Facade
 	{
 		public CarAssistant.Car LoadCarFromXml(string Brand, string Model, User Owner, string Path)
 		{
-            var file = new FileStream(Path, FileMode.Open);
-            var load = new XmlSerializer(typeof(CarAssistant.Car));
-            return (CarAssistant.Car)load.Deserialize(file);
+            using (var file = new FileStream(Path, FileMode.Open))
+            {
+                var load = new XmlSerializer(typeof(CarAssistant.Car));
+                return (CarAssistant.Car)load.Deserialize(file);
+            }
         }
 
 		public List<CarAssistant.Car> LoadCarsListFromXml(string Path)
 		{
-            var file = new FileStream(Path, FileMode.Open);
+            using (var file = new FileStream(Path, FileMode.Open))
+            {
             var load = new XmlSerializer(typeof(List<CarAssistant.Car>));
             return (List<CarAssistant.Car>)load.Deserialize(file);
+            }
         }
 
 		public User LoadUserFromXml(string Path)
 		{
-            var file = new FileStream(Path,FileMode.Open);
-            var load = new XmlSerializer(typeof(User));
-            return (User)load.Deserialize(file);
+            using (var file = new FileStream(Path, FileMode.Open))
+            {
+                var load = new XmlSerializer(typeof(User));
+                return (User)load.Deserialize(file);
+            }
 
 		}
 	}
