@@ -18,7 +18,7 @@ namespace CarAssistantTest
 			DateTime date = new DateTime();
             date = DateTime.Parse("01.01.2000");
 
-			car.SetProductionDate(date);
+            car.ProductionDate = date;
 
 			int result = car.CalculateAge();
 
