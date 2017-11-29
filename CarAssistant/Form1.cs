@@ -202,7 +202,7 @@ namespace CarAssistant
                 {
                     driver.userCars = dataLoader.LoadCarsListFromXml(directory + "\\carlist.xml");
                     ShowCarsInGridBox();
-                    
+                    UpdateUserForms(driver);
                 }
 
             }
