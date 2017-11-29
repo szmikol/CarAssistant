@@ -341,7 +341,7 @@ namespace CarAssistant
                 {
                     if (row.Cells[0].Value != null)
                     {
-                        if ((Boolean)row.Cells[0].Value == true)
+                        if (Convert.ToBoolean(row.Cells[0].Value) == true)
                         {
                             row.Selected = true;
                         }
