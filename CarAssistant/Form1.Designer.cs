@@ -124,13 +124,17 @@
             this.pbCarPhoto = new System.Windows.Forms.PictureBox();
             this.bCreateCar = new System.Windows.Forms.Button();
             this.label18 = new System.Windows.Forms.Label();
+            this.panelCarDetails = new System.Windows.Forms.Panel();
+            this.bEditCar = new System.Windows.Forms.Button();
+            this.bBack = new System.Windows.Forms.Button();
             this.Column_CheckBox = new System.Windows.Forms.DataGridViewCheckBoxColumn();
-            this.Index_Number = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column_Brand = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column_Model = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column_BodyType = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.LicensePlateNo = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column_ProductionYear = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.cIndex = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.cBrand = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.cModel = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.CBodyType = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.CLicensePlateNo = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.CProductionYear = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.tbForTesting = new System.Windows.Forms.TextBox();
             this.panelMenu.SuspendLayout();
             this.panelButtons.SuspendLayout();
             this.panelDriverInfo.SuspendLayout();
@@ -149,6 +153,7 @@
             this.panelStart.SuspendLayout();
             this.panelAddNewCar.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbCarPhoto)).BeginInit();
+            this.panelCarDetails.SuspendLayout();
             this.SuspendLayout();
             // 
             // panelMenu
@@ -647,16 +652,16 @@
             // panelCars
             // 
             this.panelCars.BackColor = System.Drawing.Color.DarkGray;
+            this.panelCars.Controls.Add(this.dgShowCars);
             this.panelCars.Controls.Add(this.bShowCars);
             this.panelCars.Controls.Add(this.bShowDetails);
             this.panelCars.Controls.Add(this.bAddCar);
-            this.panelCars.Controls.Add(this.dgShowCars);
             this.panelCars.Controls.Add(this.label3);
             this.panelCars.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panelCars.Location = new System.Drawing.Point(150, 122);
+            this.panelCars.Location = new System.Drawing.Point(0, 0);
             this.panelCars.Margin = new System.Windows.Forms.Padding(2);
             this.panelCars.Name = "panelCars";
-            this.panelCars.Size = new System.Drawing.Size(675, 366);
+            this.panelCars.Size = new System.Drawing.Size(825, 488);
             this.panelCars.TabIndex = 2;
             // 
             // bShowCars
@@ -677,6 +682,7 @@
             this.bShowDetails.TabIndex = 3;
             this.bShowDetails.Text = "Show Details";
             this.bShowDetails.UseVisualStyleBackColor = true;
+            this.bShowDetails.Click += new System.EventHandler(this.bShowDetails_Click);
             // 
             // bAddCar
             // 
@@ -695,13 +701,13 @@
             this.dgShowCars.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgShowCars.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.Column_CheckBox,
-            this.Index_Number,
-            this.Column_Brand,
-            this.Column_Model,
-            this.Column_BodyType,
-            this.LicensePlateNo,
-            this.Column_ProductionYear});
-            this.dgShowCars.Location = new System.Drawing.Point(6, 15);
+            this.cIndex,
+            this.cBrand,
+            this.cModel,
+            this.CBodyType,
+            this.CLicensePlateNo,
+            this.CProductionYear});
+            this.dgShowCars.Location = new System.Drawing.Point(5, 4);
             this.dgShowCars.Name = "dgShowCars";
             this.dgShowCars.Size = new System.Drawing.Size(658, 260);
             this.dgShowCars.TabIndex = 1;
@@ -722,10 +728,10 @@
             this.panelManage.BackColor = System.Drawing.Color.DarkGray;
             this.panelManage.Controls.Add(this.label2);
             this.panelManage.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panelManage.Location = new System.Drawing.Point(0, 0);
+            this.panelManage.Location = new System.Drawing.Point(150, 122);
             this.panelManage.Margin = new System.Windows.Forms.Padding(2);
             this.panelManage.Name = "panelManage";
-            this.panelManage.Size = new System.Drawing.Size(825, 488);
+            this.panelManage.Size = new System.Drawing.Size(675, 366);
             this.panelManage.TabIndex = 3;
             // 
             // label2
@@ -918,11 +924,10 @@
             // 
             // panelCentral
             // 
-            this.panelCentral.Controls.Add(this.panelCars);
-            this.panelCentral.Controls.Add(this.panelStart);
+            this.panelCentral.Controls.Add(this.panelCarDetails);
+            this.panelCentral.Controls.Add(this.panelManage);
             this.panelCentral.Controls.Add(this.panelDriverInfo);
             this.panelCentral.Controls.Add(this.panelMenu);
-            this.panelCentral.Controls.Add(this.panelManage);
             this.panelCentral.Controls.Add(this.panelInsurance);
             this.panelCentral.Controls.Add(this.panelRefuel);
             this.panelCentral.Controls.Add(this.panelExpenses);
@@ -931,6 +936,8 @@
             this.panelCentral.Controls.Add(this.panelSaveLoad);
             this.panelCentral.Controls.Add(this.panelService);
             this.panelCentral.Controls.Add(this.panelAddNewCar);
+            this.panelCentral.Controls.Add(this.panelCars);
+            this.panelCentral.Controls.Add(this.panelStart);
             this.panelCentral.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panelCentral.Location = new System.Drawing.Point(0, 0);
             this.panelCentral.Margin = new System.Windows.Forms.Padding(2);
@@ -947,10 +954,10 @@
             this.panelStart.Controls.Add(this.label17);
             this.panelStart.Controls.Add(this.label13);
             this.panelStart.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panelStart.Location = new System.Drawing.Point(150, 122);
+            this.panelStart.Location = new System.Drawing.Point(0, 0);
             this.panelStart.Margin = new System.Windows.Forms.Padding(2);
             this.panelStart.Name = "panelStart";
-            this.panelStart.Size = new System.Drawing.Size(675, 366);
+            this.panelStart.Size = new System.Drawing.Size(825, 488);
             this.panelStart.TabIndex = 8;
             // 
             // bLoadDriver
@@ -988,7 +995,7 @@
             // 
             this.label17.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.label17.AutoSize = true;
-            this.label17.Location = new System.Drawing.Point(215, -34);
+            this.label17.Location = new System.Drawing.Point(215, 27);
             this.label17.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label17.Name = "label17";
             this.label17.Size = new System.Drawing.Size(232, 13);
@@ -1321,6 +1328,36 @@
             this.label18.TabIndex = 0;
             this.label18.Text = "addNewCar";
             // 
+            // panelCarDetails
+            // 
+            this.panelCarDetails.BackColor = System.Drawing.Color.Gray;
+            this.panelCarDetails.Controls.Add(this.tbForTesting);
+            this.panelCarDetails.Controls.Add(this.bBack);
+            this.panelCarDetails.Controls.Add(this.bEditCar);
+            this.panelCarDetails.Location = new System.Drawing.Point(150, 122);
+            this.panelCarDetails.Name = "panelCarDetails";
+            this.panelCarDetails.Size = new System.Drawing.Size(675, 366);
+            this.panelCarDetails.TabIndex = 5;
+            // 
+            // bEditCar
+            // 
+            this.bEditCar.Location = new System.Drawing.Point(62, 135);
+            this.bEditCar.Name = "bEditCar";
+            this.bEditCar.Size = new System.Drawing.Size(75, 23);
+            this.bEditCar.TabIndex = 0;
+            this.bEditCar.Text = "Edit Car";
+            this.bEditCar.UseVisualStyleBackColor = true;
+            // 
+            // bBack
+            // 
+            this.bBack.Location = new System.Drawing.Point(62, 170);
+            this.bBack.Name = "bBack";
+            this.bBack.Size = new System.Drawing.Size(75, 23);
+            this.bBack.TabIndex = 1;
+            this.bBack.Text = "Back";
+            this.bBack.UseVisualStyleBackColor = true;
+            this.bBack.Click += new System.EventHandler(this.bBack_Click);
+            // 
             // Column_CheckBox
             // 
             this.Column_CheckBox.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.ColumnHeader;
@@ -1331,51 +1368,62 @@
             this.Column_CheckBox.TrueValue = "True";
             this.Column_CheckBox.Width = 49;
             // 
-            // Index_Number
+            // cIndex
             // 
-            this.Index_Number.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.ColumnHeader;
-            this.Index_Number.DataPropertyName = "Index";
-            this.Index_Number.HeaderText = "Index";
-            this.Index_Number.Name = "Index_Number";
-            this.Index_Number.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.Index_Number.Width = 58;
+            this.cIndex.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.ColumnHeader;
+            this.cIndex.DataPropertyName = "Index";
+            this.cIndex.HeaderText = "Index";
+            this.cIndex.Name = "cIndex";
+            this.cIndex.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.cIndex.Width = 58;
             // 
-            // Column_Brand
+            // cBrand
             // 
-            this.Column_Brand.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.Column_Brand.DataPropertyName = "Brand";
-            this.Column_Brand.HeaderText = "Brand";
-            this.Column_Brand.Name = "Column_Brand";
-            this.Column_Brand.Width = 60;
+            this.cBrand.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.cBrand.DataPropertyName = "Brand";
+            this.cBrand.HeaderText = "Brand";
+            this.cBrand.Name = "cBrand";
+            this.cBrand.Width = 60;
             // 
-            // Column_Model
+            // cModel
             // 
-            this.Column_Model.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.Column_Model.DataPropertyName = "Model";
-            this.Column_Model.HeaderText = "Model";
-            this.Column_Model.Name = "Column_Model";
-            this.Column_Model.Width = 61;
+            this.cModel.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.cModel.DataPropertyName = "Model";
+            this.cModel.HeaderText = "Model";
+            this.cModel.Name = "cModel";
+            this.cModel.Width = 61;
             // 
-            // Column_BodyType
+            // CBodyType
             // 
-            this.Column_BodyType.DataPropertyName = "BodyType";
-            this.Column_BodyType.HeaderText = "Body Type";
-            this.Column_BodyType.Name = "Column_BodyType";
+            this.CBodyType.DataPropertyName = "BodyType";
+            this.CBodyType.HeaderText = "Body Type";
+            this.CBodyType.Name = "CBodyType";
             // 
-            // LicensePlateNo
+            // CLicensePlateNo
             // 
-            this.LicensePlateNo.DataPropertyName = "LicensePlateNo";
-            this.LicensePlateNo.HeaderText = "License Plate Number";
-            this.LicensePlateNo.Name = "LicensePlateNo";
+            this.CLicensePlateNo.DataPropertyName = "LicensePlateNo";
+            this.CLicensePlateNo.HeaderText = "License Plate Number";
+            this.CLicensePlateNo.Name = "CLicensePlateNo";
             // 
-            // Column_ProductionYear
+            // CProductionYear
             // 
-            this.Column_ProductionYear.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.ColumnHeader;
-            this.Column_ProductionYear.DataPropertyName = "ProductionDate";
-            this.Column_ProductionYear.HeaderText = "Production Year";
-            this.Column_ProductionYear.MaxInputLength = 3276;
-            this.Column_ProductionYear.Name = "Column_ProductionYear";
-            this.Column_ProductionYear.Width = 99;
+            this.CProductionYear.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.ColumnHeader;
+            this.CProductionYear.DataPropertyName = "ProductionDate";
+            this.CProductionYear.HeaderText = "Production Year";
+            this.CProductionYear.MaxInputLength = 3276;
+            this.CProductionYear.Name = "CProductionYear";
+            this.CProductionYear.Width = 99;
+            // 
+            // tbForTesting
+            // 
+            this.tbForTesting.AllowDrop = true;
+            this.tbForTesting.Location = new System.Drawing.Point(167, 24);
+            this.tbForTesting.Multiline = true;
+            this.tbForTesting.Name = "tbForTesting";
+            this.tbForTesting.ReadOnly = true;
+            this.tbForTesting.ScrollBars = System.Windows.Forms.ScrollBars.Both;
+            this.tbForTesting.Size = new System.Drawing.Size(453, 144);
+            this.tbForTesting.TabIndex = 2;
             // 
             // Form1
             // 
@@ -1419,6 +1467,8 @@
             this.panelAddNewCar.ResumeLayout(false);
             this.panelAddNewCar.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbCarPhoto)).EndInit();
+            this.panelCarDetails.ResumeLayout(false);
+            this.panelCarDetails.PerformLayout();
             this.ResumeLayout(false);
 
 		}
@@ -1520,13 +1570,17 @@
         private System.Windows.Forms.ComboBox cbBrand;
         private System.Windows.Forms.Button bShowDetails;
         private System.Windows.Forms.Button bShowCars;
+        private System.Windows.Forms.Panel panelCarDetails;
+        private System.Windows.Forms.Button bEditCar;
+        private System.Windows.Forms.Button bBack;
         private System.Windows.Forms.DataGridViewCheckBoxColumn Column_CheckBox;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Index_Number;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column_Brand;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column_Model;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column_BodyType;
-        private System.Windows.Forms.DataGridViewTextBoxColumn LicensePlateNo;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column_ProductionYear;
+        private System.Windows.Forms.DataGridViewTextBoxColumn cIndex;
+        private System.Windows.Forms.DataGridViewTextBoxColumn cBrand;
+        private System.Windows.Forms.DataGridViewTextBoxColumn cModel;
+        private System.Windows.Forms.DataGridViewTextBoxColumn CBodyType;
+        private System.Windows.Forms.DataGridViewTextBoxColumn CLicensePlateNo;
+        private System.Windows.Forms.DataGridViewTextBoxColumn CProductionYear;
+        private System.Windows.Forms.TextBox tbForTesting;
     }
 }
 

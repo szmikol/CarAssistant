@@ -241,7 +241,7 @@ namespace CarAssistant
         /// </summary>
         public string WriteCarShortDescription() 
 		{
-			string Output = string.Format("{0},{1},Year: {2}", Brand, Model, ProductionDate.ToString());
+			string Output = string.Format("{0},{1},Year: {2}", Brand, Model, ProductionDate.Year.ToString());
             return Output;
 		}
         

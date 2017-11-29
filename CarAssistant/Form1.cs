@@ -347,12 +347,69 @@ namespace CarAssistant
                         }
                     }
                 }
-            }
+            }            
+        }
 
-
+        private void bShowDetails_Click(object sender, EventArgs e)
+        {
+            Car DetailedCar = GetCarToDetail(GetCheckedRow());
+            MenagePanelCarDetails(DetailedCar);
+            panelCarDetails.BringToFront();
 
         }
 
-        
+        private DataGridViewRow GetCheckedRow()
+        {
+            DataGridViewRow Checked = new DataGridViewRow();
+            Checked = null;
+            foreach (DataGridViewRow row in dgShowCars.Rows)
+            {
+                if (Convert.ToBoolean(row.Cells[0].Value) == true)
+                {
+                    Checked =row;
+                    return Checked;
+                }              
+            }
+            
+            return Checked;
+        }
+
+        private void bBack_Click(object sender, EventArgs e)
+        {
+            ShowCarsInGridBox();
+            panelCars.BringToFront();
+        }
+
+        private Car GetCarToDetail(DataGridViewRow CheckedRow)
+        {
+            Car ToReturn = new Car();
+            if (CheckedRow == null)
+            {
+                MessageBox.Show("None of the cars were choosen. Please choose one", "Alarm!", MessageBoxButtons.OK);
+                
+            }
+            else
+            {
+                foreach(Car c in driver.userCars)
+                {
+                    if (c.Index.ToString() == CheckedRow.Cells["cIndex"].Value.ToString() &&
+                        c.Brand.ToString() == CheckedRow.Cells["cBrand"].Value.ToString() &&
+                        c.Model.ToString() == CheckedRow.Cells["cModel"].Value.ToString() &&
+                        c.BodyType.ToString() == CheckedRow.Cells["cBodyType"].Value.ToString() &&
+                        c.LicensePlateNo.ToString() == CheckedRow.Cells["CLicensePlateNo"].Value.ToString() &&
+                        c.ProductionDate.ToString() == CheckedRow.Cells["CProductionYear"].Value.ToString())
+                    {
+                        ToReturn = c;
+                        return ToReturn;
+                    }
+                }
+            }
+            return null;
+        }
+
+        private void MenagePanelCarDetails(Car Show)
+        {
+            tbForTesting.Text = Show.WriteCarShortDescription();
+        }
     }
 }

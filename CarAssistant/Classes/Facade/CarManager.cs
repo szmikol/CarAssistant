@@ -34,7 +34,7 @@ namespace CarAssistant
             }
             foreach (Car c in WhichUser.userCars)
             {
-                if (c.GetVin() == Vin)
+                if (c.GetVin() != Vin)
                 {
                     MessageBox.Show("Something went wrong", "Unable to delete", MessageBoxButtons.OK);
                 }
