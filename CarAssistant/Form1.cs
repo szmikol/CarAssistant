@@ -334,21 +334,22 @@ namespace CarAssistant
 
         private void dgShowCars_CellMouseClick(object sender, DataGridViewCellMouseEventArgs e)
         {
-            //if (e.ColumnIndex == 0)
-            //{
-            //    foreach (DataGridViewRow row in dgShowCars.Rows)
-            //    {
-            //        if (row.Cells[0].Value != null)
-            //        {
-            //            if ((Boolean)row.Cells[0].Value == true)
-            //            {
-            //                row.Selected = true;
-            //            }
-            //        }
-            //    }
-            //}
-           
-          
+            if (e.ColumnIndex == 0)
+            {
+
+                foreach (DataGridViewRow row in dgShowCars.Rows)
+                {
+                    if (row.Cells[0].Value != null)
+                    {
+                        if ((Boolean)row.Cells[0].Value == true)
+                        {
+                            row.Selected = true;
+                        }
+                    }
+                }
+            }
+
+
 
         }
 
