@@ -55,11 +55,17 @@
     <Compile Include="Classes\Car\Engines\DieselEngine.cs" />
     <Compile Include="Classes\Car\Engine.cs" />
     <Compile Include="Classes\Car\Engines\PetrolEngine.cs" />
+    <Compile Include="Classes\Expenses\Expense.cs" />
+    <Compile Include="Classes\Expenses\Exploitation.cs" />
+    <Compile Include="Classes\Expenses\Insurance.cs" />
+    <Compile Include="Classes\Expenses\Repairs.cs" />
+    <Compile Include="Classes\Expenses\Service.cs" />
     <Compile Include="Classes\Facade\ButtonsBehavior.cs" />
     <Compile Include="Classes\Facade\CarManager.cs" />
     <Compile Include="Classes\Facade\DataLoader.cs" />
     <Compile Include="Classes\Facade\DataSaver.cs" />
     <Compile Include="Classes\Facade\UserManager.cs" />
+    <Compile Include="Classes\Expenses\LooksMaintenance.cs" />
     <Compile Include="Classes\User\User.cs" />
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>
@@ -78,6 +84,7 @@
     <Compile Include="Interfaces\Facade\IUserManager.cs" />
     <Compile Include="Interfaces\ICar.cs" />
     <Compile Include="Interfaces\Facade\ICarManager.cs" />
+    <Compile Include="Interfaces\IExpense.cs" />
     <Compile Include="Interfaces\IUser.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
