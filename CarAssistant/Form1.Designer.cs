@@ -66,6 +66,13 @@
             this.bShowDetails = new System.Windows.Forms.Button();
             this.bAddCar = new System.Windows.Forms.Button();
             this.dgShowCars = new System.Windows.Forms.DataGridView();
+            this.Column_CheckBox = new System.Windows.Forms.DataGridViewCheckBoxColumn();
+            this.Index_Number = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column_Brand = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column_Model = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column_BodyType = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.LicensePlateNo = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column_ProductionYear = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.label3 = new System.Windows.Forms.Label();
             this.panelManage = new System.Windows.Forms.Panel();
             this.label2 = new System.Windows.Forms.Label();
@@ -124,13 +131,6 @@
             this.pbCarPhoto = new System.Windows.Forms.PictureBox();
             this.bCreateCar = new System.Windows.Forms.Button();
             this.label18 = new System.Windows.Forms.Label();
-            this.Column_CheckBox = new System.Windows.Forms.DataGridViewCheckBoxColumn();
-            this.Index_Number = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column_Brand = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column_Model = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column_BodyType = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.LicensePlateNo = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column_ProductionYear = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panelMenu.SuspendLayout();
             this.panelButtons.SuspendLayout();
             this.panelDriverInfo.SuspendLayout();
@@ -705,6 +705,61 @@
             this.dgShowCars.Name = "dgShowCars";
             this.dgShowCars.Size = new System.Drawing.Size(658, 260);
             this.dgShowCars.TabIndex = 1;
+            this.dgShowCars.CellMouseClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dgShowCars_CellMouseClick);
+            // 
+            // Column_CheckBox
+            // 
+            this.Column_CheckBox.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.ColumnHeader;
+            this.Column_CheckBox.HeaderText = "Choose";
+            this.Column_CheckBox.Name = "Column_CheckBox";
+            this.Column_CheckBox.Resizable = System.Windows.Forms.DataGridViewTriState.False;
+            this.Column_CheckBox.Width = 49;
+            // 
+            // Index_Number
+            // 
+            this.Index_Number.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.ColumnHeader;
+            this.Index_Number.DataPropertyName = "Index";
+            this.Index_Number.HeaderText = "Index";
+            this.Index_Number.Name = "Index_Number";
+            this.Index_Number.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.Index_Number.Width = 58;
+            // 
+            // Column_Brand
+            // 
+            this.Column_Brand.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.Column_Brand.DataPropertyName = "Brand";
+            this.Column_Brand.HeaderText = "Brand";
+            this.Column_Brand.Name = "Column_Brand";
+            this.Column_Brand.Width = 60;
+            // 
+            // Column_Model
+            // 
+            this.Column_Model.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.Column_Model.DataPropertyName = "Model";
+            this.Column_Model.HeaderText = "Model";
+            this.Column_Model.Name = "Column_Model";
+            this.Column_Model.Width = 61;
+            // 
+            // Column_BodyType
+            // 
+            this.Column_BodyType.DataPropertyName = "BodyType";
+            this.Column_BodyType.HeaderText = "Body Type";
+            this.Column_BodyType.Name = "Column_BodyType";
+            // 
+            // LicensePlateNo
+            // 
+            this.LicensePlateNo.DataPropertyName = "LicensePlateNo";
+            this.LicensePlateNo.HeaderText = "License Plate Number";
+            this.LicensePlateNo.Name = "LicensePlateNo";
+            // 
+            // Column_ProductionYear
+            // 
+            this.Column_ProductionYear.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.ColumnHeader;
+            this.Column_ProductionYear.DataPropertyName = "ProductionDate";
+            this.Column_ProductionYear.HeaderText = "Production Year";
+            this.Column_ProductionYear.MaxInputLength = 3276;
+            this.Column_ProductionYear.Name = "Column_ProductionYear";
+            this.Column_ProductionYear.Width = 99;
             // 
             // label3
             // 
@@ -1319,60 +1374,6 @@
             this.label18.Size = new System.Drawing.Size(63, 13);
             this.label18.TabIndex = 0;
             this.label18.Text = "addNewCar";
-            // 
-            // Column_CheckBox
-            // 
-            this.Column_CheckBox.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.ColumnHeader;
-            this.Column_CheckBox.HeaderText = "Choose";
-            this.Column_CheckBox.Name = "Column_CheckBox";
-            this.Column_CheckBox.Resizable = System.Windows.Forms.DataGridViewTriState.False;
-            this.Column_CheckBox.Width = 49;
-            // 
-            // Index_Number
-            // 
-            this.Index_Number.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.ColumnHeader;
-            this.Index_Number.DataPropertyName = "Index";
-            this.Index_Number.HeaderText = "Index";
-            this.Index_Number.Name = "Index_Number";
-            this.Index_Number.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.Index_Number.Width = 58;
-            // 
-            // Column_Brand
-            // 
-            this.Column_Brand.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.Column_Brand.DataPropertyName = "Brand";
-            this.Column_Brand.HeaderText = "Brand";
-            this.Column_Brand.Name = "Column_Brand";
-            this.Column_Brand.Width = 60;
-            // 
-            // Column_Model
-            // 
-            this.Column_Model.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.Column_Model.DataPropertyName = "Model";
-            this.Column_Model.HeaderText = "Model";
-            this.Column_Model.Name = "Column_Model";
-            this.Column_Model.Width = 61;
-            // 
-            // Column_BodyType
-            // 
-            this.Column_BodyType.DataPropertyName = "BodyType";
-            this.Column_BodyType.HeaderText = "Body Type";
-            this.Column_BodyType.Name = "Column_BodyType";
-            // 
-            // LicensePlateNo
-            // 
-            this.LicensePlateNo.DataPropertyName = "LicensePlateNo";
-            this.LicensePlateNo.HeaderText = "License Plate Number";
-            this.LicensePlateNo.Name = "LicensePlateNo";
-            // 
-            // Column_ProductionYear
-            // 
-            this.Column_ProductionYear.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.ColumnHeader;
-            this.Column_ProductionYear.DataPropertyName = "ProductionDate";
-            this.Column_ProductionYear.HeaderText = "Production Year";
-            this.Column_ProductionYear.MaxInputLength = 3276;
-            this.Column_ProductionYear.Name = "Column_ProductionYear";
-            this.Column_ProductionYear.Width = 99;
             // 
             // Form1
             // 
