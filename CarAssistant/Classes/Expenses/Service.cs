@@ -9,14 +9,12 @@ namespace CarAssistant.Classes.Expenses
     public class Service : Expense
     {
         public string WhichServiceStation { get; set; }
-        public string WhatChanged { get; set; }
-        public Service(decimal cost, string description, DateTime when,string whichServiceStation, string whatChanged)
+        public Service(decimal cost, string description, DateTime when,string whichServiceStation)
         {
             Cost = cost;
             Description = description;
             When = when;
             WhichServiceStation = whichServiceStation;
-            WhatChanged = whatChanged;
         }
 
     }

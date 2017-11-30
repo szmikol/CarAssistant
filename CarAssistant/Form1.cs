@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using CarAssistant.Classes.Facade;
 using CarAssistant.Classes.Car;
+using CarAssistant.Classes.Expenses;
 using CarAssistant.Interfaces;
 using System.IO;
 using System.Globalization;
@@ -421,6 +422,16 @@ namespace CarAssistant
 
 
 
+
+        private void GeneratingDataForTests()
+        {
+            Repairs repair1 = new Repairs(1250M, "Uszczelka pod głowica", new DateTime(2017, 12, 01), "Uszczelka", "Pan Stasiu");
+            Insurance insurance1 = new Insurance(1500M, "OC", new DateTime(2017, 05, 11), true, new DateTime(2018, 05, 10), "PSU S.A.");
+            Service service = new Service(750M, "Distribution system fix", new DateTime(2017, 12, 01), "Zenek Serwis");
+            LooksMaintenance looks1 = new LooksMaintenance(12.50M, "Pranie tapicerki", new DateTime(2017, 12, 01),"Added wunderbaum");
+            Exploitation explo1 = new Exploitation(1250M, "Tyres changed", new DateTime(2017, 12, 01));
+
+        }
 
 
 
