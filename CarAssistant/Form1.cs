@@ -352,23 +352,37 @@ namespace CarAssistant
 
         private void bShowDetails_Click(object sender, EventArgs e)
         {
+            if (GetCheckedRow() != null)
+            {
             Car DetailedCar = GetCarToDetail(GetCheckedRow());
             MenagePanelCarDetails(DetailedCar);
             panelCarDetails.BringToFront();
+            }
 
         }
 
         private DataGridViewRow GetCheckedRow()
         {
+            int HowManyChecked = 0;
             DataGridViewRow Checked = new DataGridViewRow();
             Checked = null;
             foreach (DataGridViewRow row in dgShowCars.Rows)
             {
                 if (Convert.ToBoolean(row.Cells[0].Value) == true)
                 {
-                    Checked =row;
-                    return Checked;
+                    HowManyChecked++;
+                    Checked =row;                    
                 }              
+            }
+            if(HowManyChecked == 0)
+            {
+                Checked = null;
+                MessageBox.Show("None of the cars were choosen. Please choose one", "Alarm!", MessageBoxButtons.OK);
+            }
+            else if(HowManyChecked > 1)
+            {
+                Checked = null;
+                MessageBox.Show("Too many cars were choosen. Please choose one", "Alarm!", MessageBoxButtons.OK);
             }
             
             return Checked;
@@ -383,13 +397,6 @@ namespace CarAssistant
         private Car GetCarToDetail(DataGridViewRow CheckedRow)
         {
             Car ToReturn = new Car();
-            if (CheckedRow == null)
-            {
-                MessageBox.Show("None of the cars were choosen. Please choose one", "Alarm!", MessageBoxButtons.OK);
-                
-            }
-            else
-            {
                 foreach(Car c in driver.userCars)
                 {
                     if (c.Index.ToString() == CheckedRow.Cells["cIndex"].Value.ToString() &&
@@ -403,7 +410,6 @@ namespace CarAssistant
                         return ToReturn;
                     }
                 }
-            }
             return null;
         }
 
