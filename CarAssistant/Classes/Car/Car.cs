@@ -15,6 +15,7 @@ namespace CarAssistant
 	{
         //Fields
         private Engine Engine;
+        public List<object> expenses { get; set; }
         public string Model { get; set; }
         public string Brand { get; set; }
         public DateTime ProductionDate { get; set; }
@@ -41,13 +42,14 @@ namespace CarAssistant
             SetIndex();
             LicensePlateNo = InputLicensePlateNumber;
             BodyType = InBodyType;
+            expenses = new List<object>();
         }
 
 
         public Car()
 		{
-
-		}
+            expenses = new List<object>();
+        }
 
         //Methods
         
@@ -285,5 +287,6 @@ namespace CarAssistant
             SetVin(InputCar.GetVin());
             SetCounterState(InputCar.GetCounterState());
         }
+
 	}
 }

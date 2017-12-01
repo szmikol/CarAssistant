@@ -14,39 +14,10 @@ namespace CarAssistant.Classes.Expenses
 
         }
 
-        public decimal Cost
-        {
-            get
-            {
-                return Cost;
-            }
-            set
-            {
-                Cost = value;
-            }
+        public decimal Cost { get; set; }
+        public string Description { get; set; }
+        public DateTime When { get; set; }
 
-        }
-        public string Description
-        {
-            get
-            {
-                return Description;
-            }
-            set
-            {
-                Description = value;
-            }
-        }
-        public DateTime When
-        {
-            get
-            {
-                return When;
-            }
-            set
-            {
-                When = value;
-            }
-        }
     }
 }
+
