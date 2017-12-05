@@ -416,7 +416,19 @@ namespace CarAssistant
 
         private void MenagePanelCarDetails(Car Show)
         {
-            tbForTesting.Text = Show.WriteCarShortDescription();
+            tbDBrand.Text = Show.Brand.ToString();
+            tbDModel.Text = Show.Model.ToString();
+            tbDProductionYear.Text = Show.ProductionDate.Year.ToString();
+            tbDPurchaseYear.Text = Show.GetPurchaseDate().ToString();
+            tbDLicencePlateNo.Text = Show.LicensePlateNo.ToString();
+            tbDVIN.Text = Show.GetVin();
+            tbDBodyType.Text = Show.BodyType.ToString();
+
+            Engine FromShow = Show.GetEngine();
+            tbDEngineType.Text = FromShow.TypeOfEngine;
+            tbDCapacity.Text = FromShow.Capacity.ToString();
+            tbDPowerHP.Text = FromShow.Horsepower.ToString();
+            tbDPowerkW.Text = FromShow.PowerInKW.ToString();
         }
 
 
@@ -433,7 +445,10 @@ namespace CarAssistant
 
         }
 
+        private void bEditCar_Click(object sender, EventArgs e)
+        {
+            Car CarToEdit = GetCarToDetail(GetCheckedRow());
 
-
+        }
     }
 }

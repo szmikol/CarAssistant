@@ -11,11 +11,11 @@ namespace CarAssistant
 	public class Engine
 	{
         //Fields
-        int Capacity;
-        int Horsepower;
-        int PowerInKW;
-        string TypeOfEngine;
-        
+        public int Capacity { get; set; }
+        public int Horsepower { get; set; }
+        public int PowerInKW { get; set; }
+        public string TypeOfEngine { get; set; }
+
         // Constructor
         public Engine(int Capacity, int Horsepower, string InTypeOfEngine)
         {
