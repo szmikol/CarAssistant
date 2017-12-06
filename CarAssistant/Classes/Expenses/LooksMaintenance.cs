@@ -8,16 +8,13 @@ namespace CarAssistant.Classes.Expenses
 {
     public class LooksMaintenance : Expense
     {
-        /// <summary>
-        /// e.g. Wunderbaum, air refresher
-        /// </summary>
-        public string AdditionalInfo { get; set; }
         public LooksMaintenance(decimal cost, string description, DateTime when, string additionalInfo)
         {
             Cost = cost;
             Description = description;
             When = when;
             AdditionalInfo = additionalInfo;
+            GetClassName();
         }
     }
 }

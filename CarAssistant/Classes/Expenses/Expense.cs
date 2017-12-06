@@ -9,14 +9,20 @@ namespace CarAssistant.Classes.Expenses
 {
     public class Expense : IExpense
     {
+        public string TypeOfExpense { get; set; }
         public Expense()
         {
-
+            GetClassName();
+        }
+        public void GetClassName()
+        {
+            TypeOfExpense = this.GetType().Name;
         }
 
         public decimal Cost { get; set; }
         public string Description { get; set; }
         public DateTime When { get; set; }
+        public string AdditionalInfo { get; set; }
 
     }
 }

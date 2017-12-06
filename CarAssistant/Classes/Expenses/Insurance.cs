@@ -19,6 +19,7 @@ namespace CarAssistant.Classes.Expenses
             HirePurchase = hirePurchase;
             ExpirationDate = expirationDate;
             WhichInsurer = whichInsurer;
+            GetClassName();
         }
     }
 }

@@ -8,13 +8,13 @@ namespace CarAssistant.Classes.Expenses
 {
     public class Service : Expense
     {
-        public string WhichServiceStation { get; set; }
-        public Service(decimal cost, string description, DateTime when,string whichServiceStation)
+        public Service(decimal cost, string description, DateTime when,string additionalInfo)
         {
             Cost = cost;
             Description = description;
             When = when;
-            WhichServiceStation = whichServiceStation;
+            AdditionalInfo = additionalInfo;
+            GetClassName();
         }
 
     }
