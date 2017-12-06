@@ -88,11 +88,6 @@
             this.bAddExpense = new System.Windows.Forms.Button();
             this.panelExp2 = new System.Windows.Forms.Panel();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.Column4 = new System.Windows.Forms.DataGridViewCheckBoxColumn();
-            this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.label5 = new System.Windows.Forms.Label();
             this.panelReminders = new System.Windows.Forms.Panel();
             this.label = new System.Windows.Forms.Label();
@@ -172,6 +167,20 @@
             this.bCreateDriver = new System.Windows.Forms.Button();
             this.label17 = new System.Windows.Forms.Label();
             this.label13 = new System.Windows.Forms.Label();
+            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.Column4 = new System.Windows.Forms.DataGridViewCheckBoxColumn();
+            this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column7 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
+            this.cbWhichCar = new System.Windows.Forms.ComboBox();
+            this.label44 = new System.Windows.Forms.Label();
+            this.label45 = new System.Windows.Forms.Label();
+            this.cbExpenseType = new System.Windows.Forms.ComboBox();
             this.panelMenu.SuspendLayout();
             this.panelButtons.SuspendLayout();
             this.panelDriverInfo.SuspendLayout();
@@ -897,6 +906,13 @@
             // panelExpenses
             // 
             this.panelExpenses.BackColor = System.Drawing.Color.Gray;
+            this.panelExpenses.Controls.Add(this.cbExpenseType);
+            this.panelExpenses.Controls.Add(this.label45);
+            this.panelExpenses.Controls.Add(this.label44);
+            this.panelExpenses.Controls.Add(this.cbWhichCar);
+            this.panelExpenses.Controls.Add(this.dateTimePicker1);
+            this.panelExpenses.Controls.Add(this.textBox2);
+            this.panelExpenses.Controls.Add(this.textBox1);
             this.panelExpenses.Controls.Add(this.bExpRemove);
             this.panelExpenses.Controls.Add(this.bExpShowInfo);
             this.panelExpenses.Controls.Add(this.bAddExpense);
@@ -911,7 +927,7 @@
             // 
             // bExpRemove
             // 
-            this.bExpRemove.Location = new System.Drawing.Point(700, 366);
+            this.bExpRemove.Location = new System.Drawing.Point(700, 380);
             this.bExpRemove.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.bExpRemove.Name = "bExpRemove";
             this.bExpRemove.Size = new System.Drawing.Size(149, 60);
@@ -921,7 +937,7 @@
             // 
             // bExpShowInfo
             // 
-            this.bExpShowInfo.Location = new System.Drawing.Point(232, 366);
+            this.bExpShowInfo.Location = new System.Drawing.Point(230, 380);
             this.bExpShowInfo.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.bExpShowInfo.Name = "bExpShowInfo";
             this.bExpShowInfo.Size = new System.Drawing.Size(149, 60);
@@ -931,7 +947,7 @@
             // 
             // bAddExpense
             // 
-            this.bAddExpense.Location = new System.Drawing.Point(51, 366);
+            this.bAddExpense.Location = new System.Drawing.Point(50, 380);
             this.bAddExpense.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.bAddExpense.Name = "bAddExpense";
             this.bAddExpense.Size = new System.Drawing.Size(149, 60);
@@ -945,55 +961,29 @@
             this.panelExp2.Location = new System.Drawing.Point(51, 50);
             this.panelExp2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.panelExp2.Name = "panelExp2";
-            this.panelExp2.Size = new System.Drawing.Size(800, 300);
+            this.panelExp2.Size = new System.Drawing.Size(800, 250);
             this.panelExp2.TabIndex = 2;
             // 
             // dataGridView1
             // 
+            this.dataGridView1.AllowUserToAddRows = false;
             this.dataGridView1.AllowUserToOrderColumns = true;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.Column4,
             this.Column1,
             this.Column2,
+            this.Column3,
+            this.Column7,
             this.Column5,
-            this.Column3});
-            this.dataGridView1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.Column6});
+            this.dataGridView1.Dock = System.Windows.Forms.DockStyle.Top;
             this.dataGridView1.Location = new System.Drawing.Point(0, 0);
             this.dataGridView1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.RowTemplate.Height = 24;
-            this.dataGridView1.Size = new System.Drawing.Size(800, 300);
+            this.dataGridView1.Size = new System.Drawing.Size(800, 250);
             this.dataGridView1.TabIndex = 1;
-            // 
-            // Column4
-            // 
-            this.Column4.Frozen = true;
-            this.Column4.HeaderText = "Info";
-            this.Column4.Name = "Column4";
-            this.Column4.Width = 50;
-            // 
-            // Column1
-            // 
-            this.Column1.HeaderText = "When";
-            this.Column1.Name = "Column1";
-            // 
-            // Column2
-            // 
-            this.Column2.HeaderText = "Cost";
-            this.Column2.Name = "Column2";
-            // 
-            // Column5
-            // 
-            this.Column5.HeaderText = "Car";
-            this.Column5.Name = "Column5";
-            this.Column5.Width = 150;
-            // 
-            // Column3
-            // 
-            this.Column3.HeaderText = "Description";
-            this.Column3.Name = "Column3";
-            this.Column3.Width = 250;
             // 
             // label5
             // 
@@ -1097,9 +1087,9 @@
             // 
             // panelCentral
             // 
+            this.panelCentral.Controls.Add(this.panelExpenses);
             this.panelCentral.Controls.Add(this.panelCarDetails);
             this.panelCentral.Controls.Add(this.panelCars);
-            this.panelCentral.Controls.Add(this.panelExpenses);
             this.panelCentral.Controls.Add(this.panelManage);
             this.panelCentral.Controls.Add(this.panelDriverInfo);
             this.panelCentral.Controls.Add(this.panelMenu);
@@ -1852,6 +1842,102 @@
             this.label13.TabIndex = 0;
             this.label13.Text = "startPanel";
             // 
+            // textBox1
+            // 
+            this.textBox1.Location = new System.Drawing.Point(508, 332);
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(100, 22);
+            this.textBox1.TabIndex = 6;
+            // 
+            // textBox2
+            // 
+            this.textBox2.Location = new System.Drawing.Point(441, 388);
+            this.textBox2.Name = "textBox2";
+            this.textBox2.Size = new System.Drawing.Size(100, 22);
+            this.textBox2.TabIndex = 7;
+            // 
+            // Column4
+            // 
+            this.Column4.Frozen = true;
+            this.Column4.HeaderText = "Info";
+            this.Column4.Name = "Column4";
+            this.Column4.Width = 50;
+            // 
+            // Column1
+            // 
+            this.Column1.HeaderText = "Which car";
+            this.Column1.Name = "Column1";
+            // 
+            // Column2
+            // 
+            this.Column2.HeaderText = "Expense type";
+            this.Column2.Name = "Column2";
+            // 
+            // Column3
+            // 
+            this.Column3.HeaderText = "Cost";
+            this.Column3.Name = "Column3";
+            // 
+            // Column7
+            // 
+            this.Column7.HeaderText = "When";
+            this.Column7.Name = "Column7";
+            // 
+            // Column5
+            // 
+            this.Column5.HeaderText = "Description";
+            this.Column5.Name = "Column5";
+            this.Column5.Width = 175;
+            // 
+            // Column6
+            // 
+            this.Column6.HeaderText = "Additional info";
+            this.Column6.Name = "Column6";
+            this.Column6.Width = 150;
+            // 
+            // dateTimePicker1
+            // 
+            this.dateTimePicker1.CustomFormat = "dd-MM-yyyy";
+            this.dateTimePicker1.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            this.dateTimePicker1.Location = new System.Drawing.Point(540, 305);
+            this.dateTimePicker1.Name = "dateTimePicker1";
+            this.dateTimePicker1.Size = new System.Drawing.Size(110, 22);
+            this.dateTimePicker1.TabIndex = 9;
+            // 
+            // cbWhichCar
+            // 
+            this.cbWhichCar.FormattingEnabled = true;
+            this.cbWhichCar.Location = new System.Drawing.Point(149, 303);
+            this.cbWhichCar.Name = "cbWhichCar";
+            this.cbWhichCar.Size = new System.Drawing.Size(147, 24);
+            this.cbWhichCar.TabIndex = 10;
+            // 
+            // label44
+            // 
+            this.label44.AutoSize = true;
+            this.label44.Location = new System.Drawing.Point(66, 308);
+            this.label44.Name = "label44";
+            this.label44.Size = new System.Drawing.Size(75, 17);
+            this.label44.TabIndex = 11;
+            this.label44.Text = "Select car:";
+            // 
+            // label45
+            // 
+            this.label45.AutoSize = true;
+            this.label45.Location = new System.Drawing.Point(44, 333);
+            this.label45.Name = "label45";
+            this.label45.Size = new System.Drawing.Size(97, 17);
+            this.label45.TabIndex = 12;
+            this.label45.Text = "Expense type:";
+            // 
+            // cbExpenseType
+            // 
+            this.cbExpenseType.FormattingEnabled = true;
+            this.cbExpenseType.Location = new System.Drawing.Point(149, 333);
+            this.cbExpenseType.Name = "cbExpenseType";
+            this.cbExpenseType.Size = new System.Drawing.Size(147, 24);
+            this.cbExpenseType.TabIndex = 13;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -2014,11 +2100,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn CProductionYear;
         private System.Windows.Forms.TextBox tbForTesting;
         private System.Windows.Forms.DataGridView dataGridView1;
-        private System.Windows.Forms.DataGridViewCheckBoxColumn Column4;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column2;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column5;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column3;
         private System.Windows.Forms.Panel panelExp2;
         private System.Windows.Forms.Button bExpShowInfo;
         private System.Windows.Forms.Button bAddExpense;
@@ -2050,6 +2131,20 @@
         private System.Windows.Forms.Panel panelEditCar;
         private System.Windows.Forms.Button bCancel;
         private System.Windows.Forms.Button bUpdate;
+        private System.Windows.Forms.ComboBox cbWhichCar;
+        private System.Windows.Forms.DateTimePicker dateTimePicker1;
+        private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.DataGridViewCheckBoxColumn Column4;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column2;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column3;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column7;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column5;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column6;
+        private System.Windows.Forms.ComboBox cbExpenseType;
+        private System.Windows.Forms.Label label45;
+        private System.Windows.Forms.Label label44;
     }
 }
 
