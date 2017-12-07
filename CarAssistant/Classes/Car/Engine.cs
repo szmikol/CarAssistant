@@ -7,7 +7,7 @@ using System.Windows.Forms;
 using CarAssistant.Classes.Car;
 
 namespace CarAssistant
-{
+{[Serializable]
 	public class Engine
 	{
         //Fields
