@@ -11,20 +11,19 @@ using System.Globalization;
 
 namespace CarAssistant
 {
-    public class Car : ICar
+	public class Car : ICar
 	{
         //Fields
-
-        public Engine Engine;
+        private Engine Engine;
         public List<object> expenses { get; set; }
         public string Model { get; set; }
         public string Brand { get; set; }
         public DateTime ProductionDate { get; set; }
-        public DateTime PurchaseDate;
-        public User Owner;
-        public double CounterState;
+        private DateTime PurchaseDate;
+        private User Owner;
+        private double CounterState;
         public string LicensePlateNo { get; set; }
-        public string Vin;
+        private string Vin;
         public int Index { get; set; }
         public string BodyType { get; set; }
         //Constructors
