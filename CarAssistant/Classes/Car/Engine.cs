@@ -8,7 +8,8 @@ using CarAssistant.Classes.Car;
 
 namespace CarAssistant
 {
-	public class Engine
+    [Serializable]
+    public class Engine
 	{
         //Fields
         public int Capacity { get; set; }
