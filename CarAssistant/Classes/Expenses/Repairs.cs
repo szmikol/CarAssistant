@@ -8,15 +8,13 @@ namespace CarAssistant.Classes.Expenses
 {
     public class Repairs : Expense
     {
-        public string RepairedPart { get; set; }
-        public string WhichMechanic { get; set; }
-        public Repairs(decimal cost, string description, DateTime when, string repairedPart, string whichMechanic)
+        public Repairs(decimal cost, string description, DateTime when, string additionalInfo)
         {
             Cost = cost;
             Description = description;
             When = when;
-            RepairedPart = repairedPart;
-            WhichMechanic = whichMechanic;
+            AdditionalInfo = additionalInfo;
+            GetClassName();
         }
     }
 }

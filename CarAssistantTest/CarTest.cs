@@ -41,11 +41,11 @@ namespace CarAssistantTest
         [TestMethod]
         public void AddExpenseTest()
         {
-            Repairs repair1 = new Repairs(1250M, "Uszczelka pod głowica", new DateTime(2017, 12, 01), "Uszczelka", "Pan Stasiu");
+            Repairs repair1 = new Repairs(1250M, "Uszczelka pod głowica", new DateTime(2017, 12, 01), "U pana Stasia");
             Insurance insurance1 = new Insurance(1500M, "OC", new DateTime(2017, 05, 11), true, new DateTime(2018, 05, 10), "PSU S.A.");
             Service service = new Service(750M, "Distribution system fix", new DateTime(2017, 12, 01), "Zenek Serwis");
             LooksMaintenance looks1 = new LooksMaintenance(12.50M, "Pranie tapicerki", new DateTime(2017, 12, 01), "Added wunderbaum");
-            Exploitation explo1 = new Exploitation(1250M, "Tyres changed", new DateTime(2017, 12, 01));
+            Exploitation explo1 = new Exploitation(1250M, "Tyres changed", new DateTime(2017, 12, 01), "355/25R1 107 Y Pirelli PZERO");
 
             User user = new User();
             Car car1 = CreateNewCarBrandModelYear("Alfa Romeo", "159", new DateTime(2005, 01, 01));
