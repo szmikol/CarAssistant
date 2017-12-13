@@ -206,6 +206,8 @@ namespace CarAssistant
                     ShowCarsInGridBox();
                     UpdateUserForms(driver);
                 }
+                else
+                    MessageBox.Show("Car list not loaded");
 
             }
         }
