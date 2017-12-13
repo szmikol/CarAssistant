@@ -245,8 +245,7 @@ namespace CarAssistant
             CarFromPanel = CreateCarFromPanel();
             driver.userCars.Add(CarFromPanel);
             ClearAddNewCarPanel();
-            ShowCarsInGridBox();
-            dataSaver.SaveCarsListToXml(driver.userCars, directory+"\\carlist.xml");
+            ShowCarsInGridBox();            
             panelCars.BringToFront();
         }
 
@@ -458,6 +457,12 @@ namespace CarAssistant
                 CarName = string.Format("{0}, {1}, {2}",Car.Brand.ToString(), Car.Model.ToString(), Car.ProductionDate.Year.ToString());
                 cbWhichCar.Items.Add(CarName);
             }
+        }
+
+        private void bSaveCars_Click(object sender, EventArgs e)
+        {
+            dataSaver.SaveCarsListToXml(driver.userCars, directory + "\\carlist.xml");
+            MessageBox.Show("Cars have been saved","Much Success",MessageBoxButtons.OK);
         }
     }
 }
