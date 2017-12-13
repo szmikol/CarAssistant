@@ -338,11 +338,15 @@ namespace CarAssistant
         {
             if (e.ColumnIndex == 0)
             {
+
                 foreach (DataGridViewRow row in dgShowCars.Rows)
-                {            
-                    if (Convert.ToBoolean(row.Cells[0].Selected) == true)
+                {
+                    if (row.Cells[0].Value != null)
                     {
-                        row.Selected = true;
+                        if (Convert.ToBoolean(row.Cells[0].Value) == true)
+                        {
+                            row.Selected = true;
+                        }
                     }
                 }
             }            
