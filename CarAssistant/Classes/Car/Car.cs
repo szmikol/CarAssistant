@@ -19,7 +19,7 @@ namespace CarAssistant
         public string Model { get; set; }
         public string Brand { get; set; }
         public DateTime ProductionDate { get; set; }
-        public DateTime PurchaseDate;
+        public DateTime PurchaseDate { get; set; }
         public User Owner;
         public double CounterState;
         public string LicensePlateNo { get; set; }

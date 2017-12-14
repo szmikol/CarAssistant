@@ -429,6 +429,22 @@ namespace CarAssistant
             tbDPowerkW.Text = FromShow.PowerInKW.ToString();
         }
 
+        private void PopulatePanelEditCar(Car ToEdit)
+        {
+            tbEditBrand.Text = ToEdit.Brand.ToString();
+            tbEditModel.Text = ToEdit.Model.ToString();
+            dtpEditPurchaseDate.Value = ToEdit.PurchaseDate;
+            tbEditPY.Text = ToEdit.ProductionDate.Year.ToString();
+            tbEditLicensePlate.Text = ToEdit.LicensePlateNo.ToString();
+            tbEditVIN.Text = ToEdit.GetVin();
+            tbEditBodyType.Text = ToEdit.BodyType.ToString();
+
+            Engine FromToEdit = ToEdit.GetEngine();
+            tbEditEngineType.Text = FromToEdit.TypeOfEngine;
+            tbEditCapacity.Text = FromToEdit.Capacity.ToString();
+            tbEditPowerHP.Text = FromToEdit.Horsepower.ToString();
+            tbEditPowerkW.Text = FromToEdit.PowerInKW.ToString();
+        }
 
 
 
@@ -446,7 +462,8 @@ namespace CarAssistant
         private void bEditCar_Click(object sender, EventArgs e)
         {
             Car CarToEdit = GetCarToDetail(GetCheckedRow());
-
+            PopulatePanelEditCar(CarToEdit);
+            panelEditCar.BringToFront();
         }
 
         private void UpdateExpensesComboBox()
@@ -463,6 +480,44 @@ namespace CarAssistant
         {
             dataSaver.SaveCarsListToXml(driver.userCars, directory + "\\carlist.xml");
             MessageBox.Show("Cars have been saved","Much Success",MessageBoxButtons.OK);
+        }
+
+        private void bBackFromEdit_Click(object sender, EventArgs e)
+        {
+            panelCarDetails.BringToFront();
+        }
+
+        private void bUpdateCar_Click(object sender, EventArgs e)
+        {
+            Car CarToEdit = GetCarToDetail(GetCheckedRow());
+            Car CarAfterChanges = GetCarAfterChanges();
+
+            if(CarToEdit != CarAfterChanges)
+            {
+                CarToEdit.ChangeCarsParameters(CarAfterChanges);
+            }
+            else
+            {
+                MessageBox.Show("Nothing has been changed", "Achtung!", MessageBoxButtons.OK);
+            }
+            PopulatePanelEditCar(CarToEdit);
+            panelCarDetails.BringToFront();
+        }
+
+        private Car GetCarAfterChanges()
+        {
+            Car Temp = new Car();
+            Temp.Brand = tbEditBrand.Text;
+            Temp.Model = tbEditModel.Text;
+            Temp.PurchaseDate = dtpEditPurchaseDate.Value;
+            Temp.ProductionDate = DateTime.ParseExact(tbEditPY.Text, "yyyy", CultureInfo.InvariantCulture) ;
+            Temp.LicensePlateNo = tbEditLicensePlate.Text;
+            Temp.Vin = tbEditVIN.Text;
+            Temp.BodyType = tbEditBodyType.Text;
+            Temp.Owner = driver;
+            Engine ForTemp = new Engine(int.Parse(tbEditCapacity.Text), int.Parse(tbEditPowerHP.Text), tbEditEngineType.Text);
+            Temp.Engine = ForTemp;
+            return Temp;
         }
     }
 }
