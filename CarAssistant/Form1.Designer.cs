@@ -1307,7 +1307,7 @@
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(415, 298);
+            this.button1.Location = new System.Drawing.Point(388, 298);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(75, 23);
             this.button1.TabIndex = 49;
@@ -1320,6 +1320,7 @@
             this.tbEditPowerkW.Name = "tbEditPowerkW";
             this.tbEditPowerkW.Size = new System.Drawing.Size(100, 20);
             this.tbEditPowerkW.TabIndex = 48;
+            this.tbEditPowerkW.TextChanged += new System.EventHandler(this.tbEditPowerkW_TextChanged);
             // 
             // tbEditPowerHP
             // 
@@ -1327,6 +1328,7 @@
             this.tbEditPowerHP.Name = "tbEditPowerHP";
             this.tbEditPowerHP.Size = new System.Drawing.Size(100, 20);
             this.tbEditPowerHP.TabIndex = 47;
+            this.tbEditPowerHP.TextChanged += new System.EventHandler(this.tbEditPowerHP_TextChanged);
             // 
             // tbEditCapacity
             // 
@@ -1496,11 +1498,11 @@
             // bUpdateCar
             // 
             this.bUpdateCar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.bUpdateCar.Location = new System.Drawing.Point(504, 298);
+            this.bUpdateCar.Location = new System.Drawing.Point(481, 298);
             this.bUpdateCar.Name = "bUpdateCar";
-            this.bUpdateCar.Size = new System.Drawing.Size(75, 23);
+            this.bUpdateCar.Size = new System.Drawing.Size(98, 23);
             this.bUpdateCar.TabIndex = 0;
-            this.bUpdateCar.Text = "Update";
+            this.bUpdateCar.Text = "Save Changes";
             this.bUpdateCar.UseVisualStyleBackColor = true;
             this.bUpdateCar.Click += new System.EventHandler(this.bUpdateCar_Click);
             // 

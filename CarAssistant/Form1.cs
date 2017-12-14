@@ -519,5 +519,29 @@ namespace CarAssistant
             Temp.Engine = ForTemp;
             return Temp;
         }
+
+        private void tbEditPowerHP_TextChanged(object sender, EventArgs e)
+        {
+            double Converter = 0.73549875;
+            double kW = (double.Parse(tbEditPowerHP.Text) * Converter);
+            Math.Round(kW, MidpointRounding.ToEven);
+            int Output = Convert.ToInt32(kW);
+            if(tbEditPowerkW.Text != Output.ToString())
+            {
+                tbEditPowerkW.Text = Output.ToString();
+            }
+        }
+
+        private void tbEditPowerkW_TextChanged(object sender, EventArgs e)
+        {
+            double Converter = 0.73549875;
+            double HP = (double.Parse(tbEditPowerkW.Text) / Converter);
+            Math.Round(HP, MidpointRounding.ToEven);
+            int Output = Convert.ToInt32(HP);
+            if (tbEditPowerHP.Text != Output.ToString())
+            {
+                tbEditPowerHP.Text = Output.ToString();
+            }
+        }
     }
 }
