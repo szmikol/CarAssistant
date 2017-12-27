@@ -246,12 +246,8 @@ namespace CarAssistant
             driver.userCars.Add(CarFromPanel);
             ClearAddNewCarPanel();
             ShowCarsInGridBox();
-            panelCars.BringToFront();
-        }
-        private void bCarSaveChanges_Click(object sender, EventArgs e)
-        {
             dataSaver.SaveCarsListToXml(driver.userCars, directory+"\\carlist.xml");
-            MessageBox.Show("Changes saved!", "Save complete!");
+            panelCars.BringToFront();
         }
 
         private void bShowCars_Click(object sender, EventArgs e)
@@ -463,7 +459,5 @@ namespace CarAssistant
                 cbWhichCar.Items.Add(CarName);
             }
         }
-
-
     }
 }

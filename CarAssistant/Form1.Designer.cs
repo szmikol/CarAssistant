@@ -83,25 +83,11 @@
             this.panelRefuel = new System.Windows.Forms.Panel();
             this.labelRef = new System.Windows.Forms.Label();
             this.panelExpenses = new System.Windows.Forms.Panel();
-            this.cbExpenseType = new System.Windows.Forms.ComboBox();
-            this.label45 = new System.Windows.Forms.Label();
-            this.label44 = new System.Windows.Forms.Label();
-            this.cbWhichCar = new System.Windows.Forms.ComboBox();
-            this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
-            this.textBox2 = new System.Windows.Forms.TextBox();
-            this.textBox1 = new System.Windows.Forms.TextBox();
             this.bExpRemove = new System.Windows.Forms.Button();
             this.bExpShowInfo = new System.Windows.Forms.Button();
             this.bAddExpense = new System.Windows.Forms.Button();
             this.panelExp2 = new System.Windows.Forms.Panel();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.Column4 = new System.Windows.Forms.DataGridViewCheckBoxColumn();
-            this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column7 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.label5 = new System.Windows.Forms.Label();
             this.panelReminders = new System.Windows.Forms.Panel();
             this.label = new System.Windows.Forms.Label();
@@ -114,10 +100,10 @@
             this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
             this.saveFileDialog1 = new System.Windows.Forms.SaveFileDialog();
             this.panelCentral = new System.Windows.Forms.Panel();
-            this.panelCarDetails = new System.Windows.Forms.Panel();
             this.panelEditCar = new System.Windows.Forms.Panel();
             this.bCancel = new System.Windows.Forms.Button();
             this.bUpdate = new System.Windows.Forms.Button();
+            this.panelCarDetails = new System.Windows.Forms.Panel();
             this.bEditPhoto = new System.Windows.Forms.Button();
             this.pBCar = new System.Windows.Forms.PictureBox();
             this.tbDPowerkW = new System.Windows.Forms.TextBox();
@@ -181,7 +167,20 @@
             this.bCreateDriver = new System.Windows.Forms.Button();
             this.label17 = new System.Windows.Forms.Label();
             this.label13 = new System.Windows.Forms.Label();
-            this.bCarSaveChanges = new System.Windows.Forms.Button();
+            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.Column4 = new System.Windows.Forms.DataGridViewCheckBoxColumn();
+            this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column7 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
+            this.cbWhichCar = new System.Windows.Forms.ComboBox();
+            this.label44 = new System.Windows.Forms.Label();
+            this.label45 = new System.Windows.Forms.Label();
+            this.cbExpenseType = new System.Windows.Forms.ComboBox();
             this.panelMenu.SuspendLayout();
             this.panelButtons.SuspendLayout();
             this.panelDriverInfo.SuspendLayout();
@@ -199,8 +198,8 @@
             this.panelSettings.SuspendLayout();
             this.panelSaveLoad.SuspendLayout();
             this.panelCentral.SuspendLayout();
-            this.panelCarDetails.SuspendLayout();
             this.panelEditCar.SuspendLayout();
+            this.panelCarDetails.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pBCar)).BeginInit();
             this.panelAddNewCar.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbCarPhoto)).BeginInit();
@@ -695,7 +694,6 @@
             // panelCars
             // 
             this.panelCars.BackColor = System.Drawing.Color.DarkGray;
-            this.panelCars.Controls.Add(this.bCarSaveChanges);
             this.panelCars.Controls.Add(this.dgShowCars);
             this.panelCars.Controls.Add(this.bShowCars);
             this.panelCars.Controls.Add(this.bShowDetails);
@@ -721,7 +719,7 @@
             this.CLicensePlateNo,
             this.CProductionYear});
             this.dgShowCars.Location = new System.Drawing.Point(7, 5);
-            this.dgShowCars.Margin = new System.Windows.Forms.Padding(4);
+            this.dgShowCars.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.dgShowCars.Name = "dgShowCars";
             this.dgShowCars.Size = new System.Drawing.Size(877, 320);
             this.dgShowCars.TabIndex = 1;
@@ -786,7 +784,7 @@
             // bShowCars
             // 
             this.bShowCars.Location = new System.Drawing.Point(19, 346);
-            this.bShowCars.Margin = new System.Windows.Forms.Padding(4);
+            this.bShowCars.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.bShowCars.Name = "bShowCars";
             this.bShowCars.Size = new System.Drawing.Size(100, 28);
             this.bShowCars.TabIndex = 4;
@@ -796,8 +794,8 @@
             // 
             // bShowDetails
             // 
-            this.bShowDetails.Location = new System.Drawing.Point(426, 364);
-            this.bShowDetails.Margin = new System.Windows.Forms.Padding(4);
+            this.bShowDetails.Location = new System.Drawing.Point(389, 364);
+            this.bShowDetails.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.bShowDetails.Name = "bShowDetails";
             this.bShowDetails.Size = new System.Drawing.Size(207, 46);
             this.bShowDetails.TabIndex = 3;
@@ -927,63 +925,6 @@
             this.panelExpenses.Size = new System.Drawing.Size(900, 451);
             this.panelExpenses.TabIndex = 5;
             // 
-            // cbExpenseType
-            // 
-            this.cbExpenseType.FormattingEnabled = true;
-            this.cbExpenseType.Location = new System.Drawing.Point(149, 333);
-            this.cbExpenseType.Name = "cbExpenseType";
-            this.cbExpenseType.Size = new System.Drawing.Size(147, 24);
-            this.cbExpenseType.TabIndex = 13;
-            // 
-            // label45
-            // 
-            this.label45.AutoSize = true;
-            this.label45.Location = new System.Drawing.Point(44, 333);
-            this.label45.Name = "label45";
-            this.label45.Size = new System.Drawing.Size(97, 17);
-            this.label45.TabIndex = 12;
-            this.label45.Text = "Expense type:";
-            // 
-            // label44
-            // 
-            this.label44.AutoSize = true;
-            this.label44.Location = new System.Drawing.Point(66, 308);
-            this.label44.Name = "label44";
-            this.label44.Size = new System.Drawing.Size(75, 17);
-            this.label44.TabIndex = 11;
-            this.label44.Text = "Select car:";
-            // 
-            // cbWhichCar
-            // 
-            this.cbWhichCar.FormattingEnabled = true;
-            this.cbWhichCar.Location = new System.Drawing.Point(149, 303);
-            this.cbWhichCar.Name = "cbWhichCar";
-            this.cbWhichCar.Size = new System.Drawing.Size(147, 24);
-            this.cbWhichCar.TabIndex = 10;
-            // 
-            // dateTimePicker1
-            // 
-            this.dateTimePicker1.CustomFormat = "dd-MM-yyyy";
-            this.dateTimePicker1.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.dateTimePicker1.Location = new System.Drawing.Point(540, 305);
-            this.dateTimePicker1.Name = "dateTimePicker1";
-            this.dateTimePicker1.Size = new System.Drawing.Size(110, 22);
-            this.dateTimePicker1.TabIndex = 9;
-            // 
-            // textBox2
-            // 
-            this.textBox2.Location = new System.Drawing.Point(441, 388);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(100, 22);
-            this.textBox2.TabIndex = 7;
-            // 
-            // textBox1
-            // 
-            this.textBox1.Location = new System.Drawing.Point(508, 332);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(100, 22);
-            this.textBox1.TabIndex = 6;
-            // 
             // bExpRemove
             // 
             this.bExpRemove.Location = new System.Drawing.Point(700, 380);
@@ -1043,45 +984,6 @@
             this.dataGridView1.RowTemplate.Height = 24;
             this.dataGridView1.Size = new System.Drawing.Size(800, 250);
             this.dataGridView1.TabIndex = 1;
-            // 
-            // Column4
-            // 
-            this.Column4.Frozen = true;
-            this.Column4.HeaderText = "Info";
-            this.Column4.Name = "Column4";
-            this.Column4.Width = 50;
-            // 
-            // Column1
-            // 
-            this.Column1.HeaderText = "Which car";
-            this.Column1.Name = "Column1";
-            // 
-            // Column2
-            // 
-            this.Column2.HeaderText = "Expense type";
-            this.Column2.Name = "Column2";
-            // 
-            // Column3
-            // 
-            this.Column3.HeaderText = "Cost";
-            this.Column3.Name = "Column3";
-            // 
-            // Column7
-            // 
-            this.Column7.HeaderText = "When";
-            this.Column7.Name = "Column7";
-            // 
-            // Column5
-            // 
-            this.Column5.HeaderText = "Description";
-            this.Column5.Name = "Column5";
-            this.Column5.Width = 175;
-            // 
-            // Column6
-            // 
-            this.Column6.HeaderText = "Additional info";
-            this.Column6.Name = "Column6";
-            this.Column6.Width = 150;
             // 
             // label5
             // 
@@ -1185,9 +1087,9 @@
             // 
             // panelCentral
             // 
-            this.panelCentral.Controls.Add(this.panelCars);
             this.panelCentral.Controls.Add(this.panelExpenses);
             this.panelCentral.Controls.Add(this.panelCarDetails);
+            this.panelCentral.Controls.Add(this.panelCars);
             this.panelCentral.Controls.Add(this.panelManage);
             this.panelCentral.Controls.Add(this.panelDriverInfo);
             this.panelCentral.Controls.Add(this.panelMenu);
@@ -1205,6 +1107,38 @@
             this.panelCentral.Name = "panelCentral";
             this.panelCentral.Size = new System.Drawing.Size(1100, 601);
             this.panelCentral.TabIndex = 3;
+            // 
+            // panelEditCar
+            // 
+            this.panelEditCar.BackColor = System.Drawing.Color.Gray;
+            this.panelEditCar.Controls.Add(this.bCancel);
+            this.panelEditCar.Controls.Add(this.bUpdate);
+            this.panelEditCar.Location = new System.Drawing.Point(8, 6);
+            this.panelEditCar.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.panelEditCar.Name = "panelEditCar";
+            this.panelEditCar.Size = new System.Drawing.Size(896, 373);
+            this.panelEditCar.TabIndex = 27;
+            // 
+            // bCancel
+            // 
+            this.bCancel.Location = new System.Drawing.Point(779, 318);
+            this.bCancel.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.bCancel.Name = "bCancel";
+            this.bCancel.Size = new System.Drawing.Size(100, 28);
+            this.bCancel.TabIndex = 1;
+            this.bCancel.Text = "Cancel";
+            this.bCancel.UseVisualStyleBackColor = true;
+            // 
+            // bUpdate
+            // 
+            this.bUpdate.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.bUpdate.Location = new System.Drawing.Point(649, 318);
+            this.bUpdate.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.bUpdate.Name = "bUpdate";
+            this.bUpdate.Size = new System.Drawing.Size(100, 28);
+            this.bUpdate.TabIndex = 0;
+            this.bUpdate.Text = "Update";
+            this.bUpdate.UseVisualStyleBackColor = true;
             // 
             // panelCarDetails
             // 
@@ -1238,47 +1172,15 @@
             this.panelCarDetails.Controls.Add(this.bBack);
             this.panelCarDetails.Controls.Add(this.bEditCar);
             this.panelCarDetails.Location = new System.Drawing.Point(200, 150);
-            this.panelCarDetails.Margin = new System.Windows.Forms.Padding(4);
+            this.panelCarDetails.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.panelCarDetails.Name = "panelCarDetails";
             this.panelCarDetails.Size = new System.Drawing.Size(900, 450);
             this.panelCarDetails.TabIndex = 5;
             // 
-            // panelEditCar
-            // 
-            this.panelEditCar.BackColor = System.Drawing.Color.Gray;
-            this.panelEditCar.Controls.Add(this.bCancel);
-            this.panelEditCar.Controls.Add(this.bUpdate);
-            this.panelEditCar.Location = new System.Drawing.Point(8, 6);
-            this.panelEditCar.Margin = new System.Windows.Forms.Padding(4);
-            this.panelEditCar.Name = "panelEditCar";
-            this.panelEditCar.Size = new System.Drawing.Size(896, 373);
-            this.panelEditCar.TabIndex = 27;
-            // 
-            // bCancel
-            // 
-            this.bCancel.Location = new System.Drawing.Point(779, 318);
-            this.bCancel.Margin = new System.Windows.Forms.Padding(4);
-            this.bCancel.Name = "bCancel";
-            this.bCancel.Size = new System.Drawing.Size(100, 28);
-            this.bCancel.TabIndex = 1;
-            this.bCancel.Text = "Cancel";
-            this.bCancel.UseVisualStyleBackColor = true;
-            // 
-            // bUpdate
-            // 
-            this.bUpdate.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.bUpdate.Location = new System.Drawing.Point(649, 318);
-            this.bUpdate.Margin = new System.Windows.Forms.Padding(4);
-            this.bUpdate.Name = "bUpdate";
-            this.bUpdate.Size = new System.Drawing.Size(100, 28);
-            this.bUpdate.TabIndex = 0;
-            this.bUpdate.Text = "Update";
-            this.bUpdate.UseVisualStyleBackColor = true;
-            // 
             // bEditPhoto
             // 
             this.bEditPhoto.Location = new System.Drawing.Point(477, 218);
-            this.bEditPhoto.Margin = new System.Windows.Forms.Padding(4);
+            this.bEditPhoto.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.bEditPhoto.Name = "bEditPhoto";
             this.bEditPhoto.Size = new System.Drawing.Size(100, 28);
             this.bEditPhoto.TabIndex = 26;
@@ -1290,7 +1192,7 @@
             this.pBCar.ErrorImage = ((System.Drawing.Image)(resources.GetObject("pBCar.ErrorImage")));
             this.pBCar.InitialImage = ((System.Drawing.Image)(resources.GetObject("pBCar.InitialImage")));
             this.pBCar.Location = new System.Drawing.Point(608, 23);
-            this.pBCar.Margin = new System.Windows.Forms.Padding(4);
+            this.pBCar.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.pBCar.Name = "pBCar";
             this.pBCar.Size = new System.Drawing.Size(276, 185);
             this.pBCar.TabIndex = 25;
@@ -1299,7 +1201,7 @@
             // tbDPowerkW
             // 
             this.tbDPowerkW.Location = new System.Drawing.Point(453, 124);
-            this.tbDPowerkW.Margin = new System.Windows.Forms.Padding(4);
+            this.tbDPowerkW.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.tbDPowerkW.Name = "tbDPowerkW";
             this.tbDPowerkW.ReadOnly = true;
             this.tbDPowerkW.Size = new System.Drawing.Size(132, 22);
@@ -1308,7 +1210,7 @@
             // tbDPowerHP
             // 
             this.tbDPowerHP.Location = new System.Drawing.Point(453, 91);
-            this.tbDPowerHP.Margin = new System.Windows.Forms.Padding(4);
+            this.tbDPowerHP.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.tbDPowerHP.Name = "tbDPowerHP";
             this.tbDPowerHP.ReadOnly = true;
             this.tbDPowerHP.Size = new System.Drawing.Size(132, 22);
@@ -1317,7 +1219,7 @@
             // tbDCapacity
             // 
             this.tbDCapacity.Location = new System.Drawing.Point(453, 59);
-            this.tbDCapacity.Margin = new System.Windows.Forms.Padding(4);
+            this.tbDCapacity.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.tbDCapacity.Name = "tbDCapacity";
             this.tbDCapacity.ReadOnly = true;
             this.tbDCapacity.Size = new System.Drawing.Size(132, 22);
@@ -1326,7 +1228,7 @@
             // tbDEngineType
             // 
             this.tbDEngineType.Location = new System.Drawing.Point(453, 27);
-            this.tbDEngineType.Margin = new System.Windows.Forms.Padding(4);
+            this.tbDEngineType.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.tbDEngineType.Name = "tbDEngineType";
             this.tbDEngineType.ReadOnly = true;
             this.tbDEngineType.Size = new System.Drawing.Size(132, 22);
@@ -1335,7 +1237,7 @@
             // tbDBodyType
             // 
             this.tbDBodyType.Location = new System.Drawing.Point(189, 220);
-            this.tbDBodyType.Margin = new System.Windows.Forms.Padding(4);
+            this.tbDBodyType.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.tbDBodyType.Name = "tbDBodyType";
             this.tbDBodyType.ReadOnly = true;
             this.tbDBodyType.Size = new System.Drawing.Size(132, 22);
@@ -1344,7 +1246,7 @@
             // tbDVIN
             // 
             this.tbDVIN.Location = new System.Drawing.Point(189, 188);
-            this.tbDVIN.Margin = new System.Windows.Forms.Padding(4);
+            this.tbDVIN.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.tbDVIN.Name = "tbDVIN";
             this.tbDVIN.ReadOnly = true;
             this.tbDVIN.Size = new System.Drawing.Size(132, 22);
@@ -1353,7 +1255,7 @@
             // tbDLicencePlateNo
             // 
             this.tbDLicencePlateNo.Location = new System.Drawing.Point(189, 156);
-            this.tbDLicencePlateNo.Margin = new System.Windows.Forms.Padding(4);
+            this.tbDLicencePlateNo.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.tbDLicencePlateNo.Name = "tbDLicencePlateNo";
             this.tbDLicencePlateNo.ReadOnly = true;
             this.tbDLicencePlateNo.Size = new System.Drawing.Size(132, 22);
@@ -1362,7 +1264,7 @@
             // tbDPurchaseYear
             // 
             this.tbDPurchaseYear.Location = new System.Drawing.Point(189, 124);
-            this.tbDPurchaseYear.Margin = new System.Windows.Forms.Padding(4);
+            this.tbDPurchaseYear.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.tbDPurchaseYear.Name = "tbDPurchaseYear";
             this.tbDPurchaseYear.ReadOnly = true;
             this.tbDPurchaseYear.Size = new System.Drawing.Size(132, 22);
@@ -1371,7 +1273,7 @@
             // tbDProductionYear
             // 
             this.tbDProductionYear.Location = new System.Drawing.Point(189, 91);
-            this.tbDProductionYear.Margin = new System.Windows.Forms.Padding(4);
+            this.tbDProductionYear.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.tbDProductionYear.Name = "tbDProductionYear";
             this.tbDProductionYear.ReadOnly = true;
             this.tbDProductionYear.Size = new System.Drawing.Size(132, 22);
@@ -1380,7 +1282,7 @@
             // tbDModel
             // 
             this.tbDModel.Location = new System.Drawing.Point(189, 59);
-            this.tbDModel.Margin = new System.Windows.Forms.Padding(4);
+            this.tbDModel.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.tbDModel.Name = "tbDModel";
             this.tbDModel.ReadOnly = true;
             this.tbDModel.Size = new System.Drawing.Size(132, 22);
@@ -1389,7 +1291,7 @@
             // tbDBrand
             // 
             this.tbDBrand.Location = new System.Drawing.Point(189, 27);
-            this.tbDBrand.Margin = new System.Windows.Forms.Padding(4);
+            this.tbDBrand.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.tbDBrand.Name = "tbDBrand";
             this.tbDBrand.ReadOnly = true;
             this.tbDBrand.Size = new System.Drawing.Size(132, 22);
@@ -1509,7 +1411,7 @@
             // 
             this.tbForTesting.AllowDrop = true;
             this.tbForTesting.Location = new System.Drawing.Point(632, 250);
-            this.tbForTesting.Margin = new System.Windows.Forms.Padding(4);
+            this.tbForTesting.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.tbForTesting.Multiline = true;
             this.tbForTesting.Name = "tbForTesting";
             this.tbForTesting.ReadOnly = true;
@@ -1520,7 +1422,7 @@
             // bBack
             // 
             this.bBack.Location = new System.Drawing.Point(8, 377);
-            this.bBack.Margin = new System.Windows.Forms.Padding(4);
+            this.bBack.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.bBack.Name = "bBack";
             this.bBack.Size = new System.Drawing.Size(100, 28);
             this.bBack.TabIndex = 1;
@@ -1531,7 +1433,7 @@
             // bEditCar
             // 
             this.bEditCar.Location = new System.Drawing.Point(360, 218);
-            this.bEditCar.Margin = new System.Windows.Forms.Padding(4);
+            this.bEditCar.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.bEditCar.Name = "bEditCar";
             this.bEditCar.Size = new System.Drawing.Size(100, 28);
             this.bEditCar.TabIndex = 0;
@@ -1597,7 +1499,7 @@
             "Diesel",
             "Petrol + LPG"});
             this.cbEngineType.Location = new System.Drawing.Point(443, 89);
-            this.cbEngineType.Margin = new System.Windows.Forms.Padding(4);
+            this.cbEngineType.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.cbEngineType.Name = "cbEngineType";
             this.cbEngineType.Size = new System.Drawing.Size(132, 24);
             this.cbEngineType.TabIndex = 30;
@@ -1619,7 +1521,7 @@
             "Truck",
             "VAN"});
             this.cbBodyType.Location = new System.Drawing.Point(171, 164);
-            this.cbBodyType.Margin = new System.Windows.Forms.Padding(4);
+            this.cbBodyType.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.cbBodyType.Name = "cbBodyType";
             this.cbBodyType.Size = new System.Drawing.Size(132, 24);
             this.cbBodyType.Sorted = true;
@@ -1629,7 +1531,7 @@
             // 
             this.cbModel.FormattingEnabled = true;
             this.cbModel.Location = new System.Drawing.Point(171, 128);
-            this.cbModel.Margin = new System.Windows.Forms.Padding(4);
+            this.cbModel.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.cbModel.Name = "cbModel";
             this.cbModel.Size = new System.Drawing.Size(132, 24);
             this.cbModel.TabIndex = 28;
@@ -1638,7 +1540,7 @@
             // 
             this.cbBrand.FormattingEnabled = true;
             this.cbBrand.Location = new System.Drawing.Point(171, 90);
-            this.cbBrand.Margin = new System.Windows.Forms.Padding(4);
+            this.cbBrand.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.cbBrand.Name = "cbBrand";
             this.cbBrand.Size = new System.Drawing.Size(132, 24);
             this.cbBrand.TabIndex = 27;
@@ -1647,7 +1549,7 @@
             // tbCapacity
             // 
             this.tbCapacity.Location = new System.Drawing.Point(443, 128);
-            this.tbCapacity.Margin = new System.Windows.Forms.Padding(4);
+            this.tbCapacity.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.tbCapacity.Name = "tbCapacity";
             this.tbCapacity.Size = new System.Drawing.Size(132, 22);
             this.tbCapacity.TabIndex = 26;
@@ -1656,7 +1558,7 @@
             // 
             this.dtPurchaseDate.CustomFormat = "dd-MM-yyyy";
             this.dtPurchaseDate.Location = new System.Drawing.Point(171, 278);
-            this.dtPurchaseDate.Margin = new System.Windows.Forms.Padding(4);
+            this.dtPurchaseDate.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.dtPurchaseDate.MinDate = new System.DateTime(1886, 1, 1, 0, 0, 0, 0);
             this.dtPurchaseDate.Name = "dtPurchaseDate";
             this.dtPurchaseDate.Size = new System.Drawing.Size(161, 22);
@@ -1665,7 +1567,7 @@
             // tbPower
             // 
             this.tbPower.Location = new System.Drawing.Point(443, 170);
-            this.tbPower.Margin = new System.Windows.Forms.Padding(4);
+            this.tbPower.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.tbPower.Name = "tbPower";
             this.tbPower.Size = new System.Drawing.Size(132, 22);
             this.tbPower.TabIndex = 24;
@@ -1693,7 +1595,7 @@
             // tbLicensePlates
             // 
             this.tbLicensePlates.Location = new System.Drawing.Point(171, 361);
-            this.tbLicensePlates.Margin = new System.Windows.Forms.Padding(4);
+            this.tbLicensePlates.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.tbLicensePlates.Name = "tbLicensePlates";
             this.tbLicensePlates.Size = new System.Drawing.Size(132, 22);
             this.tbLicensePlates.TabIndex = 21;
@@ -1701,7 +1603,7 @@
             // tbVIN
             // 
             this.tbVIN.Location = new System.Drawing.Point(171, 321);
-            this.tbVIN.Margin = new System.Windows.Forms.Padding(4);
+            this.tbVIN.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.tbVIN.Name = "tbVIN";
             this.tbVIN.Size = new System.Drawing.Size(132, 22);
             this.tbVIN.TabIndex = 20;
@@ -1709,7 +1611,7 @@
             // tbProductionYear
             // 
             this.tbProductionYear.Location = new System.Drawing.Point(171, 244);
-            this.tbProductionYear.Margin = new System.Windows.Forms.Padding(4);
+            this.tbProductionYear.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.tbProductionYear.Name = "tbProductionYear";
             this.tbProductionYear.Size = new System.Drawing.Size(132, 22);
             this.tbProductionYear.TabIndex = 19;
@@ -1717,7 +1619,7 @@
             // tbCounterState
             // 
             this.tbCounterState.Location = new System.Drawing.Point(171, 202);
-            this.tbCounterState.Margin = new System.Windows.Forms.Padding(4);
+            this.tbCounterState.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.tbCounterState.Name = "tbCounterState";
             this.tbCounterState.Size = new System.Drawing.Size(132, 22);
             this.tbCounterState.TabIndex = 18;
@@ -1940,16 +1842,101 @@
             this.label13.TabIndex = 0;
             this.label13.Text = "startPanel";
             // 
-            // bCarSaveChanges
+            // textBox1
             // 
-            this.bCarSaveChanges.Location = new System.Drawing.Point(172, 364);
-            this.bCarSaveChanges.Margin = new System.Windows.Forms.Padding(4);
-            this.bCarSaveChanges.Name = "bCarSaveChanges";
-            this.bCarSaveChanges.Size = new System.Drawing.Size(207, 46);
-            this.bCarSaveChanges.TabIndex = 5;
-            this.bCarSaveChanges.Text = "Save changes";
-            this.bCarSaveChanges.UseVisualStyleBackColor = true;
-            this.bCarSaveChanges.Click += new System.EventHandler(this.bCarSaveChanges_Click);
+            this.textBox1.Location = new System.Drawing.Point(508, 332);
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(100, 22);
+            this.textBox1.TabIndex = 6;
+            // 
+            // textBox2
+            // 
+            this.textBox2.Location = new System.Drawing.Point(441, 388);
+            this.textBox2.Name = "textBox2";
+            this.textBox2.Size = new System.Drawing.Size(100, 22);
+            this.textBox2.TabIndex = 7;
+            // 
+            // Column4
+            // 
+            this.Column4.Frozen = true;
+            this.Column4.HeaderText = "Info";
+            this.Column4.Name = "Column4";
+            this.Column4.Width = 50;
+            // 
+            // Column1
+            // 
+            this.Column1.HeaderText = "Which car";
+            this.Column1.Name = "Column1";
+            // 
+            // Column2
+            // 
+            this.Column2.HeaderText = "Expense type";
+            this.Column2.Name = "Column2";
+            // 
+            // Column3
+            // 
+            this.Column3.HeaderText = "Cost";
+            this.Column3.Name = "Column3";
+            // 
+            // Column7
+            // 
+            this.Column7.HeaderText = "When";
+            this.Column7.Name = "Column7";
+            // 
+            // Column5
+            // 
+            this.Column5.HeaderText = "Description";
+            this.Column5.Name = "Column5";
+            this.Column5.Width = 175;
+            // 
+            // Column6
+            // 
+            this.Column6.HeaderText = "Additional info";
+            this.Column6.Name = "Column6";
+            this.Column6.Width = 150;
+            // 
+            // dateTimePicker1
+            // 
+            this.dateTimePicker1.CustomFormat = "dd-MM-yyyy";
+            this.dateTimePicker1.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            this.dateTimePicker1.Location = new System.Drawing.Point(540, 305);
+            this.dateTimePicker1.Name = "dateTimePicker1";
+            this.dateTimePicker1.Size = new System.Drawing.Size(110, 22);
+            this.dateTimePicker1.TabIndex = 9;
+            // 
+            // cbWhichCar
+            // 
+            this.cbWhichCar.FormattingEnabled = true;
+            this.cbWhichCar.Location = new System.Drawing.Point(149, 303);
+            this.cbWhichCar.Name = "cbWhichCar";
+            this.cbWhichCar.Size = new System.Drawing.Size(147, 24);
+            this.cbWhichCar.TabIndex = 10;
+            // 
+            // label44
+            // 
+            this.label44.AutoSize = true;
+            this.label44.Location = new System.Drawing.Point(66, 308);
+            this.label44.Name = "label44";
+            this.label44.Size = new System.Drawing.Size(75, 17);
+            this.label44.TabIndex = 11;
+            this.label44.Text = "Select car:";
+            // 
+            // label45
+            // 
+            this.label45.AutoSize = true;
+            this.label45.Location = new System.Drawing.Point(44, 333);
+            this.label45.Name = "label45";
+            this.label45.Size = new System.Drawing.Size(97, 17);
+            this.label45.TabIndex = 12;
+            this.label45.Text = "Expense type:";
+            // 
+            // cbExpenseType
+            // 
+            this.cbExpenseType.FormattingEnabled = true;
+            this.cbExpenseType.Location = new System.Drawing.Point(149, 333);
+            this.cbExpenseType.Name = "cbExpenseType";
+            this.cbExpenseType.Size = new System.Drawing.Size(147, 24);
+            this.cbExpenseType.TabIndex = 13;
             // 
             // Form1
             // 
@@ -1959,7 +1946,7 @@
             this.ClientSize = new System.Drawing.Size(1100, 601);
             this.Controls.Add(this.panelCentral);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
-            this.Margin = new System.Windows.Forms.Padding(4);
+            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.MaximizeBox = false;
             this.Name = "Form1";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
@@ -1991,9 +1978,9 @@
             this.panelSaveLoad.ResumeLayout(false);
             this.panelSaveLoad.PerformLayout();
             this.panelCentral.ResumeLayout(false);
+            this.panelEditCar.ResumeLayout(false);
             this.panelCarDetails.ResumeLayout(false);
             this.panelCarDetails.PerformLayout();
-            this.panelEditCar.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pBCar)).EndInit();
             this.panelAddNewCar.ResumeLayout(false);
             this.panelAddNewCar.PerformLayout();
@@ -2158,7 +2145,6 @@
         private System.Windows.Forms.ComboBox cbExpenseType;
         private System.Windows.Forms.Label label45;
         private System.Windows.Forms.Label label44;
-        private System.Windows.Forms.Button bCarSaveChanges;
     }
 }
 
