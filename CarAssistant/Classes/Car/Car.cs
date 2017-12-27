@@ -10,7 +10,7 @@ using CarAssistant.Classes.Car;
 using System.Globalization;
 
 namespace CarAssistant
-{
+{[Serializable]
 	public class Car : ICar
 	{
         //Fields
@@ -20,7 +20,7 @@ namespace CarAssistant
         public string Brand { get; set; }
         public DateTime ProductionDate { get; set; }
         public DateTime PurchaseDate;
-        public User Owner;
+        private User Owner;
         public double CounterState;
         public string LicensePlateNo { get; set; }
         public string Vin;
