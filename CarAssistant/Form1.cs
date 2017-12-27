@@ -514,7 +514,7 @@ namespace CarAssistant
             Temp.LicensePlateNo = tbEditLicensePlate.Text;
             Temp.Vin = tbEditVIN.Text;
             Temp.BodyType = tbEditBodyType.Text;
-            Temp.Owner = driver;
+            //Temp.Owner = driver;
             Engine ForTemp = new Engine(int.Parse(tbEditCapacity.Text), int.Parse(tbEditPowerHP.Text), tbEditEngineType.Text);
             Temp.Engine = ForTemp;
             return Temp;
