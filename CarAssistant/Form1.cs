@@ -245,8 +245,7 @@ namespace CarAssistant
             CarFromPanel = CreateCarFromPanel();
             driver.userCars.Add(CarFromPanel);
             ClearAddNewCarPanel();
-            ShowCarsInGridBox();
-            dataSaver.SaveCarsListToXml(driver.userCars, directory+"\\carlist.xml");
+            ShowCarsInGridBox();            
             panelCars.BringToFront();
         }
 
@@ -430,6 +429,22 @@ namespace CarAssistant
             tbDPowerkW.Text = FromShow.PowerInKW.ToString();
         }
 
+        private void PopulatePanelEditCar(Car ToEdit)
+        {
+            tbEditBrand.Text = ToEdit.Brand.ToString();
+            tbEditModel.Text = ToEdit.Model.ToString();
+            dtpEditPurchaseDate.Value = ToEdit.PurchaseDate;
+            tbEditPY.Text = ToEdit.ProductionDate.Year.ToString();
+            tbEditLicensePlate.Text = ToEdit.LicensePlateNo.ToString();
+            tbEditVIN.Text = ToEdit.GetVin();
+            tbEditBodyType.Text = ToEdit.BodyType.ToString();
+
+            Engine FromToEdit = ToEdit.GetEngine();
+            tbEditEngineType.Text = FromToEdit.TypeOfEngine;
+            tbEditCapacity.Text = FromToEdit.Capacity.ToString();
+            tbEditPowerHP.Text = FromToEdit.Horsepower.ToString();
+            tbEditPowerkW.Text = FromToEdit.PowerInKW.ToString();
+        }
 
 
 
@@ -447,7 +462,8 @@ namespace CarAssistant
         private void bEditCar_Click(object sender, EventArgs e)
         {
             Car CarToEdit = GetCarToDetail(GetCheckedRow());
-
+            PopulatePanelEditCar(CarToEdit);
+            panelEditCar.BringToFront();
         }
 
         private void UpdateExpensesComboBox()
@@ -457,6 +473,80 @@ namespace CarAssistant
             {
                 CarName = string.Format("{0}, {1}, {2}",Car.Brand.ToString(), Car.Model.ToString(), Car.ProductionDate.Year.ToString());
                 cbWhichCar.Items.Add(CarName);
+            }
+        }
+
+        private void bSaveCars_Click(object sender, EventArgs e)
+        {
+            dataSaver.SaveCarsListToXml(driver.userCars, directory + "\\carlist.xml");
+            MessageBox.Show("Cars have been saved","Much Success",MessageBoxButtons.OK);
+        }
+
+        private void bBackFromEdit_Click(object sender, EventArgs e)
+        {
+            panelCarDetails.BringToFront();
+        }
+
+        private void bUpdateCar_Click(object sender, EventArgs e)
+        {
+            Car CarToEdit = GetCarToDetail(GetCheckedRow());
+            Car CarAfterChanges = GetCarAfterChanges();
+
+            if(CarToEdit != CarAfterChanges)
+            {
+                CarToEdit.ChangeCarsParameters(CarAfterChanges);
+            }
+            else
+            {
+                MessageBox.Show("Nothing has been changed", "Achtung!", MessageBoxButtons.OK);
+            }
+            PopulatePanelEditCar(CarToEdit);
+            panelCarDetails.BringToFront();
+        }
+
+        private Car GetCarAfterChanges()
+        {
+            Car Temp = new Car();
+            Temp.Brand = tbEditBrand.Text;
+            Temp.Model = tbEditModel.Text;
+            Temp.PurchaseDate = dtpEditPurchaseDate.Value;
+            Temp.ProductionDate = DateTime.ParseExact(tbEditPY.Text, "yyyy", CultureInfo.InvariantCulture) ;
+            Temp.LicensePlateNo = tbEditLicensePlate.Text;
+            Temp.Vin = tbEditVIN.Text;
+            Temp.BodyType = tbEditBodyType.Text;
+            Temp.Owner = driver;
+            Engine ForTemp = new Engine(int.Parse(tbEditCapacity.Text), int.Parse(tbEditPowerHP.Text), tbEditEngineType.Text);
+            Temp.Engine = ForTemp;
+            return Temp;
+        }
+
+        private void tbEditPowerHP_TextChanged(object sender, EventArgs e)
+        {
+            if (tbEditPowerHP.Text != null)
+            {
+                double Converter = 0.73549875;
+                double kW = (double.Parse(tbEditPowerHP.Text) * Converter);
+                Math.Round(kW, MidpointRounding.ToEven);
+                int Output = Convert.ToInt32(kW);
+                if (tbEditPowerkW.Text != Output.ToString())
+                {
+                    tbEditPowerkW.Text = Output.ToString();
+                }
+            }
+        }
+
+        private void tbEditPowerkW_TextChanged(object sender, EventArgs e)
+        {
+            if (tbEditPowerkW.Text != null)
+            {
+                double Converter = 0.73549875;
+                double HP = (double.Parse(tbEditPowerkW.Text) / Converter);
+                Math.Round(HP, MidpointRounding.ToEven);
+                int Output = Convert.ToInt32(HP);
+                if (tbEditPowerHP.Text != Output.ToString())
+                {
+                    tbEditPowerHP.Text = Output.ToString();
+                }
             }
         }
     }
