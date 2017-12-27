@@ -80,7 +80,6 @@ namespace CarAssistant
         {
             panelExpenses.BringToFront();
             ChangeActiveButtonColor(bExpenses);
-            UpdateExpensesComboBox();
         }
 
         private void bReminders_Click(object sender, EventArgs e)
@@ -456,7 +455,6 @@ namespace CarAssistant
             Service service = new Service(750M, "Distribution system fix", new DateTime(2017, 12, 01), "Zenek Serwis");
             LooksMaintenance looks1 = new LooksMaintenance(12.50M, "Pranie tapicerki", new DateTime(2017, 12, 01),"Added wunderbaum");
             Exploitation explo1 = new Exploitation(1250M, "Tyres changed", new DateTime(2017, 12, 01), "355/25R1 107 Y Pirelli PZERO");
-            dataGridView1.Update();
         }
 
         private void bEditCar_Click(object sender, EventArgs e)
@@ -464,16 +462,6 @@ namespace CarAssistant
             Car CarToEdit = GetCarToDetail(GetCheckedRow());
             PopulatePanelEditCar(CarToEdit);
             panelEditCar.BringToFront();
-        }
-
-        private void UpdateExpensesComboBox()
-        {
-            string CarName = "";
-            foreach (var Car in driver.userCars)
-            {
-                CarName = string.Format("{0}, {1}, {2}",Car.Brand.ToString(), Car.Model.ToString(), Car.ProductionDate.Year.ToString());
-                cbWhichCar.Items.Add(CarName);
-            }
         }
 
         private void bSaveCars_Click(object sender, EventArgs e)
@@ -548,6 +536,36 @@ namespace CarAssistant
                     tbEditPowerHP.Text = Output.ToString();
                 }
             }
+        }
+
+        private void bExpExploitation_Click(object sender, EventArgs e)
+        {
+            panelExpExploitation.BringToFront();
+        }
+
+        private void bExpInsurance_Click(object sender, EventArgs e)
+        {
+            panelExpInsurance.BringToFront();
+        }
+
+        private void bExpMainten_Click(object sender, EventArgs e)
+        {
+            panelExpMainten.BringToFront();
+        }
+
+        private void bExpRepairs_Click(object sender, EventArgs e)
+        {
+            panelExpRepairs.BringToFront();
+        }
+
+        private void bExpService_Click(object sender, EventArgs e)
+        {
+            panelExpService.BringToFront();
+        }
+
+        private void bExpBack_Click(object sender, EventArgs e)
+        {
+            panelExpButtons.BringToFront();
         }
     }
 }
