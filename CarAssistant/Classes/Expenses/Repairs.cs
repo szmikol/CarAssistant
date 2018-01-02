@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 
 namespace CarAssistant.Classes.Expenses
 {
+    [Serializable]
     public class Repairs : Expense
     {
         public Repairs(decimal cost, string description, DateTime when, string additionalInfo)
@@ -15,6 +16,10 @@ namespace CarAssistant.Classes.Expenses
             When = when;
             AdditionalInfo = additionalInfo;
             GetClassName();
+        }
+        public Repairs()
+        {
+
         }
     }
 }

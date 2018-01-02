@@ -7,6 +7,7 @@ using CarAssistant.Interfaces;
 
 namespace CarAssistant.Classes.Expenses
 {
+    [Serializable]
     public class Expense : IExpense
     {
         public string TypeOfExpense { get; set; }

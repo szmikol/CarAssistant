@@ -33,11 +33,7 @@ namespace CarAssistant
             InitialDriverLoader(out driver);
             InitialLoadCarList();
             ShowStartingScreen();
-
-            //foreach (var item in brandsAndModels.Keys)
-            //{
-            //    cbBrand.Items.Add(item);
-            //}
+            GeneratingDataForTests();
         }
 
 
@@ -455,6 +451,11 @@ namespace CarAssistant
             Service service = new Service(750M, "Distribution system fix", new DateTime(2017, 12, 01), "Zenek Serwis");
             LooksMaintenance looks1 = new LooksMaintenance(12.50M, "Pranie tapicerki", new DateTime(2017, 12, 01),"Added wunderbaum");
             Exploitation explo1 = new Exploitation(1250M, "Tyres changed", new DateTime(2017, 12, 01), "355/25R1 107 Y Pirelli PZERO");
+            driver.userCars[0].Repairs.Add(repair1);
+            driver.userCars[0].Services.Add(service);
+            driver.userCars[1].Insurance.Add(insurance1);
+            driver.userCars[1].LooksMaintenance.Add(looks1);
+            driver.userCars[2].Exploitation.Add(explo1);
         }
 
         private void bEditCar_Click(object sender, EventArgs e)

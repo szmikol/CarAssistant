@@ -8,14 +8,20 @@ using CarAssistant.Classes;
 using System.Windows.Forms;
 using CarAssistant.Classes.Car;
 using System.Globalization;
+using CarAssistant.Classes.Expenses;
 
 namespace CarAssistant
 {
-	public class Car : ICar
-	{
+    public class Car : ICar
+    {
         //Fields
         public Engine Engine;
-        public List<object> expenses { get; set; }
+        //public List<object> expenses { get; set; }
+        public List<Exploitation> Exploitation { get; set; }
+        public List<Insurance> Insurance { get; set; }
+        public List<LooksMaintenance> LooksMaintenance { get; set; }
+        public List<Repairs> Repairs { get; set; }
+        public List<Service> Services { get; set; }
         public string Model { get; set; }
         public string Brand { get; set; }
         public DateTime ProductionDate { get; set; }
@@ -42,13 +48,12 @@ namespace CarAssistant
             SetIndex();
             LicensePlateNo = InputLicensePlateNumber;
             BodyType = InBodyType;
-            expenses = new List<object>();
         }
 
 
         public Car()
 		{
-            expenses = new List<object>();
+
         }
 
         //Methods

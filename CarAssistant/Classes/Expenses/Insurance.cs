@@ -8,7 +8,7 @@ namespace CarAssistant.Classes.Expenses
 {
     public class Insurance : Expense
     {
-        private bool HirePurchase;
+        public bool HirePurchase;
         public DateTime ExpirationDate { get; set; }
         public string WhichInsurer { get; set; }
         public Insurance(decimal cost, string description, DateTime when, bool hirePurchase, DateTime expirationDate, string whichInsurer)
@@ -20,6 +20,10 @@ namespace CarAssistant.Classes.Expenses
             ExpirationDate = expirationDate;
             WhichInsurer = whichInsurer;
             GetClassName();
+        }
+        public Insurance()
+        {
+
         }
     }
 }

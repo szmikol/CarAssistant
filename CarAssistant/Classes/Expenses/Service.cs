@@ -16,6 +16,10 @@ namespace CarAssistant.Classes.Expenses
             AdditionalInfo = additionalInfo;
             GetClassName();
         }
+        public Service()
+        {
+
+        }
 
     }
 }

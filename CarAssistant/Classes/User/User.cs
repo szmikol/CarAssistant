@@ -231,6 +231,10 @@ namespace CarAssistant
         {
             DateTime dateToday = DateTime.Today;
             userAge = dateToday.Year - birthDate.Year;
+            if (birthDate > dateToday.AddYears(-userAge))
+            {
+                userAge--;
+            }
             return userAge;
         }
         public void SetUserAge(int age)
