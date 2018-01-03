@@ -386,7 +386,7 @@ namespace CarAssistant
         {
             int HowManyChecked = 0;
             List <DataGridViewRow> CheckedCars = new List<DataGridViewRow>();
-            CheckedCars = null;
+            //CheckedCars = null;
             foreach (DataGridViewRow row in dgShowCars.Rows)
             {
                 if (Convert.ToBoolean(row.Cells[0].Value) == true)

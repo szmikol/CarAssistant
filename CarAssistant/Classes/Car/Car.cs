@@ -269,10 +269,10 @@ namespace CarAssistant
         public void SetCarToNull()
         {            
             Brand = "";            
-            ProductionDate = DateTime.ParseExact("01-01-0001", "DD-MM-YYYY", CultureInfo.InvariantCulture);
+            //ProductionDate = DateTime.ParseExact("01-01-0001", "DD-MM-YYYY", CultureInfo.InvariantCulture);
             Owner = null;
             CounterState = 0;
-            PurchaseDate = DateTime.ParseExact("01-01-0001", "DD-MM-YYYY", CultureInfo.InvariantCulture);
+            //PurchaseDate = DateTime.ParseExact("01-01-0001", "DD-MM-YYYY", CultureInfo.InvariantCulture);
             Engine = null;
             Vin = null;
             Index = 0;
