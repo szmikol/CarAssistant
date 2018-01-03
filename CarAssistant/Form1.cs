@@ -382,6 +382,27 @@ namespace CarAssistant
             return Checked;
         }
 
+        private List<DataGridViewRow> GetCarsToDelete()
+        {
+            int HowManyChecked = 0;
+            List <DataGridViewRow> CheckedCars = new List<DataGridViewRow>();
+            CheckedCars = null;
+            foreach (DataGridViewRow row in dgShowCars.Rows)
+            {
+                if (Convert.ToBoolean(row.Cells[0].Value) == true)
+                {
+                    HowManyChecked++;
+                    CheckedCars.Add(row);
+                }
+            }
+            if (HowManyChecked == 0)
+            {
+                CheckedCars = null;
+                MessageBox.Show("None of the cars were choosen. Please choose one", "Alarm!", MessageBoxButtons.OK);
+            }
+            return CheckedCars;
+        }
+
         private void bBack_Click(object sender, EventArgs e)
         {
             ShowCarsInGridBox();
@@ -567,6 +588,28 @@ namespace CarAssistant
         private void bExpBack_Click(object sender, EventArgs e)
         {
             panelExpButtons.BringToFront();
+        }
+
+        private void bDeleteCar_Click(object sender, EventArgs e)
+        {
+            CarManager CarManage = new CarManager();
+            List<DataGridViewRow> CarsToDelete = new List<DataGridViewRow>();
+            List<Car> WhichToDelete = new List<Car>();
+            CarsToDelete = GetCarsToDelete();
+            foreach(DataGridViewRow R in CarsToDelete)
+            {
+                WhichToDelete.Add(GetCarToDetail(R));
+            }
+            if (WhichToDelete.Count != 0)
+            {
+                foreach(Car c in WhichToDelete)
+                {
+                    CarManage.DeleteCar(driver, c);
+                }
+            }
+            dgShowCars.Refresh();
+            ShowCarsInGridBox();
+            
         }
     }
 }
