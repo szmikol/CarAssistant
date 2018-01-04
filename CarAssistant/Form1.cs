@@ -532,7 +532,7 @@ namespace CarAssistant
 
         private void tbEditPowerHP_TextChanged(object sender, EventArgs e)
         {
-            if (tbEditPowerHP.Text != null)
+            if (tbEditPowerHP.Text != null && tbEditPowerHP.Text != "0")
             {
                 double Converter = 0.73549875;
                 double kW = (double.Parse(tbEditPowerHP.Text) * Converter);
@@ -547,7 +547,7 @@ namespace CarAssistant
 
         private void tbEditPowerkW_TextChanged(object sender, EventArgs e)
         {
-            if (tbEditPowerkW.Text != null)
+            if (tbEditPowerkW.Text != null && tbEditPowerkW.Text != "0")
             {
                 double Converter = 0.73549875;
                 double HP = (double.Parse(tbEditPowerkW.Text) / Converter);
@@ -559,7 +559,7 @@ namespace CarAssistant
                 }
             }
         }
-
+        
         private void bExpExploitation_Click(object sender, EventArgs e)
         {
             panelExpExploitation.BringToFront();
@@ -610,6 +610,29 @@ namespace CarAssistant
             dgShowCars.Refresh();
             ShowCarsInGridBox();
             
+        }
+
+        private void bLoadCarPhoto_Click(object sender, EventArgs e)
+        {
+            ChooseCarPhoto(directory);
+        }
+        private void ChooseCarPhoto(string path)
+        {
+            try
+            {
+                OpenFileDialog loadCarImage = new OpenFileDialog();
+                loadCarImage.Filter = "Image Files(*.BMP;*.JPG;*.GIF;*.PNG)|*.BMP;*.JPG;*.GIF;*.PNG|All files (*.*)|*.*";
+                if (loadCarImage.ShowDialog() == DialogResult.OK)
+                {
+                    string imageLocation = loadCarImage.FileName;
+                    File.Copy(imageLocation, path + "\\car.jpg", true);
+                    pbCarPhoto.ImageLocation = imageLocation;
+                }
+            }
+            catch
+            {
+                MessageBox.Show("Wrong file path.", "error", MessageBoxButtons.OK);
+            }
         }
     }
 }
