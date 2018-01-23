@@ -14,35 +14,38 @@ namespace CarAssistant
 {
     public partial class FormCreateUser : Form
     {
-        private string name, street, city, postCode, idNumber, licenceNumber;
-        private DateTime birthDate, licenceRelease;
-        private User driver;
-        bool userBool = false;
-        private string directory = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments) + "\\CarAssistant\\files";
-        UserManager userManager = new UserManager();
+        private string _name, _street, _city, _postCode, _idNumber, _licenceNumber;
+        private DateTime _birthDate, _licenceRelease;
+        private User _driver;
+        private Form1 form1;
+        bool _userBool = false;
+        private string _directory = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments) + "\\CarAssistant\\files";
+        UserManager _userManager = new UserManager();
 
-        public FormCreateUser()
+        public FormCreateUser(Form1 form)
         {
+            form1 = form;
             InitializeComponent();
         }
 
         private void bDriverPhoto_Click(object sender, EventArgs e)
         {
             //path = "";
-            OpenFile(directory);
+            OpenFile(_directory);
         }
         private void bCreateDriver_Click(object sender, EventArgs e)
         {
             //string pathxml = @"c:\CarAssistant\user.xml";
-            driver = CreateUser();
-            driver.SetPhotoPath(directory+"\\user.jpg");
+            _driver = CreateUser();
+            _driver.SetPhotoPath(_directory+"\\user.jpg");
             DataSaver save = new DataSaver();
-            save.SaveUserToXml(driver, directory+"\\user.xml");
+            save.SaveUserToXml(_driver, _directory+"\\user.xml");
+            form1.UpdateUserForms(_driver);
             CloseForm();
         }
         private void CloseForm()
         {
-            if (userBool)
+            if (_userBool)
             {
                 Close();
             }
@@ -72,18 +75,18 @@ namespace CarAssistant
             try
             {
             GetValuesToCreateUser();
-            driver = new User(name,birthDate,idNumber,licenceNumber,licenceRelease,street,postCode,city);
-            userBool = true;
+            _driver = new User(_name,_birthDate,_idNumber,_licenceNumber,_licenceRelease,_street,_postCode,_city);
+            _userBool = true;
             }
             catch
             {
                 MessageBox.Show("Something gone wrong!", "Error");
             }
-            return driver;
+            return _driver;
         }
         public void GetValuesToCreateUser()
         {
-            ReadTextboxes(out name, out birthDate, out idNumber, out licenceNumber, out licenceRelease, out street, out postCode, out city);
+            ReadTextboxes(out _name, out _birthDate, out _idNumber, out _licenceNumber, out _licenceRelease, out _street, out _postCode, out _city);
         }
         public void ReadTextboxes(out string name, out DateTime birthDate, out string idNumber, out string licenceNumber, out DateTime licenceRelease, out string street, out string postCode, out string city )
         {

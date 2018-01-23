@@ -19,20 +19,21 @@ namespace CarAssistant
 {
 	public partial class Form1 : Form
 	{
-        public User driver;
-        private string directory = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments) + "\\CarAssistant\\files";
-        DataSaver dataSaver;
-        DataLoader dataLoader;
-        Dictionary<string, string[]> brandsAndModels = BrandsAndModels.GetResources();
-        BindingSource CarsToShow = new BindingSource();
+        public User Driver;
+        private string _directory = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments) + "\\CarAssistant\\files";
+        DataSaver _dataSaver;
+        DataLoader _dataLoader;
+        Dictionary<string, string[]> _brandsAndModels = BrandsAndModels.GetResources();
+        BindingSource _carsToShow = new BindingSource();
 
     public Form1()
 		{
 			InitializeComponent();
             CreateFilesAndDirectories();
-            InitialDriverLoader(out driver);
+            InitialDriverLoader(out Driver);
             InitialLoadCarList();
             ShowStartingScreen();
+            UpdateUserForms(Driver);
             //GeneratingDataForTests();
         }
 
@@ -147,7 +148,7 @@ namespace CarAssistant
 
         private void bCreateDriver_Click(object sender, EventArgs e)
         {
-            FormCreateUser formCreateUser = new FormCreateUser();
+            FormCreateUser formCreateUser = new FormCreateUser(this);
             formCreateUser.Show();
         }
         public void UpdateUserForms(User user)
@@ -157,7 +158,7 @@ namespace CarAssistant
             tbDrPBirthdate.Text = user.GetBirthdate().ToShortDateString();
             tbDrPIDNumber.Text = user.GetIdNumber();
             tbDrPLicenceNumber.Text = user.GetLicenceNumber();
-            tbDrPOwnedCars.Text = (0 + user.userCars.Count()).ToString();
+            tbDrPOwnedCars.Text = (0 + user.UserCars.Count()).ToString();
             tbDrPAddress.Text = ResidenceStringSplit(user.GetResidenceAddress());
         }
         private string ResidenceStringSplit(string toSplit)
@@ -174,32 +175,31 @@ namespace CarAssistant
         }
         public void SetDriverPath(User user)
         {
-            driver = user;
+            Driver = user;
         }
-        private void InitialDriverLoader(out User driver)
+        private void InitialDriverLoader(out User Driver)
         {
-            if (File.Exists(directory+"\\user.xml"))
+            if (File.Exists(_directory+"\\user.xml"))
             {
                 LoadingImageIfExist();
-                string path = directory + "\\user.xml";
-                driver = dataLoader.LoadUserFromXml(path);
-                UpdateUserForms(driver);
+                string path = _directory + "\\user.xml";
+                Driver = _dataLoader.LoadUserFromXml(path);
             }
             else
             {
-                driver = null;
+                Driver = null;
             }
 
         }
         private void InitialLoadCarList()
         {
-            if(driver != null)
+            if(Driver != null)
             {
-                if (File.Exists(directory + "\\carlist.xml"))
+                if (File.Exists(_directory + "\\carlist.xml"))
                 {
-                    driver.userCars = dataLoader.LoadCarsListFromXml(directory + "\\carlist.xml");
+                    Driver.UserCars = _dataLoader.LoadCarsListFromXml(_directory + "\\carlist.xml");
                     ShowCarsInGridBox();
-                    UpdateUserForms(driver);
+                    UpdateUserForms(Driver);
                 }
                 else
                     MessageBox.Show("Car list not loaded");
@@ -208,9 +208,9 @@ namespace CarAssistant
         }
         private void LoadingImageIfExist()
         {
-            if (File.Exists(directory + "\\user.jpg"))
+            if (File.Exists(_directory + "\\user.jpg"))
             {
-                picUserPhoto.Image = Image.FromFile(directory +"\\user.jpg");
+                picUserPhoto.Image = Image.FromFile(_directory +"\\user.jpg");
             }
             else
             {
@@ -219,15 +219,15 @@ namespace CarAssistant
         }
         private void CreateFilesAndDirectories()
         {
-            Directory.CreateDirectory(directory);
-            dataSaver = new DataSaver();
-            dataLoader = new DataLoader();
+            Directory.CreateDirectory(_directory);
+            _dataSaver = new DataSaver();
+            _dataLoader = new DataLoader();
         }
 
         private void bAddCar_Click(object sender, EventArgs e)
         {
             
-            foreach (var item in brandsAndModels.Keys)
+            foreach (var item in _brandsAndModels.Keys)
             {
                 cbBrand.Items.Add(item);
             }
@@ -236,9 +236,9 @@ namespace CarAssistant
 
         private void bCreateCar_Click(object sender, EventArgs e)
         {                    
-            Car CarFromPanel = new Car();
-            CarFromPanel = CreateCarFromPanel();
-            driver.userCars.Add(CarFromPanel);
+            Car carFromPanel = new Car();
+            carFromPanel = CreateCarFromPanel();
+            Driver.UserCars.Add(carFromPanel);
             ClearAddNewCarPanel();
             ShowCarsInGridBox();            
             panelCars.BringToFront();
@@ -246,12 +246,12 @@ namespace CarAssistant
 
         private void bShowCars_Click(object sender, EventArgs e)
         {
-            if(driver == null)
+            if(Driver == null)
             {
                 MessageBox.Show("No user, no cars. Please Load User first", "Achtung!", MessageBoxButtons.OK);
 
             }
-            else if (driver.userCars.Count() == 0)
+            else if (Driver.UserCars.Count() == 0)
             {
                 MessageBox.Show("User has no cars yet. Please add some cars", "Achtung!", MessageBoxButtons.OK);
             }
@@ -265,31 +265,31 @@ namespace CarAssistant
 
         private Car CreateCarFromPanel()
         {
-            Car Temp = new Car();
+            Car temp = new Car();
             
-            DateTime TempProductionYear = DateTime.ParseExact(tbProductionYear.Text, "yyyy", CultureInfo.InvariantCulture);
-            DateTime TempPurchaseDate = dtPurchaseDate.Value;
-            double TempCounterState = double.Parse(tbCounterState.Text);
-            int TempCapacity = int.Parse(tbCapacity.Text);
-            int TempHorsePower = int.Parse(tbPower.Text);
-            string TempTypeOfEngine = cbEngineType.Text;
+            DateTime tempProductionYear = DateTime.ParseExact(tbProductionYear.Text, "yyyy", CultureInfo.InvariantCulture);
+            DateTime tempPurchaseDate = dtPurchaseDate.Value;
+            double tempCounterState = double.Parse(tbCounterState.Text);
+            int tempCapacity = int.Parse(tbCapacity.Text);
+            int tempHorsePower = int.Parse(tbPower.Text);
+            string tempTypeOfEngine = cbEngineType.Text;
 
-            Temp.Brand = (cbBrand.SelectedItem.ToString());
-            Temp.Model = (cbModel.SelectedItem.ToString());
-            Temp.ProductionDate = (TempProductionYear);
-            Temp.SetPurchaseDate(TempPurchaseDate);
-            Temp.SetCounterState(TempCounterState);
-            Temp.LicensePlateNo = (tbLicensePlates.Text);
-            Temp.SetVin(tbVIN.Text);
-            Temp.BodyType = (cbBodyType.SelectedItem.ToString());
-            Temp.SetOwner(driver);
-            Temp.SetIndex();
+            temp.Brand = (cbBrand.SelectedItem.ToString());
+            temp.Model = (cbModel.SelectedItem.ToString());
+            temp.ProductionDate = (tempProductionYear);
+            temp.SetPurchaseDate(tempPurchaseDate);
+            temp.SetCounterState(tempCounterState);
+            temp.LicensePlateNo = (tbLicensePlates.Text);
+            temp.SetVin(tbVIN.Text);
+            temp.BodyType = (cbBodyType.SelectedItem.ToString());
+            temp.SetOwner(Driver);
+            temp.SetIndex();
 
-            Engine EForTemp = new Engine (TempCapacity, TempHorsePower, TempTypeOfEngine);
-            Temp.SetEngine(EForTemp);
+            Engine eForTemp = new Engine (tempCapacity, tempHorsePower, tempTypeOfEngine);
+            temp.SetEngine(eForTemp);
 
 
-            return Temp;
+            return temp;
         }
 
         private void cbBrand_SelectionChangeCommitted(object sender, EventArgs e)
@@ -298,8 +298,8 @@ namespace CarAssistant
 
             if (cbBrand.SelectedIndex > -1)
             {
-                string brand = brandsAndModels.Keys.ElementAt(cbBrand.SelectedIndex);
-                cbModel.Items.AddRange(brandsAndModels[brand]);
+                string brand = _brandsAndModels.Keys.ElementAt(cbBrand.SelectedIndex);
+                cbModel.Items.AddRange(_brandsAndModels[brand]);
             }
 
         }
@@ -319,14 +319,14 @@ namespace CarAssistant
         }
         private void ShowCarsInGridBox()
         {
-            CarsToShow.Clear();
-            List<Car> ListToShow = driver.userCars;
-            foreach(Car c in ListToShow)
+            _carsToShow.Clear();
+            List<Car> listToShow = Driver.UserCars;
+            foreach(Car c in listToShow)
             {
-                CarsToShow.Add(c);
+                _carsToShow.Add(c);
             }
             dgShowCars.Columns[6].DefaultCellStyle.Format = "yyyy";            
-            dgShowCars.DataSource = CarsToShow;
+            dgShowCars.DataSource = _carsToShow;
             
         }
 
@@ -348,8 +348,8 @@ namespace CarAssistant
         {
             if (GetCheckedRow() != null)
             {
-            Car DetailedCar = GetCarToDetail(GetCheckedRow());
-            MenagePanelCarDetails(DetailedCar);
+            Car detailedCar = GetCarToDetail(GetCheckedRow());
+            MenagePanelCarDetails(detailedCar);
             panelCarDetails.BringToFront();
             }
 
@@ -357,23 +357,23 @@ namespace CarAssistant
 
         private DataGridViewRow GetCheckedRow()
         {
-            int HowManyChecked = 0;
+            int howManyChecked = 0;
             DataGridViewRow Checked = new DataGridViewRow();
             Checked = null;
             foreach (DataGridViewRow row in dgShowCars.Rows)
             {
                 if (Convert.ToBoolean(row.Cells[0].Value) == true)
                 {
-                    HowManyChecked++;
+                    howManyChecked++;
                     Checked =row;                    
                 }              
             }
-            if(HowManyChecked == 0)
+            if(howManyChecked == 0)
             {
                 Checked = null;
                 MessageBox.Show("None of the cars were choosen. Please choose one", "Alarm!", MessageBoxButtons.OK);
             }
-            else if(HowManyChecked > 1)
+            else if(howManyChecked > 1)
             {
                 Checked = null;
                 MessageBox.Show("Too many cars were choosen. Please choose one", "Alarm!", MessageBoxButtons.OK);
@@ -384,23 +384,23 @@ namespace CarAssistant
 
         private List<DataGridViewRow> GetCarsToDelete()
         {
-            int HowManyChecked = 0;
-            List <DataGridViewRow> CheckedCars = new List<DataGridViewRow>();
+            int howManyChecked = 0;
+            List <DataGridViewRow> checkedCars = new List<DataGridViewRow>();
             //CheckedCars = null;
             foreach (DataGridViewRow row in dgShowCars.Rows)
             {
                 if (Convert.ToBoolean(row.Cells[0].Value) == true)
                 {
-                    HowManyChecked++;
-                    CheckedCars.Add(row);
+                    howManyChecked++;
+                    checkedCars.Add(row);
                 }
             }
-            if (HowManyChecked == 0)
+            if (howManyChecked == 0)
             {
-                CheckedCars = null;
+                checkedCars = null;
                 MessageBox.Show("None of the cars were choosen. Please choose one", "Alarm!", MessageBoxButtons.OK);
             }
-            return CheckedCars;
+            return checkedCars;
         }
 
         private void bBack_Click(object sender, EventArgs e)
@@ -409,57 +409,57 @@ namespace CarAssistant
             panelCars.BringToFront();
         }
 
-        private Car GetCarToDetail(DataGridViewRow CheckedRow)
+        private Car GetCarToDetail(DataGridViewRow checkedRow)
         {
-            Car ToReturn = new Car();
-                foreach(Car c in driver.userCars)
+            Car toReturn = new Car();
+                foreach(Car c in Driver.UserCars)
                 {
-                    if (c.Index.ToString() == CheckedRow.Cells["cIndex"].Value.ToString() &&
-                        c.Brand.ToString() == CheckedRow.Cells["cBrand"].Value.ToString() &&
-                        c.Model.ToString() == CheckedRow.Cells["cModel"].Value.ToString() &&
-                        c.BodyType.ToString() == CheckedRow.Cells["cBodyType"].Value.ToString() &&
-                        c.LicensePlateNo.ToString() == CheckedRow.Cells["CLicensePlateNo"].Value.ToString() &&
-                        c.ProductionDate.ToString() == CheckedRow.Cells["CProductionYear"].Value.ToString())
+                    if (c.Index.ToString() == checkedRow.Cells["cIndex"].Value.ToString() &&
+                        c.Brand.ToString() == checkedRow.Cells["cBrand"].Value.ToString() &&
+                        c.Model.ToString() == checkedRow.Cells["cModel"].Value.ToString() &&
+                        c.BodyType.ToString() == checkedRow.Cells["cBodyType"].Value.ToString() &&
+                        c.LicensePlateNo.ToString() == checkedRow.Cells["CLicensePlateNo"].Value.ToString() &&
+                        c.ProductionDate.ToString() == checkedRow.Cells["CProductionYear"].Value.ToString())
                     {
-                        ToReturn = c;
-                        return ToReturn;
+                        toReturn = c;
+                        return toReturn;
                     }
                 }
             return null;
         }
 
-        private void MenagePanelCarDetails(Car Show)
+        private void MenagePanelCarDetails(Car show)
         {
-            tbDBrand.Text = Show.Brand.ToString();
-            tbDModel.Text = Show.Model.ToString();
-            tbDProductionYear.Text = Show.ProductionDate.Year.ToString();
-            tbDPurchaseYear.Text = Show.GetPurchaseDate().ToString();
-            tbDLicencePlateNo.Text = Show.LicensePlateNo.ToString();
-            tbDVIN.Text = Show.GetVin();
-            tbDBodyType.Text = Show.BodyType.ToString();
+            tbDBrand.Text = show.Brand.ToString();
+            tbDModel.Text = show.Model.ToString();
+            tbDProductionYear.Text = show.ProductionDate.Year.ToString();
+            tbDPurchaseYear.Text = show.GetPurchaseDate().ToString();
+            tbDLicencePlateNo.Text = show.LicensePlateNo.ToString();
+            tbDVIN.Text = show.GetVin();
+            tbDBodyType.Text = show.BodyType.ToString();
 
-            Engine FromShow = Show.GetEngine();
-            tbDEngineType.Text = FromShow.TypeOfEngine;
-            tbDCapacity.Text = FromShow.Capacity.ToString();
-            tbDPowerHP.Text = FromShow.Horsepower.ToString();
-            tbDPowerkW.Text = FromShow.PowerInKW.ToString();
+            Engine fromShow = show.GetEngine();
+            tbDEngineType.Text = fromShow.TypeOfEngine;
+            tbDCapacity.Text = fromShow.Capacity.ToString();
+            tbDPowerHP.Text = fromShow.Horsepower.ToString();
+            tbDPowerkW.Text = fromShow.PowerInKw.ToString();
         }
 
-        private void PopulatePanelEditCar(Car ToEdit)
+        private void PopulatePanelEditCar(Car toEdit)
         {
-            tbEditBrand.Text = ToEdit.Brand.ToString();
-            tbEditModel.Text = ToEdit.Model.ToString();
-            dtpEditPurchaseDate.Value = ToEdit.PurchaseDate;
-            tbEditPY.Text = ToEdit.ProductionDate.Year.ToString();
-            tbEditLicensePlate.Text = ToEdit.LicensePlateNo.ToString();
-            tbEditVIN.Text = ToEdit.GetVin();
-            tbEditBodyType.Text = ToEdit.BodyType.ToString();
+            tbEditBrand.Text = toEdit.Brand.ToString();
+            tbEditModel.Text = toEdit.Model.ToString();
+            dtpEditPurchaseDate.Value = toEdit.PurchaseDate;
+            tbEditPY.Text = toEdit.ProductionDate.Year.ToString();
+            tbEditLicensePlate.Text = toEdit.LicensePlateNo.ToString();
+            tbEditVIN.Text = toEdit.GetVin();
+            tbEditBodyType.Text = toEdit.BodyType.ToString();
 
-            Engine FromToEdit = ToEdit.GetEngine();
-            tbEditEngineType.Text = FromToEdit.TypeOfEngine;
-            tbEditCapacity.Text = FromToEdit.Capacity.ToString();
-            tbEditPowerHP.Text = FromToEdit.Horsepower.ToString();
-            tbEditPowerkW.Text = FromToEdit.PowerInKW.ToString();
+            Engine fromToEdit = toEdit.GetEngine();
+            tbEditEngineType.Text = fromToEdit.TypeOfEngine;
+            tbEditCapacity.Text = fromToEdit.Capacity.ToString();
+            tbEditPowerHP.Text = fromToEdit.Horsepower.ToString();
+            tbEditPowerkW.Text = fromToEdit.PowerInKw.ToString();
         }
 
 
@@ -481,14 +481,14 @@ namespace CarAssistant
 
         private void bEditCar_Click(object sender, EventArgs e)
         {
-            Car CarToEdit = GetCarToDetail(GetCheckedRow());
-            PopulatePanelEditCar(CarToEdit);
+            Car carToEdit = GetCarToDetail(GetCheckedRow());
+            PopulatePanelEditCar(carToEdit);
             panelEditCar.BringToFront();
         }
 
         private void bSaveCars_Click(object sender, EventArgs e)
         {
-            dataSaver.SaveCarsListToXml(driver.userCars, directory + "\\carlist.xml");
+            _dataSaver.SaveCarsListToXml(Driver.UserCars, _directory + "\\carlist.xml");
             MessageBox.Show("Cars have been saved","Much Success",MessageBoxButtons.OK);
         }
 
@@ -499,48 +499,48 @@ namespace CarAssistant
 
         private void bUpdateCar_Click(object sender, EventArgs e)
         {
-            Car CarToEdit = GetCarToDetail(GetCheckedRow());
-            Car CarAfterChanges = GetCarAfterChanges();
+            Car carToEdit = GetCarToDetail(GetCheckedRow());
+            Car carAfterChanges = GetCarAfterChanges();
 
-            if(CarToEdit != CarAfterChanges)
+            if(carToEdit != carAfterChanges)
             {
-                CarToEdit.ChangeCarsParameters(CarAfterChanges);
+                carToEdit.ChangeCarsParameters(carAfterChanges);
             }
             else
             {
                 MessageBox.Show("Nothing has been changed", "Achtung!", MessageBoxButtons.OK);
             }
-            PopulatePanelEditCar(CarToEdit);
+            PopulatePanelEditCar(carToEdit);
             panelCarDetails.BringToFront();
         }
 
         private Car GetCarAfterChanges()
         {
-            Car Temp = new Car();
-            Temp.Brand = tbEditBrand.Text;
-            Temp.Model = tbEditModel.Text;
-            Temp.PurchaseDate = dtpEditPurchaseDate.Value;
-            Temp.ProductionDate = DateTime.ParseExact(tbEditPY.Text, "yyyy", CultureInfo.InvariantCulture) ;
-            Temp.LicensePlateNo = tbEditLicensePlate.Text;
-            Temp.Vin = tbEditVIN.Text;
-            Temp.BodyType = tbEditBodyType.Text;
+            Car temp = new Car();
+            temp.Brand = tbEditBrand.Text;
+            temp.Model = tbEditModel.Text;
+            temp.PurchaseDate = dtpEditPurchaseDate.Value;
+            temp.ProductionDate = DateTime.ParseExact(tbEditPY.Text, "yyyy", CultureInfo.InvariantCulture) ;
+            temp.LicensePlateNo = tbEditLicensePlate.Text;
+            temp.Vin = tbEditVIN.Text;
+            temp.BodyType = tbEditBodyType.Text;
             //Temp.Owner = driver;
-            Engine ForTemp = new Engine(int.Parse(tbEditCapacity.Text), int.Parse(tbEditPowerHP.Text), tbEditEngineType.Text);
-            Temp.Engine = ForTemp;
-            return Temp;
+            Engine forTemp = new Engine(int.Parse(tbEditCapacity.Text), int.Parse(tbEditPowerHP.Text), tbEditEngineType.Text);
+            temp.Engine = forTemp;
+            return temp;
         }
 
         private void tbEditPowerHP_TextChanged(object sender, EventArgs e)
         {
             if (tbEditPowerHP.Text != null && tbEditPowerHP.Text != "0")
             {
-                double Converter = 0.73549875;
-                double kW = (double.Parse(tbEditPowerHP.Text) * Converter);
+                double converter = 0.73549875;
+                double kW = (double.Parse(tbEditPowerHP.Text) * converter);
                 Math.Round(kW, MidpointRounding.ToEven);
-                int Output = Convert.ToInt32(kW);
-                if (tbEditPowerkW.Text != Output.ToString())
+                int output = Convert.ToInt32(kW);
+                if (tbEditPowerkW.Text != output.ToString())
                 {
-                    tbEditPowerkW.Text = Output.ToString();
+                    tbEditPowerkW.Text = output.ToString();
                 }
             }
         }
@@ -549,13 +549,13 @@ namespace CarAssistant
         {
             if (tbEditPowerkW.Text != null && tbEditPowerkW.Text != "0")
             {
-                double Converter = 0.73549875;
-                double HP = (double.Parse(tbEditPowerkW.Text) / Converter);
-                Math.Round(HP, MidpointRounding.ToEven);
-                int Output = Convert.ToInt32(HP);
-                if (tbEditPowerHP.Text != Output.ToString())
+                double converter = 0.73549875;
+                double hp = (double.Parse(tbEditPowerkW.Text) / converter);
+                Math.Round(hp, MidpointRounding.ToEven);
+                int output = Convert.ToInt32(hp);
+                if (tbEditPowerHP.Text != output.ToString())
                 {
-                    tbEditPowerHP.Text = Output.ToString();
+                    tbEditPowerHP.Text = output.ToString();
                 }
             }
         }
@@ -592,19 +592,19 @@ namespace CarAssistant
 
         private void bDeleteCar_Click(object sender, EventArgs e)
         {
-            CarManager CarManage = new CarManager();
-            List<DataGridViewRow> CarsToDelete = new List<DataGridViewRow>();
-            List<Car> WhichToDelete = new List<Car>();
-            CarsToDelete = GetCarsToDelete();
-            foreach(DataGridViewRow R in CarsToDelete)
+            CarManager carManage = new CarManager();
+            List<DataGridViewRow> carsToDelete = new List<DataGridViewRow>();
+            List<Car> whichToDelete = new List<Car>();
+            carsToDelete = GetCarsToDelete();
+            foreach(DataGridViewRow r in carsToDelete)
             {
-                WhichToDelete.Add(GetCarToDetail(R));
+                whichToDelete.Add(GetCarToDetail(r));
             }
-            if (WhichToDelete.Count != 0)
+            if (whichToDelete.Count != 0)
             {
-                foreach(Car c in WhichToDelete)
+                foreach(Car c in whichToDelete)
                 {
-                    CarManage.DeleteCar(driver, c);
+                    carManage.DeleteCar(Driver, c);
                 }
             }
             dgShowCars.Refresh();
@@ -614,7 +614,7 @@ namespace CarAssistant
 
         private void bLoadCarPhoto_Click(object sender, EventArgs e)
         {
-            ChooseCarPhoto(directory);
+            ChooseCarPhoto(_directory);
         }
         private void ChooseCarPhoto(string path)
         {
@@ -634,5 +634,6 @@ namespace CarAssistant
                 MessageBox.Show("Wrong file path.", "error", MessageBoxButtons.OK);
             }
         }
+
     }
 }

@@ -9,24 +9,24 @@ namespace CarAssistant.Classes.Facade
 {
 	public class UserManager : IUserManager
 	{
-        public User driver;
-        private List<User> userGlobalList = new List<User>();
+        public User Driver;
+        private List<User> _userGlobalList = new List<User>();
 		public void CreateNewUser()
 		{
 
 		}
 
-		public User FindUserById(int Id)
+		public User FindUserById(int id)
 		{
 			throw new NotImplementedException();
 		}
 
-		public User FindUserBySurname(string Surname)
+		public User FindUserBySurname(string surname)
 		{
 			throw new NotImplementedException();
 		}
 
-		public void RemoveUser(User UserToRemove)
+		public void RemoveUser(User userToRemove)
 		{
 			throw new NotImplementedException();
 		}
@@ -36,12 +36,12 @@ namespace CarAssistant.Classes.Facade
 			throw new NotImplementedException();
 		}
 
-		public CarAssistant.Car RetrieveUsersSpecificCar(string Model, int ProductionYear)
+		public CarAssistant.Car RetrieveUsersSpecificCar(string model, int productionYear)
 		{
 			throw new NotImplementedException();
 		}
 
-		public void UpdateUser(User UpdatedUser)
+		public void UpdateUser(User updatedUser)
 		{
 			throw new NotImplementedException();
 		}

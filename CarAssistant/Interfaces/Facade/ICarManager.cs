@@ -10,31 +10,31 @@ namespace CarAssistant.Interfaces
 	public interface ICarManager
 	{
 		//Method allow to create a new car and add it to the system storage
-		void CreateNewCar(User WichUser, Car NewCar);
+		void CreateNewCar(User wichUser, Car newCar);
 
 		//Method removes specific car, base on its VIN number
-		void DeleteCarByVin(User WhichUser, string Vin);
+		void DeleteCarByVin(User whichUser, string vin);
 
 		//Method removes specific car, base on its Brand and Model
-		void DeleteCarByModel(User WhichUser, string Brand, string CarModel);
+		void DeleteCarByModel(User whichUser, string brand, string carModel);
 
 		//Method removes specific car
-		void DeleteCar(User WhichUser, Car CarToDelete);
+		void DeleteCar(User whichUser, Car carToDelete);
 
 		//Method update and returns updated Car
-		Car UpdateCar(User WhichUser, Car CarToUpdate, Car UpdatedCar);
+		Car UpdateCar(User whichUser, Car carToUpdate, Car updatedCar);
 
 		//Method search and returns specific Car by its ID number
-		Car FindCarById(User WhichUser, int Id);
+		Car FindCarById(User whichUser, int id);
 
 		//Method search and returns all Cars from system storage, base on its Brand
-		List<Car> FindCarsByBrand(User WhichUser, string CarBrand);
+		List<Car> FindCarsByBrand(User whichUser, string carBrand);
 
 		//Method search and returns all Cars from system storage, base on its Model
-		List<Car> FindCardByModel(User WhichUser, string CarModel);
+		List<Car> FindCardByModel(User whichUser, string carModel);
 
 		//Method returns all Cars of specific Brand
 		//E.g. Fiat Uno, Fiat Panda, Fiat Sedici etc.
-		Dictionary<string, string> RetrieveAllCarsOfSpecificBrand(User WhichUser, string CarBrand);
+		Dictionary<string, string> RetrieveAllCarsOfSpecificBrand(User whichUser, string carBrand);
 	}
 }

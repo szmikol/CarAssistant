@@ -12,21 +12,21 @@ namespace CarAssistant.Interfaces.Facade
 		void CreateNewUser();
 
 		//Method removes specific user
-		void RemoveUser(User UserToRemove);
+		void RemoveUser(User userToRemove);
 
 		//Method allows to update existing user
-		void UpdateUser(User UpdatedUser);
+		void UpdateUser(User updatedUser);
 
 		//Method allows to search specific user, base on its surname
-		User FindUserBySurname(string Surname);
+		User FindUserBySurname(string surname);
 
 		//Method allows to search specific user, base on its ID number
-		User FindUserById(int Id);
+		User FindUserById(int id);
 
 		//Method returns all users cars
 		List<Car> RetrieveUsersCars();
 
 		//Method allows to search specific users car, base on its Model (then Brand is unecessary) and Production Year
-		Car RetrieveUsersSpecificCar(string Model, int ProductionYear);
+		Car RetrieveUsersSpecificCar(string model, int productionYear);
 	}
 }

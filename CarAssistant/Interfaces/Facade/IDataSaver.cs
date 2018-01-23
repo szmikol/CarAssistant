@@ -8,10 +8,10 @@ namespace CarAssistant.Interfaces.Facade
 {
 	public interface IDataSaver
 	{
-		void SaveCarsListToXml(List<Car> Cars, string Path);
+		void SaveCarsListToXml(List<Car> cars, string path);
 
-		void SaveCarToXml(Car Car, string Path);
+		void SaveCarToXml(Car car, string path);
 
-		void SaveUserToXml(User User, string Path);
+		void SaveUserToXml(User user, string path);
 	}
 }

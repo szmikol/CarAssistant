@@ -36,9 +36,9 @@ namespace CarAssistantTest
         }
 
         [TestMethod]
-        public void FindCarByBrandModelProdyear()
+        public void FindCarByBrandModelProductionYear()
         {
-            List<Car> testcar;
+            List<Car> testcar = new List<Car>();
             User user = new User();
 
             Car car1 = CreateNewCarBrandModelYear("Alfa Romeo", "159", new DateTime(2005, 01, 01));
@@ -68,7 +68,7 @@ namespace CarAssistantTest
             user.AddNewCar(car3);
             user.RemoveCar("TestVin2");
 
-            Assert.AreEqual(2, user.userCars.Count());
+            Assert.AreEqual(2, user.UserCars.Count());
         }
         [TestMethod]
         public void RemoveCarCheckingIndexes()
@@ -86,7 +86,7 @@ namespace CarAssistantTest
             user.AddNewCar(car3);
             user.RemoveCar("TestVin2");
 
-            Assert.AreEqual(user.userCars[1], car3);
+            Assert.AreEqual(user.UserCars[1], car3);
         }
 
 

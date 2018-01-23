@@ -8,19 +8,19 @@ namespace CarAssistant.Classes.Car
 {
     public static class BrandsAndModels
     {
-        private static Dictionary<string, string[]> brandsAndModelsResources = new Dictionary<string, string[]>();
+        private static Dictionary<string, string[]> _brandsAndModelsResources = new Dictionary<string, string[]>();
 
-        private static string Alfa_Romeo = "Alfa Romeo";
-        private static string Aston_Martin = "Aston Martin";
-        private static string Audi = "Audi";
+        private static string _alfaRomeo = "Alfa Romeo";
+        private static string _astonMartin = "Aston Martin";
+        private static string _audi = "Audi";
 
         public static Dictionary<string, string[]> GetResources()
         {
-            brandsAndModelsResources[Alfa_Romeo] = GenerateAlfaRomeo();
-            brandsAndModelsResources[Aston_Martin] = GenerateAstonMartin();
-            brandsAndModelsResources[Audi] = GenerateAudi();
+            _brandsAndModelsResources[_alfaRomeo] = GenerateAlfaRomeo();
+            _brandsAndModelsResources[_astonMartin] = GenerateAstonMartin();
+            _brandsAndModelsResources[_audi] = GenerateAudi();
 
-            return brandsAndModelsResources;
+            return _brandsAndModelsResources;
         }
 
         private static string[] GenerateAudi()

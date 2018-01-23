@@ -12,31 +12,31 @@ namespace CarAssistant.Classes.Facade
 {
 	public class DataLoader : IDataLoader
 	{
-		public CarAssistant.Car LoadCarFromXml(string Brand, string Model, User Owner, string Path)
+		public CarAssistant.Car LoadCarFromXml(string brand, string model, User owner, string path)
 		{
-            using (var file = new FileStream(Path, FileMode.Open))
-            {
-                var load = new XmlSerializer(typeof(CarAssistant.Car));
-                return (CarAssistant.Car)load.Deserialize(file);
-            }
-        }
+			using (var file = new FileStream(path, FileMode.Open))
+			{
+				var load = new XmlSerializer(typeof(CarAssistant.Car));
+				return (CarAssistant.Car)load.Deserialize(file);
+			}
+		}
 
-		public List<CarAssistant.Car> LoadCarsListFromXml(string Path)
+		public List<CarAssistant.Car> LoadCarsListFromXml(string path)
 		{
-            using (var file = new FileStream(Path, FileMode.Open))
-            {
-            var load = new XmlSerializer(typeof(List<CarAssistant.Car>));
-            return (List<CarAssistant.Car>)load.Deserialize(file);
-            }
-        }
+			using (var file = new FileStream(path, FileMode.Open))
+			{
+			    var load = new XmlSerializer(typeof(List<CarAssistant.Car>));
+			    return (List<CarAssistant.Car>)load.Deserialize(file);
+			}
+		}
 
-		public User LoadUserFromXml(string Path)
+		public User LoadUserFromXml(string path)
 		{
-            using (var file = new FileStream(Path, FileMode.Open))
-            {
-                var load = new XmlSerializer(typeof(User));
-                return (User)load.Deserialize(file);
-            }
+			using (var file = new FileStream(path, FileMode.Open))
+			{
+				var load = new XmlSerializer(typeof(CarAssistant.User));
+				return (User)load.Deserialize(file);
+			}
 
 		}
 	}

@@ -26,28 +26,28 @@ namespace CarAssistant
         public string Brand { get; set; }
         public DateTime ProductionDate { get; set; }
         public DateTime PurchaseDate { get; set; }
-        private User Owner;
+        private User _owner;
         public double CounterState;
         public string LicensePlateNo { get; set; }
-        public string Vin;
+        public string Vin { get; set; }
         public int Index { get; set; }
         public string BodyType { get; set; }
         //Constructors
-        public Car(string InputBrand, string InputModel, Engine InputEngine, DateTime InputProductionYear, 
-            User InputOwner, DateTime InputPurchaseDate, double InputCounterState, string InputVin,
-            string InputLicensePlateNumber, string InBodyType)
+        public Car(string inputBrand, string inputModel, Engine inputEngine, DateTime inputProductionYear, 
+            User inputOwner, DateTime inputPurchaseDate, double inputCounterState, string inputVin,
+            string inputLicensePlateNumber, string inBodyType)
         {
-            Brand = InputBrand;
-            Model = InputModel;
-            ProductionDate = InputProductionYear;
-            Owner = InputOwner;
-            CounterState = InputCounterState;
-            PurchaseDate = InputPurchaseDate;
-            Engine = InputEngine;
-            Vin = InputVin;
+            Brand = inputBrand;
+            Model = inputModel;
+            ProductionDate = inputProductionYear;
+            _owner = inputOwner;
+            CounterState = inputCounterState;
+            PurchaseDate = inputPurchaseDate;
+            Engine = inputEngine;
+            Vin = inputVin;
             SetIndex();
-            LicensePlateNo = InputLicensePlateNumber;
-            BodyType = InBodyType;
+            LicensePlateNo = inputLicensePlateNumber;
+            BodyType = inBodyType;
         }
 
 
@@ -79,9 +79,9 @@ namespace CarAssistant
         ///<summary>
         /// Sets object's parameter Engine
         /// </summary>
-        public void SetEngine(Engine InEngine)
+        public void SetEngine(Engine inEngine)
         {
-            Engine = InEngine;
+            Engine = inEngine;
         }
         
         /// <summary>
@@ -95,32 +95,32 @@ namespace CarAssistant
         /// <summary>
         /// Sets object's parameter Owner
         /// </summary>
-        public void SetOwner (User TheOneWhoOwns) 
+        public void SetOwner (User theOneWhoOwns) 
         {
-            Owner = TheOneWhoOwns;
+            _owner = theOneWhoOwns;
         }
         
         /// <summary>
         /// Sets objcet's parameter CounterState
         /// </summary>
-        public void SetCounterState(double InCounterState)
+        public void SetCounterState(double inCounterState)
         {
-            CounterState = InCounterState;
+            CounterState = inCounterState;
         }
         
         /// <summary>
         /// Sets object's patameter Purchase Date
         /// </summary>
-        public void SetPurchaseDate(DateTime InPurchaseDate) 
+        public void SetPurchaseDate(DateTime inPurchaseDate) 
         {
-            PurchaseDate = InPurchaseDate;
+            PurchaseDate = inPurchaseDate;
         }
         /// <summary>
         /// Sets object's parameter Vin
         /// </summary>
-        public void SetVin (string InputVin)
+        public void SetVin (string inputVin)
         {
-            Vin = InputVin;
+            Vin = inputVin;
         }
 
         /// <summary>
@@ -128,7 +128,7 @@ namespace CarAssistant
         /// </summary>
         public void SetIndex()
         {
-            Index = Owner.userCars.Count + 1;
+            Index = _owner.UserCars.Count + 1;
         }
         /// <summary>
         /// Sets object's parameter License Plate Number
@@ -181,7 +181,7 @@ namespace CarAssistant
         /// </summary>
         public User GetOwner() 
         {
-            return Owner;
+            return _owner;
         }
         
         /// <summary>
@@ -232,14 +232,14 @@ namespace CarAssistant
         /// </summary>
         public int CalculateAge() 
 		{
-            DateTime Present = DateTime.Now;
-            DateTime CarDate = ProductionDate;
-            int Age = Present.Year - CarDate.Year;
-            if (Present.Month < CarDate.Month || (Present.Month == CarDate.Month && Present.Day < CarDate.Day))
+            DateTime present = DateTime.Now;
+            DateTime carDate = ProductionDate;
+            int age = present.Year - carDate.Year;
+            if (present.Month < carDate.Month || (present.Month == carDate.Month && present.Day < carDate.Day))
             {
-                Age--;
+                age--;
             }
-            return Age;
+            return age;
         }
     
 
@@ -248,8 +248,8 @@ namespace CarAssistant
         /// </summary>
         public string WriteCarShortDescription() 
 		{
-			string Output = string.Format("{0},{1},Year: {2}", Brand, Model, ProductionDate.Year.ToString());
-            return Output;
+			string output = string.Format("{0},{1},Year: {2}", Brand, Model, ProductionDate.Year.ToString());
+            return output;
 		}
         
         /// <summary>
@@ -258,8 +258,8 @@ namespace CarAssistant
         public string WriteOwner() 
 		{
             
-            string Output = string.Format("{0}, owner since {1}", Owner.GetName(),GetPurchaseDate().Year.ToString() );
-            return Output;
+            string output = string.Format("{0}, owner since {1}", _owner.GetName(),GetPurchaseDate().Year.ToString() );
+            return output;
 		}
 
         /// <summary>
@@ -270,7 +270,7 @@ namespace CarAssistant
         {            
             Brand = "";            
             //ProductionDate = DateTime.ParseExact("01-01-0001", "DD-MM-YYYY", CultureInfo.InvariantCulture);
-            Owner = null;
+            _owner = null;
             CounterState = 0;
             //PurchaseDate = DateTime.ParseExact("01-01-0001", "DD-MM-YYYY", CultureInfo.InvariantCulture);
             Engine = null;
@@ -281,16 +281,16 @@ namespace CarAssistant
         /// <summary>
         /// Change all parameters of the car based on input Car data. Returns updated object
         /// </summary>
-        public void ChangeCarsParameters(Car InputCar)
+        public void ChangeCarsParameters(Car inputCar)
         {
-            Brand = InputCar.Brand;
-            Model = InputCar.Model;
-            SetEngine(InputCar.GetEngine());
-            LicensePlateNo = InputCar.LicensePlateNo;
-            ProductionDate = InputCar.ProductionDate;
-            SetPurchaseDate(InputCar.GetPurchaseDate());
-            SetVin(InputCar.GetVin());
-            SetCounterState(InputCar.GetCounterState());
+            Brand = inputCar.Brand;
+            Model = inputCar.Model;
+            SetEngine(inputCar.GetEngine());
+            LicensePlateNo = inputCar.LicensePlateNo;
+            ProductionDate = inputCar.ProductionDate;
+            SetPurchaseDate(inputCar.GetPurchaseDate());
+            SetVin(inputCar.GetVin());
+            SetCounterState(inputCar.GetCounterState());
         }
 
 	}

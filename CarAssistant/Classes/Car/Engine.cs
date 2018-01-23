@@ -13,13 +13,13 @@ namespace CarAssistant
         //Fields
         public int Capacity { get; set; }
         public int Horsepower { get; set; }
-        public int PowerInKW { get; set; }
+        public int PowerInKw { get; set; }
         public string TypeOfEngine { get; set; }
 
         // Constructor
-        public Engine(int Capacity, int Horsepower, string InTypeOfEngine)
+        public Engine(int capacity, int horsepower, string inTypeOfEngine)
         {
-            MenageEngine(InTypeOfEngine, Capacity, Horsepower);
+            MenageEngine(inTypeOfEngine, capacity, horsepower);
         }
         public Engine()
         {
@@ -29,57 +29,57 @@ namespace CarAssistant
         // Methods
 
         // HorsepowerTokW - Converts Power of the engine from Horsepower to kiloWatts
-        private int HorsepowerTokW (int Horsepower) 
+        private int HorsepowerTokW (int horsepower) 
         {
-            double Converter = 0.73549875;
-            double kW = (Horsepower * Converter);
+            double converter = 0.73549875;
+            double kW = (horsepower * converter);
             Math.Round(kW, MidpointRounding.ToEven);
-            int Output = Convert.ToInt32(kW);
-            return Output;  
+            int output = Convert.ToInt32(kW);
+            return output;  
         }
         
         // Sets Capacity of the object
-        private void SetCapacity(int InputCapacity)
+        private void SetCapacity(int inputCapacity)
         {
-            Capacity = InputCapacity;
+            Capacity = inputCapacity;
         }
         // Sets Horsepower of the object
-        private void SetHorsepower (int InputHorsepower)
+        private void SetHorsepower (int inputHorsepower)
         {
-            Horsepower = InputHorsepower;
+            Horsepower = inputHorsepower;
         }
         // Sets PowerInkW of the object
-        private void SetPowerInkW (int InputHorsepower)
+        private void SetPowerInkW (int inputHorsepower)
         {
-            PowerInKW = HorsepowerTokW(InputHorsepower);
+            PowerInKw = HorsepowerTokW(inputHorsepower);
         }
         
         //Checks what type of engine there is to create and creates one. In case of mistake in string TypeOfEngine
         // shows window.x
-        private void MenageEngine(string InTypeOfEngine, int InCapacity, int InHorsepower)
+        private void MenageEngine(string inTypeOfEngine, int inCapacity, int inHorsepower)
         {
-            if (InTypeOfEngine == "Petrol")
+            if (inTypeOfEngine == "Petrol")
             {
-                Capacity = InCapacity;
-                Horsepower = InHorsepower;
-                TypeOfEngine = InTypeOfEngine;
-                PowerInKW = HorsepowerTokW(InHorsepower);
+                Capacity = inCapacity;
+                Horsepower = inHorsepower;
+                TypeOfEngine = inTypeOfEngine;
+                PowerInKw = HorsepowerTokW(inHorsepower);
 
 
             }
-            else if (InTypeOfEngine == "Diesel")
+            else if (inTypeOfEngine == "Diesel")
             {
-                Capacity = InCapacity;
-                Horsepower = InHorsepower;
-                TypeOfEngine = InTypeOfEngine;
-                PowerInKW = HorsepowerTokW(InHorsepower);
+                Capacity = inCapacity;
+                Horsepower = inHorsepower;
+                TypeOfEngine = inTypeOfEngine;
+                PowerInKw = HorsepowerTokW(inHorsepower);
             }
-            else if (InTypeOfEngine == "Petrol + LPG")
+            else if (inTypeOfEngine == "Petrol + LPG")
             {
-                Capacity = InCapacity;
-                Horsepower = InHorsepower;
-                TypeOfEngine = InTypeOfEngine;
-                PowerInKW = HorsepowerTokW(InHorsepower);
+                Capacity = inCapacity;
+                Horsepower = inHorsepower;
+                TypeOfEngine = inTypeOfEngine;
+                PowerInKw = HorsepowerTokW(inHorsepower);
             }
             
             else

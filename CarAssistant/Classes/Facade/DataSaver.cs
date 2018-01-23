@@ -12,25 +12,25 @@ namespace CarAssistant.Classes.Facade
 {
 	public class DataSaver : IDataSaver
 	{
-		public void SaveCarsListToXml(List<CarAssistant.Car> Cars, string Path)
+		public void SaveCarsListToXml(List<CarAssistant.Car> cars, string path)
 		{
             var serial = new XmlSerializer(typeof(List<CarAssistant.Car>));
-            FileStream file = new FileStream(Path, FileMode.Create);
-            serial.Serialize(file, Cars);
+            FileStream file = new FileStream(path, FileMode.Create);
+            serial.Serialize(file, cars);
         }
 
-		public void SaveCarToXml(CarAssistant.Car Car, string Path)
+		public void SaveCarToXml(CarAssistant.Car car, string path)
 		{
             var serial = new XmlSerializer(typeof(CarAssistant.Car));
-            FileStream file = new FileStream(Path, FileMode.Create);
-            serial.Serialize(file, Car);
+            FileStream file = new FileStream(path, FileMode.Create);
+            serial.Serialize(file, car);
         }
 
-		public void SaveUserToXml(User User, string Path)
+		public void SaveUserToXml(User user, string path)
 		{
             var serial = new XmlSerializer(typeof(User));
-            FileStream file = new FileStream(Path, FileMode.Create);
-            serial.Serialize(file, User);
+            FileStream file = new FileStream(path, FileMode.Create);
+            serial.Serialize(file, user);
 		}
 	}
 }

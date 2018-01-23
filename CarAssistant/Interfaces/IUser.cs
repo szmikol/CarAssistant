@@ -9,13 +9,13 @@ namespace CarAssistant.Interfaces
 	public interface IUser
 	{
 		//Method returns all cars of the user
-		List<Car> retrieveCars();
+		List<Car> RetrieveCars();
 
 		//Method to add new user car
-		void AddNewCar(Car NewCar);
+		void AddNewCar(Car newCar);
 
 		//Method search and returns specific user car
-		List<Car> FindCar(string Brand, string Model, int ProductionYear);
+		List<Car> FindCar(string brand, string model, int productionYear);
 
 		//Method removes specific user car
 		void RemoveCar(String vin);

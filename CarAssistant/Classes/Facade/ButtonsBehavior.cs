@@ -9,12 +9,12 @@ namespace CarAssistant.Classes.Facade
 {
     public class ButtonsBehavior
     {
-        private static DialogResult dialogResult;
+        private static DialogResult _dialogResult;
 
         public static bool ExitYesNo(bool exit)
         {
-            dialogResult = MessageBox.Show("Are you sure you want to exit?", "Exit", MessageBoxButtons.YesNo);
-            if(dialogResult == DialogResult.Yes)
+            _dialogResult = MessageBox.Show("Are you sure you want to exit?", "Exit", MessageBoxButtons.YesNo);
+            if(_dialogResult == DialogResult.Yes)
             {
                 exit = true;
             }

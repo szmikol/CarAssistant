@@ -11,30 +11,30 @@ namespace CarAssistant
 {
 	public class CarManager : ICarManager
 	{
-		public void CreateNewCar(User WhichUser, Car NewCar)
+		public void CreateNewCar(User whichUser, Car newCar)
 		{
 			throw new NotImplementedException();
 		}
 
-		public void DeleteCar(User WhichUser, Car CarToDelete)
+		public void DeleteCar(User whichUser, Car carToDelete)
 		{
-            CarToDelete.SetCarToNull();
-            WhichUser.userCars.Remove(CarToDelete);            
+            carToDelete.SetCarToNull();
+            whichUser.UserCars.Remove(carToDelete);            
 		}
 
-		public void DeleteCarByVin(User WhichUser, string Vin)
+		public void DeleteCarByVin(User whichUser, string vin)
 		{
-            foreach(Car c in WhichUser.userCars)
+            foreach(Car c in whichUser.UserCars)
             {
-                if(c.GetVin() == Vin)
+                if(c.GetVin() == vin)
                 {
                     c.SetCarToNull();
-                    WhichUser.userCars.Remove(c);
+                    whichUser.UserCars.Remove(c);
                 }
             }
-            foreach (Car c in WhichUser.userCars)
+            foreach (Car c in whichUser.UserCars)
             {
-                if (c.GetVin() != Vin)
+                if (c.GetVin() != vin)
                 {
                     MessageBox.Show("Something went wrong", "Unable to delete", MessageBoxButtons.OK);
                 }
@@ -44,16 +44,16 @@ namespace CarAssistant
 
         }
 
-		public void DeleteCarByModel(User WhichUser, string Brand, string CarModel)
+		public void DeleteCarByModel(User whichUser, string brand, string carModel)
 		{
 			throw new NotImplementedException();
 		}
 
-		public Car FindCarById(User WhichUser, int Id)
+		public Car FindCarById(User whichUser, int id)
 		{
-            foreach (Car c in WhichUser.userCars)
+            foreach (Car c in whichUser.UserCars)
             {
-                if (c.Index == Id)
+                if (c.Index == id)
                 {
                     return c;
                 }
@@ -62,41 +62,41 @@ namespace CarAssistant
             return null;
         }
 
-		public List<Car> FindCardByModel(User WhichUser, string CarModel)
+		public List<Car> FindCardByModel(User whichUser, string carModel)
 		{
-            List<Car> ExportList = new List<Car>();
-            foreach(Car c in WhichUser.userCars)
+            List<Car> exportList = new List<Car>();
+            foreach(Car c in whichUser.UserCars)
             {
-                if(c.Model == CarModel)
+                if(c.Model == carModel)
                 {
-                    ExportList.Add(c);
+                    exportList.Add(c);
                 }
             }
-            return ExportList;
+            return exportList;
 		}
 
-		public List<Car> FindCarsByBrand(User WhichUser, string CarBrand)
+		public List<Car> FindCarsByBrand(User whichUser, string carBrand)
 		{
-            List<Car> ExportList = new List<Car>();
-            foreach (Car c in WhichUser.userCars)
+            List<Car> exportList = new List<Car>();
+            foreach (Car c in whichUser.UserCars)
             {
-                if (c.Brand == CarBrand)
+                if (c.Brand == carBrand)
                 {
-                    ExportList.Add(c);
+                    exportList.Add(c);
                 }
             }
-            return ExportList;
+            return exportList;
         }
 
-		public Dictionary<string, string> RetrieveAllCarsOfSpecificBrand(User WhichUser, string CarBrand)
+		public Dictionary<string, string> RetrieveAllCarsOfSpecificBrand(User whichUser, string carBrand)
 		{
 			throw new NotImplementedException();
 		}
 
-		public Car UpdateCar(User WhichUser, Car CarToUpdate, Car UpdatedCar)
+		public Car UpdateCar(User whichUser, Car carToUpdate, Car updatedCar)
 		{
-            CarToUpdate.ChangeCarsParameters(UpdatedCar);
-            return CarToUpdate;
+            carToUpdate.ChangeCarsParameters(updatedCar);
+            return carToUpdate;
 		}
 	}
 }

@@ -53,17 +53,17 @@ namespace CarAssistantTest
             user.AddNewCar(car1);
             user.AddNewCar(car2);
 
-            user.userCars[1].Exploitation.Add(explo1);
-            user.userCars[1].Insurance.Add(insurance1);
-            user.userCars[1].LooksMaintenance.Add(looks1);
-            user.userCars[1].Repairs.Add(repair1);
-            user.userCars[1].Services.Add(service1);
+            user.UserCars[1].Exploitation.Add(explo1);
+            user.UserCars[1].Insurance.Add(insurance1);
+            user.UserCars[1].LooksMaintenance.Add(looks1);
+            user.UserCars[1].Repairs.Add(repair1);
+            user.UserCars[1].Services.Add(service1);
 
-            Assert.AreEqual(1, user.userCars[1].Exploitation.Count());
-            Assert.AreEqual(1, user.userCars[1].Insurance.Count());
-            Assert.AreEqual(1, user.userCars[1].LooksMaintenance.Count());
-            Assert.AreEqual(1, user.userCars[1].Repairs.Count());
-            Assert.AreEqual(1, user.userCars[1].Insurance.Count());
+            Assert.AreEqual(1, user.UserCars[1].Exploitation.Count());
+            Assert.AreEqual(1, user.UserCars[1].Insurance.Count());
+            Assert.AreEqual(1, user.UserCars[1].LooksMaintenance.Count());
+            Assert.AreEqual(1, user.UserCars[1].Repairs.Count());
+            Assert.AreEqual(1, user.UserCars[1].Insurance.Count());
         }
 
 

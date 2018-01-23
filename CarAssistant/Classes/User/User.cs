@@ -8,120 +8,111 @@ using System.Windows.Forms;
 
 namespace CarAssistant
 {
-	public class User : IUser
-	{
+    [Serializable]
+    public class User : IUser
+    {
         /// <summary>
         /// Full name of the user: "Name Surname".
         /// </summary>
-        public string name;
+        public string Name { get; set; }
         /// <summary>
         /// User's birth date: DD-MM-YYYY.
         /// </summary>
-        public DateTime birthDate;
+        public DateTime BirthDate { get; set; }
         /// <summary>
         /// Number of user's identity document.
         /// </summary>
-        public string idNumber;
+        public string IdNumber { get; set; }
         /// <summary>
         /// Number of user's driving licence.
         /// </summary>
-        public string licenceNumber;
+        public string LicenceNumber { get; set; }
         /// <summary>
         /// Date of issue of the driver's licence
         /// </summary>
-        public DateTime licenceDate;
+        public DateTime LicenceDate { get; set; }
         /// <summary>
         /// Legal residence address in format: "street,post code, city".
         /// </summary>
-        public string residenceAddress;
+        public string ResidenceAddress { get; set; }
         /// <summary>
         /// List of cars owned by user.
         /// </summary>
-        public List<Car> userCars;
-        private string userDescription; // Used in method WriteUserShortDescription(): name,age,number of owned cars
-        public int userAge; // Used in method WriteUserShortDescription(): calculates user's age in years
-        private int userOwnedCars; // Used in method WriteUserShortDescription():counts cars owned by user.
-        private string photoPath;
+        public List<Car> UserCars { get; set; }
+        public string UserDescription { get; set; } // Used in method WriteUserShortDescription(): name,age,number of owned cars
+        public int UserAge { get; set; } // Used in method WriteUserShortDescription(): calculates user's age in years
+        public int UserOwnedCars; // Used in method WriteUserShortDescription():counts cars owned by user.
+        public string PhotoPath;
 
-        public User(string name, DateTime birthdate, string idNumber, string licenceNumber, DateTime licenceDate, string street, string postCode, string city)
-        {
-            userCars = new List<Car>();
-            this.name = name;
-            birthDate = birthdate;
-            this.idNumber = idNumber;
-            this.licenceNumber = licenceNumber;
-            this.licenceDate = licenceDate;
-            SetResidenceAddress(street, postCode, city);
-            userAge = GetUserAge();
-        }
         public User()
         {
-            userCars = new List<Car>();
+            UserCars = new List<Car>();
+        }
+        public User(string name, DateTime birthdate, string idNumber, string licenceNumber, DateTime licenceDate, string street, string postCode, string city)
+        {
+            Name = name;
+            BirthDate = birthdate;
+            IdNumber = idNumber;
+            LicenceNumber = licenceNumber;
+            LicenceDate = licenceDate;
+            SetResidenceAddress(street, postCode, city);
+            UserAge = GetUserAge();
+            UserCars = new List<Car>();
         }
 
         /// <summary>
         /// Method adds new car to the user's car list "userCars".
         /// </summary>
-        /// <param name="NewCar"></param>
-		public void AddNewCar(Car NewCar)
-		{
-            userCars.Add(NewCar);
-		}
+        /// <param name="newCar"></param>
+        public void AddNewCar(Car newCar)
+        {
+            UserCars.Add(newCar);
+        }
 
         /// <summary>
         /// Finds car in user's car list by Brand, Model and ProductionYear.
         /// </summary>
-        /// <param name="Brand"></param>
-        /// <param name="Model"></param>
-        /// <param name="ProductionYear"></param>
+        /// <param name="brand"></param>
+        /// <param name="model"></param>
+        /// <param name="productionYear"></param>
         /// <returns></returns>
-		public List<Car> FindCar(string Brand, string Model, int ProductionYear)
+        public List<Car> FindCar(string brand, string model, int productionYear)
         {
-            List<int> brandList = FindCarBrand(Brand);
-            List<int> modelList = FindCarModel(Model);
-            List<int> yearList = FindCarYear(ProductionYear);
-            List<int> foundCars = CompareLists(brandList, modelList, yearList);
-            return FoundCars(foundCars);
-            
+            try
+            {
+                var foundCar = UserCars
+                    .Where(c => c.Brand == brand)
+                    .Where(c => c.Model == model)
+                    .Where(c => c.ProductionDate.Year == productionYear);
+                return new List<Car>(foundCar);
+            }
+            catch (InvalidOperationException)
+            {
+                MessageBox.Show("Car could not be found!", "Failure!");
+                return new List<Car>();
+            }
+
+            //List<int> brandList = FindCarBrand(brand);
+            //List<int> modelList = FindCarModel(model);
+            //List<int> yearList = FindCarYear(productionYear);
+            //List<int> foundCars = CompareLists(brandList, modelList, yearList);
+
         }
         public Car FindCarByVin(string vin)
         {
-            Car car = null;
-            for (int i = 0; i < userCars.Count(); i++)
+            try
             {
-                if (vin == userCars[i].GetVin())
-                {
-                    car = userCars[i];
-                    break;
-                }
+                var car = UserCars.First(c => c.Vin == vin);
+                return car;
             }
-            return car;
-        }
-        private List<Car> FoundCars(List<int> list)
-        {
-            Car car;
-            List<Car> cars = new List<Car>();
-            if (list.Count() == 0)
+            catch (Exception)
             {
-                MessageBox.Show("Car could not be found!", "Please try again with another parameters!", MessageBoxButtons.OK,MessageBoxIcon.Error);
-                return cars;
+                MessageBox.Show("Car could not be found!", "Failure!");
+                return new Car();
             }
-            else
-            {
-                for (int i = 0; i < list.Count(); i++)
-                {
-                    car = userCars[list[i]];
-                    cars.Add(car);
-                }
-                return cars;
-            }
+
         }
-        private List<int> CompareLists(List<int> list1, List<int> list2, List<int> list3)
-        {
-            List<int> first = list1.Intersect(list2).ToList();
-            List<int> result = first.Intersect(list3).ToList();
-            return result;
-        }
+
 
         /// <summary>
         /// Removes car from user's car list by Brand, Model, ProductionYear.
@@ -129,99 +120,42 @@ namespace CarAssistant
         /// <param name="Brand"></param>
         /// <param name="Model"></param>
         /// <param name="ProductionYear"></param>
-		public void RemoveCar(String vin)
+        public void RemoveCar(String vin)
         {
-            bool delete = false;
-
-            delete = DeleteCar(vin);
-            ShowDeleteMessage(delete);
-        }
-        private bool DeleteCar(string vin)
-        {
-            bool delete = false;
-            for (int i = 0; i < userCars.Count(); i++)
+            try
             {
-                if (vin == userCars[i].GetVin())
-                {
-                    userCars.Remove(userCars[i]);
-                    delete = true;
-                    break;
-                }
-                else
-                {
-                    delete = false;
-                }
+                UserCars.Remove(UserCars.First(c => c.Vin == vin));
+                MessageBox.Show("Car deleted!", "Success!");
+            }
+            catch (Exception)
+            {
+                MessageBox.Show("Car could not be found!", "Failure");
             }
 
-            return delete;
+
         }
-        private List<int> FindCarBrand(string brand)
-        {
-            List<int> list = new List<int>();
-            for (int i = 0; i < userCars.Count(); i++)
-            {
-                if (brand == userCars[i].Brand)
-                {
-                    list.Add(i);
-                }
-            }
-            return list;
-        }
-        private List<int> FindCarModel(string model)
-        {
-            List<int> list = new List<int>();
-            for (int i = 0; i < userCars.Count(); i++)
-            {
-                if (model == userCars[i].Model)
-                {
-                    list.Add(i);
-                }
-            }
-            return list;
-        }
-        private List<int> FindCarYear(int ProductionYear)
-        {
-            List<int> list = new List<int>();
-            for (int i = 0; i < userCars.Count(); i++)
-            {
-                if (ProductionYear == userCars[i].ProductionDate.Year)
-                {
-                    list.Add(i);
-                }
-            }
-            return list;
-        }
-        private void ShowDeleteMessage(bool delete)
-        {
-            if (!delete)
-            {
-                MessageBox.Show("Car with entered parameters was not found.", "Deletion failed.", MessageBoxButtons.OK);
-            }
-            else
-            {
-                MessageBox.Show("Car deleted!", "Deletion successful", MessageBoxButtons.OK);
-            }
-        }
+
+
         /// <summary>
         /// Returns user's car list "userCars".
         /// </summary>
         /// <returns></returns>
-		public List<Car> retrieveCars()
-		{
-            return userCars;
-		}
+        public List<Car> RetrieveCars()
+        {
+            return UserCars;
+        }
 
         /// <summary>
         /// Writes short description of a user. Name, age, number of owned cars.
         /// </summary>
         /// <returns></returns>
-		public string WriteUserShortDescription()
-		{
-            userAge = GetUserAge();
-            userOwnedCars = userCars.Count();
-            userDescription = string.Format("{0},{1},{2}", name, userAge, userOwnedCars);
-            return userDescription;
-		}
+        public string WriteUserShortDescription()
+        {
+            UserAge = GetUserAge();
+            UserOwnedCars = UserCars.Count();
+            UserDescription = string.Format("{0},{1},{2}", Name, UserAge, UserOwnedCars);
+            return UserDescription;
+        }
 
         /// <summary>
         /// Returns age of user.
@@ -230,24 +164,21 @@ namespace CarAssistant
         public int GetUserAge()
         {
             DateTime dateToday = DateTime.Today;
-            userAge = dateToday.Year - birthDate.Year;
-            if (birthDate > dateToday.AddYears(-userAge))
+            UserAge = dateToday.Year - BirthDate.Year;
+            if (BirthDate > dateToday.AddYears(-UserAge))
             {
-                userAge--;
+                UserAge--;
             }
-            return userAge;
+            return UserAge;
         }
-        public void SetUserAge(int age)
-        {
-            userAge = age;
-        }
+
         /// <summary>
         /// Sets user "Name surname".
         /// </summary>
         /// <param name="nameInput"></param>
         public void SetName(string nameInput)
         {
-            name = nameInput;
+            Name = nameInput;
         }
         /// <summary>
         /// Returns "Name surname" of user.
@@ -255,15 +186,15 @@ namespace CarAssistant
         /// <returns></returns>
         public string GetName()
         {
-            return name;
+            return Name;
         }
         /// <summary>
         /// Sets user's birthdate.
         /// </summary>
-        /// <param name="BirthInput"></param>
-        public void SetBirthdate(DateTime BirthInput)
+        /// <param name="birthInput"></param>
+        public void SetBirthdate(DateTime birthInput)
         {
-            birthDate = BirthInput;
+            BirthDate = birthInput;
         }
         /// <summary>
         /// Returns user's birthdate.
@@ -271,7 +202,7 @@ namespace CarAssistant
         /// <returns></returns>
         public DateTime GetBirthdate()
         {
-            return birthDate;
+            return BirthDate;
         }
         /// <summary>
         /// Sets user's ID number.
@@ -279,7 +210,7 @@ namespace CarAssistant
         /// <param name="idInput"></param>
         public void SetIdNumber(string idInput)
         {
-            idNumber = idInput;
+            IdNumber = idInput;
         }
         /// <summary>
         /// Returns user's ID number.
@@ -287,7 +218,7 @@ namespace CarAssistant
         /// <returns></returns>
         public string GetIdNumber()
         {
-            return idNumber;
+            return IdNumber;
         }
         /// <summary>
         /// Sets licence
@@ -295,7 +226,7 @@ namespace CarAssistant
         /// <param name="plateInput"></param>
         public void SetLicenceNumber(string licenceNrInput)
         {
-            licenceNumber = licenceNrInput;
+            LicenceNumber = licenceNrInput;
         }
         /// <summary>
         /// Returns user's licence number.
@@ -303,7 +234,7 @@ namespace CarAssistant
         /// <returns></returns>
         public string GetLicenceNumber()
         {
-            return licenceNumber;
+            return LicenceNumber;
         }
         /// <summary>
         /// Sets date of issue of the driver's licence.
@@ -311,7 +242,7 @@ namespace CarAssistant
         /// <param name="dateInput"></param>
         public void SetLicenceDate(DateTime dateInput)
         {
-            licenceDate = dateInput;
+            LicenceDate = dateInput;
         }
         /// <summary>
         /// Returns date of issue of the driver's licence.
@@ -319,7 +250,7 @@ namespace CarAssistant
         /// <returns></returns>
         public DateTime GetLicenceDate()
         {
-            return licenceDate;
+            return LicenceDate;
         }
 
         /// <summary>
@@ -330,7 +261,7 @@ namespace CarAssistant
         /// <param name="city"></param>
         public void SetResidenceAddress(string street, string postCode, string city)
         {
-            residenceAddress = string.Format("{0},{1},{2}", street, postCode, city);
+            ResidenceAddress = string.Format("{0},{1},{2}", street, postCode, city);
         }
         /// <summary>
         /// Returns user's residence address in format "street,post code,city".
@@ -338,16 +269,16 @@ namespace CarAssistant
         /// <returns></returns>
         public string GetResidenceAddress()
         {
-            return residenceAddress;
+            return ResidenceAddress;
         }
 
         public void SetPhotoPath(string path)
         {
-            photoPath = path;
+            PhotoPath = path;
         }
         public string GetPhotoPath()
         {
-            return photoPath;
+            return PhotoPath;
         }
         /// <summary>
         /// Edits users existing data, if bool == true, then enter new data to edit.
@@ -393,5 +324,5 @@ namespace CarAssistant
                 //MessageBox.Show("User's residence address edit successful!", "Success!", MessageBoxButtons.OK);
             }
         }
-	}
+    }
 }

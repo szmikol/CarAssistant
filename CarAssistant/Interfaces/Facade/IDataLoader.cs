@@ -8,10 +8,10 @@ namespace CarAssistant.Interfaces.Facade
 {
 	public interface IDataLoader
 	{
-		List<Car> LoadCarsListFromXml(string Path);
+		List<Car> LoadCarsListFromXml(string path);
 
-		Car LoadCarFromXml(string Brand, string Model, User Owner, string Path);
+		Car LoadCarFromXml(string brand, string model, User owner, string path);
 
-		User LoadUserFromXml(string Path);
+		User LoadUserFromXml(string path);
 	}
 }
