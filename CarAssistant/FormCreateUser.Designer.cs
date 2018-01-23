@@ -31,6 +31,8 @@
             this.panel1 = new System.Windows.Forms.Panel();
             this.bCreateDriver = new System.Windows.Forms.Button();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.dateLicRelease = new System.Windows.Forms.DateTimePicker();
+            this.dateBirthDate = new System.Windows.Forms.DateTimePicker();
             this.label10 = new System.Windows.Forms.Label();
             this.bDriverPhoto = new System.Windows.Forms.Button();
             this.pbUserImageLoad = new System.Windows.Forms.PictureBox();
@@ -49,8 +51,6 @@
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
-            this.dateBirthDate = new System.Windows.Forms.DateTimePicker();
-            this.dateLicRelease = new System.Windows.Forms.DateTimePicker();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbUserImageLoad)).BeginInit();
@@ -106,6 +106,24 @@
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(700, 300);
             this.panel2.TabIndex = 0;
+            // 
+            // dateLicRelease
+            // 
+            this.dateLicRelease.CustomFormat = "dd-MM-yyyy";
+            this.dateLicRelease.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            this.dateLicRelease.Location = new System.Drawing.Point(153, 137);
+            this.dateLicRelease.Name = "dateLicRelease";
+            this.dateLicRelease.Size = new System.Drawing.Size(100, 22);
+            this.dateLicRelease.TabIndex = 21;
+            // 
+            // dateBirthDate
+            // 
+            this.dateBirthDate.CustomFormat = "dd-MM-yyyy";
+            this.dateBirthDate.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            this.dateBirthDate.Location = new System.Drawing.Point(153, 56);
+            this.dateBirthDate.Name = "dateBirthDate";
+            this.dateBirthDate.Size = new System.Drawing.Size(100, 22);
+            this.dateBirthDate.TabIndex = 20;
             // 
             // label10
             // 
@@ -260,24 +278,6 @@
             this.label1.Size = new System.Drawing.Size(49, 17);
             this.label1.TabIndex = 0;
             this.label1.Text = "Name:";
-            // 
-            // dateBirthDate
-            // 
-            this.dateBirthDate.CustomFormat = "dd-MM-yyyy";
-            this.dateBirthDate.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.dateBirthDate.Location = new System.Drawing.Point(153, 56);
-            this.dateBirthDate.Name = "dateBirthDate";
-            this.dateBirthDate.Size = new System.Drawing.Size(100, 22);
-            this.dateBirthDate.TabIndex = 20;
-            // 
-            // dateLicRelease
-            // 
-            this.dateLicRelease.CustomFormat = "dd-MM-yyyy";
-            this.dateLicRelease.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.dateLicRelease.Location = new System.Drawing.Point(153, 137);
-            this.dateLicRelease.Name = "dateLicRelease";
-            this.dateLicRelease.Size = new System.Drawing.Size(100, 22);
-            this.dateLicRelease.TabIndex = 21;
             // 
             // FormCreateUser
             // 

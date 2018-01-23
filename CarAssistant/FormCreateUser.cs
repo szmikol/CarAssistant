@@ -17,15 +17,15 @@ namespace CarAssistant
         private string _name, _street, _city, _postCode, _idNumber, _licenceNumber;
         private DateTime _birthDate, _licenceRelease;
         private User _driver;
-        private Form1 form1;
+        private Form1 _form1;
         bool _userBool = false;
         private string _directory = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments) + "\\CarAssistant\\files";
         UserManager _userManager = new UserManager();
 
         public FormCreateUser(Form1 form)
         {
-            form1 = form;
             InitializeComponent();
+            _form1 = form;
         }
 
         private void bDriverPhoto_Click(object sender, EventArgs e)
@@ -40,7 +40,8 @@ namespace CarAssistant
             _driver.SetPhotoPath(_directory+"\\user.jpg");
             DataSaver save = new DataSaver();
             save.SaveUserToXml(_driver, _directory+"\\user.xml");
-            form1.UpdateUserForms(_driver);
+            _form1.Driver = _driver;
+            _form1.UpdateUserForms(_driver);
             CloseForm();
         }
         private void CloseForm()

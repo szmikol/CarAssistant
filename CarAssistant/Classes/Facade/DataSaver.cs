@@ -17,6 +17,7 @@ namespace CarAssistant.Classes.Facade
             var serial = new XmlSerializer(typeof(List<CarAssistant.Car>));
             FileStream file = new FileStream(path, FileMode.Create);
             serial.Serialize(file, cars);
+		    file.Dispose();
         }
 
 		public void SaveCarToXml(CarAssistant.Car car, string path)
@@ -24,6 +25,7 @@ namespace CarAssistant.Classes.Facade
             var serial = new XmlSerializer(typeof(CarAssistant.Car));
             FileStream file = new FileStream(path, FileMode.Create);
             serial.Serialize(file, car);
+		    file.Dispose();
         }
 
 		public void SaveUserToXml(User user, string path)
@@ -31,6 +33,7 @@ namespace CarAssistant.Classes.Facade
             var serial = new XmlSerializer(typeof(User));
             FileStream file = new FileStream(path, FileMode.Create);
             serial.Serialize(file, user);
+            file.Dispose();
 		}
 	}
 }
