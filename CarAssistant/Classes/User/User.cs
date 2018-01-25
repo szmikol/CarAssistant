@@ -288,49 +288,5 @@ namespace CarAssistant
         {
             return PhotoPath;
         }
-        ///// <summary>
-        ///// Edits users existing data, if bool == true, then enter new data to edit.
-        ///// </summary>
-        ///// <param name="nameB"></param>
-        ///// <param name="birthB"></param>
-        ///// <param name="idNumberB"></param>
-        ///// <param name="licenceNumberB"></param>
-        ///// <param name="addressB"></param>
-        ///// <param name="name"></param>
-        ///// <param name="birthdate"></param>
-        ///// <param name="idNumber"></param>
-        ///// <param name="licenceNumber"></param>
-        ///// <param name="street"></param>
-        ///// <param name="postCode"></param>
-        ///// <param name="city"></param>
-        //public void EditUserSpecifiedData(bool nameB, bool birthB, bool idNumberB, bool licenceNumberB, bool addressB, 
-        //    string name, DateTime birthdate, string idNumber, string licenceNumber, string street, string postCode, string city)
-        //{
-        //    if (nameB)
-        //    {
-        //        SetName(name);
-        //        //MessageBox.Show("User's name edit successful!", "Success!", MessageBoxButtons.OK);
-        //    }
-        //    if (birthB)
-        //    {
-        //        SetBirthdate(birthdate);
-        //        //MessageBox.Show("User's birth date edit successful!", "Success!",MessageBoxButtons.OK);
-        //    }
-        //    if (idNumberB)
-        //    {
-        //        SetIdNumber(idNumber);
-        //        //MessageBox.Show("User's ID number edit successful!", "Success!", MessageBoxButtons.OK);
-        //    }
-        //    if (licenceNumberB)
-        //    {
-        //        SetLicenceNumber(licenceNumber);
-        //        //MessageBox.Show("Driver's licence number edit successful!", "Success!", MessageBoxButtons.OK);
-        //    }
-        //    if (addressB)
-        //    {
-        //        SetResidenceAddress(street, postCode, city);
-        //        //MessageBox.Show("User's residence address edit successful!", "Success!", MessageBoxButtons.OK);
-        //    }
-        //}
     }
 }

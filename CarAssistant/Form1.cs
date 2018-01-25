@@ -79,6 +79,7 @@ namespace CarAssistant
         private void bExpenses_Click(object sender, EventArgs e)
         {
             panelExpenses.BringToFront();
+            panelExpButtons.BringToFront();
             ChangeActiveButtonColor(bExpenses);
         }
 
@@ -741,6 +742,24 @@ namespace CarAssistant
         private void bEditDriverBack_Click(object sender, EventArgs e)
         {
             panelStart.BringToFront();
+        }
+
+        private void bAddExpense_Click(object sender, EventArgs e)
+        {
+            panelNewExpense.BringToFront();
+            foreach (var car in Driver.UserCars)
+            {
+                cbSelectCarsExpense.Items.Add(string.Format("{0} {1} {2}",car.Brand,car.Model,car.ProductionDate.Year));
+            }
+            foreach (var item in Enum.GetNames(typeof(ExpenseTypes)))
+            {
+                cbExpenseType.Items.Add(item);
+            }
+        }
+
+        private void bCreateExpense_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

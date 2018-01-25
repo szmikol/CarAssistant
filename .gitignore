@@ -7,3 +7,4 @@
 /.vs
 /CarAssistant/obj/Release
 /CarAssistantTest/obj/Release
+/CarAssistant/Classes/Facade

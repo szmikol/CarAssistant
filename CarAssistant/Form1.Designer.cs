@@ -109,6 +109,30 @@
             this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
             this.saveFileDialog1 = new System.Windows.Forms.SaveFileDialog();
             this.panelCentral = new System.Windows.Forms.Panel();
+            this.panelEditDriver = new System.Windows.Forms.Panel();
+            this.bEditDriverBack = new System.Windows.Forms.Button();
+            this.bEditDriverApply = new System.Windows.Forms.Button();
+            this.panel2 = new System.Windows.Forms.Panel();
+            this.dateEditLicRelease = new System.Windows.Forms.DateTimePicker();
+            this.dateEditBirthDate = new System.Windows.Forms.DateTimePicker();
+            this.label57 = new System.Windows.Forms.Label();
+            this.bEditDriverPhoto = new System.Windows.Forms.Button();
+            this.pbEditUserImageLoad = new System.Windows.Forms.PictureBox();
+            this.tbEditCity = new System.Windows.Forms.TextBox();
+            this.tbEditPostCode = new System.Windows.Forms.TextBox();
+            this.label58 = new System.Windows.Forms.Label();
+            this.label59 = new System.Windows.Forms.Label();
+            this.label60 = new System.Windows.Forms.Label();
+            this.tbEditStreet = new System.Windows.Forms.TextBox();
+            this.tbEditLicenceNr = new System.Windows.Forms.TextBox();
+            this.tbEditIdnumb = new System.Windows.Forms.TextBox();
+            this.tbEditName = new System.Windows.Forms.TextBox();
+            this.label61 = new System.Windows.Forms.Label();
+            this.label62 = new System.Windows.Forms.Label();
+            this.label63 = new System.Windows.Forms.Label();
+            this.label64 = new System.Windows.Forms.Label();
+            this.label65 = new System.Windows.Forms.Label();
+            this.label66 = new System.Windows.Forms.Label();
             this.panelStart = new System.Windows.Forms.Panel();
             this.bEditDriver = new System.Windows.Forms.Button();
             this.bSaveDriver = new System.Windows.Forms.Button();
@@ -198,30 +222,21 @@
             this.label33 = new System.Windows.Forms.Label();
             this.bBack = new System.Windows.Forms.Button();
             this.bEditCar = new System.Windows.Forms.Button();
-            this.panel2 = new System.Windows.Forms.Panel();
-            this.dateEditLicRelease = new System.Windows.Forms.DateTimePicker();
-            this.dateEditBirthDate = new System.Windows.Forms.DateTimePicker();
-            this.label57 = new System.Windows.Forms.Label();
-            this.bEditDriverPhoto = new System.Windows.Forms.Button();
-            this.pbEditUserImageLoad = new System.Windows.Forms.PictureBox();
-            this.tbEditCity = new System.Windows.Forms.TextBox();
-            this.tbEditPostCode = new System.Windows.Forms.TextBox();
-            this.label58 = new System.Windows.Forms.Label();
-            this.label59 = new System.Windows.Forms.Label();
-            this.label60 = new System.Windows.Forms.Label();
-            this.tbEditStreet = new System.Windows.Forms.TextBox();
-            this.tbEditLicenceNr = new System.Windows.Forms.TextBox();
-            this.tbEditIdnumb = new System.Windows.Forms.TextBox();
-            this.tbEditName = new System.Windows.Forms.TextBox();
-            this.label61 = new System.Windows.Forms.Label();
-            this.label62 = new System.Windows.Forms.Label();
-            this.label63 = new System.Windows.Forms.Label();
-            this.label64 = new System.Windows.Forms.Label();
-            this.label65 = new System.Windows.Forms.Label();
-            this.label66 = new System.Windows.Forms.Label();
-            this.panelEditDriver = new System.Windows.Forms.Panel();
-            this.bEditDriverApply = new System.Windows.Forms.Button();
-            this.bEditDriverBack = new System.Windows.Forms.Button();
+            this.bAddExpense = new System.Windows.Forms.Button();
+            this.panelNewExpense = new System.Windows.Forms.Panel();
+            this.cbExpenseType = new System.Windows.Forms.ComboBox();
+            this.label44 = new System.Windows.Forms.Label();
+            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.label45 = new System.Windows.Forms.Label();
+            this.label67 = new System.Windows.Forms.Label();
+            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.label68 = new System.Windows.Forms.Label();
+            this.textBox3 = new System.Windows.Forms.TextBox();
+            this.label69 = new System.Windows.Forms.Label();
+            this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
+            this.bCreateExpense = new System.Windows.Forms.Button();
+            this.label70 = new System.Windows.Forms.Label();
+            this.cbSelectCarsExpense = new System.Windows.Forms.ComboBox();
             this.panelMenu.SuspendLayout();
             this.panelButtons.SuspendLayout();
             this.panelDriverInfo.SuspendLayout();
@@ -238,6 +253,9 @@
             this.panelSettings.SuspendLayout();
             this.panelSaveLoad.SuspendLayout();
             this.panelCentral.SuspendLayout();
+            this.panelEditDriver.SuspendLayout();
+            this.panel2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pbEditUserImageLoad)).BeginInit();
             this.panelStart.SuspendLayout();
             this.panelEditCar.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -245,9 +263,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.pbCarPhoto)).BeginInit();
             this.panelCarDetails.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pBCar)).BeginInit();
-            this.panel2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pbEditUserImageLoad)).BeginInit();
-            this.panelEditDriver.SuspendLayout();
+            this.panelNewExpense.SuspendLayout();
             this.SuspendLayout();
             // 
             // panelMenu
@@ -974,6 +990,8 @@
             // panelExpenses
             // 
             this.panelExpenses.BackColor = System.Drawing.Color.Gray;
+            this.panelExpenses.Controls.Add(this.panelNewExpense);
+            this.panelExpenses.Controls.Add(this.bAddExpense);
             this.panelExpenses.Controls.Add(this.bExpBack);
             this.panelExpenses.Controls.Add(this.panelExpButtons);
             this.panelExpenses.Controls.Add(this.panelExpService);
@@ -992,7 +1010,7 @@
             // bExpBack
             // 
             this.bExpBack.Font = new System.Drawing.Font("Arial", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.bExpBack.Location = new System.Drawing.Point(349, 405);
+            this.bExpBack.Location = new System.Drawing.Point(460, 405);
             this.bExpBack.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.bExpBack.Name = "bExpBack";
             this.bExpBack.Size = new System.Drawing.Size(200, 39);
@@ -1232,12 +1250,12 @@
             // 
             // panelCentral
             // 
+            this.panelCentral.Controls.Add(this.panelExpenses);
             this.panelCentral.Controls.Add(this.panelEditDriver);
             this.panelCentral.Controls.Add(this.panelStart);
             this.panelCentral.Controls.Add(this.panelEditCar);
             this.panelCentral.Controls.Add(this.panelCars);
             this.panelCentral.Controls.Add(this.panelAddNewCar);
-            this.panelCentral.Controls.Add(this.panelExpenses);
             this.panelCentral.Controls.Add(this.panelCarDetails);
             this.panelCentral.Controls.Add(this.panelManage);
             this.panelCentral.Controls.Add(this.panelDriverInfo);
@@ -1254,6 +1272,242 @@
             this.panelCentral.Name = "panelCentral";
             this.panelCentral.Size = new System.Drawing.Size(1100, 601);
             this.panelCentral.TabIndex = 3;
+            // 
+            // panelEditDriver
+            // 
+            this.panelEditDriver.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(75)))), ((int)(((byte)(75)))), ((int)(((byte)(75)))));
+            this.panelEditDriver.Controls.Add(this.bEditDriverBack);
+            this.panelEditDriver.Controls.Add(this.bEditDriverApply);
+            this.panelEditDriver.Controls.Add(this.panel2);
+            this.panelEditDriver.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panelEditDriver.Location = new System.Drawing.Point(200, 150);
+            this.panelEditDriver.Name = "panelEditDriver";
+            this.panelEditDriver.Size = new System.Drawing.Size(900, 451);
+            this.panelEditDriver.TabIndex = 2;
+            // 
+            // bEditDriverBack
+            // 
+            this.bEditDriverBack.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.bEditDriverBack.ForeColor = System.Drawing.Color.White;
+            this.bEditDriverBack.Location = new System.Drawing.Point(225, 375);
+            this.bEditDriverBack.Name = "bEditDriverBack";
+            this.bEditDriverBack.Size = new System.Drawing.Size(200, 50);
+            this.bEditDriverBack.TabIndex = 2;
+            this.bEditDriverBack.Text = "Back";
+            this.bEditDriverBack.UseVisualStyleBackColor = true;
+            this.bEditDriverBack.Click += new System.EventHandler(this.bEditDriverBack_Click);
+            // 
+            // bEditDriverApply
+            // 
+            this.bEditDriverApply.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.bEditDriverApply.ForeColor = System.Drawing.Color.White;
+            this.bEditDriverApply.Location = new System.Drawing.Point(475, 375);
+            this.bEditDriverApply.Name = "bEditDriverApply";
+            this.bEditDriverApply.Size = new System.Drawing.Size(200, 50);
+            this.bEditDriverApply.TabIndex = 1;
+            this.bEditDriverApply.Text = "Apply Changes";
+            this.bEditDriverApply.UseVisualStyleBackColor = true;
+            this.bEditDriverApply.Click += new System.EventHandler(this.bEditDriverApply_Click);
+            // 
+            // panel2
+            // 
+            this.panel2.BackColor = System.Drawing.Color.Gray;
+            this.panel2.Controls.Add(this.dateEditLicRelease);
+            this.panel2.Controls.Add(this.dateEditBirthDate);
+            this.panel2.Controls.Add(this.label57);
+            this.panel2.Controls.Add(this.bEditDriverPhoto);
+            this.panel2.Controls.Add(this.pbEditUserImageLoad);
+            this.panel2.Controls.Add(this.tbEditCity);
+            this.panel2.Controls.Add(this.tbEditPostCode);
+            this.panel2.Controls.Add(this.label58);
+            this.panel2.Controls.Add(this.label59);
+            this.panel2.Controls.Add(this.label60);
+            this.panel2.Controls.Add(this.tbEditStreet);
+            this.panel2.Controls.Add(this.tbEditLicenceNr);
+            this.panel2.Controls.Add(this.tbEditIdnumb);
+            this.panel2.Controls.Add(this.tbEditName);
+            this.panel2.Controls.Add(this.label61);
+            this.panel2.Controls.Add(this.label62);
+            this.panel2.Controls.Add(this.label63);
+            this.panel2.Controls.Add(this.label64);
+            this.panel2.Controls.Add(this.label65);
+            this.panel2.Controls.Add(this.label66);
+            this.panel2.Location = new System.Drawing.Point(100, 50);
+            this.panel2.Name = "panel2";
+            this.panel2.Size = new System.Drawing.Size(716, 300);
+            this.panel2.TabIndex = 0;
+            // 
+            // dateEditLicRelease
+            // 
+            this.dateEditLicRelease.CustomFormat = "dd-MM-yyyy";
+            this.dateEditLicRelease.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            this.dateEditLicRelease.Location = new System.Drawing.Point(153, 137);
+            this.dateEditLicRelease.Name = "dateEditLicRelease";
+            this.dateEditLicRelease.Size = new System.Drawing.Size(116, 22);
+            this.dateEditLicRelease.TabIndex = 21;
+            // 
+            // dateEditBirthDate
+            // 
+            this.dateEditBirthDate.CustomFormat = "dd-MM-yyyy";
+            this.dateEditBirthDate.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            this.dateEditBirthDate.Location = new System.Drawing.Point(153, 56);
+            this.dateEditBirthDate.Name = "dateEditBirthDate";
+            this.dateEditBirthDate.Size = new System.Drawing.Size(116, 22);
+            this.dateEditBirthDate.TabIndex = 20;
+            // 
+            // label57
+            // 
+            this.label57.AutoSize = true;
+            this.label57.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.label57.Location = new System.Drawing.Point(111, 7);
+            this.label57.Name = "label57";
+            this.label57.Size = new System.Drawing.Size(149, 18);
+            this.label57.TabIndex = 19;
+            this.label57.Text = "Personal information:";
+            // 
+            // bEditDriverPhoto
+            // 
+            this.bEditDriverPhoto.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.bEditDriverPhoto.Location = new System.Drawing.Point(350, 255);
+            this.bEditDriverPhoto.Name = "bEditDriverPhoto";
+            this.bEditDriverPhoto.Size = new System.Drawing.Size(200, 29);
+            this.bEditDriverPhoto.TabIndex = 18;
+            this.bEditDriverPhoto.Text = "Load drivers photo";
+            this.bEditDriverPhoto.UseVisualStyleBackColor = true;
+            this.bEditDriverPhoto.Click += new System.EventHandler(this.bEditDriverPhoto_Click);
+            // 
+            // pbEditUserImageLoad
+            // 
+            this.pbEditUserImageLoad.BackColor = System.Drawing.Color.DimGray;
+            this.pbEditUserImageLoad.Location = new System.Drawing.Point(350, 27);
+            this.pbEditUserImageLoad.Name = "pbEditUserImageLoad";
+            this.pbEditUserImageLoad.Size = new System.Drawing.Size(200, 224);
+            this.pbEditUserImageLoad.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pbEditUserImageLoad.TabIndex = 17;
+            this.pbEditUserImageLoad.TabStop = false;
+            // 
+            // tbEditCity
+            // 
+            this.tbEditCity.Location = new System.Drawing.Point(153, 262);
+            this.tbEditCity.Name = "tbEditCity";
+            this.tbEditCity.Size = new System.Drawing.Size(116, 22);
+            this.tbEditCity.TabIndex = 16;
+            // 
+            // tbEditPostCode
+            // 
+            this.tbEditPostCode.Location = new System.Drawing.Point(153, 234);
+            this.tbEditPostCode.Name = "tbEditPostCode";
+            this.tbEditPostCode.Size = new System.Drawing.Size(116, 22);
+            this.tbEditPostCode.TabIndex = 15;
+            // 
+            // label58
+            // 
+            this.label58.AutoSize = true;
+            this.label58.Location = new System.Drawing.Point(115, 262);
+            this.label58.Name = "label58";
+            this.label58.Size = new System.Drawing.Size(35, 17);
+            this.label58.TabIndex = 14;
+            this.label58.Text = "City:";
+            // 
+            // label59
+            // 
+            this.label59.AutoSize = true;
+            this.label59.Location = new System.Drawing.Point(75, 234);
+            this.label59.Name = "label59";
+            this.label59.Size = new System.Drawing.Size(75, 17);
+            this.label59.TabIndex = 13;
+            this.label59.Text = "Post code:";
+            // 
+            // label60
+            // 
+            this.label60.AutoSize = true;
+            this.label60.Location = new System.Drawing.Point(101, 207);
+            this.label60.Name = "label60";
+            this.label60.Size = new System.Drawing.Size(50, 17);
+            this.label60.TabIndex = 12;
+            this.label60.Text = "Street:";
+            // 
+            // tbEditStreet
+            // 
+            this.tbEditStreet.Location = new System.Drawing.Point(153, 207);
+            this.tbEditStreet.Name = "tbEditStreet";
+            this.tbEditStreet.Size = new System.Drawing.Size(116, 22);
+            this.tbEditStreet.TabIndex = 11;
+            // 
+            // tbEditLicenceNr
+            // 
+            this.tbEditLicenceNr.Location = new System.Drawing.Point(153, 109);
+            this.tbEditLicenceNr.Name = "tbEditLicenceNr";
+            this.tbEditLicenceNr.Size = new System.Drawing.Size(116, 22);
+            this.tbEditLicenceNr.TabIndex = 10;
+            // 
+            // tbEditIdnumb
+            // 
+            this.tbEditIdnumb.Location = new System.Drawing.Point(153, 81);
+            this.tbEditIdnumb.Name = "tbEditIdnumb";
+            this.tbEditIdnumb.Size = new System.Drawing.Size(116, 22);
+            this.tbEditIdnumb.TabIndex = 8;
+            // 
+            // tbEditName
+            // 
+            this.tbEditName.Location = new System.Drawing.Point(153, 27);
+            this.tbEditName.Name = "tbEditName";
+            this.tbEditName.Size = new System.Drawing.Size(116, 22);
+            this.tbEditName.TabIndex = 6;
+            // 
+            // label61
+            // 
+            this.label61.AutoSize = true;
+            this.label61.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.label61.Location = new System.Drawing.Point(118, 186);
+            this.label61.Name = "label61";
+            this.label61.Size = new System.Drawing.Size(151, 18);
+            this.label61.TabIndex = 5;
+            this.label61.Text = "Address of residence:";
+            // 
+            // label62
+            // 
+            this.label62.Location = new System.Drawing.Point(7, 137);
+            this.label62.Name = "label62";
+            this.label62.Size = new System.Drawing.Size(144, 22);
+            this.label62.TabIndex = 4;
+            this.label62.Text = "Licence release date:";
+            // 
+            // label63
+            // 
+            this.label63.AutoSize = true;
+            this.label63.Location = new System.Drawing.Point(38, 109);
+            this.label63.Name = "label63";
+            this.label63.Size = new System.Drawing.Size(113, 17);
+            this.label63.TabIndex = 3;
+            this.label63.Text = "Licence number:";
+            // 
+            // label64
+            // 
+            this.label64.AutoSize = true;
+            this.label64.Location = new System.Drawing.Point(68, 81);
+            this.label64.Name = "label64";
+            this.label64.Size = new System.Drawing.Size(79, 17);
+            this.label64.TabIndex = 2;
+            this.label64.Text = "ID Number:";
+            // 
+            // label65
+            // 
+            this.label65.AutoSize = true;
+            this.label65.Location = new System.Drawing.Point(74, 56);
+            this.label65.Name = "label65";
+            this.label65.Size = new System.Drawing.Size(73, 17);
+            this.label65.TabIndex = 1;
+            this.label65.Text = "Birth date:";
+            // 
+            // label66
+            // 
+            this.label66.AutoSize = true;
+            this.label66.Location = new System.Drawing.Point(98, 30);
+            this.label66.Name = "label66";
+            this.label66.Size = new System.Drawing.Size(49, 17);
+            this.label66.TabIndex = 0;
+            this.label66.Text = "Name:";
             // 
             // panelStart
             // 
@@ -2214,241 +2468,154 @@
             this.bEditCar.UseVisualStyleBackColor = true;
             this.bEditCar.Click += new System.EventHandler(this.bEditCar_Click);
             // 
-            // panel2
+            // bAddExpense
             // 
-            this.panel2.BackColor = System.Drawing.Color.Gray;
-            this.panel2.Controls.Add(this.dateEditLicRelease);
-            this.panel2.Controls.Add(this.dateEditBirthDate);
-            this.panel2.Controls.Add(this.label57);
-            this.panel2.Controls.Add(this.bEditDriverPhoto);
-            this.panel2.Controls.Add(this.pbEditUserImageLoad);
-            this.panel2.Controls.Add(this.tbEditCity);
-            this.panel2.Controls.Add(this.tbEditPostCode);
-            this.panel2.Controls.Add(this.label58);
-            this.panel2.Controls.Add(this.label59);
-            this.panel2.Controls.Add(this.label60);
-            this.panel2.Controls.Add(this.tbEditStreet);
-            this.panel2.Controls.Add(this.tbEditLicenceNr);
-            this.panel2.Controls.Add(this.tbEditIdnumb);
-            this.panel2.Controls.Add(this.tbEditName);
-            this.panel2.Controls.Add(this.label61);
-            this.panel2.Controls.Add(this.label62);
-            this.panel2.Controls.Add(this.label63);
-            this.panel2.Controls.Add(this.label64);
-            this.panel2.Controls.Add(this.label65);
-            this.panel2.Controls.Add(this.label66);
-            this.panel2.Location = new System.Drawing.Point(100, 50);
-            this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(716, 300);
-            this.panel2.TabIndex = 0;
+            this.bAddExpense.Font = new System.Drawing.Font("Arial", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.bAddExpense.Location = new System.Drawing.Point(240, 405);
+            this.bAddExpense.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.bAddExpense.Name = "bAddExpense";
+            this.bAddExpense.Size = new System.Drawing.Size(200, 39);
+            this.bAddExpense.TabIndex = 13;
+            this.bAddExpense.Text = "Add expense";
+            this.bAddExpense.UseVisualStyleBackColor = true;
+            this.bAddExpense.Click += new System.EventHandler(this.bAddExpense_Click);
             // 
-            // dateEditLicRelease
+            // panelNewExpense
             // 
-            this.dateEditLicRelease.CustomFormat = "dd-MM-yyyy";
-            this.dateEditLicRelease.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.dateEditLicRelease.Location = new System.Drawing.Point(153, 137);
-            this.dateEditLicRelease.Name = "dateEditLicRelease";
-            this.dateEditLicRelease.Size = new System.Drawing.Size(116, 22);
-            this.dateEditLicRelease.TabIndex = 21;
+            this.panelNewExpense.BackColor = System.Drawing.Color.DarkGray;
+            this.panelNewExpense.Controls.Add(this.label70);
+            this.panelNewExpense.Controls.Add(this.cbSelectCarsExpense);
+            this.panelNewExpense.Controls.Add(this.bCreateExpense);
+            this.panelNewExpense.Controls.Add(this.dateTimePicker1);
+            this.panelNewExpense.Controls.Add(this.label69);
+            this.panelNewExpense.Controls.Add(this.label68);
+            this.panelNewExpense.Controls.Add(this.textBox3);
+            this.panelNewExpense.Controls.Add(this.label67);
+            this.panelNewExpense.Controls.Add(this.textBox2);
+            this.panelNewExpense.Controls.Add(this.label45);
+            this.panelNewExpense.Controls.Add(this.textBox1);
+            this.panelNewExpense.Controls.Add(this.label44);
+            this.panelNewExpense.Controls.Add(this.cbExpenseType);
+            this.panelNewExpense.Location = new System.Drawing.Point(51, 25);
+            this.panelNewExpense.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.panelNewExpense.Name = "panelNewExpense";
+            this.panelNewExpense.Size = new System.Drawing.Size(800, 375);
+            this.panelNewExpense.TabIndex = 14;
             // 
-            // dateEditBirthDate
+            // cbExpenseType
             // 
-            this.dateEditBirthDate.CustomFormat = "dd-MM-yyyy";
-            this.dateEditBirthDate.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.dateEditBirthDate.Location = new System.Drawing.Point(153, 56);
-            this.dateEditBirthDate.Name = "dateEditBirthDate";
-            this.dateEditBirthDate.Size = new System.Drawing.Size(116, 22);
-            this.dateEditBirthDate.TabIndex = 20;
+            this.cbExpenseType.FormattingEnabled = true;
+            this.cbExpenseType.Location = new System.Drawing.Point(285, 58);
+            this.cbExpenseType.Name = "cbExpenseType";
+            this.cbExpenseType.Size = new System.Drawing.Size(239, 24);
+            this.cbExpenseType.TabIndex = 0;
             // 
-            // label57
+            // label44
             // 
-            this.label57.AutoSize = true;
-            this.label57.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.label57.Location = new System.Drawing.Point(111, 7);
-            this.label57.Name = "label57";
-            this.label57.Size = new System.Drawing.Size(149, 18);
-            this.label57.TabIndex = 19;
-            this.label57.Text = "Personal information:";
+            this.label44.AutoSize = true;
+            this.label44.Location = new System.Drawing.Point(124, 61);
+            this.label44.Name = "label44";
+            this.label44.Size = new System.Drawing.Size(155, 17);
+            this.label44.TabIndex = 1;
+            this.label44.Text = "Select type of expense:";
             // 
-            // bEditDriverPhoto
+            // textBox1
             // 
-            this.bEditDriverPhoto.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.bEditDriverPhoto.Location = new System.Drawing.Point(350, 255);
-            this.bEditDriverPhoto.Name = "bEditDriverPhoto";
-            this.bEditDriverPhoto.Size = new System.Drawing.Size(200, 29);
-            this.bEditDriverPhoto.TabIndex = 18;
-            this.bEditDriverPhoto.Text = "Load drivers photo";
-            this.bEditDriverPhoto.UseVisualStyleBackColor = true;
-            this.bEditDriverPhoto.Click += new System.EventHandler(this.bEditDriverPhoto_Click);
+            this.textBox1.Location = new System.Drawing.Point(286, 97);
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(238, 22);
+            this.textBox1.TabIndex = 2;
             // 
-            // pbEditUserImageLoad
+            // label45
             // 
-            this.pbEditUserImageLoad.BackColor = System.Drawing.Color.DimGray;
-            this.pbEditUserImageLoad.Location = new System.Drawing.Point(350, 27);
-            this.pbEditUserImageLoad.Name = "pbEditUserImageLoad";
-            this.pbEditUserImageLoad.Size = new System.Drawing.Size(200, 224);
-            this.pbEditUserImageLoad.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pbEditUserImageLoad.TabIndex = 17;
-            this.pbEditUserImageLoad.TabStop = false;
+            this.label45.AutoSize = true;
+            this.label45.Location = new System.Drawing.Point(233, 99);
+            this.label45.Name = "label45";
+            this.label45.Size = new System.Drawing.Size(40, 17);
+            this.label45.TabIndex = 3;
+            this.label45.Text = "Cost:";
             // 
-            // tbEditCity
+            // label67
             // 
-            this.tbEditCity.Location = new System.Drawing.Point(153, 262);
-            this.tbEditCity.Name = "tbEditCity";
-            this.tbEditCity.Size = new System.Drawing.Size(116, 22);
-            this.tbEditCity.TabIndex = 16;
+            this.label67.AutoSize = true;
+            this.label67.Location = new System.Drawing.Point(190, 176);
+            this.label67.Name = "label67";
+            this.label67.Size = new System.Drawing.Size(83, 17);
+            this.label67.TabIndex = 5;
+            this.label67.Text = "Description:";
             // 
-            // tbEditPostCode
+            // textBox2
             // 
-            this.tbEditPostCode.Location = new System.Drawing.Point(153, 234);
-            this.tbEditPostCode.Name = "tbEditPostCode";
-            this.tbEditPostCode.Size = new System.Drawing.Size(116, 22);
-            this.tbEditPostCode.TabIndex = 15;
+            this.textBox2.Location = new System.Drawing.Point(287, 247);
+            this.textBox2.Multiline = true;
+            this.textBox2.Name = "textBox2";
+            this.textBox2.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
+            this.textBox2.Size = new System.Drawing.Size(238, 54);
+            this.textBox2.TabIndex = 4;
             // 
-            // label58
+            // label68
             // 
-            this.label58.AutoSize = true;
-            this.label58.Location = new System.Drawing.Point(115, 262);
-            this.label58.Name = "label58";
-            this.label58.Size = new System.Drawing.Size(35, 17);
-            this.label58.TabIndex = 14;
-            this.label58.Text = "City:";
+            this.label68.AutoSize = true;
+            this.label68.Location = new System.Drawing.Point(173, 249);
+            this.label68.Name = "label68";
+            this.label68.Size = new System.Drawing.Size(101, 17);
+            this.label68.TabIndex = 7;
+            this.label68.Text = "Additional info:";
             // 
-            // label59
+            // textBox3
             // 
-            this.label59.AutoSize = true;
-            this.label59.Location = new System.Drawing.Point(75, 234);
-            this.label59.Name = "label59";
-            this.label59.Size = new System.Drawing.Size(75, 17);
-            this.label59.TabIndex = 13;
-            this.label59.Text = "Post code:";
+            this.textBox3.Location = new System.Drawing.Point(286, 176);
+            this.textBox3.Multiline = true;
+            this.textBox3.Name = "textBox3";
+            this.textBox3.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
+            this.textBox3.Size = new System.Drawing.Size(237, 54);
+            this.textBox3.TabIndex = 6;
             // 
-            // label60
+            // label69
             // 
-            this.label60.AutoSize = true;
-            this.label60.Location = new System.Drawing.Point(101, 207);
-            this.label60.Name = "label60";
-            this.label60.Size = new System.Drawing.Size(50, 17);
-            this.label60.TabIndex = 12;
-            this.label60.Text = "Street:";
+            this.label69.AutoSize = true;
+            this.label69.Location = new System.Drawing.Point(158, 135);
+            this.label69.Name = "label69";
+            this.label69.Size = new System.Drawing.Size(115, 17);
+            this.label69.TabIndex = 8;
+            this.label69.Text = "Date of expense:";
             // 
-            // tbEditStreet
+            // dateTimePicker1
             // 
-            this.tbEditStreet.Location = new System.Drawing.Point(153, 207);
-            this.tbEditStreet.Name = "tbEditStreet";
-            this.tbEditStreet.Size = new System.Drawing.Size(116, 22);
-            this.tbEditStreet.TabIndex = 11;
+            this.dateTimePicker1.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.dateTimePicker1.Location = new System.Drawing.Point(287, 136);
+            this.dateTimePicker1.Name = "dateTimePicker1";
+            this.dateTimePicker1.Size = new System.Drawing.Size(236, 22);
+            this.dateTimePicker1.TabIndex = 9;
             // 
-            // tbEditLicenceNr
+            // bCreateExpense
             // 
-            this.tbEditLicenceNr.Location = new System.Drawing.Point(153, 109);
-            this.tbEditLicenceNr.Name = "tbEditLicenceNr";
-            this.tbEditLicenceNr.Size = new System.Drawing.Size(116, 22);
-            this.tbEditLicenceNr.TabIndex = 10;
+            this.bCreateExpense.Font = new System.Drawing.Font("Arial", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.bCreateExpense.Location = new System.Drawing.Point(327, 316);
+            this.bCreateExpense.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.bCreateExpense.Name = "bCreateExpense";
+            this.bCreateExpense.Size = new System.Drawing.Size(146, 44);
+            this.bCreateExpense.TabIndex = 14;
+            this.bCreateExpense.Text = "Create!";
+            this.bCreateExpense.UseVisualStyleBackColor = true;
+            this.bCreateExpense.Click += new System.EventHandler(this.bCreateExpense_Click);
             // 
-            // tbEditIdnumb
+            // label70
             // 
-            this.tbEditIdnumb.Location = new System.Drawing.Point(153, 81);
-            this.tbEditIdnumb.Name = "tbEditIdnumb";
-            this.tbEditIdnumb.Size = new System.Drawing.Size(116, 22);
-            this.tbEditIdnumb.TabIndex = 8;
+            this.label70.AutoSize = true;
+            this.label70.Location = new System.Drawing.Point(204, 27);
+            this.label70.Name = "label70";
+            this.label70.Size = new System.Drawing.Size(75, 17);
+            this.label70.TabIndex = 16;
+            this.label70.Text = "Select car:";
             // 
-            // tbEditName
+            // cbSelectCarsExpense
             // 
-            this.tbEditName.Location = new System.Drawing.Point(153, 27);
-            this.tbEditName.Name = "tbEditName";
-            this.tbEditName.Size = new System.Drawing.Size(116, 22);
-            this.tbEditName.TabIndex = 6;
-            // 
-            // label61
-            // 
-            this.label61.AutoSize = true;
-            this.label61.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.label61.Location = new System.Drawing.Point(118, 186);
-            this.label61.Name = "label61";
-            this.label61.Size = new System.Drawing.Size(151, 18);
-            this.label61.TabIndex = 5;
-            this.label61.Text = "Address of residence:";
-            // 
-            // label62
-            // 
-            this.label62.Location = new System.Drawing.Point(7, 137);
-            this.label62.Name = "label62";
-            this.label62.Size = new System.Drawing.Size(144, 22);
-            this.label62.TabIndex = 4;
-            this.label62.Text = "Licence release date:";
-            // 
-            // label63
-            // 
-            this.label63.AutoSize = true;
-            this.label63.Location = new System.Drawing.Point(38, 109);
-            this.label63.Name = "label63";
-            this.label63.Size = new System.Drawing.Size(113, 17);
-            this.label63.TabIndex = 3;
-            this.label63.Text = "Licence number:";
-            // 
-            // label64
-            // 
-            this.label64.AutoSize = true;
-            this.label64.Location = new System.Drawing.Point(68, 81);
-            this.label64.Name = "label64";
-            this.label64.Size = new System.Drawing.Size(79, 17);
-            this.label64.TabIndex = 2;
-            this.label64.Text = "ID Number:";
-            // 
-            // label65
-            // 
-            this.label65.AutoSize = true;
-            this.label65.Location = new System.Drawing.Point(74, 56);
-            this.label65.Name = "label65";
-            this.label65.Size = new System.Drawing.Size(73, 17);
-            this.label65.TabIndex = 1;
-            this.label65.Text = "Birth date:";
-            // 
-            // label66
-            // 
-            this.label66.AutoSize = true;
-            this.label66.Location = new System.Drawing.Point(98, 30);
-            this.label66.Name = "label66";
-            this.label66.Size = new System.Drawing.Size(49, 17);
-            this.label66.TabIndex = 0;
-            this.label66.Text = "Name:";
-            // 
-            // panelEditDriver
-            // 
-            this.panelEditDriver.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(75)))), ((int)(((byte)(75)))), ((int)(((byte)(75)))));
-            this.panelEditDriver.Controls.Add(this.bEditDriverBack);
-            this.panelEditDriver.Controls.Add(this.bEditDriverApply);
-            this.panelEditDriver.Controls.Add(this.panel2);
-            this.panelEditDriver.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panelEditDriver.Location = new System.Drawing.Point(200, 150);
-            this.panelEditDriver.Name = "panelEditDriver";
-            this.panelEditDriver.Size = new System.Drawing.Size(900, 451);
-            this.panelEditDriver.TabIndex = 2;
-            // 
-            // bEditDriverApply
-            // 
-            this.bEditDriverApply.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.bEditDriverApply.ForeColor = System.Drawing.Color.White;
-            this.bEditDriverApply.Location = new System.Drawing.Point(475, 375);
-            this.bEditDriverApply.Name = "bEditDriverApply";
-            this.bEditDriverApply.Size = new System.Drawing.Size(200, 50);
-            this.bEditDriverApply.TabIndex = 1;
-            this.bEditDriverApply.Text = "Apply Changes";
-            this.bEditDriverApply.UseVisualStyleBackColor = true;
-            this.bEditDriverApply.Click += new System.EventHandler(this.bEditDriverApply_Click);
-            // 
-            // bEditDriverBack
-            // 
-            this.bEditDriverBack.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.bEditDriverBack.ForeColor = System.Drawing.Color.White;
-            this.bEditDriverBack.Location = new System.Drawing.Point(225, 375);
-            this.bEditDriverBack.Name = "bEditDriverBack";
-            this.bEditDriverBack.Size = new System.Drawing.Size(200, 50);
-            this.bEditDriverBack.TabIndex = 2;
-            this.bEditDriverBack.Text = "Back";
-            this.bEditDriverBack.UseVisualStyleBackColor = true;
-            this.bEditDriverBack.Click += new System.EventHandler(this.bEditDriverBack_Click);
+            this.cbSelectCarsExpense.FormattingEnabled = true;
+            this.cbSelectCarsExpense.Location = new System.Drawing.Point(285, 24);
+            this.cbSelectCarsExpense.Name = "cbSelectCarsExpense";
+            this.cbSelectCarsExpense.Size = new System.Drawing.Size(239, 24);
+            this.cbSelectCarsExpense.TabIndex = 15;
             // 
             // Form1
             // 
@@ -2489,6 +2656,10 @@
             this.panelSaveLoad.ResumeLayout(false);
             this.panelSaveLoad.PerformLayout();
             this.panelCentral.ResumeLayout(false);
+            this.panelEditDriver.ResumeLayout(false);
+            this.panel2.ResumeLayout(false);
+            this.panel2.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pbEditUserImageLoad)).EndInit();
             this.panelStart.ResumeLayout(false);
             this.panelStart.PerformLayout();
             this.panelEditCar.ResumeLayout(false);
@@ -2500,10 +2671,8 @@
             this.panelCarDetails.ResumeLayout(false);
             this.panelCarDetails.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pBCar)).EndInit();
-            this.panel2.ResumeLayout(false);
-            this.panel2.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pbEditUserImageLoad)).EndInit();
-            this.panelEditDriver.ResumeLayout(false);
+            this.panelNewExpense.ResumeLayout(false);
+            this.panelNewExpense.PerformLayout();
             this.ResumeLayout(false);
 
 		}
@@ -2703,6 +2872,21 @@
         private System.Windows.Forms.Label label65;
         private System.Windows.Forms.Label label66;
         private System.Windows.Forms.Button bEditDriverBack;
+        private System.Windows.Forms.Button bAddExpense;
+        private System.Windows.Forms.Panel panelNewExpense;
+        private System.Windows.Forms.Label label44;
+        private System.Windows.Forms.ComboBox cbExpenseType;
+        private System.Windows.Forms.Button bCreateExpense;
+        private System.Windows.Forms.DateTimePicker dateTimePicker1;
+        private System.Windows.Forms.Label label69;
+        private System.Windows.Forms.Label label68;
+        private System.Windows.Forms.TextBox textBox3;
+        private System.Windows.Forms.Label label67;
+        private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.Label label45;
+        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.Label label70;
+        private System.Windows.Forms.ComboBox cbSelectCarsExpense;
     }
 }
 
