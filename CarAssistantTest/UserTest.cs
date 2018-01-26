@@ -5,6 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using CarAssistant;
+using CarAssistant.Classes.Expenses;
 
 namespace CarAssistantTest
 {
@@ -89,6 +90,13 @@ namespace CarAssistantTest
             Assert.AreEqual(user.UserCars[1], car3);
         }
 
+        [TestMethod]
+        public void AddExpenseTests()
+        {
+            ExpenseCreator creator = new ExpenseCreator();
+            creator.CreateExpense("test", "Exploitation", "1500", "test", "test2");
+            var temp = new Exploitation(1500, "uszczelka", new DateTime(2010, 1, 1), "Additional info");
+        }
 
         private Car CreateNewCarBrandModelYear(string brand, string model, DateTime productionYear)
         {
@@ -98,5 +106,9 @@ namespace CarAssistantTest
             car.ProductionDate = productionYear;
             return car;
         }
+
+
     }
+
+
 }

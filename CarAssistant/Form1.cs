@@ -749,7 +749,7 @@ namespace CarAssistant
             panelNewExpense.BringToFront();
             foreach (var car in Driver.UserCars)
             {
-                cbSelectCarsExpense.Items.Add(string.Format("{0} {1} {2}",car.Brand,car.Model,car.ProductionDate.Year));
+                cbSelectCarsExpense.Items.Add(string.Format("{0} {1} {2} {3}",car.Brand,car.Model,car.ProductionDate.Year, car.Vin));
             }
             foreach (var item in Enum.GetNames(typeof(ExpenseTypes)))
             {
@@ -759,7 +759,9 @@ namespace CarAssistant
 
         private void bCreateExpense_Click(object sender, EventArgs e)
         {
-
+            var expenseCreator = new ExpenseCreator(this);
+            expenseCreator.CreateExpense(cbSelectCarsExpense.Text, cbExpenseType.Text, tbExpenseCost.Text,
+                                        tbExpenseDescription.Text, tbAdditionalInfo.Text);
         }
     }
 }

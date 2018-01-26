@@ -16,12 +16,8 @@ namespace CarAssistant
     {
         //Fields
         public Engine Engine;
-        //public List<object> expenses { get; set; }
-        public List<Exploitation> Exploitation { get; set; }
-        public List<Insurance> Insurance { get; set; }
-        public List<LooksMaintenance> LooksMaintenance { get; set; }
-        public List<Repairs> Repairs { get; set; }
-        public List<Service> Services { get; set; }
+        public List<Expense> Expenses { get; set; }
+
         public string Model { get; set; }
         public string Brand { get; set; }
         public DateTime ProductionDate { get; set; }
@@ -54,6 +50,11 @@ namespace CarAssistant
         public Car()
 		{
 
+        }
+
+        public void AddExpense(Expense exp)
+        {
+            Expenses.Add(exp);
         }
 
         //Methods

@@ -226,14 +226,14 @@
             this.panelNewExpense = new System.Windows.Forms.Panel();
             this.cbExpenseType = new System.Windows.Forms.ComboBox();
             this.label44 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.tbExpenseCost = new System.Windows.Forms.TextBox();
             this.label45 = new System.Windows.Forms.Label();
             this.label67 = new System.Windows.Forms.Label();
-            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.tbAdditionalInfo = new System.Windows.Forms.TextBox();
             this.label68 = new System.Windows.Forms.Label();
-            this.textBox3 = new System.Windows.Forms.TextBox();
+            this.tbExpenseDescription = new System.Windows.Forms.TextBox();
             this.label69 = new System.Windows.Forms.Label();
-            this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
+            this.dateExpenseDate = new System.Windows.Forms.DateTimePicker();
             this.bCreateExpense = new System.Windows.Forms.Button();
             this.label70 = new System.Windows.Forms.Label();
             this.cbSelectCarsExpense = new System.Windows.Forms.ComboBox();
@@ -2486,14 +2486,14 @@
             this.panelNewExpense.Controls.Add(this.label70);
             this.panelNewExpense.Controls.Add(this.cbSelectCarsExpense);
             this.panelNewExpense.Controls.Add(this.bCreateExpense);
-            this.panelNewExpense.Controls.Add(this.dateTimePicker1);
+            this.panelNewExpense.Controls.Add(this.dateExpenseDate);
             this.panelNewExpense.Controls.Add(this.label69);
             this.panelNewExpense.Controls.Add(this.label68);
-            this.panelNewExpense.Controls.Add(this.textBox3);
+            this.panelNewExpense.Controls.Add(this.tbExpenseDescription);
             this.panelNewExpense.Controls.Add(this.label67);
-            this.panelNewExpense.Controls.Add(this.textBox2);
+            this.panelNewExpense.Controls.Add(this.tbAdditionalInfo);
             this.panelNewExpense.Controls.Add(this.label45);
-            this.panelNewExpense.Controls.Add(this.textBox1);
+            this.panelNewExpense.Controls.Add(this.tbExpenseCost);
             this.panelNewExpense.Controls.Add(this.label44);
             this.panelNewExpense.Controls.Add(this.cbExpenseType);
             this.panelNewExpense.Location = new System.Drawing.Point(51, 25);
@@ -2519,12 +2519,12 @@
             this.label44.TabIndex = 1;
             this.label44.Text = "Select type of expense:";
             // 
-            // textBox1
+            // tbExpenseCost
             // 
-            this.textBox1.Location = new System.Drawing.Point(286, 97);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(238, 22);
-            this.textBox1.TabIndex = 2;
+            this.tbExpenseCost.Location = new System.Drawing.Point(286, 97);
+            this.tbExpenseCost.Name = "tbExpenseCost";
+            this.tbExpenseCost.Size = new System.Drawing.Size(238, 22);
+            this.tbExpenseCost.TabIndex = 2;
             // 
             // label45
             // 
@@ -2544,14 +2544,14 @@
             this.label67.TabIndex = 5;
             this.label67.Text = "Description:";
             // 
-            // textBox2
+            // tbAdditionalInfo
             // 
-            this.textBox2.Location = new System.Drawing.Point(287, 247);
-            this.textBox2.Multiline = true;
-            this.textBox2.Name = "textBox2";
-            this.textBox2.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.textBox2.Size = new System.Drawing.Size(238, 54);
-            this.textBox2.TabIndex = 4;
+            this.tbAdditionalInfo.Location = new System.Drawing.Point(287, 247);
+            this.tbAdditionalInfo.Multiline = true;
+            this.tbAdditionalInfo.Name = "tbAdditionalInfo";
+            this.tbAdditionalInfo.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
+            this.tbAdditionalInfo.Size = new System.Drawing.Size(238, 54);
+            this.tbAdditionalInfo.TabIndex = 4;
             // 
             // label68
             // 
@@ -2562,14 +2562,14 @@
             this.label68.TabIndex = 7;
             this.label68.Text = "Additional info:";
             // 
-            // textBox3
+            // tbExpenseDescription
             // 
-            this.textBox3.Location = new System.Drawing.Point(286, 176);
-            this.textBox3.Multiline = true;
-            this.textBox3.Name = "textBox3";
-            this.textBox3.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.textBox3.Size = new System.Drawing.Size(237, 54);
-            this.textBox3.TabIndex = 6;
+            this.tbExpenseDescription.Location = new System.Drawing.Point(286, 176);
+            this.tbExpenseDescription.Multiline = true;
+            this.tbExpenseDescription.Name = "tbExpenseDescription";
+            this.tbExpenseDescription.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
+            this.tbExpenseDescription.Size = new System.Drawing.Size(237, 54);
+            this.tbExpenseDescription.TabIndex = 6;
             // 
             // label69
             // 
@@ -2580,13 +2580,13 @@
             this.label69.TabIndex = 8;
             this.label69.Text = "Date of expense:";
             // 
-            // dateTimePicker1
+            // dateExpenseDate
             // 
-            this.dateTimePicker1.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dateTimePicker1.Location = new System.Drawing.Point(287, 136);
-            this.dateTimePicker1.Name = "dateTimePicker1";
-            this.dateTimePicker1.Size = new System.Drawing.Size(236, 22);
-            this.dateTimePicker1.TabIndex = 9;
+            this.dateExpenseDate.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.dateExpenseDate.Location = new System.Drawing.Point(287, 136);
+            this.dateExpenseDate.Name = "dateExpenseDate";
+            this.dateExpenseDate.Size = new System.Drawing.Size(236, 22);
+            this.dateExpenseDate.TabIndex = 9;
             // 
             // bCreateExpense
             // 
@@ -2877,14 +2877,14 @@
         private System.Windows.Forms.Label label44;
         private System.Windows.Forms.ComboBox cbExpenseType;
         private System.Windows.Forms.Button bCreateExpense;
-        private System.Windows.Forms.DateTimePicker dateTimePicker1;
+        private System.Windows.Forms.DateTimePicker dateExpenseDate;
         private System.Windows.Forms.Label label69;
         private System.Windows.Forms.Label label68;
-        private System.Windows.Forms.TextBox textBox3;
+        private System.Windows.Forms.TextBox tbExpenseDescription;
         private System.Windows.Forms.Label label67;
-        private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.TextBox tbAdditionalInfo;
         private System.Windows.Forms.Label label45;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox tbExpenseCost;
         private System.Windows.Forms.Label label70;
         private System.Windows.Forms.ComboBox cbSelectCarsExpense;
     }

@@ -21,6 +21,7 @@
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+    <LangVersion>7.1</LangVersion>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -30,6 +31,7 @@
     <DefineConstants>TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+    <LangVersion>7.1</LangVersion>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="Microsoft.UnitTestFramework.Extensions, Version=4.0.0.0, Culture=neutral, PublicKeyToken=5bf63060baa03a11, processorArchitecture=MSIL">
@@ -56,6 +58,7 @@
     <Compile Include="Classes\Car\Engine.cs" />
     <Compile Include="Classes\Car\Engines\PetrolEngine.cs" />
     <Compile Include="Classes\Expenses\Expense.cs" />
+    <Compile Include="Classes\Expenses\ExpenseCreator.cs" />
     <Compile Include="Classes\Expenses\ExpenseTypes.cs" />
     <Compile Include="Classes\Expenses\Exploitation.cs" />
     <Compile Include="Classes\Expenses\Insurance.cs" />
