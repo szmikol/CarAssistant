@@ -259,6 +259,7 @@ namespace CarAssistant
             Driver.UserCars.Add(carFromPanel);
             ClearAddNewCarPanel();
             ShowCarsInGridBox();
+            SaveCarList();
             panelCars.BringToFront();
         }
 
@@ -514,8 +515,7 @@ namespace CarAssistant
 
         private void bSaveCars_Click(object sender, EventArgs e)
         {
-            _dataSaver.SaveCarsListToXml(Driver.UserCars, _directory + "\\carlist.xml");
-            MessageBox.Show("Cars have been saved", "Much Success", MessageBoxButtons.OK);
+            SaveCarList();
         }
 
         private void bBackFromEdit_Click(object sender, EventArgs e)
@@ -644,20 +644,22 @@ namespace CarAssistant
 
         private void bLoadCarPhoto_Click(object sender, EventArgs e)
         {
-            ChooseCarPhoto(_directory);
+            string fileName = tbVIN.Text;
+            ChooseCarPhoto(_directory, fileName);
         }
 
-        private void ChooseCarPhoto(string path)
+        private void ChooseCarPhoto(string path, string fileNam)
         {
             try
             {
+                string name = fileNam;
                 OpenFileDialog loadCarImage = new OpenFileDialog();
                 loadCarImage.Filter =
                     "Image Files(*.BMP;*.JPG;*.GIF;*.PNG)|*.BMP;*.JPG;*.GIF;*.PNG|All files (*.*)|*.*";
                 if (loadCarImage.ShowDialog() == DialogResult.OK)
                 {
                     string imageLocation = loadCarImage.FileName;
-                    File.Copy(imageLocation, path + "\\car.jpg", true);
+                    File.Copy(imageLocation, path + "\\"+ name + ".jpg", true);
                     pbCarPhoto.ImageLocation = imageLocation;
                 }
             }
@@ -708,7 +710,11 @@ namespace CarAssistant
             UpdateUserForms(Driver);
             panelStart.BringToFront();
         }
-
+        private void SaveCarList()
+        {
+            _dataSaver.SaveCarsListToXml(Driver.UserCars, _directory + "\\carlist.xml");
+            MessageBox.Show("Cars have been saved", "Much Success", MessageBoxButtons.OK);
+        }
         private void OpenFile(string path)
         {
             try
