@@ -237,6 +237,12 @@
             this.bCreateDriver = new System.Windows.Forms.Button();
             this.label17 = new System.Windows.Forms.Label();
             this.label13 = new System.Windows.Forms.Label();
+            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.Car = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Cost = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Date = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Description = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.AddInfo = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panelMenu.SuspendLayout();
             this.panelButtons.SuspendLayout();
             this.panelDriverInfo.SuspendLayout();
@@ -250,6 +256,7 @@
             this.panelExpenses.SuspendLayout();
             this.panelNewExpense.SuspendLayout();
             this.panelExpButtons.SuspendLayout();
+            this.panelExpService.SuspendLayout();
             this.panelReminders.SuspendLayout();
             this.panelSettings.SuspendLayout();
             this.panelSaveLoad.SuspendLayout();
@@ -264,6 +271,7 @@
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbEditUserImageLoad)).BeginInit();
             this.panelStart.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
             // panelMenu
@@ -990,11 +998,11 @@
             // panelExpenses
             // 
             this.panelExpenses.BackColor = System.Drawing.Color.Gray;
+            this.panelExpenses.Controls.Add(this.panelExpService);
+            this.panelExpenses.Controls.Add(this.panelExpButtons);
             this.panelExpenses.Controls.Add(this.panelNewExpense);
             this.panelExpenses.Controls.Add(this.bAddExpense);
             this.panelExpenses.Controls.Add(this.bExpBack);
-            this.panelExpenses.Controls.Add(this.panelExpButtons);
-            this.panelExpenses.Controls.Add(this.panelExpService);
             this.panelExpenses.Controls.Add(this.panelExpRepairs);
             this.panelExpenses.Controls.Add(this.panelExpMainten);
             this.panelExpenses.Controls.Add(this.panelExpInsurance);
@@ -1261,6 +1269,7 @@
             // panelExpService
             // 
             this.panelExpService.BackColor = System.Drawing.Color.DarkGray;
+            this.panelExpService.Controls.Add(this.dataGridView1);
             this.panelExpService.Location = new System.Drawing.Point(51, 25);
             this.panelExpService.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.panelExpService.Name = "panelExpService";
@@ -1406,8 +1415,8 @@
             // panelCentral
             // 
             this.panelCentral.Controls.Add(this.panelExpenses);
-            this.panelCentral.Controls.Add(this.panelAddNewCar);
             this.panelCentral.Controls.Add(this.panelCarDetails);
+            this.panelCentral.Controls.Add(this.panelAddNewCar);
             this.panelCentral.Controls.Add(this.panelEditCar);
             this.panelCentral.Controls.Add(this.panelEditDriver);
             this.panelCentral.Controls.Add(this.panelStart);
@@ -2638,6 +2647,51 @@
             this.label13.TabIndex = 0;
             this.label13.Text = "startPanel";
             // 
+            // dataGridView1
+            // 
+            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.Car,
+            this.Cost,
+            this.Date,
+            this.Description,
+            this.AddInfo});
+            this.dataGridView1.Location = new System.Drawing.Point(50, 50);
+            this.dataGridView1.Name = "dataGridView1";
+            this.dataGridView1.RowTemplate.Height = 24;
+            this.dataGridView1.Size = new System.Drawing.Size(700, 275);
+            this.dataGridView1.TabIndex = 0;
+            // 
+            // Car
+            // 
+            this.Car.HeaderText = "Car";
+            this.Car.Name = "Car";
+            this.Car.ReadOnly = true;
+            // 
+            // Cost
+            // 
+            this.Cost.HeaderText = "Cost";
+            this.Cost.Name = "Cost";
+            this.Cost.ReadOnly = true;
+            // 
+            // Date
+            // 
+            this.Date.HeaderText = "Date";
+            this.Date.Name = "Date";
+            this.Date.ReadOnly = true;
+            // 
+            // Description
+            // 
+            this.Description.HeaderText = "Description";
+            this.Description.Name = "Description";
+            this.Description.ReadOnly = true;
+            // 
+            // AddInfo
+            // 
+            this.AddInfo.HeaderText = "Additional info";
+            this.AddInfo.Name = "AddInfo";
+            this.AddInfo.ReadOnly = true;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -2672,6 +2726,7 @@
             this.panelNewExpense.ResumeLayout(false);
             this.panelNewExpense.PerformLayout();
             this.panelExpButtons.ResumeLayout(false);
+            this.panelExpService.ResumeLayout(false);
             this.panelReminders.ResumeLayout(false);
             this.panelReminders.PerformLayout();
             this.panelSettings.ResumeLayout(false);
@@ -2694,6 +2749,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.pbEditUserImageLoad)).EndInit();
             this.panelStart.ResumeLayout(false);
             this.panelStart.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.ResumeLayout(false);
 
 		}
@@ -2908,6 +2964,12 @@
         private System.Windows.Forms.TextBox tbExpenseCost;
         private System.Windows.Forms.Label label70;
         private System.Windows.Forms.ComboBox cbSelectCarsExpense;
+        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Car;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Cost;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Date;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Description;
+        private System.Windows.Forms.DataGridViewTextBoxColumn AddInfo;
     }
 }
 
