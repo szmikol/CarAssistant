@@ -755,7 +755,7 @@ namespace CarAssistant
             panelNewExpense.BringToFront();
             foreach (var car in Driver.UserCars)
             {
-                cbSelectCarsExpense.Items.Add(string.Format("{0} {1} {2} {3}",car.Brand,car.Model,car.ProductionDate.Year, car.Vin));
+                cbSelectCarsExpense.Items.Add(string.Format("{0}, {1}, {2},{3}",car.Brand,car.Model,car.ProductionDate.Year, car.Vin));
             }
             foreach (var item in Enum.GetNames(typeof(ExpenseTypes)))
             {

@@ -3,11 +3,17 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Xml.Serialization;
 using CarAssistant.Interfaces;
 
 namespace CarAssistant.Classes.Expenses
 {
     [Serializable]
+    [XmlInclude(typeof(Exploitation))]
+    [XmlInclude(typeof(Insurance))]
+    [XmlInclude(typeof(LooksMaintenance))]
+    [XmlInclude(typeof(Repairs))]
+    [XmlInclude(typeof(Service))]
     public class Expense : IExpense
     {
         public string TypeOfExpense { get; set; }

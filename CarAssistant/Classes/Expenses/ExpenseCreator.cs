@@ -13,8 +13,7 @@ namespace CarAssistant.Classes.Expenses
 {
     public class ExpenseCreator
     {
-        private Form1 _form;
-        private Expense _expense;
+        private readonly Form1 _form;
         public ExpenseCreator(Form1 form)
         {
             _form = form;
@@ -28,13 +27,13 @@ namespace CarAssistant.Classes.Expenses
         {
             var costInt = ParsePrice(cost);
             var tempExpense = CreateTypeOfExpense(typeOfExpense, costInt, description, addInfo);
-            string dupa = tempExpense.AdditionalInfo;
-            _form.Driver.UserCars.First(c => c.Vin == dupa).AddExpense(tempExpense);
+            var vin = GetVin(car);
+            _form.Driver.UserCars.First(c => c.Vin == vin).AddExpense(tempExpense);
         }
 
-        private string AddExpenseToCar(string car)
+        private string GetVin(string car)
         {
-            var splitTable = car.Split(' ');
+            var splitTable = car.Split(',');
             return splitTable[3];
         }
 

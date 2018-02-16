@@ -93,6 +93,8 @@ namespace CarAssistantTest
         [TestMethod]
         public void AddExpenseTests()
         {
+            Form1 form = new Form1();
+            var driver = new User();
             ExpenseCreator creator = new ExpenseCreator();
             creator.CreateExpense("test", "Exploitation", "1500", "test", "test2");
             var temp = new Exploitation(1500, "uszczelka", new DateTime(2010, 1, 1), "Additional info");

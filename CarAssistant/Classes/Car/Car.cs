@@ -8,6 +8,7 @@ using CarAssistant.Classes;
 using System.Windows.Forms;
 using CarAssistant.Classes.Car;
 using System.Globalization;
+using System.Xml.Serialization;
 using CarAssistant.Classes.Expenses;
 
 namespace CarAssistant
